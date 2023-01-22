@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-patrimoniaamp-dev-175328-authRole",
+      "UnauthRoleArn": "arn:aws:iam::327897078391:role/amplify-patrimoniaamp-dev-175328-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::327897078391:role/amplify-patrimoniaamp-dev-175328-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+      "UnauthRoleName": "amplify-patrimoniaamp-dev-175328-unauthRole",
+      "StackName": "amplify-patrimoniaamp-dev-175328",
+      "StackId": "arn:aws:cloudformation:eu-west-1:327897078391:stack/amplify-patrimoniaamp-dev-175328/f79bff20-98e2-11ed-aa54-0aaac1284a3b",
+      "AmplifyAppId": "d3cv0upfpre9vk"
+    },
+    "categories": {
+      "auth": {
+        "patrimoniaamp2235eb99": {}
+      },
+      "api": {
+        "patrimoniaamp": {}
+      }
+    }
+  }
+}
