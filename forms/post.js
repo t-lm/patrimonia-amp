@@ -1,11 +1,12 @@
 // pages/admin/post.js
 
+import Head from 'next/head';
+
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify, API, Auth } from 'aws-amplify';
-import Head from 'next/head';
+
 import awsExports from '../../src/aws-exports';
 import { createPost } from '../../src/graphql/mutations';
-import styles from '../../styles/Home.module.css';
 
 Amplify.configure({ ...awsExports, ssr: true });
 
@@ -36,18 +37,18 @@ async function handleCreatePost(event) {
 
 export default function Post() {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>Create post</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Create post</h1>
+      <main>
+        <h1>Create post</h1>
 
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            <h3 className={styles.title}>New post</h3>
+        <div>
+          <div>
+            <h3>New post</h3>
 
             <Authenticator>
               <form onSubmit={handleCreatePost}>
@@ -76,6 +77,6 @@ export default function Post() {
           </div>
         </div>
       </main>
-    </div>
+    </Layout>
   );
 }

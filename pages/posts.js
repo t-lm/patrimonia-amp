@@ -1,9 +1,11 @@
 // pages/posts.js
 
-import { Amplify, withSSRContext } from 'aws-amplify';
 import Head from 'next/head';
+
+import { Amplify, withSSRContext } from 'aws-amplify';
 import awsExports from '../src/aws-exports';
 import { listPosts } from '../src/graphql/queries';
+
 import styles from '../styles/Home.module.css';
 
 Amplify.configure({ ...awsExports, ssr: true });

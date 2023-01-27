@@ -1,12 +1,15 @@
 // pages/sites.js
 
 import { Amplify, withSSRContext } from 'aws-amplify';
+
 import Head from 'next/head';
 import awsExports from '../src/aws-exports';
 import { listSites } from '../src/graphql/queries';
-import styles from '../styles/Home.module.css';
 
 Amplify.configure({ ...awsExports, ssr: true });
+
+import Layout from "../comps/layout";
+
 
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
@@ -26,32 +29,24 @@ export async function getServerSideProps({ req }) {
 }
 
 
-export default function Home({ Sites = [] }) {
+export default function Sites({ Sites = [] }) {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Sites</h1>
-
-        <p className={styles.description}>
-          <code className={styles.code}>{Sites.length}</code>
-          sites
-        </p>
 
         <div>
           {Sites.map((Site) => (
-            <a href={`/Sites/${Site.id}`} key={Site.id}>
+            <a href={`/sites/${Site.id}`} key={Site.id}  style={{textDecoration: "none", color: "black"}}>
               <h3>{Site.name}</h3>
-              <p>{Site.headline}</p>
+              <p style={{color: "grey"}}>{Site.headline}</p>
             </a>
           ))}
 
         </div>
-      </main>
-    </div>
+    </Layout>
   );
 }

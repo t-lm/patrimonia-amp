@@ -5,9 +5,7 @@ import styles from './layout.module.css';
 import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav';
 
-import {
-  Keys
-} from "../utils/dictionary";
+import { Keys } from "../utils/dictionary";
 
 const LANG = "fr";
 export const siteTitle = 'Patrimonia';
@@ -40,7 +38,7 @@ export default function Layout({ children }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/">Posts</Nav.Link>
+            {/*<Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/">Posts</Nav.Link>*/}
             <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/sites">{Keys[LANG]["sites"]}</Nav.Link>
             {/*<Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/guides">{Keys[LANG]["guides"]}</Nav.Link>*/}
           </Nav>
@@ -52,7 +50,7 @@ export default function Layout({ children }) {
 
       <footer>
         <div style={{fontSize: "0.8rem", color: "grey", borderTop: "1px solid #eee", paddingTop: 10, marginTop: 50, textAlign: "center"}}>
-          © Patrimonia 2023 - <a href="mailto:hi@patrimonia.app">{Keys[LANG]['getInTouch']}</a>
+          © Patrimonia 2023 - <a style={{color: "grey"}} href="mailto:hi@patrimonia.app">{Keys[LANG]['getInTouch']}</a>
         </div>
       </footer>
 
