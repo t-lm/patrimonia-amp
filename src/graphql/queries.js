@@ -32,3 +32,36 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
+export const getSite = /* GraphQL */ `
+  query GetSite($id: ID!) {
+    getSite(id: $id) {
+      id
+      name
+      headline
+      types
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listSites = /* GraphQL */ `
+  query ListSites(
+    $filter: ModelSiteFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listSites(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        headline
+        types
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

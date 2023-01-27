@@ -9,3 +9,26 @@ type Post
   title: String!
   content: String!
 }
+
+
+type Site
+  @model
+  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+  id: ID!
+  name: String!
+  headline: String!
+  types: [SiteTypes]
+}
+
+enum SiteTypes {
+    antiquity
+    civil
+    garden
+    industrial
+    military
+    museum
+    public
+    religious
+    theater
+    urban
+}

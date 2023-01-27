@@ -1,12 +1,10 @@
-// pages/index.js
+// pages/posts.js
 
-import { Amplify, API, withSSRContext } from 'aws-amplify';
+import { Amplify, withSSRContext } from 'aws-amplify';
 import Head from 'next/head';
 import awsExports from '../src/aws-exports';
 import { listPosts } from '../src/graphql/queries';
 import styles from '../styles/Home.module.css';
-
-import Link from 'next/link'
 
 Amplify.configure({ ...awsExports, ssr: true });
 
@@ -28,19 +26,31 @@ export async function getServerSideProps({ req }) {
 }
 
 
-export default function Indexw({ posts = [] }) {
+export default function Home({ posts = [] }) {
   return (
     <div>
       <Head>
-        <title>Patrimonia Amplify</title>
+        <title>Post</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <h1 style={{marginTop: 100, textAlign: "center"}}>Patrimonia Amplify</h1>
 
-      <main style={{marginTop: 50, textAlign: "center"}}>
-        <p><Link href="/posts">List Posts</Link>{" - "}<Link href="/admin/post">Create post</Link></p>
-        <p><Link href="/sites">Sites</Link>{" - "}<Link href="/admin/site">Create site</Link></p>
+      <main className={styles.main}>
+        <h1 className={styles.title}>Posts</h1>
+
+        <p className={styles.description}>
+          <code className={styles.code}>{posts.length}</code>
+          posts
+        </p>
+
+        <div>
+          {posts.map((post) => (
+            <a href={`/posts/${post.id}`} key={post.id}>
+              <h3>{post.title}</h3>
+              <p>{post.content}</p>
+            </a>
+          ))}
+
+        </div>
       </main>
     </div>
   );

@@ -46,3 +46,51 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateSite = /* GraphQL */ `
+  subscription OnCreateSite(
+    $filter: ModelSubscriptionSiteFilterInput
+    $owner: String
+  ) {
+    onCreateSite(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      types
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateSite = /* GraphQL */ `
+  subscription OnUpdateSite(
+    $filter: ModelSubscriptionSiteFilterInput
+    $owner: String
+  ) {
+    onUpdateSite(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      types
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteSite = /* GraphQL */ `
+  subscription OnDeleteSite(
+    $filter: ModelSubscriptionSiteFilterInput
+    $owner: String
+  ) {
+    onDeleteSite(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      types
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
