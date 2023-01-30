@@ -29,7 +29,7 @@ export async function getServerSideProps({ req }) {
   }
 }
 
-export default function Media({ Media = [] }) {
+const Media = ({ Media = [] }) => {
   const router = useRouter();
   return (
     <Layout>
@@ -41,7 +41,6 @@ export default function Media({ Media = [] }) {
       <ul>
         {Media.map((medium) => (
           <li key={medium.id}>
-            {medium.id}
             <a
               href={`/media/${medium.id}`}
               style={{ textDecoration: "none", color: "black" }}
@@ -61,3 +60,5 @@ export default function Media({ Media = [] }) {
     </Layout>
   );
 }
+
+export default Media

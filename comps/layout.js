@@ -6,11 +6,15 @@ import Navbar from "react-bootstrap/Navbar"
 import Nav from 'react-bootstrap/Nav';
 
 import { Keys } from "../utils/dictionary";
+import { getCurrentUser, logout } from "../utils/auth"
 
 const LANG = "fr";
 export const siteTitle = 'Patrimonia';
 
 export default function Layout({ children }) {
+
+  const userslug = getCurrentUser().userslug
+  console.log(userslug)
 
   return (
 
@@ -37,11 +41,14 @@ export default function Layout({ children }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav>
             {/*<Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/">Posts</Nav.Link>*/}
             <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/sites">{Keys[LANG]["sites"]}</Nav.Link>
             <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/media">Media</Nav.Link>
             <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/admin">Admin</Nav.Link>
+            
+            <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} to={{pathname: "/sign"}}>Se connecter</Nav.Link>
+            <Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} onClick={() => logout()}>Se deconnecter</Nav.Link>
             {/*<Nav.Link style={{margin: "0px 20px", color: 'black', fontWeight: 'bold'}} href="/guides">{Keys[LANG]["guides"]}</Nav.Link>*/}
           </Nav>
         </Navbar.Collapse>

@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 
 import { Authenticator } from "@aws-amplify/ui-react";
-import { Amplify, API } from "aws-amplify";
-import Storage from "@aws-amplify/storage";
+import { Amplify, API, Storage } from "aws-amplify";
 
 import awsExports from "../src/aws-exports";
 import { createMedia, updateMedia } from "../src/graphql/mutations";
@@ -26,7 +25,7 @@ const FormMedia = (props) => {
 
   const handleCreateMedia = async (event) => {
     event.preventDefault();
-
+    if (newImage) await handleNewImage()
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
@@ -50,7 +49,8 @@ const FormMedia = (props) => {
 
   const handleUpdateMedia = async (event) => {
     event.preventDefault();
-
+    if (newImage) await handleNewImage()
+    /*
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
@@ -62,23 +62,26 @@ const FormMedia = (props) => {
     } catch ({ errors }) {
       console.error(...errors);
       setError("There is an error with this form");
-    }
+    } */
   };
 
-  const handleNewImage = () => {
+  const handleNewImage = async () => {
     setError(false);
 
     // validation
     if (!newImage) return setError("Il n'y a pas d'image");
     if (!["image/png", "image/jpeg"].includes(newImage.type))
       return setError("Le format de l'image n'est pas accepté");
-    if (newImage.size > 300000)
-      return setError("La taille de l'image doit être inférieure à 300KB");
+    if (newImage.size > 1000000)
+      return setError("La taille de l'image doit être inférieure à 1MB");
+
+    console.log("sauve le ce fils de puteeeeeee")
 
     // save
-    Storage.put(`${media.id}`, newImage, { contentType: "image/png" })
-      .then((res) => (window.location.href = `/media`))
-      .catch((e) => setError("Il y a eu un problème avec la base de données"));
+    //Storage.put(`${media.id}`, newImage, { contentType: "image/png" })
+    Storage.put(`${media.id}`, newImage)
+      .then(() => console.log("L'image a été sauvée"))
+      .catch((e) => console.log("L'image n'a pas pu être sauvée", e))
   };
 
   return (
@@ -98,6 +101,7 @@ const FormMedia = (props) => {
               required
               name="file"
               onChange={(e) => setNewImage(e.target.files[0])}
+              size="sm"
             />
             {newImage ? (
               <img
@@ -111,7 +115,7 @@ const FormMedia = (props) => {
               />
             ) : (
               <img
-                src={`https://patrimonia-amp175328-dev.s3.eu-west-1.amazonaws.com/${media.id}`}
+                src={`https://patrimonia-amp175328-dev.s3.eu-west-1.amazonaws.com/public/${media.id}`}
                 style={{
                   height: 64,
                   float: "right",
@@ -120,6 +124,22 @@ const FormMedia = (props) => {
                 }}
               />
               )}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 50 }}>
+          <Col>
+            <Form.Label>Description </Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              onChange={(e) =>
+                setMedia({ ...media, description_fr: e.target.value })
+              }
+              value={media.description_fr}
+              size="sm"
+              required
+            />
           </Col>
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 50 }}>
@@ -135,22 +155,6 @@ const FormMedia = (props) => {
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} style={{ marginTop: 50 }}>
-          <Col>
-            <Form.Label>Description </Form.Label>
-          </Col>
-          <Col sm="9">
-            <Form.Control
-              type="text"
-              onChange={(e) =>
-                setMedia({ ...media, description_fr: e.target.value })
-              }
-              value={media.description_fr}
-              size="sm"
-            />
-          </Col>
-        </Form.Group>
-
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
         <Form.Group as={Row} style={{ marginTop: 5 }}>
           <Col>

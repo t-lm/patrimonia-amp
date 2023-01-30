@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import { Amplify, withSSRContext } from "aws-amplify";
 import awsExports from "../../src/aws-exports";
-import { getMedia } from "../../src/graphql/queries";
+import { getMedia, getSite } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
 import FormSite from "../../comps/formsite";
