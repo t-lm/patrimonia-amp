@@ -1,0 +1,12 @@
+{
+  "free": { "fr": "Gratuite", "en": "Free" },
+  "freeDonation": {
+    "fr": "Gratuite - tout don est apprécié",
+    "en": "Free - donation are appreciated"
+  },
+  "freeTip": {
+    "fr": "Gratuite - tout pourboire est apprécié",
+    "en": "Free - tips are appreciated"
+  },
+  "paying": { "fr": "Payant", "en": "Paying" }
+}

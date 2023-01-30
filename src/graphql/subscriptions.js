@@ -1,51 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost(
-    $filter: ModelSubscriptionPostFilterInput
-    $owner: String
-  ) {
-    onCreatePost(filter: $filter, owner: $owner) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost(
-    $filter: ModelSubscriptionPostFilterInput
-    $owner: String
-  ) {
-    onUpdatePost(filter: $filter, owner: $owner) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost(
-    $filter: ModelSubscriptionPostFilterInput
-    $owner: String
-  ) {
-    onDeletePost(filter: $filter, owner: $owner) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const onCreateSite = /* GraphQL */ `
   subscription OnCreateSite(
     $filter: ModelSubscriptionSiteFilterInput
@@ -56,6 +11,12 @@ export const onCreateSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
       createdAt
       updatedAt
       owner
@@ -72,6 +33,12 @@ export const onUpdateSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
       createdAt
       updatedAt
       owner
@@ -88,6 +55,66 @@ export const onDeleteSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateMedia = /* GraphQL */ `
+  subscription OnCreateMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onCreateMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateMedia = /* GraphQL */ `
+  subscription OnUpdateMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onUpdateMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteMedia = /* GraphQL */ `
+  subscription OnDeleteMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onDeleteMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
       createdAt
       updatedAt
       owner

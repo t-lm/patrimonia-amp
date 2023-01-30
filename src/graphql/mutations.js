@@ -1,51 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    updatePost(input: $input, condition: $condition) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    deletePost(input: $input, condition: $condition) {
-      id
-      title
-      content
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const createSite = /* GraphQL */ `
   mutation CreateSite(
     $input: CreateSiteInput!
@@ -56,6 +11,12 @@ export const createSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
       createdAt
       updatedAt
       owner
@@ -72,6 +33,12 @@ export const updateSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
       createdAt
       updatedAt
       owner
@@ -88,6 +55,66 @@ export const deleteSite = /* GraphQL */ `
       name
       headline
       types
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createMedia = /* GraphQL */ `
+  mutation CreateMedia(
+    $input: CreateMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    createMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateMedia = /* GraphQL */ `
+  mutation UpdateMedia(
+    $input: UpdateMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    updateMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteMedia = /* GraphQL */ `
+  mutation DeleteMedia(
+    $input: DeleteMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    deleteMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
       createdAt
       updatedAt
       owner

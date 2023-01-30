@@ -1,15 +1,3 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-# input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type Post
-  @model
-  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
-  id: ID!
-  title: String!
-  content: String!
-}
-
 
 type Site
   @model
@@ -18,6 +6,18 @@ type Site
   name: String!
   headline: String!
   types: [SiteTypes]
+  address: Address
+}
+
+type Media
+  @model
+  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+  id: ID!
+  siteID: ID
+  description_fr: String
+  description_en: String
+  source: String
+  copyright: String
 }
 
 enum SiteTypes {
@@ -31,4 +31,15 @@ enum SiteTypes {
     religious
     theater
     urban
+}
+
+enum Countries {
+    fr
+}
+
+type Address {
+  name: String
+  street: String!
+  postalCode: String!
+  city: String!
 }

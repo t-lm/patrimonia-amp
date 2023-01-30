@@ -57,7 +57,7 @@ export default function Site({ site }) {
     } catch ({ errors }) {
       console.error(...errors);
       throw new Error(errors[0].message);
-    }x
+    }
   }
 
   return (
@@ -68,14 +68,16 @@ export default function Site({ site }) {
       </Head>
 
       <main>
-        <SiteBasics site={site} />
+        <h1>{site.name}</h1>
+
+        <p>{site.headline}</p>
       </main>
 
       <p>
         <Button
           variant="link"
           style={{ color: "black", margin: 0, padding: 0 }}
-          onClick={() => router.push({pathname: "/update", query: {model: "site", id: site.id }})}
+          onClick={() => router.push({pathname: "/admin/update", query: {model: "site", id: site.id }})}
         >
           Update site
         </Button>

@@ -1,0 +1,8 @@
+{
+      "association": {"fr": "Association","en": "Association"},
+      "associationCultural": {"fr":"Association culturelle","en": "Cultural association"},
+      "associationReligious": {"fr":"Association religieuse","en": "Religious association"},
+      "associationScientific": {"fr": "Association scientifique","en": "Scientific association"},
+      "governmentLocal": {"fr": "Collectivité","en": "Local government"},
+      "governmentNational": {"fr": "Gouvernement","en": "State government"}
+    }

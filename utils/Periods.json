@@ -1,0 +1,28 @@
+{
+    "antiquity": { "fr": "Antiquité","en": "Antiquity"},
+    "I": { "fr":"Ier siècle","en": "1st century"},
+    "II": { "fr":"IIe siècle","en": "2nd century"},
+    "III": { "fr":"IIIe siècle","en": "3rd century"},
+    "IV": { "fr":"IVe siècle","en": "4th century"},
+    "V": { "fr":"Ve siècle","en": "5th century"},
+    "VI": { "fr":"VIe siècle","en": "6th century"},
+    "VII": { "fr":"VIIe siècle","en": "7th century"},
+    "VIII": { "fr":"VIIIe siècle","en": "8th century"},
+    "IX": { "fr":"IXe siècle","en": "9th century"},
+    "X": { "fr":"Xe siècle","en": "10th century"},
+    "XI":{ "fr": "XIe siècle","en": "11th century"},
+    "XII": { "fr":"XIIe siècle","en": "12th century"},
+    "XIII": { "fr":"XIIIe siècle","en": "13th century"},
+    "XIV": { "fr":"XIVe siècle","en": "14th century"},
+    "XV": { "fr":"XVe siècle","en":"15th century"},
+    "XVI": { "fr":"XVIe siècle","en": "16th century"},
+    "XVII": { "fr":"XVIIe siècle","en": "17th century"},
+    "XVIII": { "fr":"XVIIIe siècle","en": "18th century"},
+    "XIX": { "fr":"XIXe siècle","en": "19th century"},
+    "XX": { "fr":"XXe siècle","en": "20th century"},
+    "XXI": { "fr":"XXIe siècle","en": "21st century"},
+    "carolingian": { "fr":"Carolingian","en": "Carolingian"},
+    "middleAge": { "fr":"Moyen-Age","en": "Middle-Age"},
+    "renaissance": { "fr": "Renaissance","en": "Renaissance"}
+  }
+

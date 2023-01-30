@@ -1,0 +1,7 @@
+{
+    "concert": {"fr": "Concert","en": "Concert"},
+    "conference": {"fr": "Conférence","en": "Conférence"},
+    "mediated": {"fr": "Visite avec médiateur","en": "Visit with mediator"},
+    "museum": {"fr": "Musée","en": "Museum"},
+    "tour": {"fr": "Visite","en": "Tour"}
+  }

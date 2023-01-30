@@ -1,0 +1,14 @@
+{
+    "art": {"fr": "Art","en": "Art", "color":"#f985a4"},
+    "architecture": {"fr":"Architecture","en": "Architecture","color":"#149E71"},
+    "culture": {"fr":"Culture","en": "Culture","color":"#b3be91"},
+    "economics": {"fr": "Economie","en": "Economics","color":"#fb4333"},
+    "history": {"fr": "Histoire","en": "History","color":"#b08260"},
+    "litterature": {"fr": "Littérature","en": "Litterature","color":"#fcc933"},
+    "military": {"fr": "Militaire","en": "Military","color":"#fcc933"},
+    "music": {"fr": "Musique","en": "Music","color":"#266dff"},
+    "philosophy": {"fr": "Philosophie","en": "Philosophy","color": "red"},
+    "politics": {"fr": "Politique","en": "Politics","color":"purple"},
+    "religion": {"fr": "Religion","en": "Religion","color":"#fb4333"},
+    "sciences": {"fr": "Sciences","en": "Sciences", "color":"#e13028"}
+  }
