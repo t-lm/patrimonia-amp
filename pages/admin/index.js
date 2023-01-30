@@ -15,8 +15,8 @@ export default function Index() {
       
       <p>Manage</p>
       <ul style={{marginTop: 30}}>
-        <li><Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/new", query:{model: "site"}}}>Create site</Link></li>
-        <li><Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/new", query:{model: "media"}}}>Create media</Link></li>
+        <li><Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/admin/new", query:{model: "site"}}}>Create site</Link></li>
+        <li><Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/admin/new", query:{model: "media"}}}>Create media</Link></li>
       </ul>
     </Layout>
   );

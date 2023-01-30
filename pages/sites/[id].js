@@ -71,16 +71,14 @@ export default function Site({ site }) {
         <SiteBasics site={site} />
       </main>
 
-      <p>
         <Button
           variant="link"
           style={{ color: "black", margin: 0, padding: 0 }}
-          onClick={() => router.push({pathname: "/update", query: {model: "site", id: site.id }})}
+          onClick={() => router.push({pathname: "/admin/update", query: {model: "site", id: site.id }})}
         >
           Update site
         </Button>
-      </p>
-      <p>
+      
         <Button
           variant="link"
           style={{ color: "black", margin: 0, padding: 0 }}
@@ -88,7 +86,6 @@ export default function Site({ site }) {
         >
           Delete site
         </Button>
-      </p>
     </Layout>
   );
 }

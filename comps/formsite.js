@@ -30,11 +30,11 @@ const FormSite = (props) => {
   const handleUpdateSiteType = (key) => {
     let index = site.types.indexOf(key)
     let types = site.types
-    console.log(index)
     // remove from list
     if (index > -1) { types.splice(index, 1); setSite({...site, types }) }
-    // add to list
+    // add to existing list
     else if (site.types.length > 0 ) { types.push(key); setSite({...site, types }) }
+    // add to empty list
     else setSite({...site, types: [key]})
 }
 
@@ -78,8 +78,6 @@ const FormSite = (props) => {
       setError("There is an error with this form")
     }
   };
-
-  console.log(site)
 
   return (
     <Authenticator>
