@@ -178,6 +178,17 @@ const FormMedia = (props) => {
             </Form.Control>
           </Col>
         </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 5 }}>
+          <Col>
+            <Form.Label>Leading picture</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Check 
+              onChange={()=> setMedia({...media, leading: !media.leading })}
+              checked={media.leading}
+            />
+          </Col>
+        </Form.Group>
 
         <Button
           onClick={action === "add" ? handleCreateMedia : handleUpdateMedia}

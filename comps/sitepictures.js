@@ -38,7 +38,7 @@ export const SitePictures = (props) => {
           }}
         >
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${site.picture}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${media.find(x => x.leading).id}`}
             className="shadow-1-strong rounded"
             alt={
               media.find((x) => x.id === site.picture) &&
@@ -60,7 +60,7 @@ export const SitePictures = (props) => {
     {/* supporting pics */}
     <Row style={{ marginTop: 10 }}>
       <Col>
-        {media.filter((x) => x.id !== site.picture).slice(0, 4).map((p, i) => (
+        {media.filter((x) => !x.leading).slice(0, 4).map((p, i) => (
           <div
             key={i}
             style={{

@@ -111,3 +111,34 @@ export const listMedia = /* GraphQL */ `
     }
   }
 `;
+export const mediaBySiteID = /* GraphQL */ `
+  query MediaBySiteID(
+    $siteID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelMediaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    mediaBySiteID(
+      siteID: $siteID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        siteID
+        description_fr
+        description_en
+        source
+        copyright
+        leading
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

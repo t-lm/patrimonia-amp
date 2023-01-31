@@ -11,15 +11,15 @@ export const PictureCarousel = ({media}) => {
       { media && media.map((p, i) => 
         <Carousel.Item key={i}>
           <Image
-            src={`/sites/${p.id}`}
-            alt={p.description.fr}
-            title={p.description.fr}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${p.id}`}
+            alt={p.description_fr}
+            title={p.description_fr}
             width={800}
             height={450}
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
           <Carousel.Caption>
-            <p style={{backgroundColor: "pink", color:"black", borderRadius: 5}}>{p.description.fr}</p>
+            <p style={{backgroundColor: "pink", color:"black", borderRadius: 5}}>{p.description_fr}</p>
           </Carousel.Caption>
         </Carousel.Item>
       )}

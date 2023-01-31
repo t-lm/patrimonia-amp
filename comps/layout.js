@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <Row className="justify-content-md-center">
-        <Col lg={9}>
+        <Col lg={8}>
           <Navbar
             expand="md"
             style={{

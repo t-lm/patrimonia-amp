@@ -6,6 +6,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { API, withSSRContext } from "aws-amplify";
 import { deleteSite } from "../../src/graphql/mutations";
 import { getSite, listMedia } from "../../src/graphql/queries";
@@ -14,10 +17,14 @@ import Button from "react-bootstrap/Button";
 
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
+import { SiteDescription } from "../../comps/sitedescription";
+import { SiteFacts } from "../../comps/sitefacts";
+import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { getCurrentUser } from "../../utils/auth";
 
-export async function getServerSideProps({ req, params }) {
+//export async function getServerSideProps({ req, params }) {
+export const getServerSideProps = async ({ req, params }) => {
   
   const SSR = withSSRContext({ req });
   
@@ -54,6 +61,7 @@ const Site = ({ site, media }) => {
   }
 
   async function handleDelete() {
+    /*
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
@@ -68,7 +76,8 @@ const Site = ({ site, media }) => {
       console.error(...errors);
       throw new Error(errors[0].message);
     }
-    x;
+    */
+   console.log("This is not possible at this stage")
   }
 
   return (
@@ -86,9 +95,18 @@ const Site = ({ site, media }) => {
         {/* pictures */}
         <SitePictures site={site} media={media} /> 
         
+        {/* Key facts */}
+        {(site.periods || site.styles || site.persons || site.events || site.protections) && <SiteFacts site={site} />}
+
+        {/* Description */}
+        {site.description && <SiteDescription site={site} /> }
+
+        {/* Links */}
+        {site.links && site.links.length > 0 && <SiteLinks site={site} />}
        
         {username === "tlm" && (
-          <>
+          <Row style={{marginTop: 30}}>
+            <Col>
             <Link
               style={{
                 color: "black",
@@ -103,20 +121,8 @@ const Site = ({ site, media }) => {
             >
               Update site
             </Link>
-
-            <Button
-              variant="link"
-              style={{
-                color: "black",
-                margin: 0,
-                padding: 0,
-                display: "block",
-              }}
-              onClick={handleDelete}
-            >
-              Delete site
-            </Button>
-          </>
+            </Col>
+          </Row>
         )}
       </main>
     </Layout>

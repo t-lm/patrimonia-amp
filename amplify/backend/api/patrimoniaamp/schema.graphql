@@ -18,7 +18,7 @@ type Media
   @model
   @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
   id: ID!
-  siteID: ID
+  siteID: ID @index(name: "bySite")
   description_fr: String
   description_en: String
   source: String

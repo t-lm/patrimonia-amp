@@ -65,7 +65,7 @@ const Media = ({ Media = [] }) => {
           </Col>
           <Col md={9}>
             <Link style={{color: "black", textDecoration: "none", display: "block"}} href={{pathname: "/admin/update", query: { model: "media", id: medium.id }}}>{medium.description_fr}</Link>
-            <span style={{color: "grey", fontSize: "0.9rem"}}>{medium.siteID}{' - '}{medium.source}{' - '}{medium.copyright}</span>
+            <span style={{color: "grey", fontSize: "0.9rem"}}>{medium.leading && "LEADING - "}{medium.siteID}{' - '}{medium.source}{' - '}{medium.copyright}</span>
           </Col>
         </Row>
       ))}
