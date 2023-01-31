@@ -7,12 +7,25 @@ export const getSite = /* GraphQL */ `
       id
       name
       headline
-      types
       address {
         name
         street
         postalCode
         city
+      }
+      position {
+        latitude
+        longitude
+      }
+      types
+      styles
+      periods
+      protections
+      description
+      links {
+        fr
+        en
+        wwww
       }
       createdAt
       updatedAt
@@ -31,12 +44,25 @@ export const listSites = /* GraphQL */ `
         id
         name
         headline
-        types
         address {
           name
           street
           postalCode
           city
+        }
+        position {
+          latitude
+          longitude
+        }
+        types
+        styles
+        periods
+        protections
+        description
+        links {
+          fr
+          en
+          wwww
         }
         createdAt
         updatedAt
@@ -55,6 +81,7 @@ export const getMedia = /* GraphQL */ `
       description_en
       source
       copyright
+      leading
       createdAt
       updatedAt
       owner
@@ -75,6 +102,7 @@ export const listMedia = /* GraphQL */ `
         description_en
         source
         copyright
+        leading
         createdAt
         updatedAt
         owner

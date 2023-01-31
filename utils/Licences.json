@@ -1,0 +1,24 @@
+{
+  "licence_cc0": { "en": "No Copyright", "fr": "Domaine public" },
+  "licence_ccby": { "en": "Attribution", "fr": "Attribution" },
+  "licence_ccbysa": {
+    "en": "Attribution - Share Alike",
+    "fr": "Attribution - Partage dans les mêmes conditions"
+  },
+  "licence_ccbynd": {
+    "en": "Attribution - No Derivatives",
+    "fr": "Attribution - Pas de modification"
+  },
+  "licence_ccbync": {
+    "en": "Attribution - Non Commercial",
+    "fr": "Attribution - Pas d’utilisation commerciale"
+  },
+  "licence_ccbyncsa": {
+    "en": "Attribution - Non Commercial - Share Alike ",
+    "fr": "Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions"
+  },
+  "licence_ccbyncnd": {
+    "en": "Attribution - Non Commercial - No Derivatives",
+    "fr": "Attribution - Pas d’Utilisation Commerciale - Pas de Modification"
+  }
+}

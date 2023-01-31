@@ -1,12 +1,17 @@
-
 type Site
   @model
   @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
   id: ID!
   name: String!
   headline: String!
-  types: [SiteTypes]
   address: Address
+  position: Position
+  types: [SiteTypes]
+  styles: [SiteStyles]
+  periods: [SitePeriods]
+  protections: [SiteProtections]
+  description: String
+  links: [Link]
 }
 
 type Media
@@ -18,23 +23,7 @@ type Media
   description_en: String
   source: String
   copyright: String
-}
-
-enum SiteTypes {
-    antiquity
-    civil
-    garden
-    industrial
-    military
-    museum
-    public
-    religious
-    theater
-    urban
-}
-
-enum Countries {
-    fr
+  leading: Boolean # leading picture on page site
 }
 
 type Address {
@@ -43,3 +32,77 @@ type Address {
   postalCode: String!
   city: String!
 }
+
+type Link {
+  fr: String
+  en: String
+  wwww: String
+}
+
+type Position {
+  latitude: Float
+  longitude: Float
+}
+
+
+enum Countries {
+  fr
+}
+
+enum SitePeriods {
+  antiquity
+  i
+  ii
+  iii
+  iv
+  v
+  vi
+  vii
+  viii
+  ix
+  x
+  xi
+  xii
+  xiii
+  xiv
+  xv
+  xvi
+  xvii
+  xviii
+  xix
+  xx
+  xxi
+}
+
+enum SiteProtections {
+  mh
+}
+
+enum SiteStyles {
+  antiquityGreek
+  antiquityRoman
+  artDeco
+  artNouveau
+  carolingian
+  roman
+  gothic
+  renaissance
+  baroque
+}
+
+enum SiteTypes {
+  antiquity
+  civil
+  garden
+  industrial
+  military
+  museum
+  public
+  religious
+  theater
+  urban
+}
+
+
+
+

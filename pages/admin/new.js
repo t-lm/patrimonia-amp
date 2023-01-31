@@ -16,6 +16,7 @@ const defaultSite = { name: "", headline: "", types: [], address: { street: "", 
 const defaultMedia = { id: nanoid(8), siteID: "", description_fr: "", description_en: "", source: "", copyright: "" };
 
 const New = () => {
+  
   const router = useRouter();
   const model = router.query.model;
 

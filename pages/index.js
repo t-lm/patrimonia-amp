@@ -1,11 +1,15 @@
 // pages/index.js
 
-import { withSSRContext } from 'aws-amplify';
+import React, { useEffect, useState } from "react";
 
 import Head from 'next/head';
+import Link from 'next/link';
+
+import { withSSRContext } from 'aws-amplify';
 import { listSites } from '../src/graphql/queries';
 
 import Layout from "../comps/layout";
+import { getCurrentUser } from "../utils/auth";
 
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
@@ -24,8 +28,11 @@ export async function getServerSideProps({ req }) {
   }
 }
 
-
 const Index = ({ Sites = [] }) => {
+
+  const [username, setUsername] = useState();
+  useEffect(() => setUsername(getCurrentUser().username), []);
+
   return (
     <Layout>
       <Head>
@@ -41,6 +48,9 @@ const Index = ({ Sites = [] }) => {
             </a>
           ))}
         </main>
+        { username && username === "tlm" && 
+          <Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/admin/new", query:{model: "site"}}}>Add new site</Link>
+          }
     </Layout>
   );
 }

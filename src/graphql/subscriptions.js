@@ -10,12 +10,25 @@ export const onCreateSite = /* GraphQL */ `
       id
       name
       headline
-      types
       address {
         name
         street
         postalCode
         city
+      }
+      position {
+        latitude
+        longitude
+      }
+      types
+      styles
+      periods
+      protections
+      description
+      links {
+        fr
+        en
+        wwww
       }
       createdAt
       updatedAt
@@ -32,12 +45,25 @@ export const onUpdateSite = /* GraphQL */ `
       id
       name
       headline
-      types
       address {
         name
         street
         postalCode
         city
+      }
+      position {
+        latitude
+        longitude
+      }
+      types
+      styles
+      periods
+      protections
+      description
+      links {
+        fr
+        en
+        wwww
       }
       createdAt
       updatedAt
@@ -54,12 +80,25 @@ export const onDeleteSite = /* GraphQL */ `
       id
       name
       headline
-      types
       address {
         name
         street
         postalCode
         city
+      }
+      position {
+        latitude
+        longitude
+      }
+      types
+      styles
+      periods
+      protections
+      description
+      links {
+        fr
+        en
+        wwww
       }
       createdAt
       updatedAt
@@ -79,6 +118,7 @@ export const onCreateMedia = /* GraphQL */ `
       description_en
       source
       copyright
+      leading
       createdAt
       updatedAt
       owner
@@ -97,6 +137,7 @@ export const onUpdateMedia = /* GraphQL */ `
       description_en
       source
       copyright
+      leading
       createdAt
       updatedAt
       owner
@@ -115,6 +156,7 @@ export const onDeleteMedia = /* GraphQL */ `
       description_en
       source
       copyright
+      leading
       createdAt
       updatedAt
       owner

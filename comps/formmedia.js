@@ -1,9 +1,10 @@
 // comps/formmedia.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { API, Storage } from "aws-amplify";
 import { createMedia, updateMedia } from "../src/graphql/mutations";
+import { listSites } from '../src/graphql/queries';
 
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -12,11 +13,16 @@ import Button from "react-bootstrap/Button";
 
 import { Error } from "./error";
 
+const Licences = require("../utils/Licences.json");
+const LANG = "fr"
+
 const FormMedia = (props) => {
+
   const action = props.action;
   const [media, setMedia] = useState(props.input);
   const [newImage, setNewImage] = useState(false);
   const [error, setError] = useState(false);
+  const [sites, setSites] = useState([])
 
   const handleCreateMedia = async (event) => {
     event.preventDefault();
@@ -25,19 +31,12 @@ const FormMedia = (props) => {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
         query: createMedia,
-        variables: {
-          input: {
-            id,
-            description_fr: media["description_fr"],
-            source: media["source"],
-            copyright: media["copyright"],
-          },
-        },
+        variables: { input: media },
       });
 
-      //window.location.href = `/media`;
-    } catch ({ errors }) {
-      console.error(...errors);
+      window.location.href = `/media`;
+    } catch (e) {
+      console.error(e);
       setError("There is an error with this form");
     }
   };
@@ -51,19 +50,16 @@ const FormMedia = (props) => {
         query: updateMedia,
         variables: { input: media },
       });
-      //window.location.href = `/media`;
-    } catch ({ errors }) {
-      console.error(...errors);
+      window.location.href = `/media`;
+    } catch (e) {
+      console.error(e);
       setError("There is an error with this form");
     }
   };
 
   const handleNewImage = async () => {
     setError(false);
-
-    // let url = await Storage.get('1.jpg')
-    // console.log(url)
-
+ 
     // validation
     if (!newImage) return setError("Il n'y a pas d'image");
     if (!["image/png", "image/jpeg"].includes(newImage.type))
@@ -73,15 +69,22 @@ const FormMedia = (props) => {
 
     // save
     try {
-      const result = await Storage.put(media.id, newImage)
-      console.log(result)
-      console.log("L'image a été sauvée")
+      await Storage.put(media.id, newImage, {
+        level: "public",
+        contentType: newImage.type,
+      })
     } catch (error) {
       console.log("L'image n'a pas pu être sauvée", error)
     }
     
   };
 
+  useEffect(() => {
+    API.graphql({ query: listSites })
+    .then(res => setSites(res.data.listSites.items))
+    .catch(e => console.log(e))
+  },[])
+  
 
   return (
     <>
@@ -106,7 +109,7 @@ const FormMedia = (props) => {
               <img
                 src={URL.createObjectURL(newImage)}
                 style={{
-                  height: 64,
+                  height: 120,
                   float: "right",
                   marginTop: 20,
                   paddingBottom: 10,
@@ -116,7 +119,7 @@ const FormMedia = (props) => {
               <img
                 src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${media.id}`}
                 style={{
-                  height: 64,
+                  height: 120,
                   float: "right",
                   marginTop: 20,
                   paddingBottom: 10,
@@ -146,12 +149,9 @@ const FormMedia = (props) => {
             <Form.Label>Site ID</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control
-              type="text"
-              onChange={(e) => setMedia({ ...media, siteID: e.target.value })}
-              value={media.siteID}
-              size="sm"
-            />
+            <Form.Control as="select" size="sm" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
+              {sites.map(x => <option key={x.id} value={x.id}>{x.id}</option>)}
+            </Form.Control>
           </Col>
         </Form.Group>
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
@@ -173,14 +173,9 @@ const FormMedia = (props) => {
             <Form.Label>Copyright</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control
-              type="text"
-              onChange={(e) =>
-                setMedia({ ...media, copyright: e.target.value })
-              }
-              value={media.copyright}
-              size="sm"
-            />
+            <Form.Control as="select" size="sm" defaultValue="licence_ccbync" onChange={(e) => setMedia({ ...media, copyright: e.target.value })}>
+              {Object.keys(Licences).map(x => <option key={x} value={x}>{Licences[x][LANG]}</option>)}
+            </Form.Control>
           </Col>
         </Form.Group>
 
