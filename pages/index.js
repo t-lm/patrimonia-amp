@@ -10,7 +10,6 @@ Amplify.configure({ ...awsExports, ssr: true });
 
 import Layout from "../comps/layout";
 
-
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
   try {
@@ -29,7 +28,7 @@ export async function getServerSideProps({ req }) {
 }
 
 
-export default function Sites({ Sites = [] }) {
+const Index = ({ Sites = [] }) => {
   return (
     <Layout>
       <Head>
@@ -37,16 +36,16 @@ export default function Sites({ Sites = [] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-        <div>
+        <main>
           {Sites.map((Site) => (
             <a href={`/sites/${Site.id}`} key={Site.id}  style={{textDecoration: "none", color: "black"}}>
               <h3>{Site.name}</h3>
               <p style={{color: "grey"}}>{Site.headline}</p>
             </a>
           ))}
-
-        </div>
+        </main>
     </Layout>
   );
 }
+
+export default Index

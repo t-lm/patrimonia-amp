@@ -25,6 +25,7 @@ export const getCurrentUser = () => isBrowser && getUser()
 export const logout = () => {
   if (!isBrowser) return
   setUserLocal({})
+  window.location.href = "/";
 }
 
 //export const lg = isSignedIn() ? (["fr", "en"].includes(getCurrentUser().lang) ? getCurrentUser().lang : "en") : (getUserLocale().slice(0, 2) === "fr" ? "fr" : "en")

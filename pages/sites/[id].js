@@ -1,5 +1,7 @@
 // ./pages/sites/[id].js
 
+import React, { useState, useEffect } from "react";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -13,11 +15,12 @@ import Button from "react-bootstrap/Button";
 
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
+import { getCurrentUser } from "../../utils/auth";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
 export async function getServerSideProps({ req, params }) {
-  
+
   const SSR = withSSRContext({ req });
   const { data } = await SSR.API.graphql({
     query: getSite,
@@ -32,8 +35,14 @@ export async function getServerSideProps({ req, params }) {
   };
 }
 
-export default function Site({ site }) {
+const Site = ({ site }) => {
   const router = useRouter();
+  
+  // authentication
+  const [username, setUsername] = useState(false)
+  useEffect(() => {
+    setUsername(getCurrentUser().username)
+  }, [])
 
   if (router.isFallback) {
     return (
@@ -57,7 +66,8 @@ export default function Site({ site }) {
     } catch ({ errors }) {
       console.error(...errors);
       throw new Error(errors[0].message);
-    }x
+    }
+    x;
   }
 
   return (
@@ -69,23 +79,34 @@ export default function Site({ site }) {
 
       <main>
         <SiteBasics site={site} />
-      </main>
+        {username === "tlm" && (
+        <>
+          <Button
+            variant="link"
+            style={{ color: "black", margin: 0, padding: 0, display: "block" }}
+            onClick={() =>
+              router.push({
+                pathname: "/admin/update",
+                query: { model: "site", id: site.id },
+              })
+            }
+          >
+            Update site
+          </Button>
 
-        <Button
-          variant="link"
-          style={{ color: "black", margin: 0, padding: 0 }}
-          onClick={() => router.push({pathname: "/admin/update", query: {model: "site", id: site.id }})}
-        >
-          Update site
-        </Button>
-      
-        <Button
-          variant="link"
-          style={{ color: "black", margin: 0, padding: 0 }}
-          onClick={handleDelete}
-        >
-          Delete site
-        </Button>
+          <Button
+            variant="link"
+            style={{ color: "black", margin: 0, padding: 0, display: "block" }}
+            onClick={handleDelete}
+          >
+            Delete site
+          </Button>
+        </>
+      )}
+      </main>
+ 
     </Layout>
   );
 }
+
+export default Site

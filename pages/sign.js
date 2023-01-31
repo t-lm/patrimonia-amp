@@ -1,33 +1,87 @@
-// ./pages/Sign.js
+// ./pages/sign.js
 
-import React, { useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
 
-import { getCurrentUser } from "../utils/auth"
+import Auth from "@aws-amplify/auth";
+import awsExports from "../src/aws-exports";
+import { Amplify } from "aws-amplify";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
+import Layout from "../comps/layout";
+
+import { setUserLocal } from "../utils/auth";
+
+Amplify.configure({ ...awsExports, ssr: true });
 
 const Sign = (props) => {
-
   // props
-  try { origin = props.location.state.origin } catch (e) {}  
-
-  // ids
-  const userslug = getCurrentUser().userslug
+  const user = props.user;
 
   // state
-  const history = useHistory();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  // redirect if signed-in
-  useEffect(() => {
-    if (userslug) return history.push({pathname: `/${userslug}`})
-  }, [userslug, history]);
+  // functions
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await Auth.signIn(username, password);
+      setUserLocal({ username })
+      window.location.href = "/";
+      console.log("you are connected: ", username);
+    } catch (e) {
+      console.log("error signing up:", e);
+    }
+  };
 
   return (
+    <Layout>
+      <Form onSubmit={handleSubmit} style={{marginTop: 50}}>
+        <Form.Group as={Row} style={{ marginTop: 30 }}>
+          <Col sm="9">
+            <Form.Control
+              type="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              placeholder="Nom d'utilisateur"
+            />
+          </Col>
+        </Form.Group>
 
-    <>This is a placeholder</>
+        <Form.Group as={Row} style={{ marginTop: 30 }}>
+          <Col sm="9">
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder="Mot de passe"
+            />
+          </Col>
+        </Form.Group>
 
-  )
-}
+        <Button
+          type="submit"
+          onClick={handleSubmit}
+          style={{
+            backgroundColor: "pink",
+            color: "black",
+            border: "0px solid #dedede",
+            minWidth: 200,
+            marginTop: 50
+          }}
+          disabled={!password}
+        >
+          Se connecter
+        </Button>
+      </Form>
+    </Layout>
+  );
+};
 
-export default Sign
+export default Sign;
