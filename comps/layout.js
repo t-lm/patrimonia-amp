@@ -1,4 +1,4 @@
-// ./comps/layout
+// ./comps/layout.js
 
 import React, { useEffect, useState } from "react";
 
@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
             >
               <Image
                 alt="Patrimonia"
-                src={`/logo_pink.png`}
+                src="/logo_pink.png"
                 width={30}
                 height={30}
                 className="d-inline-block align-top"
@@ -78,12 +78,14 @@ const Layout = ({ children }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
+              {/*
                 <Nav.Link
                   style={{ margin: "0px 20px", color: "black" }}
                   href="/sites"
                 >
                   {Keys[LANG]["sites"]}
                 </Nav.Link>
+              */}
                 <NavDropdown
                   align="end"
                   title={

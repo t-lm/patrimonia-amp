@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 
 import Auth from "@aws-amplify/auth";
-import awsExports from "../src/aws-exports";
-import { Amplify } from "aws-amplify";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -15,7 +13,6 @@ import Layout from "../comps/layout";
 
 import { setUserLocal } from "../utils/auth";
 
-Amplify.configure({ ...awsExports, ssr: true });
 
 const Sign = (props) => {
   // props

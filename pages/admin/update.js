@@ -6,15 +6,12 @@ import React, { useState, useEffect } from "react";
 
 import { useRouter } from "next/router";
 
-import { Amplify, withSSRContext } from "aws-amplify";
-import awsExports from "../../src/aws-exports";
+import { withSSRContext } from "aws-amplify";
 import { getMedia, getSite } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
 import FormSite from "../../comps/formsite";
 import FormMedia from "../../comps/formmedia";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 const Update = () => {
   const router = useRouter();

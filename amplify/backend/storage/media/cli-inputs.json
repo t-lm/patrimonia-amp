@@ -1,7 +1,7 @@
 {
   "resourceName": "media",
-  "policyUUID": "4a2a07c7",
-  "bucketName": "patrimonia-amp",
+  "policyUUID": "8d5ba415",
+  "bucketName": "patrimoniamedia",
   "storageAccess": "authAndGuest",
   "guestAccess": [
     "READ"
@@ -11,5 +11,6 @@
     "READ",
     "DELETE"
   ],
+  "triggerFunction": "NONE",
   "groupAccess": {}
 }

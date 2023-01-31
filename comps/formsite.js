@@ -2,9 +2,7 @@
 
 import React, { useState } from "react";
 
-import { Authenticator } from "@aws-amplify/ui-react";
-import { Amplify, API } from "aws-amplify";
-import awsExports from "../src/aws-exports";
+import { API } from "aws-amplify";
 import { createSite, updateSite } from "../src/graphql/mutations";
 
 import Form from "react-bootstrap/Form";
@@ -18,8 +16,6 @@ const SiteTypes = require("../utils/SiteTypes.json");
 const slugify = require("slugify");
 
 const LANG = "fr";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 const FormSite = (props) => {
 
@@ -80,7 +76,7 @@ const FormSite = (props) => {
   };
 
   return (
-    <Authenticator>
+    <>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Create site"}
         {action === "update" && "Update site"}
@@ -189,7 +185,7 @@ const FormSite = (props) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </Authenticator>
+    </>
   );
 };
 

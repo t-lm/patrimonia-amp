@@ -2,10 +2,7 @@
 
 import React, { useState } from "react";
 
-import { Authenticator } from "@aws-amplify/ui-react";
-import { Amplify, API, Storage } from "aws-amplify";
-
-import awsExports from "../src/aws-exports";
+import { API, Storage } from "aws-amplify";
 import { createMedia, updateMedia } from "../src/graphql/mutations";
 
 import Form from "react-bootstrap/Form";
@@ -14,8 +11,6 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import { Error } from "./error";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 const FormMedia = (props) => {
   const action = props.action;
@@ -40,7 +35,7 @@ const FormMedia = (props) => {
         },
       });
 
-      window.location.href = `/media`;
+      //window.location.href = `/media`;
     } catch ({ errors }) {
       console.error(...errors);
       setError("There is an error with this form");
@@ -50,23 +45,24 @@ const FormMedia = (props) => {
   const handleUpdateMedia = async (event) => {
     event.preventDefault();
     if (newImage) await handleNewImage()
-    /*
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
         query: updateMedia,
         variables: { input: media },
       });
-
-      window.location.href = `/media`;
+      //window.location.href = `/media`;
     } catch ({ errors }) {
       console.error(...errors);
       setError("There is an error with this form");
-    } */
+    }
   };
 
   const handleNewImage = async () => {
     setError(false);
+
+    // let url = await Storage.get('1.jpg')
+    // console.log(url)
 
     // validation
     if (!newImage) return setError("Il n'y a pas d'image");
@@ -75,17 +71,20 @@ const FormMedia = (props) => {
     if (newImage.size > 1000000)
       return setError("La taille de l'image doit être inférieure à 1MB");
 
-    console.log("sauve le ce fils de puteeeeeee")
-
     // save
-    //Storage.put(`${media.id}`, newImage, { contentType: "image/png" })
-    Storage.put(`${media.id}`, newImage)
-      .then(() => console.log("L'image a été sauvée"))
-      .catch((e) => console.log("L'image n'a pas pu être sauvée", e))
+    try {
+      const result = await Storage.put(media.id, newImage)
+      console.log(result)
+      console.log("L'image a été sauvée")
+    } catch (error) {
+      console.log("L'image n'a pas pu être sauvée", error)
+    }
+    
   };
 
+
   return (
-    <Authenticator>
+    <>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Create media"}
         {action === "update" && "Update media"}
@@ -115,7 +114,7 @@ const FormMedia = (props) => {
               />
             ) : (
               <img
-                src={`https://patrimonia-amp175328-dev.s3.eu-west-1.amazonaws.com/public/${media.id}`}
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${media.id}`}
                 style={{
                   height: 64,
                   float: "right",
@@ -201,7 +200,7 @@ const FormMedia = (props) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </Authenticator>
+    </>
   );
 };
 

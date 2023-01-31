@@ -1,12 +1,9 @@
 // pages/index.js
 
-import { Amplify, withSSRContext } from 'aws-amplify';
+import { withSSRContext } from 'aws-amplify';
 
 import Head from 'next/head';
-import awsExports from '../src/aws-exports';
 import { listSites } from '../src/graphql/queries';
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 import Layout from "../comps/layout";
 

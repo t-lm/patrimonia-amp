@@ -5,17 +5,12 @@ import React from "react";
 import { useRouter } from "next/router";
 import { nanoid } from "nanoid";
 
-import { Amplify } from "aws-amplify";
-import awsExports from "../../src/aws-exports";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import Layout from "../../comps/layout";
 import FormSite from "../../comps/formsite";
 import FormMedia from "../../comps/formmedia";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 const defaultSite = { name: "", headline: "", types: [], address: { street: "", city: "", postalCode: ""} };
 const defaultMedia = { id: nanoid(8), siteID: "", description_fr: "", description_en: "", source: "", copyright: "" };

@@ -5,9 +5,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { Amplify, API, withSSRContext } from "aws-amplify";
-
-import awsExports from "../../src/aws-exports";
+import { API, withSSRContext } from "aws-amplify";
 import { deleteSite } from "../../src/graphql/mutations";
 import { getSite } from "../../src/graphql/queries";
 
@@ -16,8 +14,6 @@ import Button from "react-bootstrap/Button";
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
 import { getCurrentUser } from "../../utils/auth";
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 export async function getServerSideProps({ req, params }) {
 
