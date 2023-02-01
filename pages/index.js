@@ -20,16 +20,11 @@ export const getServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });
   try {
     const response = await SSR.API.graphql({ query: listSites });
-    return {
-      props: {
-        Sites: response.data.listSites.items,
-      },
-    };
+    console.log(response)
+    return { props: { Sites: response.data.listSites.items }};
   } catch (err) {
     console.log(err);
-    return {
-      props: {},
-    };
+    return { props: {}};
   }
 }
 
@@ -39,6 +34,7 @@ const Index = ({ Sites = [] }) => {
   const [username, setUsername] = useState();
   const [filter, setFilter] = useState(false);
   const [sites, setSites] = useState(Sites);
+  const [open, setOpen] = useState(true);
 
   // functions
   const handleFilter = (f) => {
@@ -50,6 +46,9 @@ const Index = ({ Sites = [] }) => {
   };
 
   useEffect(() => setUsername(getCurrentUser().username), []);
+  useEffect(() => { if (window.innerWidth < 1200) setOpen(false)}, []);
+
+  console.log(Sites)
 
   return (
     <Layout>

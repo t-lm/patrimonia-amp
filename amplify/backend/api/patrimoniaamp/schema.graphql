@@ -28,6 +28,21 @@ type Media
   copyright: String
 }
 
+type Disco
+@model
+@auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+    id: ID!
+    name: String!
+    headline: String!
+    dateStart: String
+    dateEnd: String
+    pictures: [String]
+    organiserID: ID
+    duration: [Float]
+    subjects: [DiscoverySubjects]
+    languages: [DiscoveryLanguages]
+}
+
 type Address {
   name: String
   street: String!
@@ -106,6 +121,32 @@ enum SiteTypes {
   religious
   theater
   urban
+}
+
+enum DiscoveryLanguages {
+    cn
+    de
+    en
+    es
+    fr
+    it
+    jp
+    nl
+}
+
+enum DiscoverySubjects {
+    art
+    architecture
+    culture
+    economics
+    history
+    litterature
+    military
+    music
+    philosophy
+    politics
+    religion
+    sciences
 }
 
 

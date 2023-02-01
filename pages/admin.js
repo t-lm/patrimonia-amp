@@ -5,15 +5,16 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import Layout from "../comps/layout";
 import { getCurrentUser } from "../utils/auth";
 
 export default function Index() {
   const [username, setUsername] = useState();
 
-  useEffect(() => {
-    setUsername(getCurrentUser().username);
-  }, []);
+  useEffect(() => setUsername(getCurrentUser().username), []);
 
   return (
     <Layout>
@@ -23,39 +24,60 @@ export default function Index() {
       </Head>
       {username && username === "tlm" && (
         <>
-          <p>Manage</p>
-          <ul style={{ marginTop: 30, padding: 15 }}>
-            <li>
+          <Row style={{marginTop: 30}}>
+            <Col>
               <Link
                 style={{ color: "black", textDecoration: "none" }}
                 href={{ pathname: "/" }}
               >
-                List sites
+               Voir les sites
               </Link>
               {" - "}
               <Link
                 style={{ color: "black", textDecoration: "none" }}
                 href={{ pathname: "/admin/new", query: { model: "site" } }}
               >
-                Add new site
+                Ajouter un site
               </Link>
-            </li>
-            <li>
+            </Col>
+          </Row>
+
+          <Row style={{marginTop: 10}}>
+            <Col>
               <Link
                 style={{ color: "black", textDecoration: "none" }}
                 href={{ pathname: "/admin/media" }}
               >
-                List media
+                Voir les photos
               </Link>
               {" - "}
               <Link
                 style={{ color: "black", textDecoration: "none" }}
                 href={{ pathname: "/admin/new", query: { model: "media" } }}
               >
-                Add new media
+                Ajouter une photo
               </Link>
-            </li>
-          </ul>
+            </Col>
+          </Row>
+
+          <Row style={{marginTop: 10}}>
+            <Col>
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                href={{ pathname: "/disco" }}
+              >
+                Voir les découvertes
+              </Link>
+              {" - "}
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                href={{ pathname: "/admin/new", query: { model: "disco" } }}
+              >
+                Ajouter une découverte
+              </Link>
+            </Col>
+          </Row>
+        
         </>
       )}
     </Layout>

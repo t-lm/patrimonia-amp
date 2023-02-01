@@ -196,3 +196,48 @@ export const mediaBySiteID = /* GraphQL */ `
     }
   }
 `;
+export const getDisco = /* GraphQL */ `
+  query GetDisco($id: ID!) {
+    getDisco(id: $id) {
+      id
+      name
+      headline
+      dateStart
+      dateEnd
+      pictures
+      organiserID
+      duration
+      subjects
+      languages
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listDiscos = /* GraphQL */ `
+  query ListDiscos(
+    $filter: ModelDiscoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDiscos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        headline
+        dateStart
+        dateEnd
+        pictures
+        organiserID
+        duration
+        subjects
+        languages
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

@@ -238,3 +238,69 @@ export const onDeleteMedia = /* GraphQL */ `
     }
   }
 `;
+export const onCreateDisco = /* GraphQL */ `
+  subscription OnCreateDisco(
+    $filter: ModelSubscriptionDiscoFilterInput
+    $owner: String
+  ) {
+    onCreateDisco(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      dateStart
+      dateEnd
+      pictures
+      organiserID
+      duration
+      subjects
+      languages
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateDisco = /* GraphQL */ `
+  subscription OnUpdateDisco(
+    $filter: ModelSubscriptionDiscoFilterInput
+    $owner: String
+  ) {
+    onUpdateDisco(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      dateStart
+      dateEnd
+      pictures
+      organiserID
+      duration
+      subjects
+      languages
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteDisco = /* GraphQL */ `
+  subscription OnDeleteDisco(
+    $filter: ModelSubscriptionDiscoFilterInput
+    $owner: String
+  ) {
+    onDeleteDisco(filter: $filter, owner: $owner) {
+      id
+      name
+      headline
+      dateStart
+      dateEnd
+      pictures
+      organiserID
+      duration
+      subjects
+      languages
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
