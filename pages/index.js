@@ -42,7 +42,7 @@ const Index = ({ Sites = [] }) => {
       </Head>
 
         <main>
-          {Sites.map(site => <SitePill site={site} /> )}
+          {Sites.map(site => <SitePill key={site.id} site={site} /> )}
         </main>
 
         { username && username === "tlm" && 

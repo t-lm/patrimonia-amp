@@ -83,13 +83,16 @@ enum SiteProtections {
 enum SiteStyles {
   antiquityGreek
   antiquityRoman
-  artDeco
-  artNouveau
   carolingian
   roman
   gothic
   renaissance
+  classic
   baroque
+  artDeco
+  artNouveau
+  xix
+  contemporary
 }
 
 enum SiteTypes {

@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+import Image from "next/image";
+
 import { API } from "aws-amplify";
 import { createSite, updateSite } from "../src/graphql/mutations";
 
@@ -123,7 +125,7 @@ const handleUpdateSiteProtections = (key) => {
 
         <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
-            <Form.Label>Résumé</Form.Label>
+            <Form.Label>En une phrase ...</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
@@ -200,6 +202,41 @@ const handleUpdateSiteProtections = (key) => {
           </Col>
         </Form.Group>
 
+        {/* Photo */}
+        <Row style={{margin: "30px 0px", borderTop: "1px solid #ddd"}} />
+        <b>Photo principale</b>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Identifiant de la photo</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+                required
+                type="text"
+                onChange={(e) => setSite({ ...site, pictureID: e.target.value })}
+                value={site.pictureID}
+                size="sm"
+              />
+            </Col>
+        </Form.Group>
+        <div
+          style={{
+            width: "100%",
+            height: 400,
+            position: "relative",
+            display: "block",
+            marginTop: 20
+          }}
+        >
+        <Image
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${site.pictureID}`}
+            className="shadow-1-strong rounded"
+            alt="alternative text"
+            fill
+            priority
+            style={{ objectFit: "cover" }}
+          />
+          </div>
         {/* Facts */}
         <Row style={{margin: "30px 0px", borderTop: "1px solid #ddd"}} />
         <b>Carte d'identité</b>

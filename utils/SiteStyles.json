@@ -5,6 +5,7 @@
   "roman": {"fr": "Roman","en": "Roman"},
   "gothic": {"fr": "Gothique","en": "Gothic"},
   "renaissance": {"fr": "Renaissance","en": "Renaissance"},
+  "classic": {"fr": "Classique","en": "Classic"},
   "baroque": {"fr": "Baroque","en": "Baroque"},
   "xix": {"fr": "19ème","en": "19th"},
   "artDeco": {"fr": "Art Déco","en": "Art Déco"},
