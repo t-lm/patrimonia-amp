@@ -1,8 +1,7 @@
 // ./_app.js
 
-import "../styles/globals.css";
-import "@aws-amplify/ui-react/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/globals.css";
 
 import { Amplify } from "aws-amplify";
 import awsExports from "../src/aws-exports";

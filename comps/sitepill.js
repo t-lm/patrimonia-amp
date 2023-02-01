@@ -42,7 +42,6 @@ export const SitePill = (props) => {
             title={s.name}
             className="shadow-1-strong rounded"
             fill
-            fixed
             priority
             style={{ objectFit: "cover" }}
           />

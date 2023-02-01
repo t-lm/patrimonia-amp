@@ -23,7 +23,6 @@ import { getCurrentUser } from "../../utils/auth";
 export const getServerSideProps = async ({ req, params }) => {
   
   const SSR = withSSRContext({ req });
-  
   const { data } = await SSR.API.graphql({ query: getSite, variables: { id: params.id }});
 
   return {

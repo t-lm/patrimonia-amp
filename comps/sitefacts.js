@@ -31,7 +31,7 @@ export const SiteFacts = (props) => {
           <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].keyFacts}</h3>
         </Col>
       </Row>
-      {site.periods && (
+      {site.periods.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.periods.length > 1
@@ -40,8 +40,7 @@ export const SiteFacts = (props) => {
             :
           </Col>
           <Col xs={8} md={10}>
-            {site.periods.length > 0 &&
-              site.periods.map((t, i) => (
+            { site.periods.map((t, i) => (
                 <span key={i}>
                   {t in SitePeriods ? SitePeriods[t][LANG] : t}
                   {i < site.periods.length - 1 && ", "}
@@ -50,7 +49,7 @@ export const SiteFacts = (props) => {
           </Col>
         </Row>
       )}
-      {site.styles && (
+      {site.styles.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.styles.length > 1
@@ -59,8 +58,7 @@ export const SiteFacts = (props) => {
             :
           </Col>
           <Col xs={8} md={10}>
-            {site.styles.length > 0 &&
-              site.styles.map((t, i) => (
+            { site.styles.map((t, i) => (
                 <span key={i}>
                   {t in SiteStyles ? SiteStyles[t][LANG] : t}
                   {i < site.styles.length - 1 && ", "}
@@ -70,7 +68,7 @@ export const SiteFacts = (props) => {
         </Row>
       )}
 
-      {site.persons && (
+      {/*site.persons.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.persons.length > 1
@@ -79,8 +77,7 @@ export const SiteFacts = (props) => {
             :
           </Col>
           <Col xs={8} md={10}>
-            {site.persons.length > 0 &&
-              site.persons.map((t, i) => (
+            { site.persons.map((t, i) => (
                 <span key={i}>
                   {t}
                   {i < site.persons.length - 1 && ", "}
@@ -88,8 +85,9 @@ export const SiteFacts = (props) => {
               ))}
           </Col>
         </Row>
-      )}
-      {site.events && (
+      )*/}
+
+      {/*site.events && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.events.length > 1
@@ -107,7 +105,7 @@ export const SiteFacts = (props) => {
               ))}
           </Col>
         </Row>
-      )}
+        )*/}
       {site.protections && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
