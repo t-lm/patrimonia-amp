@@ -37,17 +37,12 @@ export const SitePictures = (props) => {
             display: "block",
           }}
         >
+          {/* rewrite all this with the picture */}
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${media.find(x => x.leading).id}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${site.picture.id}`}
             className="shadow-1-strong rounded"
-            alt={
-              media.find((x) => x.id === site.picture) &&
-              media.find((x) => x.id === site.picture).description_fr
-            }
-            title={
-              media.find((x) => x.id === site.picture) &&
-              media.find((x) => x.id === site.picture).description_fr
-            }
+            alt={site.picture.description_fr}
+            title={site.name}
             onClick={() => setShowCarousel(true)}
             fill
             priority
@@ -60,7 +55,7 @@ export const SitePictures = (props) => {
     {/* supporting pics */}
     <Row style={{ marginTop: 10 }}>
       <Col>
-        {media.filter((x) => !x.leading).slice(0, 4).map((p, i) => (
+        {media.slice(0, 4).map((p, i) => (
           <div
             key={i}
             style={{

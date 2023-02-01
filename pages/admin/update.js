@@ -23,21 +23,6 @@ const Update = () => {
 
   // state
   const [input, setInput] = useState();
-
-  const defaultSite = {
-    name: "",
-    headline: "",
-    types: [],
-    address: { street: "", city: "", postalCode: "" },
-  };
-  const defaultMedia = {
-    id: "",
-    siteID: "",
-    description_fr: "",
-    description_en: "",
-    source: "",
-    copyright: "",
-  };
   const keysOut = ["updatedAt", "createdAt", "owner"];
 
   useEffect(() => {
@@ -45,10 +30,7 @@ const Update = () => {
       SSR.API.graphql({ query: getSite, variables: { id } })
         .then((result) => {
           let res = result.data.getSite;
-          keysOut.forEach((x) => delete res[x]);
-          Object.keys(defaultSite).forEach((x) => {
-            if (!(x in res) || res[x] === null) res[x] = defaultSite[x];
-          });
+          keysOut.concat(["picture", "media"]).forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));
@@ -57,9 +39,6 @@ const Update = () => {
         .then((result) => {
           let res = result.data.getMedia;
           keysOut.forEach((x) => delete res[x]);
-          Object.keys(defaultMedia).forEach((x) => {
-            if (!(x in res) || res[x] === null) res[x] = defaultMedia[x];
-          });
           setInput(res);
         })
         .catch((e) => console.log(e));

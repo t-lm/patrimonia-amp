@@ -3,15 +3,16 @@
 // main facts on visit page
 import Image from "next/image";
 
-import { Keys, Protections } from "../utils/dictionary";
+import { Keys } from "../utils/dictionary";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const LANG = "fr";
-const ArchiStyles = require("../utils/ArchiStyles.json");
-const Events = require("../utils/Events.json");
-const Periods = require("../utils/Periods.json");
+const SiteEvents = require("../utils/SiteEvents.json");
+const SiteStyles = require("../utils/SiteStyles.json");
+const SitePeriods = require("../utils/SitePeriods.json");
+const SiteProtections = require("../utils/SiteProtections.json");
 
 export const SiteFacts = (props) => {
   const site = props.site;
@@ -42,7 +43,7 @@ export const SiteFacts = (props) => {
             {site.periods.length > 0 &&
               site.periods.map((t, i) => (
                 <span key={i}>
-                  {t in Periods ? Periods[t][LANG] : t}
+                  {t in SitePeriods ? SitePeriods[t][LANG] : t}
                   {i < site.periods.length - 1 && ", "}
                 </span>
               ))}
@@ -61,7 +62,7 @@ export const SiteFacts = (props) => {
             {site.styles.length > 0 &&
               site.styles.map((t, i) => (
                 <span key={i}>
-                  {t in ArchiStyles ? ArchiStyles[t][LANG] : t}
+                  {t in SiteStyles ? SiteStyles[t][LANG] : t}
                   {i < site.styles.length - 1 && ", "}
                 </span>
               ))}
@@ -100,7 +101,7 @@ export const SiteFacts = (props) => {
             {site.events.length > 0 &&
               site.events.map((t, i) => (
                 <span key={i}>
-                  {t in Events ? Events[t][LANG] : t}
+                  {t in SiteEvents ? SiteEvents[t][LANG] : t}
                   {i < site.events.length - 1 && ", "}
                 </span>
               ))}
@@ -119,7 +120,7 @@ export const SiteFacts = (props) => {
             {site.protections.length > 0 &&
               site.protections.map((t, i) => (
                 <span key={i}>
-                  {t in Protections[LANG] ? Protections[LANG][t] : t}
+                  {t in SiteProtections && SiteProtections[t][LANG]}
                   {t === "mh" && (
                     <span style={{ marginLeft: 5 }}>
                       <Image

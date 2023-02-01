@@ -9,11 +9,8 @@ import { useRouter } from "next/router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { API, withSSRContext } from "aws-amplify";
-import { deleteSite } from "../../src/graphql/mutations";
-import { getSite, listMedia } from "../../src/graphql/queries";
-
-import Button from "react-bootstrap/Button";
+import { withSSRContext } from "aws-amplify";
+import { getSite } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
@@ -23,27 +20,18 @@ import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { getCurrentUser } from "../../utils/auth";
 
-//export async function getServerSideProps({ req, params }) {
 export const getServerSideProps = async ({ req, params }) => {
   
   const SSR = withSSRContext({ req });
   
-  const { data } = await SSR.API.graphql({
-    query: getSite,
-    variables: { id: params.id },
-  });
-
-  const response = await SSR.API.graphql({ query: listMedia });
+  const { data } = await SSR.API.graphql({ query: getSite, variables: { id: params.id }});
 
   return {
-    props: {
-      site: data.getSite,
-      media: response.data.listMedia.items
-    }
+    props: { site: data.getSite }
   };
 }
 
-const Site = ({ site, media }) => {
+const Site = ({ site }) => {
   const router = useRouter();
 
   // authentication
@@ -77,7 +65,6 @@ const Site = ({ site, media }) => {
       throw new Error(errors[0].message);
     }
     */
-   console.log("This is not possible at this stage")
   }
 
   return (
@@ -93,7 +80,7 @@ const Site = ({ site, media }) => {
         <SiteBasics site={site} />
 
         {/* pictures */}
-        <SitePictures site={site} media={media} /> 
+        {site.media.items.length > 0 && <SitePictures site={site} media={site.media.items.filter(x => x.id !== site.pictureID)} />}
         
         {/* Key facts */}
         {(site.periods || site.styles || site.persons || site.events || site.protections) && <SiteFacts site={site} />}

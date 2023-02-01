@@ -1,29 +1,31 @@
 type Site
   @model
   @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
-  id: ID!
+  id: ID! @primaryKey
   name: String!
   headline: String!
-  address: Address
+  address: Address!
   position: Position
-  types: [SiteTypes]
+  types: [SiteTypes]!
   styles: [SiteStyles]
   periods: [SitePeriods]
   protections: [SiteProtections]
-  description: String
+  description: String!
   links: [Link]
+  pictureID: ID!
+  picture: Media @hasOne(fields: ["pictureID"])
+  media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
 }
 
 type Media
   @model
   @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
-  id: ID!
-  siteID: ID @index(name: "bySite")
-  description_fr: String
+  id: ID! @primaryKey
+  siteID: ID! @index(name: "bySite")
+  description_fr: String!
   description_en: String
   source: String
   copyright: String
-  leading: Boolean # leading picture on page site
 }
 
 type Address {
@@ -34,9 +36,9 @@ type Address {
 }
 
 type Link {
-  fr: String
+  fr: String!
   en: String
-  wwww: String
+  www: String!
 }
 
 type Position {

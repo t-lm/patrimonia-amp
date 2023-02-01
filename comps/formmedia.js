@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { API, Storage } from "aws-amplify";
-import { createMedia, updateMedia } from "../src/graphql/mutations";
+import { createMedia, updateMedia, deleteMedia } from "../src/graphql/mutations";
 import { listSites } from '../src/graphql/queries';
 
 import Form from "react-bootstrap/Form";
@@ -57,6 +57,22 @@ const FormMedia = (props) => {
     }
   };
 
+  const handleDeleteMedia = async () => {
+    try {
+
+      await Storage.remove(media.id)
+      await API.graphql({
+        authMode: "AMAZON_COGNITO_USER_POOLS",
+        query: deleteMedia,
+        variables: { input: { id: media.id }},
+      });
+      window.location.href = `/admin/media`;
+    } catch (e) {
+      console.error(e);
+      setError("There is an error with this form");
+    }
+  };
+
   const handleNewImage = async () => {
     setError(false);
  
@@ -89,11 +105,13 @@ const FormMedia = (props) => {
   return (
     <>
       <h4 style={{ fontWeight: "bold" }}>
-        {action === "add" && "Create media"}
-        {action === "update" && "Update media"}
+        {action === "add" && "Créer l'image"}
+        {action === "update" && "Mettre à jour l'image"}
       </h4>
-      <Form>
-        <Form.Group as={Row} style={{ marginTop: 30 }}>
+
+      <Row style={{marginTop: 50, fontSize: "0.9rem", color: "grey", fontWeight: "bold"}}><Col>Identifiant</Col><Col sm="9">{media.id}</Col></Row>
+      <Form style={{fontSize: "0.9rem"}}>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
             <Form.Label>Image</Form.Label>
           </Col>
@@ -128,28 +146,28 @@ const FormMedia = (props) => {
               )}
           </Col>
         </Form.Group>
-        <Form.Group as={Row} style={{ marginTop: 50 }}>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
-            <Form.Label>Description </Form.Label>
+            <Form.Label>Description</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+              required
               type="text"
               onChange={(e) =>
                 setMedia({ ...media, description_fr: e.target.value })
               }
               value={media.description_fr}
               size="sm"
-              required
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} style={{ marginTop: 50 }}>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
-            <Form.Label>Site ID</Form.Label>
+            <Form.Label>Site</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control as="select" size="sm" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
+            <Form.Control as="select" size="sm" defaultValue="none" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
               {sites.map(x => <option key={x.id} value={x.id}>{x.id}</option>)}
             </Form.Control>
           </Col>
@@ -165,6 +183,7 @@ const FormMedia = (props) => {
               onChange={(e) => setMedia({ ...media, source: e.target.value })}
               value={media.source}
               size="sm"
+              required
             />
           </Col>
         </Form.Group>
@@ -173,20 +192,9 @@ const FormMedia = (props) => {
             <Form.Label>Copyright</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control as="select" size="sm" defaultValue="licence_ccbync" onChange={(e) => setMedia({ ...media, copyright: e.target.value })}>
+            <Form.Control as="select" size="sm" required defaultValue="licence_ccbync" onChange={(e) => setMedia({ ...media, copyright: e.target.value })}>
               {Object.keys(Licences).map(x => <option key={x} value={x}>{Licences[x][LANG]}</option>)}
             </Form.Control>
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} style={{ marginTop: 5 }}>
-          <Col>
-            <Form.Label>Leading picture</Form.Label>
-          </Col>
-          <Col sm="9">
-            <Form.Check 
-              onChange={()=> setMedia({...media, leading: !media.leading })}
-              checked={media.leading}
-            />
           </Col>
         </Form.Group>
 
@@ -202,7 +210,24 @@ const FormMedia = (props) => {
             padding: "5px 30px",
           }}
         >
-          Save
+         Enregistrer
+        </Button>
+        
+        <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        <Button
+          onClick={() => handleDeleteMedia()}
+          size="md"
+          style={{
+            marginTop: 10,
+            backgroundColor: "white",
+            border: "1px solid pink",
+            color: "black",
+            fontWeight: "bold",
+            padding: "5px 30px",
+            display: "block"
+          }}
+        >
+          Supprimer
         </Button>
       </Form>
       {error && <Error error={error} />}

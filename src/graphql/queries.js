@@ -25,7 +25,33 @@ export const getSite = /* GraphQL */ `
       links {
         fr
         en
-        wwww
+        www
+      }
+      pictureID
+      picture {
+        id
+        siteID
+        description_fr
+        description_en
+        source
+        copyright
+        createdAt
+        updatedAt
+        owner
+      }
+      media {
+        items {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
       }
       createdAt
       updatedAt
@@ -35,11 +61,19 @@ export const getSite = /* GraphQL */ `
 `;
 export const listSites = /* GraphQL */ `
   query ListSites(
+    $id: ID
     $filter: ModelSiteFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listSites(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listSites(
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         name
@@ -62,7 +96,22 @@ export const listSites = /* GraphQL */ `
         links {
           fr
           en
-          wwww
+          www
+        }
+        pictureID
+        picture {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        media {
+          nextToken
         }
         createdAt
         updatedAt
@@ -81,7 +130,6 @@ export const getMedia = /* GraphQL */ `
       description_en
       source
       copyright
-      leading
       createdAt
       updatedAt
       owner
@@ -90,11 +138,19 @@ export const getMedia = /* GraphQL */ `
 `;
 export const listMedia = /* GraphQL */ `
   query ListMedia(
+    $id: ID
     $filter: ModelMediaFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listMedia(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMedia(
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         siteID
@@ -102,7 +158,6 @@ export const listMedia = /* GraphQL */ `
         description_en
         source
         copyright
-        leading
         createdAt
         updatedAt
         owner
@@ -133,7 +188,6 @@ export const mediaBySiteID = /* GraphQL */ `
         description_en
         source
         copyright
-        leading
         createdAt
         updatedAt
         owner

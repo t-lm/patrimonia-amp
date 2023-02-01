@@ -1,17 +1,17 @@
 // pages/index.js
 
 import React, { useEffect, useState } from "react";
-
 import Head from 'next/head';
 import Link from 'next/link';
 
 import { withSSRContext } from 'aws-amplify';
 import { listSites } from '../src/graphql/queries';
 
-import Layout from "../comps/layout";
 import { getCurrentUser } from "../utils/auth";
+import Layout from "../comps/layout";
+import { SitePill } from "../comps/sitepill";
 
-export async function getServerSideProps({ req }) {
+export const getServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });
   try {
     const response = await SSR.API.graphql({ query: listSites });
@@ -30,6 +30,7 @@ export async function getServerSideProps({ req }) {
 
 const Index = ({ Sites = [] }) => {
 
+
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -41,15 +42,11 @@ const Index = ({ Sites = [] }) => {
       </Head>
 
         <main>
-          {Sites.map((Site) => (
-            <a href={`/sites/${Site.id}`} key={Site.id}  style={{textDecoration: "none", color: "black"}}>
-              <h3>{Site.name}</h3>
-              <p style={{color: "grey"}}>{Site.headline}</p>
-            </a>
-          ))}
+          {Sites.map(site => <SitePill site={site} /> )}
         </main>
+
         { username && username === "tlm" && 
-          <Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/admin/new", query:{model: "site"}}}>Add new site</Link>
+          <Link style={{color: "black", textDecoration: "none"}} href={{pathname: "/admin/new", query:{model: "site"}}}>Add new site</Link>
           }
     </Layout>
   );

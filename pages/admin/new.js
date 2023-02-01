@@ -12,7 +12,7 @@ import Layout from "../../comps/layout";
 import FormSite from "../../comps/formsite";
 import FormMedia from "../../comps/formmedia";
 
-const defaultSite = { name: "", headline: "", types: [], address: { street: "", city: "", postalCode: ""} };
+const defaultSite = { name: "", headline: "", types: [], address: { street: "", city: "", postalCode: ""}, description: "", types: [], styles: [], periods: [], protections: [], pictureID: "patrimonia-blue", links: [] };
 const defaultMedia = { id: nanoid(8), siteID: "", description_fr: "", description_en: "", source: "", copyright: "" };
 
 const New = () => {

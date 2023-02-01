@@ -1,0 +1,13 @@
+{
+  "antiquityGreek": {"fr": "Grec antique","en": "Antique Greek"},
+  "antiquityRoman": {"fr": "Rome antique","en": "Antique Roman"},
+  "carolingian": {"fr": "Carolingien","en": "Carolingian"},
+  "roman": {"fr": "Roman","en": "Roman"},
+  "gothic": {"fr": "Gothique","en": "Gothic"},
+  "renaissance": {"fr": "Renaissance","en": "Renaissance"},
+  "baroque": {"fr": "Baroque","en": "Baroque"},
+  "xix": {"fr": "19ème","en": "19th"},
+  "artDeco": {"fr": "Art Déco","en": "Art Déco"},
+  "artNouveau": {"fr": "Art Nouveau","en": "Art Nouveau"},
+  "contemporary": {"fr": "Contemporain","en": "Contemporary"}
+}

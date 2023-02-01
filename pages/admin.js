@@ -1,12 +1,12 @@
-// pages/admin/index.js
+// pages/admin.js
 
 import React, { useEffect, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
 
-import Layout from "../../comps/layout";
-import { getCurrentUser } from "../../utils/auth";
+import Layout from "../comps/layout";
+import { getCurrentUser } from "../utils/auth";
 
 export default function Index() {
   const [username, setUsername] = useState();
@@ -28,7 +28,7 @@ export default function Index() {
             <li>
               <Link
                 style={{ color: "black", textDecoration: "none" }}
-                href={{ pathname: "/sites" }}
+                href={{ pathname: "/" }}
               >
                 List sites
               </Link>
@@ -43,7 +43,7 @@ export default function Index() {
             <li>
               <Link
                 style={{ color: "black", textDecoration: "none" }}
-                href={{ pathname: "/media" }}
+                href={{ pathname: "/admin/media" }}
               >
                 List media
               </Link>

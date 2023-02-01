@@ -28,7 +28,33 @@ export const createSite = /* GraphQL */ `
       links {
         fr
         en
-        wwww
+        www
+      }
+      pictureID
+      picture {
+        id
+        siteID
+        description_fr
+        description_en
+        source
+        copyright
+        createdAt
+        updatedAt
+        owner
+      }
+      media {
+        items {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
       }
       createdAt
       updatedAt
@@ -63,7 +89,33 @@ export const updateSite = /* GraphQL */ `
       links {
         fr
         en
-        wwww
+        www
+      }
+      pictureID
+      picture {
+        id
+        siteID
+        description_fr
+        description_en
+        source
+        copyright
+        createdAt
+        updatedAt
+        owner
+      }
+      media {
+        items {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
       }
       createdAt
       updatedAt
@@ -98,7 +150,33 @@ export const deleteSite = /* GraphQL */ `
       links {
         fr
         en
-        wwww
+        www
+      }
+      pictureID
+      picture {
+        id
+        siteID
+        description_fr
+        description_en
+        source
+        copyright
+        createdAt
+        updatedAt
+        owner
+      }
+      media {
+        items {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
       }
       createdAt
       updatedAt
@@ -118,7 +196,6 @@ export const createMedia = /* GraphQL */ `
       description_en
       source
       copyright
-      leading
       createdAt
       updatedAt
       owner
@@ -137,7 +214,6 @@ export const updateMedia = /* GraphQL */ `
       description_en
       source
       copyright
-      leading
       createdAt
       updatedAt
       owner
@@ -156,7 +232,6 @@ export const deleteMedia = /* GraphQL */ `
       description_en
       source
       copyright
-      leading
       createdAt
       updatedAt
       owner

@@ -12,7 +12,10 @@ import Button from "react-bootstrap/Button";
 
 import { Error } from "./error";
 
+const SitePeriods = require("../utils/SitePeriods.json");
+const SiteProtections = require("../utils/SiteProtections.json");
 const SiteTypes = require("../utils/SiteTypes.json");
+const SiteStyles = require("../utils/SiteStyles.json");
 const slugify = require("slugify");
 
 const LANG = "fr";
@@ -23,15 +26,36 @@ const FormSite = (props) => {
   const [site, setSite] = useState(props.input);
   const [error, setError] = useState(false);
 
-  const handleUpdateSiteType = (key) => {
+  const handleUpdateSiteTypes = (key) => {
     let index = site.types.indexOf(key)
     let types = site.types
-    // remove from list
     if (index > -1) { types.splice(index, 1); setSite({...site, types }) }
-    // add to existing list
     else if (site.types.length > 0 ) { types.push(key); setSite({...site, types }) }
-    // add to empty list
     else setSite({...site, types: [key]})
+}
+
+const handleUpdateSitePeriods = (key) => {
+  let index = site.periods.indexOf(key)
+  let periods = site.periods
+  if (index > -1) { periods.splice(index, 1); setSite({...site, periods }) }
+  else if (site.periods.length > 0 ) { periods.push(key); setSite({...site, periods }) }
+  else setSite({...site, periods: [key]})
+}
+
+const handleUpdateSiteStyles = (key) => {
+  let index = site.styles.indexOf(key)
+  let styles = site.styles
+  if (index > -1) { styles.splice(index, 1); setSite({...site, styles }) }
+  else if (site.styles.length > 0 ) { styles.push(key); setSite({...site, styles }) }
+  else setSite({...site, styles: [key]})
+}
+
+const handleUpdateSiteProtections = (key) => {
+  let index = site.protections.indexOf(key)
+  let protections = site.protections
+  if (index > -1) { protections.splice(index, 1); setSite({...site, protections }) }
+  else if (site.protections.length > 0 ) { protections.push(key); setSite({...site, protections }) }
+  else setSite({...site, protections: [key]})
 }
 
   const handleCreateSite = async (event) => {
@@ -51,8 +75,8 @@ const FormSite = (props) => {
       });
 
       window.location.href = `/sites/${site.id}`;
-    } catch ({ errors }) {
-      console.error(...errors);
+    } catch (e) {
+      console.error(e);
       setError("There is an error with this form")
     }
   };
@@ -68,8 +92,8 @@ const FormSite = (props) => {
       });
 
       window.location.href = `/sites/${site.id}`;
-    } catch ({ errors }) {
-      console.error(...errors);
+    } catch (e) {
+      console.error(e);
       //throw new Error(errors[0].message);
       setError("There is an error with this form")
     }
@@ -78,16 +102,17 @@ const FormSite = (props) => {
   return (
     <>
       <h4 style={{ fontWeight: "bold" }}>
-        {action === "add" && "Create site"}
-        {action === "update" && "Update site"}
+        {action === "add" && "Créer le site"}
+        {action === "update" && "Mettre à jour le site"}
       </h4>
-      <Form>
+      <Form style={{fontSize: "0.9rem"}}>
         <Form.Group as={Row} style={{ marginTop: 50 }}>
           <Col>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Nom</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+              required
               type="text"
               onChange={(e) => setSite({ ...site, name: e.target.value })}
               value={site.name}
@@ -98,10 +123,11 @@ const FormSite = (props) => {
 
         <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
-            <Form.Label>Headline</Form.Label>
+            <Form.Label>Résumé</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+              required
               as="textarea"
               rows={2}
               onChange={(e) => setSite({ ...site, headline: e.target.value })}
@@ -111,30 +137,16 @@ const FormSite = (props) => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} style={{ marginTop: 20 }}>
-          <Col>
-            <Form.Label>Site type</Form.Label>
-          </Col>
-          <Col sm="9">
-            {Object.keys(SiteTypes).map((x) => (
-              <Form.Check
-                key={x}
-                onChange={() => handleUpdateSiteType(x)}
-                label={SiteTypes[x][LANG]}
-                checked={site.types.includes(x)}
-              />
-            ))}
-          </Col>
-        </Form.Group>
 
         <Row style={{margin: "30px 0px", borderTop: "1px solid #ddd"}} />
-        <p>Address</p>
+        <b>Adresse</b>
         <Form.Group as={Row} style={{ marginTop: 5 }}>
           <Col>
-            <Form.Label>Street</Form.Label>
+            <Form.Label>Rue</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+                required
                 type="text"
                 onChange={(e) => setSite({ ...site, address: {...site.address, street: e.target.value }})}
                 value={site.address.street}
@@ -144,10 +156,11 @@ const FormSite = (props) => {
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 5 }}>
           <Col>
-            <Form.Label>Post code</Form.Label>
+            <Form.Label>Code postal</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+                required
                 type="text"
                 onChange={(e) => setSite({ ...site, address: {...site.address, postalCode: e.target.value }})}
                 value={site.address.postalCode}
@@ -157,16 +170,98 @@ const FormSite = (props) => {
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 5 }}>
           <Col>
-            <Form.Label>City</Form.Label>
+            <Form.Label>Ville</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
+                required
                 type="text"
                 onChange={(e) => setSite({ ...site, address: {...site.address, city: e.target.value }})}
                 value={site.address.city}
                 size="sm"
               />
             </Col>
+        </Form.Group>
+          
+        {/* Description */}
+        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+          <Col>
+            <Form.Label>Description</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              as="textarea"
+              rows={15}
+              onChange={(e) => setSite({ ...site, description: e.target.value })}
+              value={site.description}
+              size="sm"
+              required
+            />
+          </Col>
+        </Form.Group>
+
+        {/* Facts */}
+        <Row style={{margin: "30px 0px", borderTop: "1px solid #ddd"}} />
+        <b>Carte d'identité</b>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Type de site</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SiteTypes).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateSiteTypes(x)}
+                label={SiteTypes[x][LANG]}
+                checked={site.types.includes(x)}
+              />
+            ))}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Périodes</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SitePeriods).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateSitePeriods(x)}
+                label={SitePeriods[x][LANG]}
+                checked={site.periods && site.periods.includes(x)}
+              />
+            ))}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Styles architecturaux</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SiteStyles).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateSiteStyles(x)}
+                label={SiteStyles[x][LANG]}
+                checked={site.styles && site.styles.includes(x)}
+              />
+            ))}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Protections</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SiteProtections).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateSiteProtections(x)}
+                label={SiteProtections[x][LANG]}
+                checked={site.protections && site.protections.includes(x)}
+              />
+            ))}
+          </Col>
         </Form.Group>
 
         <Button
@@ -181,7 +276,7 @@ const FormSite = (props) => {
             padding: "5px 30px",
           }}
         >
-          Save
+          Enregistrer
         </Button>
       </Form>
       {error && <Error error={error} />}
