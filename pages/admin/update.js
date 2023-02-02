@@ -27,18 +27,18 @@ const Update = () => {
 
   useEffect(() => {
     if (model === "site") {
-      SSR.API.graphql({ query: getSite, variables: { id } })
+      API.graphql({ query: getSite, variables: { id } })
         .then((result) => {
           let res = result.data.getSite;
-          keysOut.concat(["picture", "media"]).forEach((x) => delete res[x]);
+          ["updatedAt", "createdAt", "owner" ,"picture", "media"].forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));
     } else if (model === "media") {
-      SSR.API.graphql({ query: getMedia, variables: { id } })
+      API.graphql({ query: getMedia, variables: { id } })
         .then((result) => {
           let res = result.data.getMedia;
-          keysOut.forEach((x) => delete res[x]);
+          ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));

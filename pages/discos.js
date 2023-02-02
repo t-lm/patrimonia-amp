@@ -13,11 +13,13 @@ import { listDiscos } from '../src/graphql/queries';
 import { getCurrentUser } from "../utils/auth";
 import Layout from "../comps/layout";
 
+import { DiscoPill } from "../comps/discopill";
+
 export const getServerSideProps = async ({ req }) => {
   const SSR = withSSRContext({ req });
   try {
     const response = await SSR.API.graphql({ query: listDiscos });
-    return { props: { Discoveries: response.data.listDiscoveries.items }};
+    return { props: { Discoveries: response.data.listDiscos.items }};
   } catch (err) {
     console.log(err);
     return { props: {}};
@@ -55,4 +57,4 @@ const Discos = ({ Discos = [] }) => {
   );
 }
 
-export default Discover
+export default Discos
