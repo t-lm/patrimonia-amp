@@ -20,6 +20,9 @@
       },
       "storage": {
         "media": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

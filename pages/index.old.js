@@ -1,7 +1,4 @@
 // pages/index.js
-//
-// not the right way to access dynamo - needs to be through IAM
-
 
 import React, { useEffect, useState } from "react";
 import Head from 'next/head';
@@ -11,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Collapse from "react-bootstrap/Collapse";
 
-import { withSSRContext, API } from 'aws-amplify';
+import { withSSRContext } from 'aws-amplify';
 import { listSites } from '../src/graphql/queries';
 
 import { getCurrentUser } from "../utils/auth";
@@ -19,11 +16,10 @@ import Layout from "../comps/layout";
 import { SitePill } from "../comps/sitepill";
 import { FilterSites } from "../comps/filtersites";
 
-export const getStaticProps = async ({ req }) => {
-  //const SSR = withSSRContext({ req });
+export const getServerSideProps = async ({ req }) => {
+  const SSR = withSSRContext({ req });
   try {
-    //const response = await SSR.API.graphql({ query: listSites });
-    const response = await API.graphql({ query: listSites, authMode: 'AWS_IAM' });
+    const response = await SSR.API.graphql({ query: listSites });
     return { props: { Sites: response.data.listSites.items }};
   } catch (err) {
     console.log(err);
