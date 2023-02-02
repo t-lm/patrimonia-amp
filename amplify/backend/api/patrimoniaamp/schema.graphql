@@ -30,17 +30,44 @@ type Media
 
 type Disco
 @model
-@auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+@auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
     id: ID!
     name: String!
     headline: String!
-    dateStart: String
-    dateEnd: String
+    organiserID: ID!
+    organiser: Organiser @hasOne(fields: ["organiserID"])
+    type: String!
+    format: String
+    format2: String
+    demandCommentary: String
+    bookingRequired: Boolean
+    dateStart: String!
+    dateEnd: String!
+    dates: [EventDate]
     pictures: [String]
-    organiserID: ID
     duration: [Float]
+    price: [DiscoveryPrices]
     subjects: [DiscoverySubjects]
     languages: [DiscoveryLanguages]
+    audiences: [DiscoveryAudiences]
+    styles: [SiteStyles]
+    periods: [SitePeriods]
+    address: Address
+    sites: [String]
+}
+
+type Organiser
+  @model
+  @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
+  id: ID! @primaryKey
+  name: String!
+  description_fr: String!
+  description_en: String  
+  www: String
+  phone: String
+  email: String
+  picture: String
+  address: Address
 }
 
 type Address {
@@ -48,6 +75,11 @@ type Address {
   street: String!
   postalCode: String!
   city: String!
+}
+
+type EventDate {
+  start: String
+  end: String!
 }
 
 type Link {
@@ -60,7 +92,6 @@ type Position {
   latitude: Float
   longitude: Float
 }
-
 
 enum Countries {
   fr
@@ -123,6 +154,12 @@ enum SiteTypes {
   urban
 }
 
+enum DiscoveryAudiences {
+  everyone
+  families
+  specialists
+}
+
 enum DiscoveryLanguages {
     cn
     de
@@ -132,6 +169,13 @@ enum DiscoveryLanguages {
     it
     jp
     nl
+}
+
+enum DiscoveryPrices {
+  free
+  freeDonation
+  freeTip
+  paying
 }
 
 enum DiscoverySubjects {

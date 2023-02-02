@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { withSSRContext, API } from "aws-amplify";
+import { API } from "aws-amplify";
 import { getSite, listSites } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
@@ -20,15 +20,9 @@ import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { getCurrentUser } from "../../utils/auth";
 
-export const getStaticProps = async ({ req, params }) => {
-  
-  //const SSR = withSSRContext({ req });
-  //const { data } = await SSR.API.graphql({ query: getSite, variables: { id: params.id }});
+export const getStaticProps = async ({ params }) => {
   const { data } = await API.graphql({ query: getSite, variables: { id: params.id }, authMode: 'AWS_IAM' });
-
-  return {
-    props: { site: data.getSite }
-  };
+  return { props: { site: data.getSite } }
 }
 
 export async function getStaticPaths() {

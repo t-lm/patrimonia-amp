@@ -247,13 +247,52 @@ export const onCreateDisco = /* GraphQL */ `
       id
       name
       headline
+      organiserID
+      organiser {
+        id
+        name
+        description_fr
+        description_en
+        www
+        phone
+        email
+        picture
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      format
+      format2
+      demandCommentary
+      bookingRequired
       dateStart
       dateEnd
+      dates {
+        start
+        end
+      }
       pictures
-      organiserID
       duration
+      price
       subjects
       languages
+      audiences
+      styles
+      periods
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      sites
       createdAt
       updatedAt
       owner
@@ -269,13 +308,52 @@ export const onUpdateDisco = /* GraphQL */ `
       id
       name
       headline
+      organiserID
+      organiser {
+        id
+        name
+        description_fr
+        description_en
+        www
+        phone
+        email
+        picture
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      format
+      format2
+      demandCommentary
+      bookingRequired
       dateStart
       dateEnd
+      dates {
+        start
+        end
+      }
       pictures
-      organiserID
       duration
+      price
       subjects
       languages
+      audiences
+      styles
+      periods
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      sites
       createdAt
       updatedAt
       owner
@@ -291,13 +369,130 @@ export const onDeleteDisco = /* GraphQL */ `
       id
       name
       headline
+      organiserID
+      organiser {
+        id
+        name
+        description_fr
+        description_en
+        www
+        phone
+        email
+        picture
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      format
+      format2
+      demandCommentary
+      bookingRequired
       dateStart
       dateEnd
+      dates {
+        start
+        end
+      }
       pictures
-      organiserID
       duration
+      price
       subjects
       languages
+      audiences
+      styles
+      periods
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      sites
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateOrganiser = /* GraphQL */ `
+  subscription OnCreateOrganiser(
+    $filter: ModelSubscriptionOrganiserFilterInput
+    $owner: String
+  ) {
+    onCreateOrganiser(filter: $filter, owner: $owner) {
+      id
+      name
+      description_fr
+      description_en
+      www
+      phone
+      email
+      picture
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateOrganiser = /* GraphQL */ `
+  subscription OnUpdateOrganiser(
+    $filter: ModelSubscriptionOrganiserFilterInput
+    $owner: String
+  ) {
+    onUpdateOrganiser(filter: $filter, owner: $owner) {
+      id
+      name
+      description_fr
+      description_en
+      www
+      phone
+      email
+      picture
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteOrganiser = /* GraphQL */ `
+  subscription OnDeleteOrganiser(
+    $filter: ModelSubscriptionOrganiserFilterInput
+    $owner: String
+  ) {
+    onDeleteOrganiser(filter: $filter, owner: $owner) {
+      id
+      name
+      description_fr
+      description_en
+      www
+      phone
+      email
+      picture
+      address {
+        name
+        street
+        postalCode
+        city
+      }
       createdAt
       updatedAt
       owner

@@ -6,9 +6,10 @@ import Head from "next/head";
 import Image from "next/image";
 
 import Container from "react-bootstrap/Container";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { BsHouse, BsBoxArrowInRight, BsBoxArrowRight } from "react-icons/bs";
@@ -77,46 +78,50 @@ const Layout = ({ children }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
-              {/*
-                <Nav.Link
-                  style={{ margin: "0px 20px", color: "black" }}
-                  href="/sites"
-                >
-                  {Keys[LANG]["sites"]}
-                </Nav.Link>
-              */}
-                <NavDropdown
-                  align="end"
-                  title={
-                    <span
-                      style={{
-                        marginRight: 10,
-                      }}
-                    >
-                      {username && username}
-                    </span>
-                  }
-                >
-                  <small>
-                    {username ? (
-                      <>
-                        <NavDropdown.Item href={`/admin`}>
-                          <BsHouse style={{ marginRight: 5 }} />
-                          Admin
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/" onClick={(e) => logout()}>
-                          <BsBoxArrowRight style={{ marginRight: 5 }} />
-                          Se déconnecter
-                        </NavDropdown.Item>
-                      </>
-                    ) : (
-                      <NavDropdown.Item href={`/sign`}>
-                        <BsBoxArrowInRight style={{ marginRight: 5 }} />
-                        Se connecter
+              <Nav.Link
+                style={{ margin: "0px 20px", color: "black" }}
+                href="/"
+              >
+                {Keys[LANG]["sites"]}
+              </Nav.Link>
+              <Nav.Link
+                style={{ margin: "0px 20px", color: "black" }}
+                href="/discos"
+              >
+                {Keys[LANG]["discos"]}
+              </Nav.Link>
+              <NavDropdown
+                align="end"
+                title={
+                  <span
+                    style={{
+                      marginRight: 10,
+                    }}
+                  >
+                    {username && username}
+                  </span>
+                }
+              >
+                <small>
+                  {username ? (
+                    <>
+                      <NavDropdown.Item href={`/admin`}>
+                        <BsHouse style={{ marginRight: 5 }} />
+                        Admin
                       </NavDropdown.Item>
-                    )}
-                  </small>
-                </NavDropdown>
+                      <NavDropdown.Item href="/" onClick={(e) => logout()}>
+                        <BsBoxArrowRight style={{ marginRight: 5 }} />
+                        Se déconnecter
+                      </NavDropdown.Item>
+                    </>
+                  ) : (
+                    <NavDropdown.Item href={`/sign`}>
+                      <BsBoxArrowInRight style={{ marginRight: 5 }} />
+                      Se connecter
+                    </NavDropdown.Item>
+                  )}
+                </small>
+              </NavDropdown>
             </Navbar.Collapse>
           </Navbar>
 

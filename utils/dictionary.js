@@ -19,6 +19,8 @@ export const Keys = {
     contact: "Contact",
     date: "Date",
     description: "Description",
+    disco: "Découverte",
+    discos: "Découvertes",
     edition: "Edition",
     email: "Email",
     filter: "Filtrer les résultats",
@@ -93,6 +95,8 @@ export const Keys = {
     contact: "Details",
     date: "Date",
     description: "Description",
+    disco: "Discovery",
+    discos: "Discoveries",
     edition: "Edition",
     email: "Email",
     filter: "Filter results",
@@ -160,15 +164,6 @@ export const Keys = {
 }
 
 
-export const Protections = {
-  fr: {
-    mh: "Monuments historiques"
-  },
-  en: {
-    mh: "Monuments historiques"
-  }
-}
-
 export const SiteMedia = ({lang, num}) => {
   if (lang === "fr") return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
   //if (lang === "fr") return <span>{num} autres photos</span>;
@@ -186,8 +181,7 @@ export const VisitDonations = {
   }
 }
 
-
-export const VisitMedia = ({lang, num}) => {
+export const DiscoMedia = ({lang, num}) => {
   if (lang === "fr") return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
   //if (lang === "fr") return <span>{num} autres photos</span>;
   else return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
