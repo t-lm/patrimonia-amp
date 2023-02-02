@@ -1,6 +1,6 @@
 type Site
   @model
-  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+  @auth(rules: [{ allow: owner }, { allow: public,  provider: iam, operations: [read] }]) {
   id: ID! @primaryKey
   name: String!
   headline: String!
@@ -19,7 +19,7 @@ type Site
 
 type Media
   @model
-  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
+  @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
   id: ID! @primaryKey
   siteID: ID! @index(name: "bySite")
   description_fr: String!
