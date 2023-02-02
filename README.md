@@ -2,6 +2,9 @@
 - work in progress - pushing patrimonia here
 - implement geocoding for positions
 
+# architecture: 
+- full stack - getStaticProps seems to be working
+
 # colors:
 - pink: pink/ #F6C4CD
 - yellow: xx#f5e39f

@@ -9,8 +9,8 @@ import { useRouter } from "next/router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { withSSRContext } from "aws-amplify";
-import { getSite } from "../../src/graphql/queries";
+import { withSSRContext, API } from "aws-amplify";
+import { getSite, listSites } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
@@ -20,14 +20,28 @@ import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { getCurrentUser } from "../../utils/auth";
 
-export const getServerSideProps = async ({ req, params }) => {
+export const getStaticProps = async ({ req, params }) => {
   
-  const SSR = withSSRContext({ req });
-  const { data } = await SSR.API.graphql({ query: getSite, variables: { id: params.id }});
+  //const SSR = withSSRContext({ req });
+  //const { data } = await SSR.API.graphql({ query: getSite, variables: { id: params.id }});
+  const { data } = await API.graphql({ query: getSite, variables: { id: params.id }, authMode: 'AWS_IAM' });
 
   return {
     props: { site: data.getSite }
   };
+}
+
+export async function getStaticPaths() {
+  const response = await API.graphql({ query: listSites, authMode: 'AWS_IAM' });
+  const paths = response.data.listSites.items.map((s) => {
+    return {
+      params: {
+        id: s.id
+      },
+    };
+  });
+
+  return { paths, fallback: false };
 }
 
 const Site = ({ site }) => {

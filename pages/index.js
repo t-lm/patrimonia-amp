@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Collapse from "react-bootstrap/Collapse";
 
-import { withSSRContext, API } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { listSites } from '../src/graphql/queries';
 
 import { getCurrentUser } from "../utils/auth";
@@ -20,9 +20,8 @@ import { SitePill } from "../comps/sitepill";
 import { FilterSites } from "../comps/filtersites";
 
 export const getStaticProps = async ({ req }) => {
-  //const SSR = withSSRContext({ req });
+  
   try {
-    //const response = await SSR.API.graphql({ query: listSites });
     const response = await API.graphql({ query: listSites, authMode: 'AWS_IAM' });
     return { props: { Sites: response.data.listSites.items }};
   } catch (err) {
