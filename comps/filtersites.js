@@ -5,6 +5,7 @@ import { Keys } from "../utils/dictionary";
 
 const LANG = "fr";
 const SiteTypes = require("../utils/SiteTypes.json");
+const SitePeriods = require("../utils/SitePeriods.json");
 
 export const FilterSites = (props) => {
   const filter = props.filter;
@@ -40,7 +41,7 @@ export const FilterSites = (props) => {
               label={SiteTypes[t][LANG]}
               onChange={() => {
                 if (filter && filter.type === t) {
-                  cb({});
+                  cb({type: null});
                 } else cb({ type: t });
               }}
               type="checkbox"
@@ -49,6 +50,27 @@ export const FilterSites = (props) => {
           ))}
         </div>
       </Form>
+
+      {/* Site periods */}
+      <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
+        {Keys[LANG].keyPeriods}
+      </div>
+      <Form>
+        {Object.keys(SitePeriods).map((t, i) => (
+          <Form.Check
+            key={i}
+            label={SitePeriods[t][LANG]}
+            onChange={() => {
+              if (filter && filter.period === t) {
+                cb({ period: null });
+              } else cb({ period: t });
+            }}
+            type="checkbox"
+            checked={filter && filter.period === t}
+          />
+        ))}
+      </Form>
+      
     </div>
   );
 };

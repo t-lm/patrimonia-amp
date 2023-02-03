@@ -41,17 +41,29 @@ const Index = ({ Sites = [] }) => {
 
   // state
   const [username, setUsername] = useState();
-  const [filter, setFilter] = useState(false);
+  const [filter, setFilter] = useState();
   const [sites, setSites] = useState(Sites);
   const [open, setOpen] = useState(true);
 
   // functions
   const handleFilter = (f) => {
-    setFilter(f);
-    return setSites(Sites.filter((x) => {
-      if(f.type) {return x.types.includes(f.type)} 
-      else return true
-    }));
+    let filt = { ...filter };
+    filt[Object.keys(f)[0]] = f[Object.keys(f)[0]];
+    setFilter(filt);
+
+    return setSites(
+      Sites
+        .filter((x) => {
+          if (filt.type) {
+            return x.types.includes(filt.type);
+          } else return true;
+        })
+        .filter((x) => {
+          if (filt.period) {
+            return x.periods.includes(filt.period);
+          } else return true;
+        })
+    );
   };
 
   useEffect(() => setUsername(getCurrentUser().username), []);
