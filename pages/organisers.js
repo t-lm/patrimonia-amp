@@ -1,14 +1,15 @@
 // pages/organisers.js
 
 import React, { useEffect, useState } from "react";
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { API } from 'aws-amplify';
-import { listOrganisers } from '../src/graphql/queries';
+import { API } from "aws-amplify";
+import { listOrganisers } from "../src/graphql/queries";
 
 import { getCurrentUser } from "../utils/auth";
 import Layout from "../comps/layout";
@@ -16,23 +17,24 @@ import Layout from "../comps/layout";
 //import { OrganiserPill } from "../comps/organiserpill";
 
 export const getStaticProps = async ({ req }) => {
-
   try {
-    const response = await API.graphql({ query: listOrganisers, authMode: 'AWS_IAM' });
-    return { props: { Organisers: response.data.listOrganisers.items }};
+    const response = await API.graphql({
+      query: listOrganisers,
+      authMode: "AWS_IAM",
+    });
+    return { props: { Organisers: response.data.listOrganisers.items } };
   } catch (err) {
     console.log(err);
-    return { props: {}};
+    return { props: {} };
   }
-}
+};
 
 const Organisers = ({ Organisers = [] }) => {
-
   // state
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  console.log(Organisers)
+  console.log(Organisers);
 
   return (
     <Layout>
@@ -42,29 +44,38 @@ const Organisers = ({ Organisers = [] }) => {
       </Head>
 
       {/* Main */}
-      <Row id="main" style={{ marginTop: 10 }}>
-        <Col id="list">
-          {Organisers.map(organiser => <div key={organiser.id}>
-            <img
-                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
-                style={{
-                  height: 40,
-                  margin: "20px 20px 20px 0px",
-                  paddingBottom: 10,
-                }}
-              />
-              <Link href={`/organisers/${organiser.id}`}>{organiser.name}</Link>
-              </div> )}
-        </Col>
-      </Row>
-          
-        { username && username === "tlm" && 
-          <div style={{marginTop: 50}}>
-            <Link style={{color: "black"}} href={{pathname: "/admin/new", query:{model: "organiser"}}}>Ajouter un organisateur</Link>
-          </div>
-          }
+
+      {Organisers.map((organiser) => (
+        <Row key={organiser.id} style={{ marginTop: 10 }}>
+          <Col md={2}>
+            <Image
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
+              alt={organiser.name}
+              style={{
+                height: 40,
+                margin: "10px 20px 10px 0px",
+                paddingBottom: 10,
+              }}
+            />
+          </Col>
+          <Col>
+            <Link href={`/organisers/${organiser.id}`}>{organiser.name}</Link>
+          </Col>
+        </Row>
+      ))}
+
+      {username && username === "tlm" && (
+        <div style={{ marginTop: 50 }}>
+          <Link
+            style={{ color: "black" }}
+            href={{ pathname: "/admin/new", query: { model: "organiser" } }}
+          >
+            Ajouter
+          </Link>
+        </div>
+      )}
     </Layout>
   );
-}
+};
 
-export default Organisers
+export default Organisers;

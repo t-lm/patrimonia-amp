@@ -241,6 +241,7 @@ export const createDisco = /* GraphQL */ `
         city
       }
       sites
+      priority
       createdAt
       updatedAt
       owner
@@ -304,6 +305,7 @@ export const updateDisco = /* GraphQL */ `
         city
       }
       sites
+      priority
       createdAt
       updatedAt
       owner
@@ -367,6 +369,7 @@ export const deleteDisco = /* GraphQL */ `
         city
       }
       sites
+      priority
       createdAt
       updatedAt
       owner

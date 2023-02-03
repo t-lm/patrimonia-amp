@@ -175,6 +175,7 @@ export const getDisco = /* GraphQL */ `
         city
       }
       sites
+      priority
       createdAt
       updatedAt
       owner
@@ -234,6 +235,7 @@ export const listDiscos = /* GraphQL */ `
           city
         }
         sites
+        priority
         createdAt
         updatedAt
         owner

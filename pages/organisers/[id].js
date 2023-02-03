@@ -76,7 +76,7 @@ const Organiser = ({ organiser }) => {
                 height={50}
                 style={{
                   objectFit: "cover",
-                  border: "2px solid #111",
+                  border: "1px solid #111",
                   padding: 2,
                 }}
               />
@@ -117,7 +117,7 @@ const Organiser = ({ organiser }) => {
               marginTop: 20,
             }}
           >
-            {organiser.description_fr && <Col><span>{organiser.description_fr}</span></Col>}
+            {organiser.description_fr && <Col><span style={{whiteSpace: "pre-line"}}>{organiser.description_fr}</span></Col>}
           </Row>
         </section>
 

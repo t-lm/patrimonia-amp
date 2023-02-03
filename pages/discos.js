@@ -32,8 +32,6 @@ const Discos = ({ Discos = [] }) => {
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  console.log(Discos)
-
   return (
     <Layout>
       <Head>
