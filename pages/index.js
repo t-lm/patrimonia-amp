@@ -72,7 +72,7 @@ const Index = ({ Sites = [] }) => {
   return (
     <Layout>
       <Head>
-        <title>Sites</title>
+        <title>Patrimonia | Découvrir le patrimoine avec ses meilleurs guides</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
