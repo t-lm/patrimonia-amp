@@ -52,7 +52,6 @@ export const DiscoBasics = (props) => {
               title={disco.organiser.name}
               width={30}
               height={30}
-              roundedCircle
               style={{
                 objectFit: "cover",
                 border: "1px solid #eee",
@@ -78,7 +77,7 @@ export const DiscoBasics = (props) => {
                     fontSize: "0.8rem",
                     padding: 4,
                     borderRadius: 4,
-                    marginLeft: i > 0 && 7,
+                    marginLeft: i > 0 ? 7 : 0,
                   }}
                 >
                   {sub in DiscoSubjects && (

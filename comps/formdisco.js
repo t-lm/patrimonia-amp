@@ -1,4 +1,6 @@
 // comps/formdisco.js
+//
+// approach - minimu validation on key fields
 
 import React, { useState } from "react";
 
@@ -14,14 +16,19 @@ import Button from "react-bootstrap/Button";
 
 import { Error } from "./error";
 
-const DiscoSubjects = require("../utils/DiscoSubjects.json");
-//const DiscoTypes = require("../utils/DiscoTypes.json");
+const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoLanguages = require("../utils/DiscoLanguages.json");
+const DiscoSubjects = require("../utils/DiscoSubjects.json");
+const DiscoTypes = require("../utils/DiscoTypes.json");
+const SitePeriods = require("../utils/SitePeriods.json");
+const SiteStyles = require("../utils/SiteStyles.json");
+
 const slugify = require("slugify");
 
 const LANG = "fr";
 
 const FormDisco = (props) => {
+
   const action = props.action;
   const [disco, setDisco] = useState(props.input);
   const [error, setError] = useState(false);
@@ -40,6 +47,22 @@ const handleUpdateDiscoLanguages = (key) => {
   if (index > -1) { languages.splice(index, 1); setDisco({...site, languages }) }
   else if (disco.languages.length > 0 ) { languages.push(key); setDisco({...disco, languages }) }
   else setDisco({...disco, languages: [key]})
+}
+
+const handleUpdateDiscoPeriods = (key) => {
+  let index = disco.periods.indexOf(key)
+  let periods = disco.periods
+  if (index > -1) { periods.splice(index, 1); setDisco({...disco, periods }) }
+  else if (disco.periods.length > 0 ) { periods.push(key); setDisco({...disco, periods }) }
+  else setDisco({...disco, periods: [key]})
+}
+
+const handleUpdateDiscoStyles = (key) => {
+  let index = disco.styles.indexOf(key)
+  let styles = disco.styles
+  if (index > -1) { styles.splice(index, 1); setDisco({...disco, styles }) }
+  else if (disco.styles.length > 0 ) { styles.push(key); setDisco({...disco, styles }) }
+  else setDisco({...disco, styles: [key]})
 }
 
   const handleCreateDisco = async (event) => {
@@ -94,12 +117,14 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) => setDisco({ ...disco, name: e.target.value })}
               value={disco.name}
               size="sm"
             />
+            <Form.Control.Feedback type="invalid">
+              S'il vous plait choisissez un nom
+            </Form.Control.Feedback>
           </Col>
         </Form.Group>
 
@@ -109,7 +134,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               as="textarea"
               rows={2}
               onChange={(e) => setDisco({ ...disco, headline: e.target.value })}
@@ -118,14 +142,14 @@ const handleUpdateDiscoLanguages = (key) => {
             />
           </Col>
         </Form.Group>
-
-        <Form.Group as={Row} style={{ marginTop: 20 }}>
+        
+        {/* Identifiants, type et format */}
+        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20 , borderTop: "1px solid #ddd" }}>
           <Col>
-            <Form.Label>L'identifiant de l'organisateur</Form.Label>
+            <Form.Label>Identifiant de l'organisateur</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) => setDisco({ ...disco, organiserID: e.target.value })}
               value={disco.organiserID}
@@ -134,14 +158,36 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
         </Form.Group>
 
+        <Form.Group as={Row} style={{ marginTop: 20}}>
+          <Col>
+            <Form.Label>Occurences</Form.Label>
+          </Col>
+          <Col sm="9">
+          <Form.Select as="select" size="sm" defaultValue={disco.type} onChange={(e) => setDisco({ ...disco, type: e.target.value })}>
+              {Object.keys(DiscoTypes).map(x => <option key={x} value={x}>{DiscoTypes[x][LANG]}</option>)}
+            </Form.Select>
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} style={{ marginTop: 20}}>
+          <Col>
+            <Form.Label>Format</Form.Label>
+          </Col>
+          <Col sm="9">
+          <Form.Select as="select" size="sm" defaultValue={disco.format} onChange={(e) => setDisco({ ...disco, format: e.target.value })}>
+              {Object.keys(DiscoFormats).map(x => <option key={x} value={x}>{DiscoFormats[x][LANG]}</option>)}
+            </Form.Select>
+          </Col>
+        </Form.Group>
+
+
         {/* Dates */}
-        <Form.Group as={Row} style={{ marginTop: 5 }}>
+        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
           <Col>
             <Form.Label>Date de début</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) =>
                 setDisco({ ...disco, dateStart: e.target.value })
@@ -157,7 +203,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) => setDisco({ ...disco, dateEnd: e.target.value })}
               value={disco.dateEnd}
@@ -166,6 +211,22 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
         </Form.Group>
 
+        {/* Sites */}
+        <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Identifiants du site (ou des sites)</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              onChange={(e) => setDisco({ ...disco, sites: e.target.value.split(",") })}
+              value={disco.sites.join(",")}
+              size="sm"
+            />
+          </Col>
+        </Form.Group>
+  
         {/* Pictures */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
         <Form.Group as={Row} style={{ marginTop: 20 }}>
@@ -174,7 +235,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) => setDisco({ ...disco, pictures: e.target.value.split(",") })}
               value={disco.pictures.join(",")}
@@ -190,6 +250,7 @@ const handleUpdateDiscoLanguages = (key) => {
         ><Col>
           {disco.pictures.map((x) => (
             <Image
+              key={x}
               src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${x}`}
               className="shadow-1-strong rounded"
               alt="alternative text"
@@ -210,7 +271,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
           <Form.Control
-              required
               type="text"
               onChange={(e) => setDisco({ ...disco, duration: e.target.value.split(",") })}
               value={disco.duration.join(",")}
@@ -259,7 +319,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) =>
                 setDisco({
@@ -278,7 +337,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) =>
                 setDisco({
@@ -297,7 +355,6 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-              required
               type="text"
               onChange={(e) =>
                 setDisco({
@@ -311,6 +368,63 @@ const handleUpdateDiscoLanguages = (key) => {
           </Col>
         </Form.Group>
 
+
+        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+          <Col>
+            <Form.Label>Périodes</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SitePeriods).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateDiscoPeriods(x)}
+                label={SitePeriods[x][LANG]}
+                checked={disco.periods && disco.periods.includes(x)}
+              />
+            ))}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Styles architecturaux</Form.Label>
+          </Col>
+          <Col sm="9">
+            {Object.keys(SiteStyles).map((x) => (
+              <Form.Check
+                key={x}
+                onChange={() => handleUpdateDiscoStyles(x)}
+                label={SiteStyles[x][LANG]}
+                checked={disco.styles && disco.styles.includes(x)}
+              />
+            ))}
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Personnage(s) importants</Form.Label>
+          </Col>
+          <Col sm="9">
+          <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, persons: e.target.value.split(",") })}
+                value={disco.persons.join(",")}
+                size="sm"
+              />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+          <Col>
+            <Form.Label>Evènement(s) importants</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, events: e.target.value.split(",") })}
+                value={disco.events.join(",")}
+                size="sm"
+              />
+          </Col>
+        </Form.Group>
 
 
         <Button

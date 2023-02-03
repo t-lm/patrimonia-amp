@@ -166,6 +166,8 @@ export const getDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
@@ -223,6 +225,8 @@ export const listDiscos = /* GraphQL */ `
         audiences
         styles
         periods
+        events
+        persons
         address {
           name
           street

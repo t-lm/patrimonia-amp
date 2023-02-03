@@ -167,9 +167,9 @@ const FormMedia = (props) => {
             <Form.Label>Site</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control as="select" size="sm" defaultValue="none" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
+            <Form.Select as="select" size="sm" defaultValue="none" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
               {sites.map(x => <option key={x.id} value={x.id}>{x.id}</option>)}
-            </Form.Control>
+            </Form.Select>
           </Col>
         </Form.Group>
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />

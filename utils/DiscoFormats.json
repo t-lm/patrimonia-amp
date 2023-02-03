@@ -1,7 +1,7 @@
 {
-    "concert": {"fr": "Concert","en": "Concert"},
+    "guidedTour": {"fr": "Visite guidée","en": "Guided tour"},
+    "mediatedTour": {"fr": "Visite avec médiateur","en": "Visit with mediator"},
     "conference": {"fr": "Conférence","en": "Conférence"},
-    "mediated": {"fr": "Visite avec médiateur","en": "Visit with mediator"},
-    "museum": {"fr": "Musée","en": "Museum"},
-    "tour": {"fr": "Visite","en": "Tour"}
+    "concert": {"fr": "Concert","en": "Concert"},
+    "workshop": {"fr": "Atelier","en": "Workshop"}
   }

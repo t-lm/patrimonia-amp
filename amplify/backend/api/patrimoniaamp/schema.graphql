@@ -25,8 +25,8 @@ type Disco
     headline: String!
     organiserID: ID!
     organiser: Organiser @hasOne(fields: ["organiserID"])
-    type: String! # how to boook the discovery
-    format: String! # how to enkjoy the discovery
+    type: DiscoTypes! # the occurence of the discovery
+    format: DiscoFormats! # the format of the discovery
     format2: String
     demandCommentary: String
     bookingRequired: Boolean
@@ -35,12 +35,14 @@ type Disco
     dates: [EventDate]
     pictures: [String]
     duration: [Float]
-    price: DiscoveryPrices!
-    subjects: [DiscoverySubjects]
-    languages: [DiscoveryLanguages]
-    audiences: [DiscoveryAudiences]
+    price: DiscoPrices!
+    subjects: [DiscoSubjects]
+    languages: [DiscoLanguages]
+    audiences: [DiscoAudiences]
     styles: [SiteStyles]
     periods: [SitePeriods]
+    events: [String]
+    persons: [String]
     address: Address
     sites: [String]
 }
@@ -155,13 +157,21 @@ enum SiteTypes {
   urban
 }
 
-enum DiscoveryAudiences {
+enum DiscoAudiences {
   everyone
   families
   specialists
 }
 
-enum DiscoveryLanguages {
+enum DiscoFormats {
+    guidedTour
+    mediatedTour
+    conference
+    concert
+    workshop
+}
+
+enum DiscoLanguages {
     cn
     de
     en
@@ -172,14 +182,14 @@ enum DiscoveryLanguages {
     nl
 }
 
-enum DiscoveryPrices {
+enum DiscoPrices {
   free
   freeDonation
   freeTip
   paying
 }
 
-enum DiscoverySubjects {
+enum DiscoSubjects {
     art
     architecture
     culture
@@ -192,6 +202,12 @@ enum DiscoverySubjects {
     politics
     religion
     sciences
+}
+
+enum DiscoTypes {
+  regular
+  event
+  demand
 }
 
 enum OrganiserTypes {

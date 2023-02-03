@@ -20,9 +20,6 @@
     "xviii": { "fr":"XVIIIe siècle","en": "18th century"},
     "xix": { "fr":"XIXe siècle","en": "19th century"},
     "xx": { "fr":"XXe siècle","en": "20th century"},
-    "xxi": { "fr":"XXIe siècle","en": "21st century"},
-    "carolingian": { "fr":"Carolingian","en": "Carolingian"},
-    "middleAge": { "fr":"Moyen-Age","en": "Middle-Age"},
-    "renaissance": { "fr": "Renaissance","en": "Renaissance"}
+    "xxi": { "fr":"XXIe siècle","en": "21st century"}
   }
 

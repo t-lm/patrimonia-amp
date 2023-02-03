@@ -232,6 +232,8 @@ export const createDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
@@ -293,6 +295,8 @@ export const updateDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
@@ -354,6 +358,8 @@ export const deleteDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street

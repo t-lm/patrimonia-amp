@@ -2242,8 +2242,8 @@
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
+              "kind" : "ENUM",
+              "name" : "DiscoTypes",
               "ofType" : null
             }
           },
@@ -2257,8 +2257,8 @@
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
+              "kind" : "ENUM",
+              "name" : "DiscoFormats",
               "ofType" : null
             }
           },
@@ -2381,7 +2381,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryPrices",
+              "name" : "DiscoPrices",
               "ofType" : null
             }
           },
@@ -2396,7 +2396,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoverySubjects",
+              "name" : "DiscoSubjects",
               "ofType" : null
             }
           },
@@ -2411,7 +2411,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryLanguages",
+              "name" : "DiscoLanguages",
               "ofType" : null
             }
           },
@@ -2426,7 +2426,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryAudiences",
+              "name" : "DiscoAudiences",
               "ofType" : null
             }
           },
@@ -2457,6 +2457,36 @@
             "ofType" : {
               "kind" : "ENUM",
               "name" : "SitePeriods",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "events",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
               "ofType" : null
             }
           },
@@ -2696,6 +2726,64 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
+        "kind" : "ENUM",
+        "name" : "DiscoTypes",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "regular",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "event",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "demand",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "possibleTypes" : null
+      }, {
+        "kind" : "ENUM",
+        "name" : "DiscoFormats",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "guidedTour",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "mediatedTour",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "conference",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "concert",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "workshop",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "possibleTypes" : null
+      }, {
         "kind" : "OBJECT",
         "name" : "EventDate",
         "description" : null,
@@ -2732,7 +2820,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "ENUM",
-        "name" : "DiscoveryPrices",
+        "name" : "DiscoPrices",
         "description" : null,
         "fields" : null,
         "inputFields" : null,
@@ -2761,7 +2849,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "ENUM",
-        "name" : "DiscoverySubjects",
+        "name" : "DiscoSubjects",
         "description" : null,
         "fields" : null,
         "inputFields" : null,
@@ -2830,7 +2918,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "ENUM",
-        "name" : "DiscoveryLanguages",
+        "name" : "DiscoLanguages",
         "description" : null,
         "fields" : null,
         "inputFields" : null,
@@ -2879,7 +2967,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "ENUM",
-        "name" : "DiscoveryAudiences",
+        "name" : "DiscoAudiences",
         "description" : null,
         "fields" : null,
         "inputFields" : null,
@@ -2986,7 +3074,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
+            "name" : "ModelDiscoTypesInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2995,7 +3083,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
+            "name" : "ModelDiscoFormatsInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3067,7 +3155,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryPricesInput",
+            "name" : "ModelDiscoPricesInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3076,7 +3164,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoverySubjectsListInput",
+            "name" : "ModelDiscoSubjectsListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3085,7 +3173,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryLanguagesListInput",
+            "name" : "ModelDiscoLanguagesListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3094,7 +3182,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryAudiencesListInput",
+            "name" : "ModelDiscoAudiencesListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3113,6 +3201,24 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelSitePeriodsListInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "events",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3157,6 +3263,60 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelDiscoFilterInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelDiscoTypesInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "DiscoTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "DiscoTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelDiscoFormatsInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "DiscoFormats",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "DiscoFormats",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3305,7 +3465,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelDiscoveryPricesInput",
+        "name" : "ModelDiscoPricesInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3313,7 +3473,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryPrices",
+            "name" : "DiscoPrices",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3322,7 +3482,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryPrices",
+            "name" : "DiscoPrices",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3332,7 +3492,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelDiscoverySubjectsListInput",
+        "name" : "ModelDiscoSubjectsListInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3343,7 +3503,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoverySubjects",
+              "name" : "DiscoSubjects",
               "ofType" : null
             }
           },
@@ -3356,7 +3516,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoverySubjects",
+              "name" : "DiscoSubjects",
               "ofType" : null
             }
           },
@@ -3366,7 +3526,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoverySubjects",
+            "name" : "DiscoSubjects",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3375,7 +3535,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoverySubjects",
+            "name" : "DiscoSubjects",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3385,7 +3545,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelDiscoveryLanguagesListInput",
+        "name" : "ModelDiscoLanguagesListInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3396,7 +3556,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryLanguages",
+              "name" : "DiscoLanguages",
               "ofType" : null
             }
           },
@@ -3409,7 +3569,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryLanguages",
+              "name" : "DiscoLanguages",
               "ofType" : null
             }
           },
@@ -3419,7 +3579,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryLanguages",
+            "name" : "DiscoLanguages",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3428,7 +3588,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryLanguages",
+            "name" : "DiscoLanguages",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3438,7 +3598,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelDiscoveryAudiencesListInput",
+        "name" : "ModelDiscoAudiencesListInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3449,7 +3609,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryAudiences",
+              "name" : "DiscoAudiences",
               "ofType" : null
             }
           },
@@ -3462,7 +3622,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryAudiences",
+              "name" : "DiscoAudiences",
               "ofType" : null
             }
           },
@@ -3472,7 +3632,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryAudiences",
+            "name" : "DiscoAudiences",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3481,7 +3641,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryAudiences",
+            "name" : "DiscoAudiences",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4677,8 +4837,8 @@
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
+              "kind" : "ENUM",
+              "name" : "DiscoTypes",
               "ofType" : null
             }
           },
@@ -4690,8 +4850,8 @@
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
+              "kind" : "ENUM",
+              "name" : "DiscoFormats",
               "ofType" : null
             }
           },
@@ -4796,7 +4956,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryPrices",
+              "name" : "DiscoPrices",
               "ofType" : null
             }
           },
@@ -4809,7 +4969,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoverySubjects",
+              "name" : "DiscoSubjects",
               "ofType" : null
             }
           },
@@ -4822,7 +4982,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryLanguages",
+              "name" : "DiscoLanguages",
               "ofType" : null
             }
           },
@@ -4835,7 +4995,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryAudiences",
+              "name" : "DiscoAudiences",
               "ofType" : null
             }
           },
@@ -4862,6 +5022,32 @@
             "ofType" : {
               "kind" : "ENUM",
               "name" : "SitePeriods",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "events",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
               "ofType" : null
             }
           },
@@ -4960,7 +5146,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
+            "name" : "ModelDiscoTypesInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4969,7 +5155,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
+            "name" : "ModelDiscoFormatsInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5041,7 +5227,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryPricesInput",
+            "name" : "ModelDiscoPricesInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5050,7 +5236,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoverySubjectsListInput",
+            "name" : "ModelDiscoSubjectsListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5059,7 +5245,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryLanguagesListInput",
+            "name" : "ModelDiscoLanguagesListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5068,7 +5254,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelDiscoveryAudiencesListInput",
+            "name" : "ModelDiscoAudiencesListInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5087,6 +5273,24 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelSitePeriodsListInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "events",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5187,8 +5391,8 @@
           "name" : "type",
           "description" : null,
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
+            "kind" : "ENUM",
+            "name" : "DiscoTypes",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5196,8 +5400,8 @@
           "name" : "format",
           "description" : null,
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
+            "kind" : "ENUM",
+            "name" : "DiscoFormats",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5290,7 +5494,7 @@
           "description" : null,
           "type" : {
             "kind" : "ENUM",
-            "name" : "DiscoveryPrices",
+            "name" : "DiscoPrices",
             "ofType" : null
           },
           "defaultValue" : null
@@ -5302,7 +5506,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoverySubjects",
+              "name" : "DiscoSubjects",
               "ofType" : null
             }
           },
@@ -5315,7 +5519,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryLanguages",
+              "name" : "DiscoLanguages",
               "ofType" : null
             }
           },
@@ -5328,7 +5532,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "ENUM",
-              "name" : "DiscoveryAudiences",
+              "name" : "DiscoAudiences",
               "ofType" : null
             }
           },
@@ -5355,6 +5559,32 @@
             "ofType" : {
               "kind" : "ENUM",
               "name" : "SitePeriods",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "events",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
               "ofType" : null
             }
           },
@@ -6885,6 +7115,24 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "events",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelSubscriptionStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "persons",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelSubscriptionStringInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "sites",
           "description" : null,
           "type" : {
@@ -7249,6 +7497,129 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
+        "kind" : "ENUM",
+        "name" : "OrganiserTypes",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "association",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "business",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "governmentLocal",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "governmentNational",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelIntInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "le",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "lt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ge",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "gt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "between",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeExists",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeType",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ModelAttributeTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
         "kind" : "INPUT_OBJECT",
         "name" : "ModelSubscriptionIntInput",
         "description" : null,
@@ -7349,129 +7720,6 @@
         } ],
         "interfaces" : null,
         "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelIntInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "le",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "lt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "ge",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "gt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "between",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "ENUM",
-        "name" : "OrganiserTypes",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : [ {
-          "name" : "association",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "business",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "governmentLocal",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "governmentNational",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
         "possibleTypes" : null
       }, {
         "kind" : "ENUM",
@@ -8271,6 +8519,56 @@
         "onFragment" : false,
         "onField" : true
       }, {
+        "name" : "aws_subscribe",
+        "description" : "Tells the service which mutation triggers this subscription.",
+        "locations" : [ "FIELD_DEFINITION" ],
+        "args" : [ {
+          "name" : "mutations",
+          "description" : "List of mutations which will trigger this subscription when they are called.",
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_cognito_user_pools",
+        "description" : "Tells the service this field/object has access authorized by a Cognito User Pools token.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ {
+          "name" : "cognito_groups",
+          "description" : "List of cognito user pool groups which have access on this field",
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_lambda",
+        "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_publish",
         "description" : "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -8300,31 +8598,10 @@
         "onFragment" : false,
         "onField" : false
       }, {
-        "name" : "aws_lambda",
-        "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
+        "name" : "aws_iam",
+        "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
         "args" : [ ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "aws_cognito_user_pools",
-        "description" : "Tells the service this field/object has access authorized by a Cognito User Pools token.",
-        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
-        "args" : [ {
-          "name" : "cognito_groups",
-          "description" : "List of cognito user pool groups which have access on this field",
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        } ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
@@ -8346,41 +8623,12 @@
         "onFragment" : false,
         "onField" : false
       }, {
-        "name" : "aws_iam",
-        "description" : "Tells the service this field/object has access authorized by sigv4 signing.",
-        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
-        "args" : [ ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
         "name" : "aws_auth",
         "description" : "Directs the schema to enforce authorization on a field",
         "locations" : [ "FIELD_DEFINITION" ],
         "args" : [ {
           "name" : "cognito_groups",
           "description" : "List of cognito user pool groups which have access on this field",
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "aws_subscribe",
-        "description" : "Tells the service which mutation triggers this subscription.",
-        "locations" : [ "FIELD_DEFINITION" ],
-        "args" : [ {
-          "name" : "mutations",
-          "description" : "List of mutations which will trigger this subscription when they are called.",
           "type" : {
             "kind" : "LIST",
             "name" : null,

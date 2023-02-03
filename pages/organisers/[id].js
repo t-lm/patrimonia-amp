@@ -13,8 +13,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import Layout from "../../comps/layout";
-
-import utilStyles from "../../styles/utils.module.css";
 import { Keys } from "../../utils/dictionary";
 import { getCurrentUser } from "../../utils/auth";
 
@@ -23,7 +21,7 @@ const LANG = "fr";
 //const DiscoSubjects = require("../../utils/DiscoSubjects.json");
 const OrganiserTypes = require("../../utils/OrganiserTypes.json");
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const { data } = await API.graphql({
     query: getOrganiser,
     variables: { id: params.id },
@@ -32,7 +30,7 @@ export async function getStaticProps({ params }) {
   return { props: { organiser: data.getOrganiser } };
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const response = await API.graphql({
     query: listOrganisers,
     authMode: "AWS_IAM",
@@ -48,6 +46,7 @@ export async function getStaticPaths() {
 }
 
 const Organiser = ({ organiser }) => {
+  
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -75,7 +74,6 @@ const Organiser = ({ organiser }) => {
                 title={organiser.name}
                 width={50}
                 height={50}
-                roundedCircle
                 style={{
                   objectFit: "cover",
                   border: "2px solid #111",
@@ -119,7 +117,7 @@ const Organiser = ({ organiser }) => {
               marginTop: 20,
             }}
           >
-            {organiser.description_fr && <Col>{organiser.description_fr}</Col>}
+            {organiser.description_fr && <Col><span>{organiser.description_fr}</span></Col>}
           </Row>
         </section>
 

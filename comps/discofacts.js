@@ -48,7 +48,6 @@ export const DiscoFacts = (props) => {
             title={disco.organiser.name}
             width={60}
             height={60}
-            roundedCircle
             style={{
               objectFit: "cover",
               border: "2px solid #111",
@@ -134,7 +133,7 @@ export const DiscoFacts = (props) => {
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.periods.length > 1
-                  ? Keys[LANG]["keySitePeriods"]
+                  ? Keys[LANG]["keyPeriods"]
                   : Keys[LANG]["keyPeriod"]}
               </Col>
               <Col xs={8} md={9}>

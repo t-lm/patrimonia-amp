@@ -45,7 +45,6 @@ export const DiscoOrganiser = (props) => {
             title={organiser.name}
             width={100}
             height={100}
-            roundedCircle
             style={{
               objectFit: "cover",
               border: "2px solid #111",
@@ -55,7 +54,7 @@ export const DiscoOrganiser = (props) => {
         </Col>
       {organiser.description_fr && (
         <Col>
-          <Link href={`/organisers/${organiser.id}`} style={{color: "grey"}}>{organiser.description_fr}</Link>
+          <span style={{whiteSpace: "pre-line"}}>{organiser.description_fr}</span>
         </Col>
       )}
     </Row>

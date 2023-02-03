@@ -27,19 +27,18 @@ const Update = () => {
   const [input, setInput] = useState();
 
   useEffect(() => {
-    if (model === "site") {
-      API.graphql({ query: getSite, variables: { id } })
+
+    if (model === "disco") {
+      API.graphql({ query: getDisco, variables: { id } })
         .then((result) => {
-          let res = result.data.getSite;
-          ["updatedAt", "createdAt", "owner", "picture", "media"].forEach(
-            (x) => delete res[x]
-          );
+          let res = result.data.getDisco;
+          ["organiser", "updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));
     }
 
-    if (model === "media") {
+    else if (model === "media") {
       API.graphql({ query: getMedia, variables: { id } })
         .then((result) => {
           let res = result.data.getMedia;
@@ -49,20 +48,24 @@ const Update = () => {
         .catch((e) => console.log(e));
     }
 
-    if (model === "disco") {
-      API.graphql({ query: getDisco, variables: { id } })
+
+    else if (model === "organiser") {
+      API.graphql({ query: getOrganiser, variables: { id } })
         .then((result) => {
-          let res = result.data.getDisco;
+          let res = result.data.getOrganiser;
           ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));
     }
-    if (model === "organiser") {
-      API.graphql({ query: getOrganiser, variables: { id } })
+
+    else if (model === "site") {
+      API.graphql({ query: getSite, variables: { id } })
         .then((result) => {
-          let res = result.data.getOrganiser;
-          ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
+          let res = result.data.getSite;
+          ["updatedAt", "createdAt", "owner", "picture", "media"].forEach(
+            (x) => delete res[x]
+          );
           setInput(res);
         })
         .catch((e) => console.log(e));

@@ -1,13 +1,13 @@
 // ./pages/discos/[id].js
 
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
-
-import React from "react";
-import Layout from "../../comps/layout";
+import Link from "next/link";
 
 import { API } from "aws-amplify";
 import { getDisco, listDiscos } from "../../src/graphql/queries";
 
+import Layout from "../../comps/layout";
 import { DiscoAddress } from "../../comps/discoaddress";
 import { DiscoBasics } from "../../comps/discobasics";
 import { DiscoBooking } from "../../comps/discobooking";
@@ -16,7 +16,9 @@ import { DiscoOrganiser } from "../../comps/discoorganiser";
 import { DiscoPictures } from "../../comps/discopictures";
 import { Separator } from "../../comps/separator";
 
-export async function getStaticProps({ params }) {
+import { getCurrentUser } from "../../utils/auth";
+
+export const getStaticProps = async ({ params }) => {
   const { data } = await API.graphql({
     query: getDisco,
     variables: { id: params.id },
@@ -25,7 +27,7 @@ export async function getStaticProps({ params }) {
   return { props: { disco: data.getDisco } };
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const response = await API.graphql({
     query: listDiscos,
     authMode: "AWS_IAM",
@@ -37,29 +39,41 @@ export async function getStaticPaths() {
       },
     };
   });
-
   return { paths, fallback: false };
 }
 
 const Disco = ({ disco }) => {
 
-  console.log(disco)
+  const [username, setUsername] = useState(false);
+  useEffect(() => setUsername(getCurrentUser().username), []);
 
   return (
     <Layout>
-    <Head>
-      <title>{disco.name}</title>
-    </Head>
+      <Head>
+        <title>{disco.name}</title>
+      </Head>
 
-    <DiscoBasics disco={disco} organiser={disco.organiser} />
-    <Separator color="pink" />
-    <DiscoPictures disco={disco} />
-    <DiscoFacts disco={disco} organiser={disco.organiser} />
-    <DiscoBooking disco={disco} organiser={disco.organiser} />
-    <DiscoAddress disco={disco} />
-    <DiscoOrganiser organiser={disco.organiser} />
+      <DiscoBasics disco={disco}/>
+      <Separator color="pink" />
+      <DiscoPictures disco={disco} />
+      <DiscoFacts disco={disco} />
+      <DiscoBooking disco={disco} />
+      <DiscoAddress disco={disco} />
+      <DiscoOrganiser organiser={disco.organiser} />
 
-  </Layout>
+      {username === "tlm" && (
+        <div style={{ marginTop: 30 }}>
+          <Link
+            href={{
+              pathname: "/admin/update",
+              query: { model: "disco", id: disco.id },
+            }}
+          >
+            Mettre à jour
+          </Link>
+        </div>
+      )}
+    </Layout>
   );
 };
 

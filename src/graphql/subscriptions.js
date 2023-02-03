@@ -232,6 +232,8 @@ export const onCreateDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
@@ -293,6 +295,8 @@ export const onUpdateDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
@@ -354,6 +358,8 @@ export const onDeleteDisco = /* GraphQL */ `
       audiences
       styles
       periods
+      events
+      persons
       address {
         name
         street
