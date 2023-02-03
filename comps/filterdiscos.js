@@ -1,14 +1,14 @@
-// ./comps/filterVisits.js
+// ./comps/filterdiscos.js
 
 import Form from "react-bootstrap/Form";
 import { Keys } from "../utils/dictionary";
 
 const LANG = "fr";
-const VisitTypes = require("../utils/VisitTypes.json");
-const VisitSubjects = require("../utils/VisitSubjects.json");
-const VisitAudiences = require("../utils/VisitAudiences.json");
+const DiscoTypes = require("../utils/DiscoTypes.json");
+const DiscoSubjects = require("../utils/DiscoSubjects.json");
+const DiscoAudiences = require("../utils/DiscoAudiences.json");
 
-export const FilterVisits = (props) => {
+export const FilterDiscos = (props) => {
   const filter = props.filter;
   const cb = props.cb;
 
@@ -32,15 +32,15 @@ export const FilterVisits = (props) => {
         {Keys[LANG].filter}
       </div>
 
-      {/* Visit types */}
+      {/* Disco types */}
       <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
-        {Keys[LANG].visitTypes}
+        {Keys[LANG].discoTypes}
       </div>
       <Form>
-        {Object.keys(VisitTypes).map((t, i) => (
+        {Object.keys(DiscoTypes).map((t, i) => (
           <Form.Check
             key={i}
-            label={VisitTypes[t][LANG]}
+            label={DiscoTypes[t][LANG]}
             onChange={() => {
               if (filter && filter.type === t) {
                 cb({ type: null });
@@ -52,15 +52,15 @@ export const FilterVisits = (props) => {
         ))}
       </Form>
 
-      {/* Visit subjects */}
+      {/* Disco subjects */}
       <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
-        {Keys[LANG].visitSubjects}
+        {Keys[LANG].discoSubjects}
       </div>
       <Form>
-        {Object.keys(VisitSubjects).map((t, i) => (
+        {Object.keys(DiscoSubjects).map((t, i) => (
           <Form.Check
             key={i}
-            label={VisitSubjects[t][LANG]}
+            label={DiscoSubjects[t][LANG]}
             onChange={() => {
               if (filter && filter.subject === t) {
                 cb({ subject: null });
@@ -72,15 +72,15 @@ export const FilterVisits = (props) => {
         ))}
       </Form>
 
-      {/* Visit audiences */}
+      {/* Disco audiences */}
       <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
-        {Keys[LANG].visitAudiences}
+        {Keys[LANG].discoAudiences}
       </div>
       <Form>
-        {Object.keys(VisitAudiences).map((t, i) => (
+        {Object.keys(DiscoAudiences).map((t, i) => (
           <Form.Check
             key={i}
-            label={VisitAudiences[t][LANG]}
+            label={DiscoAudiences[t][LANG]}
             onChange={(x) => {
               if (filter && filter.audience === t) {
                 cb({ audience: null });

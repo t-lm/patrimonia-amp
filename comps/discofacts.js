@@ -15,7 +15,6 @@ import {
 
 const LANG = "fr";
 const SiteStyles = require("../utils/SiteStyles.json");
-const SiteEvents = require("../utils/SiteEvents.json");
 const DiscoLanguages = require("../utils/DiscoLanguages.json");
 const SitePeriods = require("../utils/SitePeriods.json");
 const DiscoFormats = require("../utils/DiscoFormats.json");
@@ -24,6 +23,7 @@ const DiscoPrices = require("../utils/DiscoPrices.json");
 export const DiscoFacts = (props) => {
 
   const disco = props.disco;
+  console.log(disco)
 
   return (
     <section
@@ -120,7 +120,7 @@ export const DiscoFacts = (props) => {
       </Row>
 
       {/* ici je rajouterai bien les qualifications des personnes */}
-      {(disco.periods || disco.styles || disco.persons || disco.events) && (
+      {(disco.periods.length > 0 || disco.styles.length > 0 || disco.persons.length > 0 || disco.events.length > 0) && (
         <div
           id="facts-science"
           style={{
@@ -129,7 +129,7 @@ export const DiscoFacts = (props) => {
             paddingTop: 10,
           }}
         >
-          {disco.periods && (
+          {disco.periods.length > 0 && (
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.periods.length > 1
@@ -137,8 +137,7 @@ export const DiscoFacts = (props) => {
                   : Keys[LANG]["keyPeriod"]}
               </Col>
               <Col xs={8} md={9}>
-                {disco.periods.length > 0 &&
-                  disco.periods.map((t, i) => (
+                {disco.periods.map((t, i) => (
                     <span key={i}>
                       {t in SitePeriods ? SitePeriods[t][LANG] : t}
                       {i < disco.periods.length - 1 && ", "}
@@ -147,7 +146,7 @@ export const DiscoFacts = (props) => {
               </Col>
             </Row>
           )}
-          {disco.styles && (
+          {disco.styles.length > 0 && (
             <Row
               style={{
                 display: "flex",
@@ -160,8 +159,7 @@ export const DiscoFacts = (props) => {
                   : Keys[LANG]["keyStyle"]}
               </Col>
               <Col xs={8} md={9}>
-                {disco.styles.length > 0 &&
-                  disco.styles.map((t, i) => (
+                {disco.styles.map((t, i) => (
                     <span key={i}>
                       {t in SiteStyles ? SiteStyles[t][LANG] : t}
                       {i < disco.styles.length - 1 && ", "}
@@ -170,7 +168,7 @@ export const DiscoFacts = (props) => {
               </Col>
             </Row>
           )}
-          {disco.persons && (
+          {disco.persons.length > 0 && (
             <Row
               style={{
                 display: "flex",
@@ -183,8 +181,7 @@ export const DiscoFacts = (props) => {
                   : Keys[LANG]["keyPerson"]}
               </Col>
               <Col xs={8} md={9}>
-                {disco.persons.length > 0 &&
-                  disco.persons.map((t, i) => (
+                {disco.persons.map((t, i) => (
                     <span key={i}>
                       {t}
                       {i < disco.persons.length - 1 && ", "}
@@ -193,7 +190,7 @@ export const DiscoFacts = (props) => {
               </Col>
             </Row>
           )}
-          {disco.events && (
+          {disco.events.length > 0 && (
             <Row
               style={{
                 display: "flex",
@@ -202,14 +199,13 @@ export const DiscoFacts = (props) => {
             >
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.events.length > 1
-                  ? Keys[LANG]["keySiteEvents"]
-                  : Keys[LANG]["keySiteEvents"]}
+                  ? Keys[LANG]["keyEvents"]
+                  : Keys[LANG]["keyEvent"]}
               </Col>
               <Col xs={8} md={9}>
-                {disco.events.length > 0 &&
-                  disco.events.map((t, i) => (
+                {disco.events.map((t, i) => (
                     <span key={i}>
-                      {t in SiteEvents ? SiteEvents[t][LANG] : t}
+                      {t}
                       {i < disco.events.length - 1 && ", "}
                     </span>
                   ))}

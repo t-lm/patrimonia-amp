@@ -54,7 +54,7 @@ const Disco = ({ disco }) => {
       </Head>
 
       <DiscoBasics disco={disco}/>
-      <Separator color="pink" />
+      <Separator backgroundColor="pink" />
       <DiscoPictures disco={disco} />
       <DiscoFacts disco={disco} />
       <DiscoBooking disco={disco} />

@@ -15,9 +15,16 @@ import { API } from 'aws-amplify';
 import { listSites } from '../src/graphql/queries';
 
 import { getCurrentUser } from "../utils/auth";
+import { Keys } from "../utils/dictionary";
+
 import Layout from "../comps/layout";
-import { SitePill } from "../comps/sitepill";
 import { FilterSites } from "../comps/filtersites";
+import { Frieze } from "../comps/frieze";
+import { SitePill } from "../comps/sitepill";
+
+
+
+const LANG = "fr"
 
 export const getStaticProps = async () => {
   
@@ -57,8 +64,46 @@ const Index = ({ Sites = [] }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* Welcome */}
+      <Row
+        style={{
+          marginBottom: "2rem",
+          height: 400,
+          borderRadius: ".3rem",
+        }}
+      >
+        <Col>
+          <div
+            style={{
+              width: "100%",
+              height: 400,
+              backgroundImage: "url(/var/etang-de-montady.jpg)",
+              backgroundSize: "cover",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#d4e9fb",
+                top: "50%",
+                margin: "0px 100px 0px 10px",
+                position: "relative",
+                padding: "5px 10px",
+                fontSize: "2rem",
+                fontWeight: "bold",
+                borderRadius: 5,
+                lineHeight: "normal",
+              }}
+            >
+              {Keys[LANG]["welcome"]}{' '}
+            </div>
+          </div>
+        </Col>
+      </Row>
+
+      <Frieze />
+
       {/* Main */}
-      <Row id="main" style={{ marginTop: 10 }}>
+      <Row id="main" style={{ marginTop: 0 }}>
         {/* Filters */}
         <Collapse in={open}>
           <Col md={3} style={{ marginTop: 10 }}>

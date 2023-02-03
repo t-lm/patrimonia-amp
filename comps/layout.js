@@ -79,16 +79,22 @@ const Layout = ({ children }) => {
 
             <Navbar.Collapse className="justify-content-end">
               <Nav.Link
-                style={{ margin: "0px 20px", color: "black" }}
+                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
                 href="/"
               >
                 {Keys[LANG]["sites"]}
               </Nav.Link>
               <Nav.Link
-                style={{ margin: "0px 20px", color: "black" }}
+                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
                 href="/discos"
               >
                 {Keys[LANG]["discos"]}
+              </Nav.Link>
+              <Nav.Link
+                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
+                href="/organisers"
+              >
+                {Keys[LANG]["organisers"]}
               </Nav.Link>
               <NavDropdown
                 align="end"
@@ -96,6 +102,7 @@ const Layout = ({ children }) => {
                   <span
                     style={{
                       marginRight: 10,
+                      fontWeight: "bold"
                     }}
                   >
                     {username && username}

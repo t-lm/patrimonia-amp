@@ -181,35 +181,57 @@ const handleUpdateDiscoStyles = (key) => {
         </Form.Group>
 
 
-        {/* Dates */}
-        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+        {/* Validité */}
+        <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
           <Col>
-            <Form.Label>Date de début</Form.Label>
+            <Form.Label>Validité</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Control
-              type="text"
-              onChange={(e) =>
-                setDisco({ ...disco, dateStart: e.target.value })
-              }
-              value={disco.dateStart}
-              size="sm"
+            <Form.Check
+              label="Toujours"
+              onChange={() => setDisco({ ...disco, dateStart: "0000-01-01", dateEnd: "9999-12-31" })}
+              checked={disco.dateEnd === "9999-12-31"}
+            />
+            <Form.Check
+              label="Limitée"
+              onChange={() => setDisco({ ...disco, dateStart: "", dateEnd: "" })}
+              checked={disco.dateEnd !== "9999-12-31"}
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} style={{ marginTop: 5 }}>
-          <Col>
-            <Form.Label>Date de fin</Form.Label>
-          </Col>
-          <Col sm="9">
-            <Form.Control
-              type="text"
-              onChange={(e) => setDisco({ ...disco, dateEnd: e.target.value })}
-              value={disco.dateEnd}
-              size="sm"
-            />
-          </Col>
-        </Form.Group>
+        {disco.dateStart === "" &&
+          <>
+            <Form.Group as={Row} style={{ marginTop: 20 }}>
+              <Col>
+                <Form.Label>Date de début</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({ ...disco, dateStart: e.target.value })
+                  }
+                  value={disco.dateStart}
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 5 }}>
+              <Col>
+                <Form.Label>Date de fin</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) => setDisco({ ...disco, dateEnd: e.target.value })}
+                  value={disco.dateEnd}
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+          </>
+        }
 
         {/* Sites */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
@@ -251,7 +273,7 @@ const handleUpdateDiscoStyles = (key) => {
           {disco.pictures.map((x) => (
             <Image
               key={x}
-              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${x}`}
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${x}`}
               className="shadow-1-strong rounded"
               alt="alternative text"
               priority
@@ -406,7 +428,7 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
           <Form.Control
                 type="text"
-                onChange={(e) => setDisco({ ...disco, persons: e.target.value.split(",") })}
+                onChange={(e) => setDisco({ ...disco, persons: e.target.value !== "" ? e.target.value.split(",") : [] })}
                 value={disco.persons.join(",")}
                 size="sm"
               />
@@ -419,7 +441,7 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
             <Form.Control
                 type="text"
-                onChange={(e) => setDisco({ ...disco, events: e.target.value.split(",") })}
+                onChange={(e) => setDisco({ ...disco, events: e.target.value !== "" ? e.target.value.split(",") : []  })}
                 value={disco.events.join(",")}
                 size="sm"
               />

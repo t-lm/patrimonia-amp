@@ -161,6 +161,7 @@ export const getDisco = /* GraphQL */ `
       pictures
       duration
       price
+      priceCommentary
       subjects
       languages
       audiences
@@ -221,6 +222,7 @@ export const listDiscos = /* GraphQL */ `
         pictures
         duration
         price
+        priceCommentary
         subjects
         languages
         audiences

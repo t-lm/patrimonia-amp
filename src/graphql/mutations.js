@@ -227,6 +227,7 @@ export const createDisco = /* GraphQL */ `
       pictures
       duration
       price
+      priceCommentary
       subjects
       languages
       audiences
@@ -291,6 +292,7 @@ export const updateDisco = /* GraphQL */ `
       pictures
       duration
       price
+      priceCommentary
       subjects
       languages
       audiences
@@ -355,6 +357,7 @@ export const deleteDisco = /* GraphQL */ `
       pictures
       duration
       price
+      priceCommentary
       subjects
       languages
       audiences

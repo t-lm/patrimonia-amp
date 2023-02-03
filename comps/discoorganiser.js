@@ -11,33 +11,35 @@ import { Keys } from "../utils/dictionary";
 const LANG = "fr";
 
 export const DiscoOrganiser = (props) => {
+  
   const organiser = props.organiser;
 
   return (
-
     <section
-    id="organiser"
-    style={{
-      backgroundColor: "white",
-      padding: "10px 10px",
-      marginTop: 10,
-    }}
-  >
-    <Row>
-      <Col>
-        <h3 style={{fontWeight: "bold"}}>{Keys[LANG].organiser}: {organiser.name}</h3>
-      </Col>
-    </Row>
-    <Row
+      id="organiser"
       style={{
-        display: "flexbox",
-        alignItems: "center",
-        marginTop: 20,
+        backgroundColor: "white",
+        padding: "10px 10px",
+        marginTop: 10,
       }}
     >
-     
+      <Row>
+        <Col>
+          <h3 style={{ fontWeight: "bold" }}>
+            <Link href={`/organisers/${organiser.id}`}>
+              {Keys[LANG].organiser}: {organiser.name}
+            </Link>
+          </h3>
+        </Col>
+      </Row>
+      <Row
+        style={{
+          display: "flexbox",
+          alignItems: "center",
+          marginTop: 20,
+        }}
+      >
         <Col xs={4} md={3}>
-          
           <Image
             src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
             className="rounded pe-1"
@@ -47,18 +49,19 @@ export const DiscoOrganiser = (props) => {
             height={100}
             style={{
               objectFit: "cover",
-              border: "2px solid #111",
+              border: "1px solid #ddd",
               padding: 2,
             }}
-        />
+          />
         </Col>
-      {organiser.description_fr && (
-        <Col>
-          <span style={{whiteSpace: "pre-line"}}>{organiser.description_fr}</span>
-        </Col>
-      )}
-    </Row>
-  </section>
-
+        {organiser.description_fr && (
+          <Col>
+            <span style={{ whiteSpace: "pre-line" }}>
+              {organiser.description_fr}
+            </span>
+          </Col>
+        )}
+      </Row>
+    </section>
   );
 };

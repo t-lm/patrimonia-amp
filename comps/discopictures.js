@@ -1,7 +1,5 @@
 // ./comps/discopictures.js
 
-// main disco pictures
-
 import Image from "next/image";
 
 import Row from "react-bootstrap/Row";

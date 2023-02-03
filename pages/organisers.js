@@ -51,6 +51,8 @@ const Organisers = ({ Organisers = [] }) => {
             <Image
               src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
               alt={organiser.name}
+              width="40"
+              height="40"
               style={{
                 height: 40,
                 margin: "10px 20px 10px 0px",

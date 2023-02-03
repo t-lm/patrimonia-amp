@@ -48,7 +48,7 @@ const Media = () => {
       <Form>
       <Form.Group as={Row} style={{ marginTop: 30, marginBottom: 50 }}>
           <Col sm="9">
-            <Form.Select size="sm" defaultValue="cathedrale-saint-nazaire-beziers" onChange={(e) => setFilter(e.target.value)}>
+            <Form.Select size="sm" value={filter} onChange={(e) => setFilter(e.target.value)}>
               {sites.map(x => <option key={x.id} value={x.id}>{x.id}</option>)}
             </Form.Select>
           </Col>
@@ -61,7 +61,7 @@ const Media = () => {
               <Image
                 rounded={true}
                 alt={medium.description_fr}
-                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${medium.id}`}
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${medium.id}`}
                 width="50"
                 height="50"
                 className="d-inline-block align-top"

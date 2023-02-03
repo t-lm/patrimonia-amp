@@ -1,5 +1,6 @@
-{
-    "regular": {"en": "Regular - multiple dates available", "fr": "Régulier - très nombreuses dates possibles"},
-    "event": {"en": "Event - one or a few dates available", "fr": "Evènement - une ou quelques dates"},
-    "demand": {"en": "On demand", "fr": "Sur demande"} 
+{   
+    "self": {"en": "Self visits", "fr": "Visites libres"},
+    "regular": {"en": "Guided tours", "fr": "Visites guidées"},
+    "event": {"en": "Events", "fr": "Evènements"},
+    "demand": {"en": "On demand tour", "fr": "Visites sur demande"} 
 }

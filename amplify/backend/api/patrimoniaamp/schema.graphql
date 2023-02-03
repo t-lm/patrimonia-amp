@@ -34,8 +34,9 @@ type Disco
     dateEnd: String!
     dates: [EventDate]
     pictures: [String]
-    duration: [Float]
+    duration: [String]
     price: DiscoPrices!
+    priceCommentary: String
     subjects: [DiscoSubjects]
     languages: [DiscoLanguages]
     audiences: [DiscoAudiences]
