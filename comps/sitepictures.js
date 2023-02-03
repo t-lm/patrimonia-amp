@@ -39,7 +39,7 @@ export const SitePictures = (props) => {
         >
           {/* rewrite all this with the picture */}
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${site.picture.id}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${site.picture.id}`}
             className="shadow-1-strong rounded"
             alt={site.picture.description_fr}
             title={site.name}
@@ -66,7 +66,7 @@ export const SitePictures = (props) => {
             }}
           >
             <Image
-              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${p.id}`}
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${p.id}`}
               className="rounded pe-1"
               alt={p.description_fr}
               title={p.description_fr}

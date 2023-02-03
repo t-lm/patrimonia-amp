@@ -121,6 +121,123 @@ export const listSites = /* GraphQL */ `
     }
   }
 `;
+export const getDisco = /* GraphQL */ `
+  query GetDisco($id: ID!) {
+    getDisco(id: $id) {
+      id
+      name
+      headline
+      organiserID
+      organiser {
+        id
+        name
+        description_fr
+        description_en
+        www
+        phone
+        email
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        type
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      format
+      format2
+      demandCommentary
+      bookingRequired
+      dateStart
+      dateEnd
+      dates {
+        start
+        end
+      }
+      pictures
+      duration
+      price
+      subjects
+      languages
+      audiences
+      styles
+      periods
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      sites
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listDiscos = /* GraphQL */ `
+  query ListDiscos(
+    $filter: ModelDiscoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDiscos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        headline
+        organiserID
+        organiser {
+          id
+          name
+          description_fr
+          description_en
+          www
+          phone
+          email
+          type
+          createdAt
+          updatedAt
+          owner
+        }
+        type
+        format
+        format2
+        demandCommentary
+        bookingRequired
+        dateStart
+        dateEnd
+        dates {
+          start
+          end
+        }
+        pictures
+        duration
+        price
+        subjects
+        languages
+        audiences
+        styles
+        periods
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        sites
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const getMedia = /* GraphQL */ `
   query GetMedia($id: ID!) {
     getMedia(id: $id) {
@@ -196,123 +313,6 @@ export const mediaBySiteID = /* GraphQL */ `
     }
   }
 `;
-export const getDisco = /* GraphQL */ `
-  query GetDisco($id: ID!) {
-    getDisco(id: $id) {
-      id
-      name
-      headline
-      organiserID
-      organiser {
-        id
-        name
-        description_fr
-        description_en
-        www
-        phone
-        email
-        picture
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      type
-      format
-      format2
-      demandCommentary
-      bookingRequired
-      dateStart
-      dateEnd
-      dates {
-        start
-        end
-      }
-      pictures
-      duration
-      price
-      subjects
-      languages
-      audiences
-      styles
-      periods
-      address {
-        name
-        street
-        postalCode
-        city
-      }
-      sites
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listDiscos = /* GraphQL */ `
-  query ListDiscos(
-    $filter: ModelDiscoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listDiscos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        headline
-        organiserID
-        organiser {
-          id
-          name
-          description_fr
-          description_en
-          www
-          phone
-          email
-          picture
-          createdAt
-          updatedAt
-          owner
-        }
-        type
-        format
-        format2
-        demandCommentary
-        bookingRequired
-        dateStart
-        dateEnd
-        dates {
-          start
-          end
-        }
-        pictures
-        duration
-        price
-        subjects
-        languages
-        audiences
-        styles
-        periods
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        sites
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;
 export const getOrganiser = /* GraphQL */ `
   query GetOrganiser($id: ID!) {
     getOrganiser(id: $id) {
@@ -323,13 +323,13 @@ export const getOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner
@@ -359,13 +359,13 @@ export const listOrganisers = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner

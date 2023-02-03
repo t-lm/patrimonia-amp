@@ -184,60 +184,6 @@ export const deleteSite = /* GraphQL */ `
     }
   }
 `;
-export const createMedia = /* GraphQL */ `
-  mutation CreateMedia(
-    $input: CreateMediaInput!
-    $condition: ModelMediaConditionInput
-  ) {
-    createMedia(input: $input, condition: $condition) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const updateMedia = /* GraphQL */ `
-  mutation UpdateMedia(
-    $input: UpdateMediaInput!
-    $condition: ModelMediaConditionInput
-  ) {
-    updateMedia(input: $input, condition: $condition) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const deleteMedia = /* GraphQL */ `
-  mutation DeleteMedia(
-    $input: DeleteMediaInput!
-    $condition: ModelMediaConditionInput
-  ) {
-    deleteMedia(input: $input, condition: $condition) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const createDisco = /* GraphQL */ `
   mutation CreateDisco(
     $input: CreateDiscoInput!
@@ -256,13 +202,13 @@ export const createDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -317,13 +263,13 @@ export const updateDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -378,13 +324,13 @@ export const deleteDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -421,6 +367,60 @@ export const deleteDisco = /* GraphQL */ `
     }
   }
 `;
+export const createMedia = /* GraphQL */ `
+  mutation CreateMedia(
+    $input: CreateMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    createMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateMedia = /* GraphQL */ `
+  mutation UpdateMedia(
+    $input: UpdateMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    updateMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteMedia = /* GraphQL */ `
+  mutation DeleteMedia(
+    $input: DeleteMediaInput!
+    $condition: ModelMediaConditionInput
+  ) {
+    deleteMedia(input: $input, condition: $condition) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const createOrganiser = /* GraphQL */ `
   mutation CreateOrganiser(
     $input: CreateOrganiserInput!
@@ -434,13 +434,13 @@ export const createOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner
@@ -460,13 +460,13 @@ export const updateOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner
@@ -486,13 +486,13 @@ export const deleteOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner

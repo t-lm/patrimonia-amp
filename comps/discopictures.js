@@ -13,8 +13,6 @@ import {
 
 export const DiscoPictures = (props) => {
   
-  const medium = props.medium
-  const media = props.media
   const disco = props.disco
 
   return (
@@ -37,9 +35,8 @@ export const DiscoPictures = (props) => {
             }}
           >
             <Image
-              src={`/sites/${medium.id}`}
-              alt={medium.description.fr}
-              title={medium.description.fr}
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
+              alt={disco.name}
               style={{ objectFit: "cover" }}
               fill
               priority
@@ -48,10 +45,10 @@ export const DiscoPictures = (props) => {
         </Col>
       </Row>
 
-    {media.length > 0 && (
+    {disco.pictures.length > 1 && (
       <Row id="pictures-secondary" style={{ marginTop: 10 }}>
         <Col>
-          {media.slice(0, 4).map((m, i) => (
+          {disco.pictures.slice(1, 5).map((m, i) => (
             <div
               key={i}
               style={{
@@ -62,10 +59,9 @@ export const DiscoPictures = (props) => {
               }}
             >
               <Image
-                src={`/sites/${m.id}`}
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${m}`}
                 className="pe-1"
-                alt={m.description.fr}
-                title={m.description.fr}
+                alt={disco.name}
                 fill
                 style={{ objectFit: "cover" }}
               />

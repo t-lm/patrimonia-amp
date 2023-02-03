@@ -11,7 +11,7 @@ export const PictureCarousel = ({media}) => {
       { media && media.map((p, i) => 
         <Carousel.Item key={i}>
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${p.id}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${p.id}`}
             alt={p.description_fr}
             title={p.description_fr}
             width={800}

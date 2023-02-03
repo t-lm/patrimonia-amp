@@ -60,7 +60,7 @@ const FormMedia = (props) => {
   const handleDeleteMedia = async () => {
     try {
 
-      await Storage.remove(media.id)
+      await Storage.remove(`sites/${media.id}`)
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
         query: deleteMedia,
@@ -85,7 +85,7 @@ const FormMedia = (props) => {
 
     // save
     try {
-      await Storage.put(media.id, newImage, {
+      await Storage.put(`sites/${media.id}`, newImage, {
         level: "public",
         contentType: newImage.type,
       })

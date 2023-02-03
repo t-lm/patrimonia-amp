@@ -1,22 +1,22 @@
-// ./comps/discoguide.js
+// ./comps/discoorganiser.js
 
 import Link from "next/link";
+import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ImageBootstrap from "react-bootstrap/Image";
 
 import { Keys } from "../utils/dictionary";
 
 const LANG = "fr";
 
-export const DiscoGuide = (props) => {
-  const guide = props.guide;
+export const DiscoOrganiser = (props) => {
+  const organiser = props.organiser;
 
   return (
 
     <section
-    id="guide"
+    id="organiser"
     style={{
       backgroundColor: "white",
       padding: "10px 10px",
@@ -25,7 +25,7 @@ export const DiscoGuide = (props) => {
   >
     <Row>
       <Col>
-        <h3 style={{fontWeight: "bold"}}>{Keys[LANG].organiser}: {guide.name}</h3>
+        <h3 style={{fontWeight: "bold"}}>{Keys[LANG].organiser}: {organiser.name}</h3>
       </Col>
     </Row>
     <Row
@@ -35,14 +35,14 @@ export const DiscoGuide = (props) => {
         marginTop: 20,
       }}
     >
-      {guide.picture && (
+     
         <Col xs={4} md={3}>
-          {/*lead guide*/}
-          <ImageBootstrap
-            src={`/guides/${guide.picture}`}
+          
+          <Image
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
             className="rounded pe-1"
-            alt={guide.name}
-            title={guide.name}
+            alt={organiser.name}
+            title={organiser.name}
             width={100}
             height={100}
             roundedCircle
@@ -53,10 +53,9 @@ export const DiscoGuide = (props) => {
             }}
         />
         </Col>
-      )}
-      {guide.description && (
+      {organiser.description_fr && (
         <Col>
-          <Link href={`/guides/${guide.id}`} style={{color: "grey"}}>{guide.description}</Link>
+          <Link href={`/organisers/${organiser.id}`} style={{color: "grey"}}>{organiser.description_fr}</Link>
         </Col>
       )}
     </Row>

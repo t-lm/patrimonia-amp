@@ -12,11 +12,11 @@ import { DiscoAddress } from "../../comps/discoaddress";
 import { DiscoBasics } from "../../comps/discobasics";
 import { DiscoBooking } from "../../comps/discobooking";
 import { DiscoFacts } from "../../comps/discofacts";
-import { DiscoGuide } from "../../comps/discoguide";
+import { DiscoOrganiser } from "../../comps/discoorganiser";
 import { DiscoPictures } from "../../comps/discopictures";
+import { Separator } from "../../comps/separator";
 
 export async function getStaticProps({ params }) {
-  console.log(params)
   const { data } = await API.graphql({
     query: getDisco,
     variables: { id: params.id },
@@ -41,32 +41,24 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-//export default function Disco({ disco }) {
 const Disco = ({ disco }) => {
+
+  console.log(disco)
 
   return (
     <Layout>
     <Head>
       <title>{disco.name}</title>
     </Head>
-    {/*
-      <article> 
-        <DiscoBasics disco={disco} guide={disco.guide} />
-        <section
-          style={{
-            backgroundColor: "pink",
-            height: 10,
-            xpadding: "10px 10px",
-            marginTop: 10,
-          }}
-        />
-        <DiscoPictures disco={disco} />
-        <DiscoFacts disco={disco} guide={disco.guide} />
-        <DiscoBooking disco={disco} guide={disco.guide} />
-        <DiscoAddress disco={disco} />
-        <DiscoGuide guide={disco.guide} />
-      </article>
-      */}
+
+    <DiscoBasics disco={disco} organiser={disco.organiser} />
+    <Separator color="pink" />
+    <DiscoPictures disco={disco} />
+    <DiscoFacts disco={disco} organiser={disco.organiser} />
+    <DiscoBooking disco={disco} organiser={disco.organiser} />
+    <DiscoAddress disco={disco} />
+    <DiscoOrganiser organiser={disco.organiser} />
+
   </Layout>
   );
 };

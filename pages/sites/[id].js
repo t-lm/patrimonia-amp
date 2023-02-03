@@ -41,11 +41,8 @@ export async function getStaticPaths() {
 const Site = ({ site }) => {
   const router = useRouter();
 
-  // authentication
   const [username, setUsername] = useState(false);
-  useEffect(() => {
-    setUsername(getCurrentUser().username);
-  }, []);
+  useEffect(() => setUsername(getCurrentUser().username), []);
 
   if (router.isFallback) {
     return (
@@ -102,12 +99,6 @@ const Site = ({ site }) => {
           <Row style={{marginTop: 30}}>
             <Col>
             <Link
-              style={{
-                color: "black",
-                margin: 0,
-                padding: 0,
-                display: "block",
-              }}
                 href={{
                   pathname: "/admin/update",
                   query: { model: "site", id: site.id }

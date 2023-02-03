@@ -1,10 +1,10 @@
 // ./comps/discobasics.js
 
 import Link from "next/link";
+import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ImageBootstrap from "react-bootstrap/Image";
 
 import utilStyles from "../styles/utils.module.css";
 
@@ -13,7 +13,6 @@ const DiscoSubjects = require("../utils/DiscoSubjects.json");
 
 export const DiscoBasics = (props) => {
   const disco = props.disco;
-  const guide = props.guide;
 
   return (
     <section
@@ -43,14 +42,14 @@ export const DiscoBasics = (props) => {
           <span>
             {" "}
             .{" "}
-            <Link style={{ color: "black" }} href={`/guides/${guide.id}`}>
-              {guide.name}
+            <Link style={{ color: "black" }} href={`/organisers/${disco.organiser.id}`}>
+              {disco.organiser.name}
             </Link>
-            <ImageBootstrap
-              src={`/guides/${guide.picture}`}
+            <Image
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiser.id}`}
               className="rounded"
-              alt={guide.name}
-              title={guide.name}
+              alt={disco.organiser.name}
+              title={disco.organiser.name}
               width={30}
               height={30}
               roundedCircle

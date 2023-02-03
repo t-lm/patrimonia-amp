@@ -1,43 +1,67 @@
 // pages/update.js
-//
-// all types are managed here
 
 import React, { useState, useEffect } from "react";
-
 import { useRouter } from "next/router";
+import { API } from 'aws-amplify';
 
-import { withSSRContext } from "aws-amplify";
-import { getMedia, getSite } from "../../src/graphql/queries";
+import {
+  getDisco,
+  getMedia,
+  getOrganiser,
+  getSite,
+} from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
-import FormSite from "../../comps/formsite";
+
+import FormDisco from "../../comps/formdisco";
 import FormMedia from "../../comps/formmedia";
+import FormOrganiser from "../../comps/formorganiser";
+import FormSite from "../../comps/formsite";
 
 const Update = () => {
   const router = useRouter();
-
-  // props
   const model = router.query.model;
   const id = router.query.id;
-  const SSR = withSSRContext();
 
   // state
   const [input, setInput] = useState();
-  const keysOut = ["updatedAt", "createdAt", "owner"];
 
   useEffect(() => {
     if (model === "site") {
       API.graphql({ query: getSite, variables: { id } })
         .then((result) => {
           let res = result.data.getSite;
-          ["updatedAt", "createdAt", "owner" ,"picture", "media"].forEach((x) => delete res[x]);
+          ["updatedAt", "createdAt", "owner", "picture", "media"].forEach(
+            (x) => delete res[x]
+          );
           setInput(res);
         })
         .catch((e) => console.log(e));
-    } else if (model === "media") {
+    }
+
+    if (model === "media") {
       API.graphql({ query: getMedia, variables: { id } })
         .then((result) => {
           let res = result.data.getMedia;
+          ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
+          setInput(res);
+        })
+        .catch((e) => console.log(e));
+    }
+
+    if (model === "disco") {
+      API.graphql({ query: getDisco, variables: { id } })
+        .then((result) => {
+          let res = result.data.getDisco;
+          ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
+          setInput(res);
+        })
+        .catch((e) => console.log(e));
+    }
+    if (model === "organiser") {
+      API.graphql({ query: getOrganiser, variables: { id } })
+        .then((result) => {
+          let res = result.data.getOrganiser;
           ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
@@ -49,8 +73,10 @@ const Update = () => {
     <Layout>
       {input && (
         <>
-          {model === "site" && <FormSite action="update" input={input} />}
+          {model === "disco" && <FormDisco action="update" input={input} />}
           {model === "media" && <FormMedia action="update" input={input} />}
+          {model === "organiser" && <FormOrganiser action="update" input={input} />}
+          {model === "site" && <FormSite action="update" input={input} />}
         </>
       )}
     </Layout>

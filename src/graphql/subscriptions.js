@@ -184,60 +184,6 @@ export const onDeleteSite = /* GraphQL */ `
     }
   }
 `;
-export const onCreateMedia = /* GraphQL */ `
-  subscription OnCreateMedia(
-    $filter: ModelSubscriptionMediaFilterInput
-    $owner: String
-  ) {
-    onCreateMedia(filter: $filter, owner: $owner) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateMedia = /* GraphQL */ `
-  subscription OnUpdateMedia(
-    $filter: ModelSubscriptionMediaFilterInput
-    $owner: String
-  ) {
-    onUpdateMedia(filter: $filter, owner: $owner) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteMedia = /* GraphQL */ `
-  subscription OnDeleteMedia(
-    $filter: ModelSubscriptionMediaFilterInput
-    $owner: String
-  ) {
-    onDeleteMedia(filter: $filter, owner: $owner) {
-      id
-      siteID
-      description_fr
-      description_en
-      source
-      copyright
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
 export const onCreateDisco = /* GraphQL */ `
   subscription OnCreateDisco(
     $filter: ModelSubscriptionDiscoFilterInput
@@ -256,13 +202,13 @@ export const onCreateDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -317,13 +263,13 @@ export const onUpdateDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -378,13 +324,13 @@ export const onDeleteDisco = /* GraphQL */ `
         www
         phone
         email
-        picture
         address {
           name
           street
           postalCode
           city
         }
+        type
         createdAt
         updatedAt
         owner
@@ -421,6 +367,60 @@ export const onDeleteDisco = /* GraphQL */ `
     }
   }
 `;
+export const onCreateMedia = /* GraphQL */ `
+  subscription OnCreateMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onCreateMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateMedia = /* GraphQL */ `
+  subscription OnUpdateMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onUpdateMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteMedia = /* GraphQL */ `
+  subscription OnDeleteMedia(
+    $filter: ModelSubscriptionMediaFilterInput
+    $owner: String
+  ) {
+    onDeleteMedia(filter: $filter, owner: $owner) {
+      id
+      siteID
+      description_fr
+      description_en
+      source
+      copyright
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const onCreateOrganiser = /* GraphQL */ `
   subscription OnCreateOrganiser(
     $filter: ModelSubscriptionOrganiserFilterInput
@@ -434,13 +434,13 @@ export const onCreateOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner
@@ -460,13 +460,13 @@ export const onUpdateOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner
@@ -486,13 +486,13 @@ export const onDeleteOrganiser = /* GraphQL */ `
       www
       phone
       email
-      picture
       address {
         name
         street
         postalCode
         city
       }
+      type
       createdAt
       updatedAt
       owner

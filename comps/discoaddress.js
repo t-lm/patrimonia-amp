@@ -3,10 +3,9 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const LANG = "fr";
-
 import { Keys } from "../utils/dictionary";
-const Countries = require("../utils/Countries.json");
+
+const LANG = "fr";
 
 export const DiscoAddress = (props) => {
   const disco = props.disco;
@@ -35,12 +34,11 @@ export const DiscoAddress = (props) => {
           <a
             style={{ color: "grey", textDecoration: "underline" }}
             href={`https://www.google.com/maps/place/${encodeURIComponent(
-              `${disco.address.street},${disco.address.postalCode} ${disco.address.city},${disco.address.country}`
+              `${disco.address.street},${disco.address.postalCode} ${disco.address.city}, France`
             )}`}
           >
             {disco.address.street}, {disco.address.postalCode}{" "}
-            {disco.address.city},{" "}
-            {Countries[disco.address.country][LANG]}
+            {disco.address.city},{" France"}
           </a>
         </Col>
       </Row>

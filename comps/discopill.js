@@ -42,7 +42,7 @@ export const DiscoPill = (props) => {
           }}
         >
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${disco.pictures[0]}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
             alt={disco.name}
             className="shadow-1-strong rounded"
             fill

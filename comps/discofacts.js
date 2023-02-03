@@ -1,11 +1,12 @@
 // ./comps/discofacts.js
 // main facts on disco page
 
-import { Keys } from "../utils/dictionary";
+import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ImageBootstrap from "react-bootstrap/Image";
+
+import { Keys } from "../utils/dictionary";
 
 import {
   FormattedDurationFromMinutes,
@@ -21,7 +22,7 @@ const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoPrices = require("../utils/DiscoPrices.json");
 
 export const DiscoFacts = (props) => {
-  const guide = props.guide;
+
   const disco = props.disco;
 
   return (
@@ -33,18 +34,18 @@ export const DiscoFacts = (props) => {
         marginTop: 10,
       }}
     >
-      <Row id="facts-guide">
+      <Row id="facts-organiser">
         <Col xs={6} md={8} lg={10}>
           <h3 style={{ marginBottom: 20 }}>
-            {Keys[LANG]["discoProposedBy"]} {guide.name}
+            {Keys[LANG]["discoProposedBy"]} {disco.organiser.name}
           </h3>
         </Col>
         <Col>
-          <ImageBootstrap
-            src={`/guides/${guide.picture}`}
+          <Image
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiser.id}`}
             className="rounded pe-1"
-            alt={guide.name}
-            title={guide.name}
+            alt={disco.organiser.name}
+            title={disco.organiser.name}
             width={60}
             height={60}
             roundedCircle

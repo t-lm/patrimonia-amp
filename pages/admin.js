@@ -64,7 +64,7 @@ export default function Index() {
             <Col>
               <Link
                 style={{ color: "black", textDecoration: "none" }}
-                href={{ pathname: "/disco" }}
+                href={{ pathname: "/discos" }}
               >
                 Voir les découvertes
               </Link>
@@ -74,6 +74,24 @@ export default function Index() {
                 href={{ pathname: "/admin/new", query: { model: "disco" } }}
               >
                 Ajouter une découverte
+              </Link>
+            </Col>
+          </Row>
+
+          <Row style={{marginTop: 10}}>
+            <Col>
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                href={{ pathname: "/organisers" }}
+              >
+                Voir les organisateurs
+              </Link>
+              {" - "}
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                href={{ pathname: "/admin/new", query: { model: "promoter" } }}
+              >
+                Ajouter un organisateur
               </Link>
             </Col>
           </Row>

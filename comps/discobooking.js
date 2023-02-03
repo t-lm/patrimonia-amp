@@ -16,7 +16,6 @@ const LANG = "fr";
 
 export const DiscoBooking = (props) => {
   const disco = props.disco;
-  const guide = props.guide;
   const today = new Date();
   today.setUTCHours(1);
   const dayToday = today.getDay();
@@ -191,12 +190,12 @@ export const DiscoBooking = (props) => {
       <Modal show={showModal} onHide={() => setShowModal(false)}  centered>
         <Modal.Body>
           <p>{Keys[LANG]["bookingTemp"]}</p>
-          <p>{Keys[LANG]["bookingTemp2"]}{" "}{guide.name}{' '}{Keys[LANG]["here"]}:</p>
+          <p>{Keys[LANG]["bookingTemp2"]}{" "}{disco.organiser.name}{' '}{Keys[LANG]["here"]}:</p>
           <ul>
-            {guide.www && <li><a href={guide.www}>{guide.www}</a></li>}
-            {guide.email && <li><a href={`mailto:${guide.email}`}>{guide.email}</a></li>}
-            {guide.phone && <li>{guide.phone}</li>}
-            {guide.address && <li>{guide.address.street}, {guide.address.city}</li>}
+            {disco.organiser.www && <li><a href={disco.organiser.www}>{disco.organiser.www}</a></li>}
+            {disco.organiser.email && <li><a href={`mailto:${disco.organiser.email}`}>{disco.organiser.email}</a></li>}
+            {disco.organiser.phone && <li>{disco.organiser.phone}</li>}
+            {disco.organiser.address && <li>{disco.organiser.address.street}, {disco.organiser.address.city}</li>}
           </ul>
           <Button style={{backgroundColor: "pink", color: "black", border: "0px"}} onClick={() => setShowModal(false)}>
             {Keys[LANG]["close"]}

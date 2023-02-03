@@ -17,6 +17,34 @@ type Site
   media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
 }
 
+type Disco
+@model
+@auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
+    id: ID!
+    name: String!
+    headline: String!
+    organiserID: ID!
+    organiser: Organiser @hasOne(fields: ["organiserID"])
+    type: String! # how to boook the discovery
+    format: String! # how to enkjoy the discovery
+    format2: String
+    demandCommentary: String
+    bookingRequired: Boolean
+    dateStart: String!
+    dateEnd: String!
+    dates: [EventDate]
+    pictures: [String]
+    duration: [Float]
+    price: DiscoveryPrices!
+    subjects: [DiscoverySubjects]
+    languages: [DiscoveryLanguages]
+    audiences: [DiscoveryAudiences]
+    styles: [SiteStyles]
+    periods: [SitePeriods]
+    address: Address
+    sites: [String]
+}
+
 type Media
   @model
   @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
@@ -26,34 +54,6 @@ type Media
   description_en: String
   source: String
   copyright: String
-}
-
-type Disco
-@model
-@auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
-    id: ID!
-    name: String!
-    headline: String!
-    organiserID: ID!
-    organiser: Organiser @hasOne(fields: ["organiserID"])
-    type: String!
-    format: String
-    format2: String
-    demandCommentary: String
-    bookingRequired: Boolean
-    dateStart: String!
-    dateEnd: String!
-    dates: [EventDate]
-    pictures: [String]
-    duration: [Float]
-    price: [DiscoveryPrices]
-    subjects: [DiscoverySubjects]
-    languages: [DiscoveryLanguages]
-    audiences: [DiscoveryAudiences]
-    styles: [SiteStyles]
-    periods: [SitePeriods]
-    address: Address
-    sites: [String]
 }
 
 type Organiser
@@ -66,9 +66,10 @@ type Organiser
   www: String
   phone: String
   email: String
-  picture: String
   address: Address
+  type: String
 }
+
 
 type Address {
   name: String
@@ -193,6 +194,11 @@ enum DiscoverySubjects {
     sciences
 }
 
-
+enum OrganiserTypes {
+  association
+  business
+  governmentLocal
+  governmentNational
+}
 
 

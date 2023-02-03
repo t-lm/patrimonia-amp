@@ -37,7 +37,7 @@ export const SitePill = (props) => {
           }}
         >
           <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${s.picture.id}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${s.picture.id}`}
             alt={s.picture.description_fr}
             title={s.name}
             className="shadow-1-strong rounded"

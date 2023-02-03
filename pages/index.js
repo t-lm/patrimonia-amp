@@ -19,7 +19,7 @@ import Layout from "../comps/layout";
 import { SitePill } from "../comps/sitepill";
 import { FilterSites } from "../comps/filtersites";
 
-export const getStaticProps = async ({ req }) => {
+export const getStaticProps = async () => {
   
   try {
     const response = await API.graphql({ query: listSites, authMode: 'AWS_IAM' });
