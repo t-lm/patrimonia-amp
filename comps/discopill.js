@@ -7,12 +7,8 @@ import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ImageBootstrap from "react-bootstrap/Image";
-
-import { FormattedDate } from "../comps/date";
 
 const LANG = "fr";
-const DiscoTypes = require("../utils/DiscoTypes.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 
 export const DiscoPill = (props) => {

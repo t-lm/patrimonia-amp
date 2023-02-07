@@ -1,7 +1,8 @@
 // ./comps/filterSites.js
 
 import Form from "react-bootstrap/Form";
-import { Keys } from "../utils/dictionary";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const LANG = "fr";
 const SiteTypes = require("../utils/SiteTypes.json");
@@ -17,60 +18,61 @@ export const FilterSites = (props) => {
         fontSize: "0.9rem",
         border: "1px solid #eee",
         backgroundColor: "white",
-        padding: 20
+        padding: 20,
       }}
     >
-      <div
-        style={{
-          fontWeight: "bold",
-          paddingBottom: 5,
-          borderBottom: "1px solid #eee",
-        }}
-      >
-        {Keys[LANG].filter}
-      </div>
       <Form>
-        {/* site types */}
-        <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
-          {Keys[LANG].siteTypes}
-        </div>
-        <div className="mb-3">
-          {Object.keys(SiteTypes).map((t, i) => (
-            <Form.Check
-              key={i}
-              label={SiteTypes[t][LANG]}
-              onChange={() => {
-                if (filter && filter.type === t) {
-                  cb({type: null});
-                } else cb({ type: t });
-              }}
-              type="checkbox"
-              checked={filter && filter.type === t}
-            />
-          ))}
-        </div>
-      </Form>
 
-      {/* Site periods */}
-      <div style={{ margin: "20px 0px 10px", fontWeight: "bold" }}>
-        {Keys[LANG].keyPeriods}
-      </div>
-      <Form>
-        {Object.keys(SitePeriods).map((t, i) => (
-          <Form.Check
-            key={i}
-            label={SitePeriods[t][LANG]}
-            onChange={() => {
-              if (filter && filter.period === t) {
-                cb({ period: null });
-              } else cb({ period: t });
-            }}
-            type="checkbox"
-            checked={filter && filter.period === t}
-          />
-        ))}
+        {/* site geography */}
+        <Row>
+          <Col xs={12} sm={6} md={4}>
+            <Form.Select
+              size="sm"
+              onChange={() => {
+                if (filter && filter.region) cb({ region: "beziers" });
+                else cb({ region: "beziers" });
+              }}
+              type
+            >
+              <option>Béziers et ses environs</option>
+            </Form.Select>
+          </Col>
+        </Row>
+        
+        {/* site types */}
+        <Row style={{paddingTop: 10}}>
+          <Col xs={12} sm={6} md={4}>
+            <Form.Select
+              size="sm"
+              defaultValue="cathedrale-saint-nazaire-beziers"
+              onChange={(e) => cb({ type: e.target.value })}
+            >
+              <option value="">Style du bâtiment</option>
+              {Object.keys(SiteTypes).map((x) => (
+                <option key={x} value={x}>
+                  {SiteTypes[x][LANG]}
+                </option>
+              ))}
+            </Form.Select>
+          </Col>
+
+        {/* Site periods */}
+          <Col xs={12} sm={6} md={4}>
+            <Form.Select
+              size="sm"
+              defaultValue="cathedrale-saint-nazaire-beziers"
+              onChange={(e) => cb({ period: e.target.value })}
+            >
+              <option value="">Période architecturale</option>
+              {Object.keys(SitePeriods).map((x) => (
+                <option key={x} value={x}>
+                  {SitePeriods[x][LANG]}
+                </option>
+              ))}
+            </Form.Select>
+          </Col>
+        </Row>
       </Form>
-      
     </div>
   );
 };

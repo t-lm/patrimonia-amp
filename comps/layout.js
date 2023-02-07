@@ -1,4 +1,4 @@
-// ./comps/layout.js
+8// ./comps/layout.js
 
 import React, { useEffect, useState } from "react";
 
@@ -48,14 +48,8 @@ const Layout = ({ children }) => {
               marginTop: 5,
             }}
           >
-            <Navbar.Brand
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingRight: 30,
-              }}
-              href="/"
-            >
+            <Container>
+            <Navbar.Brand href="/">
               <Image
                 alt="Patrimonia"
                 src="/logo_pink.png"
@@ -65,36 +59,30 @@ const Layout = ({ children }) => {
               />
               <span
                 style={{
-                  paddingLeft: 20,
+                  marginLeft: 20,
                   fontWeight: 700,
                   fontSize: "1.7rem",
                   color: "black",
                 }}
               >
-                patrimonia
+                PATRIMONIA
               </span>
             </Navbar.Brand>
-
+            </Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
               <Nav.Link
-                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
+                style={{ marginRight: 25, color: "black" }}
                 href="/"
               >
-                {Keys[LANG]["sites"]}
+                PATRIMOINE
               </Nav.Link>
               <Nav.Link
-                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
-                href="/discos"
-              >
-                {Keys[LANG]["discos"]}
-              </Nav.Link>
-              <Nav.Link
-                style={{ marginRight: 25, color: "black", fontWeight: "bold" }}
+                style={{ marginRight: 25, color: "black" }}
                 href="/organisers"
               >
-                {Keys[LANG]["organisers"]}
+                GUIDES
               </Nav.Link>
               <NavDropdown
                 align="end"
@@ -118,13 +106,13 @@ const Layout = ({ children }) => {
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/" onClick={(e) => logout()}>
                         <BsBoxArrowRight style={{ marginRight: 5 }} />
-                        Se déconnecter
+                        SE DECONNECTER
                       </NavDropdown.Item>
                     </>
                   ) : (
                     <NavDropdown.Item href={`/sign`}>
                       <BsBoxArrowInRight style={{ marginRight: 5 }} />
-                      Se connecter
+                      SE CONNECTER
                     </NavDropdown.Item>
                   )}
                 </small>

@@ -23,7 +23,7 @@ export const SiteLinks = (props) => {
     >
       <Row>
         <Col>
-          <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].links}</h3>
+          <h3 style={{ fontWeight: "bold" }}>Aller plus loin</h3>
         </Col>
       </Row>
       <ul>

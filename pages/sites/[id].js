@@ -104,7 +104,7 @@ const Site = ({ site }) => {
                   query: { model: "site", id: site.id }
                 }}
             >
-              Update site
+              Mettre à jour le site
             </Link>
             </Col>
           </Row>
