@@ -51,7 +51,6 @@ const Index = ({ Sites = [] }) => {
     let filt = { ...filter };
     filt[Object.keys(f)[0]] = f[Object.keys(f)[0]];
     setFilter(filt);
-    console.log(filt)
 
     return setSites(
       Sites.filter((x) => {
@@ -93,10 +92,10 @@ const Index = ({ Sites = [] }) => {
       >
         <span> 
           DÉCOUVRIR LE PATRIMOINE AVEC SES MEILLEURS GUIDES
-          <Image src="/var/noun-family.svg" height={40} width={40} style={{marginLeft: 10}}/>
-          <Image src="/var/noun-man.svg" height={40} width={40} style={{marginLeft: 10}}/>
-          <Image src="/var/noun-woman.svg" height={40} width={40} style={{marginLeft: 10}}/>
-          <Image src="/var/noun-pet.svg" height={40} width={40} style={{marginLeft: 10}}/>
+          <Image src="/var/noun-family.svg" alt="" height={40} width={40} style={{marginLeft: 10}}/>
+          <Image src="/var/noun-man.svg"alt="" height={40} width={40} style={{marginLeft: 10}}/>
+          <Image src="/var/noun-woman.svg" alt="" height={40} width={40} style={{marginLeft: 10}}/>
+          <Image src="/var/noun-pet.svg" alt="" height={40} width={40} style={{marginLeft: 10}}/>
         </span>
         <span style={{ display: "block" }}>
         

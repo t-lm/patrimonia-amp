@@ -16,7 +16,6 @@ const { Icons } = require("../utils/icons");
 
 export const SitePill = (props) => {
   const s = props.site;
-  console.log(s.types)
 
   return (
     <Row
