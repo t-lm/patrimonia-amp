@@ -18,8 +18,9 @@ export const Frieze = ({style}) => {
           ...style,
           border: "1px solid #eee",
           height:"80px",
-          backgroundImage: "url(/friezes/vld_0.1.svg)",
-          backgroundRepeat: "repeat-x" 
+          backgroundImage: "url(/friezes/vld_0.1.png)",
+          backgroundRepeat: "repeat-x",
+          backgroundPosition: "center"
         }}
       />
       </Col>
