@@ -1,5 +1,4 @@
-// ./comps/separator.js
-import Image from "next/image";
+// ./comps/frieze.js
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

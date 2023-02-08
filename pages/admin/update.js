@@ -32,7 +32,7 @@ const Update = () => {
       API.graphql({ query: getDisco, variables: { id } })
         .then((result) => {
           let res = result.data.getDisco;
-          ["organiser", "updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
+          ["organiser","site", "updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
         .catch((e) => console.log(e));

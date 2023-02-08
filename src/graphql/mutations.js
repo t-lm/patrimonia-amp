@@ -217,6 +217,7 @@ export const createDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
+      meetingPoint
       bookingRequired
       dateStart
       dateEnd
@@ -224,6 +225,7 @@ export const createDisco = /* GraphQL */ `
         start
         end
       }
+      openingHours
       pictures
       duration
       price
@@ -241,7 +243,50 @@ export const createDisco = /* GraphQL */ `
         postalCode
         city
       }
-      sites
+      siteID
+      site {
+        id
+        name
+        headline
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        position {
+          latitude
+          longitude
+        }
+        types
+        styles
+        periods
+        protections
+        description
+        links {
+          fr
+          en
+          www
+        }
+        pictureID
+        picture {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        media {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       priority
       createdAt
       updatedAt
@@ -282,6 +327,7 @@ export const updateDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
+      meetingPoint
       bookingRequired
       dateStart
       dateEnd
@@ -289,6 +335,7 @@ export const updateDisco = /* GraphQL */ `
         start
         end
       }
+      openingHours
       pictures
       duration
       price
@@ -306,7 +353,50 @@ export const updateDisco = /* GraphQL */ `
         postalCode
         city
       }
-      sites
+      siteID
+      site {
+        id
+        name
+        headline
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        position {
+          latitude
+          longitude
+        }
+        types
+        styles
+        periods
+        protections
+        description
+        links {
+          fr
+          en
+          www
+        }
+        pictureID
+        picture {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        media {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       priority
       createdAt
       updatedAt
@@ -347,6 +437,7 @@ export const deleteDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
+      meetingPoint
       bookingRequired
       dateStart
       dateEnd
@@ -354,6 +445,7 @@ export const deleteDisco = /* GraphQL */ `
         start
         end
       }
+      openingHours
       pictures
       duration
       price
@@ -371,7 +463,50 @@ export const deleteDisco = /* GraphQL */ `
         postalCode
         city
       }
-      sites
+      siteID
+      site {
+        id
+        name
+        headline
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        position {
+          latitude
+          longitude
+        }
+        types
+        styles
+        periods
+        protections
+        description
+        links {
+          fr
+          en
+          www
+        }
+        pictureID
+        picture {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        media {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       priority
       createdAt
       updatedAt

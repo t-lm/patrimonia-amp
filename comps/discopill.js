@@ -1,20 +1,20 @@
 // ./comps/discopill.js
 
-// a small pill about a discovery
-
 import Link from "next/link";
 import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import { FormattedDate } from "./date";
+
 const LANG = "fr";
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
+const DiscoTypes = require("../utils/DiscoTypes.json");
 
 export const DiscoPill = (props) => {
+  
   const disco = props.disco;
-  //const allGuides = props.allGuides;
-  //const allSites = props.allSites;
 
   return (
     <Row
@@ -48,7 +48,7 @@ export const DiscoPill = (props) => {
         </div>
       </Col>
 
-      {/* Text */}
+      {/* Main */}
       <Col style={{ marginLeft: 10 }}>
         {/* Name */}
         <Row>
@@ -74,7 +74,32 @@ export const DiscoPill = (props) => {
         {/* City and guide */}
         <Row style={{ fontWeight: "bold", marginBottom: 5 }}>
           <Col>
-          <span>{disco.address.city}</span>
+            <span>{disco.address.city}</span>
+            <span>
+              {" "}
+              .{" "}
+              <Link
+                style={{ color: "black" }}
+                href={`/guides/${disco.organiserID}`}
+              >
+                {disco.organiser.name}
+              </Link>
+              <Image
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
+                className="rounded"
+                alt={disco.organiser.name}
+                title={disco.organiser.name}
+                width={25}
+                height={25}
+                style={{
+                  objectFit: "cover",
+                  border: "1px solid #eee",
+                  padding: 0,
+                  display: "inline-block",
+                  marginLeft: 10,
+                }}
+              />
+            </span>
           </Col>
         </Row>
 
@@ -123,23 +148,20 @@ export const DiscoPill = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          {/*disco.type && (
             <span>
-              {disco.type in DiscoTypes ? DiscoTypes[disco.type][LANG] : disco.type}
+              {DiscoTypes[disco.type][LANG]}
             </span>
-          )*/}
           {/* Dates */}
-          
-          {/*disco.type === "event" && (
+        
+          {disco.type === "event" && (
             <>
               {" . "}
-              <FormattedDate dateString={v.dates[0].start} />
+              <FormattedDate dateString={disco.dates[0].start} />
             </>
-          ))*/}
+          )}
         </div>
 
         {/* Sites */}
-        {/*
         <div
           style={{
             marginBottom: 5,
@@ -147,27 +169,19 @@ export const DiscoPill = (props) => {
             marginTop: 10,
           }}
         >
-          {v.sites &&
-            Array.isArray(v.sites) &&
-            v.sites.map((site, i) => (
               <span
-                key={i}
                 style={{
                   backgroundColor: "#eee",
                   fontSize: "0.8rem",
                   padding: 4,
                   borderRadius: 4,
-                  marginLeft: i > 0 ? 7 : 0,
                 }}
               >
-                {allSites.find((x) => x.id === site) && (
-                  <Link href={`/sites/${site}`}>
-                    {allSites.find((x) => x.id === site).name}
+                  <Link href={`/sites/${disco.siteID}`}>
+                    {disco.site.name}
                   </Link>
-                )}
               </span>
-            ))}
-                </div>*/}
+          </div>
       </Col>
     </Row>
   );

@@ -6,11 +6,9 @@ import Col from "react-bootstrap/Col";
 
 const LANG = "fr";
 const SiteTypes = require("../utils/SiteTypes.json");
-const SitePeriods = require("../utils/SitePeriods.json");
 const { Icons } = require("../utils/icons");
 
-
-export const FilterSites = (props) => {
+export const SitesFilter = (props) => {
 
   const cb = props.cb;
   const FilterPeriodOptions = props.FilterPeriodOptions

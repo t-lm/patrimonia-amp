@@ -151,6 +151,7 @@ export const getDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
+      meetingPoint
       bookingRequired
       dateStart
       dateEnd
@@ -158,6 +159,7 @@ export const getDisco = /* GraphQL */ `
         start
         end
       }
+      openingHours
       pictures
       duration
       price
@@ -175,7 +177,50 @@ export const getDisco = /* GraphQL */ `
         postalCode
         city
       }
-      sites
+      siteID
+      site {
+        id
+        name
+        headline
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        position {
+          latitude
+          longitude
+        }
+        types
+        styles
+        periods
+        protections
+        description
+        links {
+          fr
+          en
+          www
+        }
+        pictureID
+        picture {
+          id
+          siteID
+          description_fr
+          description_en
+          source
+          copyright
+          createdAt
+          updatedAt
+          owner
+        }
+        media {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       priority
       createdAt
       updatedAt
@@ -212,6 +257,7 @@ export const listDiscos = /* GraphQL */ `
         format
         format2
         demandCommentary
+        meetingPoint
         bookingRequired
         dateStart
         dateEnd
@@ -219,6 +265,7 @@ export const listDiscos = /* GraphQL */ `
           start
           end
         }
+        openingHours
         pictures
         duration
         price
@@ -236,7 +283,21 @@ export const listDiscos = /* GraphQL */ `
           postalCode
           city
         }
-        sites
+        siteID
+        site {
+          id
+          name
+          headline
+          types
+          styles
+          periods
+          protections
+          description
+          pictureID
+          createdAt
+          updatedAt
+          owner
+        }
         priority
         createdAt
         updatedAt

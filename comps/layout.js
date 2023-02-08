@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
             <Navbar.Collapse className="justify-content-end">
               <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
-                href="/"
+                href="/sites"
               >
                 PATRIMOINE
               </Nav.Link>

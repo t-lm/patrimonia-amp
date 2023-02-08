@@ -1,9 +1,8 @@
 # Status
-- work in progress - pushing patrimonia here
-- implement geocoding for positions
 
 # architecture: 
-- full stack - getStaticProps seems to be working
+- full stack on amplify
+- deployed on vercel
 
 # colors:
 - pink: pink/ #F6C4CD

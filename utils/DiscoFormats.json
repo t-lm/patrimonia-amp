@@ -1,4 +1,5 @@
-{
+{   
+    "self": {"fr": "Visite libre","en": "Free tour"},
     "guidedTour": {"fr": "Visite guidée","en": "Guided tour"},
     "mediatedTour": {"fr": "Visite avec médiateur","en": "Visit with mediator"},
     "conference": {"fr": "Conférence","en": "Conférence"},

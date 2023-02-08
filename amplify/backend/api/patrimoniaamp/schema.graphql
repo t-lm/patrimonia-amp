@@ -29,10 +29,12 @@ type Disco
     format: DiscoFormats! # the format of the discovery
     format2: String
     demandCommentary: String
+    meetingPoint: String
     bookingRequired: Boolean
     dateStart: String!
     dateEnd: String!
     dates: [EventDate]
+    openingHours: [[[String]]]
     pictures: [String]
     duration: [String]
     price: DiscoPrices!
@@ -45,7 +47,8 @@ type Disco
     events: [String]
     persons: [String]
     address: Address
-    sites: [String]
+    siteID: ID!
+    site: Site @hasOne(fields: ["siteID"])
     priority: String
 }
 
