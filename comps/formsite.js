@@ -28,6 +28,8 @@ const FormSite = (props) => {
   const [site, setSite] = useState(props.input);
   const [error, setError] = useState(false);
 
+  console.log(site.links.map(x => `${x.www},${x.fr}`).join("\n"))
+
   const handleUpdateSiteTypes = (key) => {
     let index = site.types.indexOf(key)
     let types = site.types
@@ -58,6 +60,12 @@ const handleUpdateSiteProtections = (key) => {
   if (index > -1) { protections.splice(index, 1); setSite({...site, protections }) }
   else if (site.protections.length > 0 ) { protections.push(key); setSite({...site, protections }) }
   else setSite({...site, protections: [key]})
+}
+
+const handleUpdateLinks = (text) => {
+  let lines = text.split("\n")
+  let links = lines.map(l => ({ www: l.split(",")[0], fr: l.split(",")[1]}))
+  setSite({...site, links})
 }
 
   const handleCreateSite = async (event) => {
@@ -298,6 +306,22 @@ const handleUpdateSiteProtections = (key) => {
                 checked={site.protections && site.protections.includes(x)}
               />
             ))}
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Liens</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              required
+              as="textarea"
+              rows={3}
+              onChange={(e) => handleUpdateLinks(e.target.value)}
+              value={site.links.map(x => `${x.www},${x.fr}`).join("\n")}
+              size="sm"
+            />
           </Col>
         </Form.Group>
 
