@@ -12,9 +12,11 @@ const LANG = "fr";
 const SitePeriods = require("../utils/SitePeriods.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SiteTypes = require("../utils/SiteTypes.json");
+const { Icons } = require("../utils/icons");
 
 export const SitePill = (props) => {
   const s = props.site;
+  console.log(s.types)
 
   return (
     <Row
@@ -67,19 +69,15 @@ export const SitePill = (props) => {
             fontWeight: "bold",
           }}
         >
-          {s.address.city && (
-            <>
-              {s.address.city}
-              {" . "}
-            </>
-          )}
-
-          {s.types.map((t, i) => (
-            <span key={i}>
-              {i > 0 && ", "}
-              {t in SiteTypes ? SiteTypes[t][LANG] : t}
-            </span>
-          ))}
+          {s.address.city}
+          {" . "}
+          {s.types.map((t, i) =>  (
+              <span key={i}>
+                <span style={{marginRight: 10}}>{i > 0 && ", "}{SiteTypes[t][LANG]}</span>
+                <span>{Icons[t]}</span>
+              </span>
+          ))
+          }
         </div>
 
         {/* Headline */}

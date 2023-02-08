@@ -29,6 +29,16 @@ export const getStaticProps = async () => {
   }
 };
 
+const FilterPeriodOptions = {
+  1: {fr: " XIXe - XXIe siècle", values: ["xix", "xx", "xxi"] },
+  2: {fr: " XVIe - XVIIIe siècle", values: ["xvi", "xvi", "xvii", "xviii"] },
+  3: {fr: " XIe - XVe siècle", values: ["xi","xii","xiv","xiv","xv"] },
+  4: {fr: " VIe - Xe siècle", values: ["vi","vii","viii","ix","x"] },
+  5: {fr: " Ier - Ve siècle", values: ["v","iv","iii","ii","i"] },
+  6: {fr: " Ve - Ier siècle avant JC", values: ["-v","-iv","-iii","-ii","-i"] },
+  7: {fr: "< Ve siècle avant JC", values: ["<-V"] }
+}
+
 const Index = ({ Sites = [] }) => {
   // state
   const [username, setUsername] = useState();
@@ -49,8 +59,8 @@ const Index = ({ Sites = [] }) => {
           return x.types.includes(filt.type);
         } else return true;
       }).filter((x) => {
-        if (filt.period && filt.period !== "") {
-          return x.periods.includes(filt.period);
+        if (filt.periodOption && filt.periodOption !== "") {
+          return FilterPeriodOptions[filt.periodOption].values.find(z => x.periods.includes(z));
         } else return true;
       })
     );
@@ -61,7 +71,7 @@ const Index = ({ Sites = [] }) => {
   return (
     <Layout>
       <Head>
-        <title>Patrimonia | Le patrimoine bâti avec ses meilleurs guides</title>
+        <title>Patrimonia</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -94,13 +104,12 @@ const Index = ({ Sites = [] }) => {
         </span>
         <span> 
         
-        
         </span>
       </div>
 
       {/* Main */}
       <div style={{marginTop: 30}}>
-        <FilterSites cb={(x) => handleFilter(x)} filter={filter} />
+        <FilterSites cb={(x) => handleFilter(x)} filter={filter} FilterPeriodOptions={FilterPeriodOptions}/>
       </div>
      
       {sites.map((site) => (
