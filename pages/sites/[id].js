@@ -22,7 +22,7 @@ import { getCurrentUser } from "../../utils/auth";
 
 export const getStaticProps = async ({ params }) => {
   const { data } = await API.graphql({ query: getSite, variables: { id: params.id }, authMode: 'AWS_IAM' });
-  return { props: { site: data.getSite } }
+  return { props: { site: data.getSite }, revalidate: 10 }
 }
 
 export async function getStaticPaths() {
