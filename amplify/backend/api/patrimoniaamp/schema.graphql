@@ -34,7 +34,7 @@ type Disco
     dateStart: String! @index(name: "byDateStartAndEnd", sortKeyFields: ["dateEnd"], queryField: "discoByDateStartAndEnd")
     dateEnd: String! @index(name: "byDateEndAndStart", sortKeyFields: ["dateStart"], queryField: "discoByDateEndAndStart")
     dates: [EventDate]
-    openingHours: [[[String]]]
+    openingHours: OpeningHours
     pictures: [String]
     duration: [String]
     price: DiscoPrices!
@@ -95,6 +95,17 @@ type Link {
   en: String
   www: String!
 }
+
+type OpeningHours {
+  sun: [[String]]
+  mon: [[String]]
+  tue: [[String]]
+  wed: [[String]]
+  thu: [[String]]
+  fri: [[String]]
+  sat: [[String]]
+}
+
 
 type Position {
   latitude: Float

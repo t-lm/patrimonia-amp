@@ -19,14 +19,14 @@ today.setDate(day + 1)
 const tomorrowString = today.toISOString().slice(0, 10)
 today.setDate(day + 6)
 const nextWeekString = today.toISOString().slice(0, 10)
-const startPeriods = [0, 1, 2, 3, 4, 5].map((x) => {
+const startPeriods = [0, 1, 2].map((x) => {
   let today = new Date();
   let month = today.getMonth();
   today.setUTCMonth(month + x);
   today.setDate(1);
   return today.toISOString().slice(0, 10);
 });
-const endPeriods = [1, 2, 3, 4, 5, 6].map((x) => {
+const endPeriods = [1, 2, 3].map((x) => {
   let today = new Date();
   let month = today.getMonth();
   today.setUTCMonth(month + x);

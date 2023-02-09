@@ -146,20 +146,16 @@ const handleUpdateDiscoStyles = (key) => {
               value={disco.name}
               size="sm"
             />
-            <Form.Control.Feedback type="invalid">
-              S'il vous plait choisissez un nom
-            </Form.Control.Feedback>
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
-            <Form.Label>En une phrase ...</Form.Label>
+            <Form.Label>En quelques mots ...</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
-              as="textarea"
-              rows={2}
+              type="text"
               onChange={(e) => setDisco({ ...disco, headline: e.target.value })}
               value={disco.headline}
               size="sm"
@@ -193,6 +189,7 @@ const handleUpdateDiscoStyles = (key) => {
 
         {/* Validité */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        {["regular", "demand"].includes(disco.type) &&
         <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
           <Col>
             <Form.Label>Validité</Form.Label>
@@ -210,6 +207,7 @@ const handleUpdateDiscoStyles = (key) => {
             />
           </Col>
         </Form.Group>
+        }
         {disco.dateStart !== "0000-01-01" &&
           <>
             <Form.Group as={Row} style={{ marginTop: 20 }}>
@@ -242,6 +240,16 @@ const handleUpdateDiscoStyles = (key) => {
             </Form.Group>
           </>
         }
+
+        {disco.type === "regular" &&
+                <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+                <Col>
+                  <Form.Label>Heures d'ouverture</Form.Label>
+                </Col>
+                <Col sm="9">
+                </Col>
+              </Form.Group>
+          }
 
         {/* Sites */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />

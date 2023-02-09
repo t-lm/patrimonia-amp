@@ -13,6 +13,7 @@ const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const DiscoTypes = require("../utils/DiscoTypes.json");
 
 export const DiscoPill = (props) => {
+  
   const disco = props.disco;
 
   return (
@@ -24,7 +25,6 @@ export const DiscoPill = (props) => {
         padding: 15,
         border: "1px solid #eee",
         backgroundColor: "white",
-        fontSize: "0.9rem"
       }}
     >
       {/* Image */}
@@ -59,7 +59,7 @@ export const DiscoPill = (props) => {
                 fontWeight: "bold",
                 marginTop: 10,
                 fontSize: "1.1rem",
-                overflowWrap: "break-word",
+                overflowWrap: "break-word" 
               }}
             >
               <Link
@@ -72,39 +72,38 @@ export const DiscoPill = (props) => {
           </Col>
         </Row>
 
-        {/* City and site */}
-        <div>
-          <span>{disco.address.city}</span>
-          {" . "}
-          <span>
-            <Link href={`/sites/${disco.siteID}`}>{disco.site.name}</Link>
-          </span>
-        </div>
+        {/* City and guide */}
+        <Row style={{ fontWeight: "bold", marginBottom: 5 }}>
+          <Col>
+            <span>{disco.address.city}</span>
+            <span>
+              {" "}
+              .{" "}
+              <Link
+                style={{ color: "black" }}
+                href={`/guides/${disco.organiserID}`}
+              >
+                {disco.organiser.name}
+              </Link>
+              <Image
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
+                className="rounded"
+                alt={disco.organiser.name}
+                title={disco.organiser.name}
+                width={25}
+                height={25}
+                style={{
+                  objectFit: "cover",
+                  border: "1px solid #eee",
+                  padding: 0,
+                  display: "inline-block",
+                  marginLeft: 10,
+                }}
+              />
+            </span>
+          </Col>
+        </Row>
 
-        {/* Guide */}
-        <div>
-          <Link
-            style={{ color: "black" }}
-            href={`/guides/${disco.organiserID}`}
-          >
-            {disco.organiser.name}
-          </Link>
-          <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
-            className="rounded"
-            alt={disco.organiser.name}
-            title={disco.organiser.name}
-            width={25}
-            height={25}
-            style={{
-              objectFit: "cover",
-              border: "1px solid #eee",
-              padding: 0,
-              display: "inline-block",
-              marginLeft: 10,
-            }}
-          />
-        </div>
         {/* headline */}
         <Link href={`/discos/${disco.id}`}>
           <div
@@ -127,9 +126,11 @@ export const DiscoPill = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          <span>{DiscoTypes[disco.type][LANG]}</span>
+            <span>
+              {DiscoTypes[disco.type][LANG]}
+            </span>
           {/* Dates */}
-
+        
           {disco.type === "event" && (
             <>
               {" . "}
@@ -138,27 +139,48 @@ export const DiscoPill = (props) => {
           )}
         </div>
 
-        {/* subjects */}
+        {/* Site */}
+        <div
+          style={{
+            marginBottom: 5,
+            paddingTop: 0,
+            marginTop: 10,
+          }}
+        >
+              <span
+                style={{
+                  backgroundColor: "#eee",
+                  fontSize: "0.8rem",
+                  padding: 4,
+                  borderRadius: 4,
+                }}
+              >
+                  <Link href={`/sites/${disco.siteID}`}>
+                    {disco.site.name}
+                  </Link>
+              </span>
+          </div>
+
+                  {/* subjects */}
         <Row>
-          <Col style={{ overflowWrap: "break-word" }}>
-            {disco.subjects.map(
-              (sub, i) =>
-                sub in DiscoSubjects && (
-                  <span
-                    key={i}
-                    style={{
-                      backgroundColor: DiscoSubjects[sub]["color"],
-                      color: "white",
-                      fontSize: "0.7rem",
-                      padding: 4,
-                      borderRadius: 4,
-                      marginLeft: i > 0 ? 7 : 0,
-                    }}
-                  >
-                    {DiscoSubjects[sub][LANG]}
-                  </span>
-                )
-            )}
+          <Col style={{ overflowWrap: "break-word"}}>
+                {disco.subjects.map((sub, i) => (
+                    sub in DiscoSubjects && (
+                      <span
+                      key={i}
+                        style={{
+                          backgroundColor: DiscoSubjects[sub]["color"],
+                          color: "white",
+                          fontSize: "0.7rem",
+                          padding: 4,
+                          borderRadius: 4,
+                          marginLeft: i > 0 ? 7 : 0,
+                        }}
+                      >
+                        {DiscoSubjects[sub][LANG]}
+                      </span>
+                    )
+                ))}
           </Col>
         </Row>
       </Col>

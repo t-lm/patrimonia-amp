@@ -225,7 +225,15 @@ export const createDisco = /* GraphQL */ `
         start
         end
       }
-      openingHours
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
       pictures
       duration
       price
@@ -335,7 +343,15 @@ export const updateDisco = /* GraphQL */ `
         start
         end
       }
-      openingHours
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
       pictures
       duration
       price
@@ -445,7 +461,15 @@ export const deleteDisco = /* GraphQL */ `
         start
         end
       }
-      openingHours
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
       pictures
       duration
       price
