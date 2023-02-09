@@ -91,9 +91,9 @@ export const DiscoBooking = (props) => {
                   key={i}
                   style={{
                     backgroundColor:
-                      i + (1 % 7) === dayToday ? "pink" : "white",
-                    color: i + (1 % 7) === dayToday ? "black" : "grey",
-                    fontWeight: i + (1 % 7) === dayToday ? "bold" : "normal",
+                      (i + 1 % 7) === dayToday ? "pink" : "white",
+                    color: (i + 1 % 7) === dayToday ? "black" : "grey",
+                    fontWeight: (i + 1 % 7) === dayToday ? "bold" : "normal",
                   }}
                 >
                   <Day day={x} slots={disco.openingHours[x]} />
@@ -110,10 +110,8 @@ export const DiscoBooking = (props) => {
             </h3>
 
             {disco.dates.filter((d) => new Date(d.start) >= today).length ===
-            0 ? (
-              <>{Keys[LANG]["setNoDate"]}</>
-            ) : (
-              <>
+            0 ? <>{Keys[LANG]["setNoDate"]}</>
+            : <>
                 {disco.dates
                   .filter((d) => new Date(d.start) >= today)
                   .map((date, i) => (
@@ -148,7 +146,7 @@ export const DiscoBooking = (props) => {
                     </Row>
                   ))}
               </>
-            )}
+            }
           </>
         )}
       </section>

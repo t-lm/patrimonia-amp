@@ -34,7 +34,7 @@ const FormMedia = (props) => {
         variables: { input: media },
       });
 
-      window.location.href = `/media`;
+      window.location.href = `/app/media`;
     } catch (e) {
       console.error(e);
       setError("There is an error with this form");
@@ -50,7 +50,7 @@ const FormMedia = (props) => {
         query: updateMedia,
         variables: { input: media },
       });
-      window.location.href = `/media`;
+      window.location.href = `/app/media`;
     } catch (e) {
       console.error(e);
       setError("There is an error with this form");

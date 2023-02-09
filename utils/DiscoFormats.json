@@ -1,7 +1,7 @@
 {   
     "self": {"fr": "Visite libre","en": "Free tour"},
     "guidedTour": {"fr": "Visite guidée","en": "Guided tour"},
-    "mediatedTour": {"fr": "Visite avec médiateur","en": "Visit with mediator"},
+    "mediatedTour": {"fr": "Visite avec médiateur sur place","en": "Visit with mediator on site"},
     "conference": {"fr": "Conférence","en": "Conférence"},
     "concert": {"fr": "Concert","en": "Concert"},
     "workshop": {"fr": "Atelier","en": "Workshop"}

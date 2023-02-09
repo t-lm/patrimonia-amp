@@ -33,7 +33,7 @@ export const DiscoFacts = (props) => {
         marginTop: 10,
       }}
     >
-      <Row id="facts-organiser">
+      <Row>
         <Col xs={6} md={8} lg={10}>
           <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
             {Keys[LANG]["discoProposedBy"]} {disco.organiser.name}

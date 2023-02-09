@@ -19,6 +19,7 @@ export const DiscosList = (props) => {
       {/* events */}
       {discos
         .filter((x) => x.type === "event")
+        .sort((a, b) => a.dates[0].start > b.dates[0].start ? 1 : -1)
         .map((v, j) => (
           <div key={j}>
             {j == 0 && showHeaders && (

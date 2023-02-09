@@ -16,6 +16,7 @@ import { DiscosList } from "../comps/discoslist";
 import { Welcome } from "../comps/welcome";
 
 const today = new Date().toISOString().slice(0, 10);
+const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
 export const getStaticProps = async () => {
   try {
@@ -66,18 +67,28 @@ const Index = ({ Discos = [] }) => {
         })
         .filter((x) => {
           if (filter.startPeriod && filter.startPeriod !== "") {
-            return ( new Date(x.dateEnd) > new Date(filter.startPeriod) );
+            return ( new Date(x.dateEnd) >= new Date(filter.startPeriod) );
           } else return true;
         })
         .filter((x) => {
           if (filter.endPeriod && filter.endPeriod !== "") {
-            return ( new Date(x.dateStart) < new Date(filter.endPeriod) );
+            return ( new Date(x.dateStart) <= new Date(filter.endPeriod) );
+          } else return true;
+        })
+        .filter((x) => {
+          if (filter.periodType === "day" && x.type === "regular" && filter.startPeriod !== "") {
+            let day = new Date(filter.startPeriod)
+            let num = day.getDay() - 1 % 7
+            if (x.openingHours[week[num]][0] && x.openingHours[week[num]][0] !== "") return true
+            else return false
           } else return true;
         })
     )
 
   }, [Discos, filter]);
   useEffect(() => setUsername(getCurrentUser().username), []);
+
+  //console.log(filter)
 
   return (
     <Layout>

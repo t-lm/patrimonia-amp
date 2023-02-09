@@ -9,11 +9,14 @@ import Col from "react-bootstrap/Col";
 import { FormattedDate } from "./date";
 
 const LANG = "fr";
+const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
-const DiscoTypes = require("../utils/DiscoTypes.json");
+//const DiscoTypes = require("../utils/DiscoTypes.json");
 
 export const DiscoPill = (props) => {
+
   const disco = props.disco;
+  console.log(disco)
 
   return (
     <Row
@@ -70,16 +73,16 @@ export const DiscoPill = (props) => {
           </Col>
         </Row>
 
-        {/* City and site */}
-        <div>
+        {/* City, site and format */}
+        <div style={{ fontWeight: "bold"}}>
           <span>{disco.address.city}</span>
           {" . "}
-          <span>
-            <Link href={`/sites/${disco.siteID}`}>{disco.site.name}</Link>
-          </span>
+          <span><Link href={`/sites/${disco.siteID}`}>{disco.site.name}</Link></span>
+          {" . "}
+          <span>{DiscoFormats[disco.format][LANG]}</span>
         </div>
 
-        {/* Guide */}
+        {/* Organiser */}
         <div>
           <Link
             style={{ color: "black" }}
@@ -87,8 +90,7 @@ export const DiscoPill = (props) => {
           >
             {disco.organiser.name}
           </Link>
-          <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
+          <Image src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
             className="rounded"
             alt={disco.organiser.name}
             title={disco.organiser.name}
@@ -103,18 +105,20 @@ export const DiscoPill = (props) => {
             }}
           />
         </div>
+
         {/* headline */}
-        <Link href={`/discos/${disco.id}`}>
-          <div
-            style={{
-              margin: "10px 0px 5px",
-              paddingTop: 0,
-              fontSize: "0.9rem",
-            }}
-          >
-            {disco.headline.slice(0, 150)}
-          </div>
-        </Link>
+        <div>
+          <Link href={`/discos/${disco.id}`}>
+            <div
+              style={{
+                paddingTop: 0,
+                fontSize: "0.9rem",
+              }}
+            >
+              {disco.headline.slice(0, 150)}
+            </div>
+          </Link>
+        </div>
 
         {/* Type & date */}
         <div
@@ -125,8 +129,13 @@ export const DiscoPill = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          <span>{DiscoTypes[disco.type][LANG]}</span>
+          {/*<span>{DiscoTypes[disco.type][LANG]}</span>*/}
           {/* Dates */}
+          {disco.type === "regular" && (
+            <>
+              XXXX
+            </>
+          )}
 
           {disco.type === "event" && (
             <>
