@@ -12,12 +12,24 @@ const DiscoTypes = require("../utils/DiscoTypes.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const DiscoAudiences = require("../utils/DiscoAudiences.json");
 
-const today = new Date();
+let today = new Date();
+const todayString = today.toISOString().slice(0, 10)
 const month = today.getMonth();
-const dates = [0, 1, 2, 3, 4, 5].map((x) => {
+const startPeriods = [0, 1, 2, 3, 4, 5].map((x) => {
+  let today = new Date();
+  let month = today.getMonth();
   today.setUTCMonth(month + x);
+  today.setDate(1);
   return today.toISOString().slice(0, 10);
 });
+const endPeriods = [1, 2, 3, 4, 5, 6].map((x) => {
+  let today = new Date();
+  let month = today.getMonth();
+  today.setUTCMonth(month + x);
+  today.setDate(0);
+  return today.toISOString().slice(0, 10);
+});
+
 
 export const DiscosFilter = (props) => {
   const filter = props.filter;
@@ -36,26 +48,42 @@ export const DiscosFilter = (props) => {
       {/* months */}
       <Row>
         <Col>
-          {dates.map((m, i) => (
+          <Button
+                style={{
+                  backgroundColor:
+                      filter.periodType === "day" && filter.startPeriod === todayString
+                      ? "#e2e2d7"
+                      : "white",
+                  fontSize: "0.9rem",
+                  fontWeight: "bold",
+                  padding: "4px 10px",
+                  borderRadius: 4,
+                  marginTop: 5,
+                  border: 0,
+                  color: "black",
+                }}
+                onClick={() => cb({ periodType: "day", startPeriod: filter.startPeriod === todayString ? "" : todayString, endPeriod: filter.endPeriod === todayString ? "" : todayString})}
+              >
+                Aujourd'hui
+          </ Button>
+          {startPeriods.map((m, i) => (
             <Button
               key={i}
               style={{
                 backgroundColor:
-                  !filter || !filter.month
-                    ? "#e2e2d7"
-                    : filter && filter.month === m
+                   filter.periodType === "month" && filter.startPeriod === m
                     ? "#e2e2d7"
                     : "white",
                 fontSize: "0.9rem",
                 fontWeight: "bold",
                 padding: "4px 10px",
                 borderRadius: 4,
-                marginLeft: i > 0 ? 7 : 0,
+                marginLeft: 7,
                 marginTop: 5,
                 border: 0,
                 color: "black",
               }}
-              onClick={() => cb({ month: filter && filter.month ? "" : m})}
+              onClick={() => cb({ periodType: "month", startPeriod: filter.startPeriod === m ? "" : m, endPeriod: filter.endPeriod === endPeriods[i] ? "" : endPeriods[i]})}
             >
               <FormattedMonth dateString={m} />
             </Button>
@@ -70,7 +98,6 @@ export const DiscosFilter = (props) => {
           <Form.Select
             size="sm"
             onChange={() => cb({ region: "beziers" })}
-            type
           >
             <option>Béziers et ses environs</option>
           </Form.Select>

@@ -21,11 +21,9 @@ const LANG = "fr";
 export const siteTitle = "Patrimonia";
 
 const Layout = ({ children }) => {
+  
   const [username, setUsername] = useState();
-
-  useEffect(() => {
-    setUsername(getCurrentUser().username);
-  }, []);
+  useEffect(() => setUsername(getCurrentUser().username), []);
 
   return (
     <Container>
@@ -33,7 +31,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Discover heritage sites with the people who knows them best"
+          content="Découvrir le patrimoine"
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
@@ -78,12 +76,12 @@ const Layout = ({ children }) => {
               >
                 PATRIMOINE
               </Nav.Link>
-              <Nav.Link
+             {/* <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/organisers"
               >
                 GUIDES
-              </Nav.Link>
+              </Nav.Link> */}
               <NavDropdown
                 align="end"
                 title={

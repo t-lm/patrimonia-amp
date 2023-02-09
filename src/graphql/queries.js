@@ -307,6 +307,184 @@ export const listDiscos = /* GraphQL */ `
     }
   }
 `;
+export const discoByDateStartAndEnd = /* GraphQL */ `
+  query DiscoByDateStartAndEnd(
+    $dateStart: String!
+    $dateEnd: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelDiscoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    discoByDateStartAndEnd(
+      dateStart: $dateStart
+      dateEnd: $dateEnd
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        headline
+        organiserID
+        organiser {
+          id
+          name
+          description_fr
+          description_en
+          www
+          phone
+          email
+          type
+          createdAt
+          updatedAt
+          owner
+        }
+        type
+        format
+        format2
+        demandCommentary
+        meetingPoint
+        bookingRequired
+        dateStart
+        dateEnd
+        dates {
+          start
+          end
+        }
+        openingHours
+        pictures
+        duration
+        price
+        priceCommentary
+        subjects
+        languages
+        audiences
+        styles
+        periods
+        events
+        persons
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        siteID
+        site {
+          id
+          name
+          headline
+          types
+          styles
+          periods
+          protections
+          description
+          pictureID
+          createdAt
+          updatedAt
+          owner
+        }
+        priority
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const discoByDateEndAndStart = /* GraphQL */ `
+  query DiscoByDateEndAndStart(
+    $dateEnd: String!
+    $dateStart: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelDiscoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    discoByDateEndAndStart(
+      dateEnd: $dateEnd
+      dateStart: $dateStart
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        headline
+        organiserID
+        organiser {
+          id
+          name
+          description_fr
+          description_en
+          www
+          phone
+          email
+          type
+          createdAt
+          updatedAt
+          owner
+        }
+        type
+        format
+        format2
+        demandCommentary
+        meetingPoint
+        bookingRequired
+        dateStart
+        dateEnd
+        dates {
+          start
+          end
+        }
+        openingHours
+        pictures
+        duration
+        price
+        priceCommentary
+        subjects
+        languages
+        audiences
+        styles
+        periods
+        events
+        persons
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        siteID
+        site {
+          id
+          name
+          headline
+          types
+          styles
+          periods
+          protections
+          description
+          pictureID
+          createdAt
+          updatedAt
+          owner
+        }
+        priority
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const getMedia = /* GraphQL */ `
   query GetMedia($id: ID!) {
     getMedia(id: $id) {

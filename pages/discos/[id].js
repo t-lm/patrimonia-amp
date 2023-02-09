@@ -24,7 +24,7 @@ export const getStaticProps = async ({ params }) => {
     variables: { id: params.id },
     authMode: "AWS_IAM",
   });
-  return { props: { disco: data.getDisco } };
+  return { props: { disco: data.getDisco }, revalidate: 10 };
 }
 
 export const getStaticPaths = async () => {

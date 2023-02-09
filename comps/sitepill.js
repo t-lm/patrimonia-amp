@@ -45,6 +45,7 @@ export const SitePill = (props) => {
             fill
             priority
             style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 25vw, 16vw"
           />
         </div>
       </Col>

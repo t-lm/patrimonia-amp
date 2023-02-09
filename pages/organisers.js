@@ -34,7 +34,7 @@ const Organisers = ({ Organisers = [] }) => {
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  console.log(Organisers);
+  //console.log(Organisers);
 
   return (
     <Layout>

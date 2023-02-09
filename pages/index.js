@@ -1,4 +1,6 @@
 // pages/index.js
+//
+// store filter in a state
 
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
@@ -13,9 +15,11 @@ import { DiscosFilter } from "../comps/discosfilter";
 import { DiscosList } from "../comps/discoslist";
 import { Welcome } from "../comps/welcome";
 
+const today = new Date().toISOString().slice(0, 10);
+
 export const getStaticProps = async () => {
   try {
-    const response = await API.graphql({ query: listDiscos, authMode: "AWS_IAM" });
+    const response = await API.graphql({ query: listDiscos, variables: {filter: { dateEnd: { gt: today}}}, authMode: "AWS_IAM" });
     return { props: { Discos: response.data.listDiscos.items }, revalidate: 10 };
   } catch (err) {
     console.log(err);
@@ -25,54 +29,58 @@ export const getStaticProps = async () => {
 
 const Index = ({ Discos = [] }) => {
 
+  let startPeriod = new Date()
+  startPeriod.setDate(1)
+  let endPeriod = new Date()
+  endPeriod.setUTCMonth(endPeriod.getMonth() + 1)
+  endPeriod.setDate(0)
+
   // state
   const [username, setUsername] = useState();
-  const [discos, setDiscos] = useState(Discos);
+  const [discos, setDiscos] = useState([]);
+  const [filter, setFilter] = useState({periodType: "month", startPeriod: startPeriod.toISOString().slice(0, 10), endPeriod: endPeriod.toISOString().slice(0, 10)});
 
-  const today = new Date().toISOString().slice(0, 10);
+  const updateFilter = (f) => {
+    let fil = {...filter}
+    Object.keys(f).forEach(x => {
+      fil[x] = f[x]
+    })
+    setFilter(fil)
+  }
 
+  useEffect(() => {
+    
+    setDiscos(
+      Discos
+        .filter((x) => {
+          if (filter.type && filter.type !== "") {
+            return x.type === filter.type;
+          } else return true;
+        })
+        .filter((x) => {
+          if (filter.subject && filter.subject !== "") {
+            return x.subjects.includes(filter.subject);
+          } else return true;
+        })
+        .filter((x) => {
+          if (filter.audience && filter.audience !== "") {
+            return x.audiences.includes(filter.audience);
+          } else return true;
+        })
+        .filter((x) => {
+          if (filter.startPeriod && filter.startPeriod !== "") {
+            return ( new Date(x.dateEnd) > new Date(filter.startPeriod) );
+          } else return true;
+        })
+        .filter((x) => {
+          if (filter.endPeriod && filter.endPeriod !== "") {
+            return ( new Date(x.dateStart) < new Date(filter.endPeriod) );
+          } else return true;
+        })
+    )
+
+  }, [Discos, filter]);
   useEffect(() => setUsername(getCurrentUser().username), []);
-
-  const handleFilter = (f) => {
-    let filt = { ...filter };
-    filt[Object.keys(f)[0]] = f[Object.keys(f)[0]];
-    setFilter(filt);
-
-    return setDiscos(
-      allDiscos
-        .filter((x) => {
-          if (filt.type) {
-            return x.type === filt.type;
-          } else return true;
-        })
-        .filter((x) => {
-          if (filt.subject) {
-            return x.subjects.includes(filt.subject);
-          } else return true;
-        })
-        .filter((x) => {
-          if (filt.audience) {
-            return x.audiences.includes(filt.audience);
-          } else return true;
-        })
-        .filter((x) => {
-          if (filt.month) {
-            let startPeriod = new Date(filt.month);
-            startPeriod.setDate(1);
-            startPeriod.setHours(1);
-            let month = startPeriod.getMonth();
-            let endPeriod = new Date(filt.month);
-            endPeriod.setMonth(month + 1);
-            endPeriod.setDate(0);
-            endPeriod.setHours(23);
-            return (
-              new Date(x.dateStart) < endPeriod &&
-              new Date(x.dateEnd) > startPeriod
-            );
-          } else return true;
-        })
-    );
-  };
 
   return (
     <Layout>
@@ -85,7 +93,7 @@ const Index = ({ Discos = [] }) => {
       <Welcome />
 
       {/* Filter */}
-      <DiscosFilter filter={{month: today}} cb={(x) => handleFilter(x)} />
+      <DiscosFilter filter={filter} cb={(x) => updateFilter(x) } />
 
       {/* Main */}
       <DiscosList discos={discos} />

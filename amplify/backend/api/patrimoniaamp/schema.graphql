@@ -31,8 +31,8 @@ type Disco
     demandCommentary: String
     meetingPoint: String
     bookingRequired: Boolean
-    dateStart: String!
-    dateEnd: String!
+    dateStart: String! @index(name: "byDateStartAndEnd", sortKeyFields: ["dateEnd"], queryField: "discoByDateStartAndEnd")
+    dateEnd: String! @index(name: "byDateEndAndStart", sortKeyFields: ["dateStart"], queryField: "discoByDateEndAndStart")
     dates: [EventDate]
     openingHours: [[[String]]]
     pictures: [String]

@@ -78,9 +78,7 @@ const Sites = ({ Sites = [] }) => {
       </div>
 
       {/* Main */}
-      {sites.map((site) => (
-        <SitePill key={site.id} site={site} />
-      ))}
+      {sites.map(site => <SitePill key={site.id} site={site} /> )}
 
       {/* Admin */}
       {username && username === "tlm" && (

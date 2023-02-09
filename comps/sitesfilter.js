@@ -31,7 +31,6 @@ export const SitesFilter = (props) => {
             <Form.Select
               size="sm"
               onChange={() => cb({ region: "beziers" })}
-              type
             >
               <option>Béziers et ses environs</option>
             </Form.Select>
@@ -47,7 +46,7 @@ export const SitesFilter = (props) => {
             >
               <option value="">Type de bâtiment</option>
               {Object.keys(SiteTypes).map((x) => (
-                <option dataIcon={Icons[x]} key={x} value={x}>
+                <option key={x} value={x}>
                   {SiteTypes[x][LANG]}
                 </option>
               ))}
