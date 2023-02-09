@@ -16,7 +16,7 @@ const DiscoSubjects = require("../utils/DiscoSubjects.json");
 export const DiscoPill = (props) => {
 
   const disco = props.disco;
-  console.log(disco)
+  //console.log(disco)
 
   return (
     <Row
@@ -131,11 +131,11 @@ export const DiscoPill = (props) => {
         >
           {/*<span>{DiscoTypes[disco.type][LANG]}</span>*/}
           {/* Dates */}
-          {disco.type === "regular" && (
+          {/*disco.type === "regular" && (
             <>
               XXXX
             </>
-          )}
+          )*/}
 
           {disco.type === "event" && (
             <>
