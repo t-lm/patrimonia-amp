@@ -23,7 +23,6 @@ const DiscoPrices = require("../utils/DiscoPrices.json");
 export const DiscoFacts = (props) => {
 
   const disco = props.disco;
-  console.log(disco)
 
   return (
     <section

@@ -38,6 +38,7 @@ export const DiscoPictures = (props) => {
               style={{ objectFit: "cover" }}
               fill
               priority
+              sizes="100vw"
             />
           </div>
         </Col>
@@ -62,6 +63,7 @@ export const DiscoPictures = (props) => {
                 alt={disco.name}
                 fill
                 style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,25vw"
               />
             </div>
           ))}

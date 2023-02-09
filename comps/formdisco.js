@@ -242,13 +242,22 @@ const handleUpdateDiscoStyles = (key) => {
         }
 
         {disco.type === "regular" &&
-                <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
-                <Col>
-                  <Form.Label>Heures d'ouverture</Form.Label>
-                </Col>
-                <Col sm="9">
-                </Col>
-              </Form.Group>
+        <>
+          <div>Heures d'ouverture</div>
+            <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+            <Col>
+              <Form.Label>Dimanche</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sun: e.target.value }})}
+                value={disco.openingHours.sun}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          </>
           }
 
         {/* Sites */}

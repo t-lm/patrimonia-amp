@@ -79,8 +79,6 @@ const Index = ({ Discos = [] }) => {
   }, [Discos, filter]);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  console.log(discos)
-
   return (
     <Layout>
       <Head>

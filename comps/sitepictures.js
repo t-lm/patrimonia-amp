@@ -47,6 +47,7 @@ export const SitePictures = (props) => {
             fill
             priority
             style={{ objectFit: "cover" }}
+            sizes="100vw"
           />
         </div>
       </Col>
@@ -73,6 +74,7 @@ export const SitePictures = (props) => {
               onClick={() => setShowCarousel(true)}
               fill
               style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,25vw"
             />
           </div>
         ))}
