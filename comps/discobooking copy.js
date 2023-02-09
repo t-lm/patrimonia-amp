@@ -22,17 +22,17 @@ export const DiscoBooking = (props) => {
   const dayToday = today.getDay();
   const [showModal, setShowModal] = useState(false);
 
-  const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
   const Day = (props) => {
-    const d = props.day;
-    const slots = props.slots;
+    const d = props.day
+    const slots = props.slots
 
     return (
-      <Row style={{ paddingLeft: 10 }}>
+      <Row style={{paddingLeft: 10}}>
         <Col xs={3}>{Weekdays[d][LANG]}</Col>
         <Col xs={9}>
-          {!slots || slots.length === 0
+          {(!slots || slots.length === 0)
             ? "Fermé"
             : slots.map((s, j) => (
                 <span key={j} style={{ marginRight: 10 }}>
@@ -54,11 +54,10 @@ export const DiscoBooking = (props) => {
           marginTop: 30,
         }}
       >
+
         {disco.type === "demand" && (
           <>
-            <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Réservation
-            </h3>
+            <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>Réservation</h3>
             <Row style={{ margin: "5px 3px" }}>
               <Col xs={8} style={{ marginTop: 3, padding: "5.625px 0px" }}>
                 {disco.demandCommentary && disco.demandCommentary}
@@ -81,40 +80,26 @@ export const DiscoBooking = (props) => {
 
         {disco.type === "regular" && (
           <>
-            <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Heures d'ouverture
-            </h3>
+            <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>Heures d'ouverture</h3>
             <div>{disco.datesCommentary && disco.datesCommentary}</div>
             <div style={{ marginTop: 20, textAlign: "left", color: "grey" }}>
-              {week.map((x, i) => (
-                <div
-                  key={i}
-                  style={{
-                    backgroundColor:
-                      i + (1 % 7) === dayToday ? "pink" : "white",
-                    color: i + (1 % 7) === dayToday ? "black" : "grey",
-                    fontWeight: i + (1 % 7) === dayToday ? "bold" : "normal",
-                  }}
-                >
-                  <Day day={x} slots={disco.openingHours[x]} />
-                </div>
-              ))}
+              
+                {week.map((x, i) => (
+                  <div key={i} style={{backgroundColor: (i+1%7 === dayToday) ? "pink" : "white", color: (i+1%7 === dayToday) ? "black" : "grey", fontWeight: (i+1%7 === dayToday) ? "bold" : "normal"}}>
+                    <Day day={x} slots={disco.openingHours[x]} />
+                  </div>
+                ))}
             </div>
           </>
         )}
 
-        {disco.type === "event" && (
-          <>
-            <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Prochaines dates
-            </h3>
-
-            {disco.dates.filter((d) => new Date(d.start) >= today).length ===
-            0 ? (
-              <>{Keys[LANG]["setNoDate"]}</>
-            ) : (
-              <>
-                {disco.dates
+        {disco.type === "event" &&
+        <>
+          <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>Prochaines dates</h3>
+            
+              {disco.dates.filter((d) => new Date(d.start) >= today).length ===
+              0 ? {Keys[LANG]["setNoDate"]} : {
+                disco.dates
                   .filter((d) => new Date(d.start) >= today)
                   .map((date, i) => (
                     <Row
@@ -146,11 +131,9 @@ export const DiscoBooking = (props) => {
                         </Button>
                       </Col>
                     </Row>
-                  ))}
-              </>
-            )}
-          </>
-        )}
+                  ))
+                          }
+            </>
       </section>
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
