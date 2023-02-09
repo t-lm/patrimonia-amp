@@ -49,7 +49,7 @@ export const DiscoFacts = (props) => {
             height={60}
             style={{
               objectFit: "cover",
-              border: "2px solid #111",
+              border: "1px solid #ddd",
               padding: 2,
             }}
           />
@@ -146,12 +146,7 @@ export const DiscoFacts = (props) => {
             </Row>
           )}
           {disco.styles.length > 0 && (
-            <Row
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+            <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.styles.length > 1
                   ? Keys[LANG]["keyStyles"]
@@ -168,12 +163,7 @@ export const DiscoFacts = (props) => {
             </Row>
           )}
           {disco.persons.length > 0 && (
-            <Row
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+            <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.persons.length > 1
                   ? Keys[LANG]["keyPeople"]
@@ -190,12 +180,7 @@ export const DiscoFacts = (props) => {
             </Row>
           )}
           {disco.events.length > 0 && (
-            <Row
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+            <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.events.length > 1
                   ? Keys[LANG]["keyEvents"]

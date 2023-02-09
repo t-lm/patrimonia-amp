@@ -243,16 +243,97 @@ const handleUpdateDiscoStyles = (key) => {
 
         {disco.type === "regular" &&
         <>
-          <div>Heures d'ouverture</div>
-            <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+          <div style={{fontWeight: "bold"}}>Heures d'ouverture</div>
+          <Form.Group as={Row} style={{marginTop: 20}}>
+            <Col>
+              <Form.Label>Lundi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, mon: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
+                value={disco.openingHours && disco.openingHours.mon ?  disco.openingHours.mon.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            <Form.Text className="text-muted">
+                Le format est 8h-17h pour une ouverture de 8h à 17h et 8h-12h,14h-17h pour deux créneaux par jour
+              </Form.Text>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
+            <Col>
+              <Form.Label>Mardi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, tue: e.target.value.split(",").map(x => x.split("-")) }})}
+                value={disco.openingHours && disco.openingHours.tue?  disco.openingHours.tue.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
+            <Col>
+              <Form.Label>Mercredi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, wed: e.target.value.split(",").map(x => x.split("-")) }})}
+                value={disco.openingHours && disco.openingHours.wed ?  disco.openingHours.wed.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
+            <Col>
+              <Form.Label>Jeudi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, thu: e.target.value.split(",").map(x => x.split("-")) }})}
+                value={disco.openingHours && disco.openingHours.thu?  disco.openingHours.thu.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
+            <Col>
+              <Form.Label>Vendredi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, fri: e.target.value.split(",").map(x => x.split("-")) }})}
+                value={disco.openingHours && disco.openingHours.fri ?  disco.openingHours.fri.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
+            <Col>
+              <Form.Label>Samedi</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                type="text"
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sat: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
+                value={disco.openingHours && disco.openingHours.sat ?  disco.openingHours.sat.map(x => x.join("-")).join(",") : ""}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginTop: 10}}>
             <Col>
               <Form.Label>Dimanche</Form.Label>
             </Col>
             <Col sm="9">
               <Form.Control
                 type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sun: e.target.value }})}
-                value={disco.openingHours.sun}
+                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sun: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
+                value={disco.openingHours && disco.openingHours.sun?  disco.openingHours.sun.map(x => x.join("-")).join(",") : ""}
                 size="sm"
               />
             </Col>

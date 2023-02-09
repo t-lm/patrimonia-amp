@@ -188,8 +188,3 @@ export const DiscoMedia = ({lang, num}) => {
   //if (lang === "fr") return <span>{num} autres photos</span>;
   else return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
 }
-
-export const WeekDays = {
-  fr: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
-  en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-}

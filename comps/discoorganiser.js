@@ -34,8 +34,6 @@ export const DiscoOrganiser = (props) => {
       </Row>
       <Row
         style={{
-          display: "flexbox",
-          alignItems: "center",
           marginTop: 20,
         }}
       >
@@ -45,8 +43,8 @@ export const DiscoOrganiser = (props) => {
             className="rounded pe-1"
             alt={organiser.name}
             title={organiser.name}
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             style={{
               objectFit: "cover",
               border: "1px solid #ddd",

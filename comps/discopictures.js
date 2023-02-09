@@ -1,5 +1,4 @@
 // ./comps/discopictures.js
-
 import Image from "next/image";
 
 import Row from "react-bootstrap/Row";
@@ -38,7 +37,7 @@ export const DiscoPictures = (props) => {
               style={{ objectFit: "cover" }}
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw,100vw"
             />
           </div>
         </Col>
