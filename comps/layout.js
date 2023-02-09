@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
                 style={{ marginRight: 25, color: "black" }}
                 href="/sites"
               >
-                PATRIMOINE
+                SITES
               </Nav.Link>
              {/* <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
