@@ -114,6 +114,8 @@ const handleUpdateDiscoStyles = (key) => {
     }
   };
 
+  console.log(disco)
+
   return (
     <>
       <h4 style={{ fontWeight: "bold" }}>
@@ -373,6 +375,7 @@ const handleUpdateDiscoStyles = (key) => {
           </Col>
           <Col sm="9">
             <Form.Select as="select" size="sm" defaultValue={disco.price} onChange={(e) => setDisco({ ...disco, price: e.target.value })}>
+                <option value="">Choisir le prix</option>
                 {Object.keys(DiscoPrices).map(x => <option key={x} value={x}>{DiscoPrices[x][LANG]}</option>)}
               </Form.Select>
           </Col>
@@ -553,12 +556,7 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
             <Form.Control
               type="text"
-              onChange={(e) =>
-                setDisco({
-                  ...disco,
-                  practicalInfo: { ...disco, practicalInfo: e.target.value },
-                })
-              }
+              onChange={(e) => setDisco({ ...disco, practicalInfo: e.target.value})}
               value={disco.practicalInfo}
               size="sm"
             />
