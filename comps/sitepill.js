@@ -31,8 +31,8 @@ export const SitePill = (props) => {
       <Col xs={4} md={2} style={{ padding: 0 }}>
         <div
           style={{
-            width: 100,
-            height: 100,
+            width: 120,
+            height: 120,
             position: "relative",
             display: "block",
           }}

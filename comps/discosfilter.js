@@ -14,7 +14,11 @@ const DiscoAudiences = require("../utils/DiscoAudiences.json");
 
 let today = new Date();
 const todayString = today.toISOString().slice(0, 10)
-const month = today.getMonth();
+let day = today.getDate()
+today.setDate(day + 1)
+const tomorrowString = today.toISOString().slice(0, 10)
+today.setDate(day + 6)
+const nextWeekString = today.toISOString().slice(0, 10)
 const startPeriods = [0, 1, 2, 3, 4, 5].map((x) => {
   let today = new Date();
   let month = today.getMonth();
@@ -32,40 +36,80 @@ const endPeriods = [1, 2, 3, 4, 5, 6].map((x) => {
 
 
 export const DiscosFilter = (props) => {
+  
   const filter = props.filter;
   const cb = props.cb
 
   return (
     <div
       style={{
-        fontSize: "0.9rem",
         padding: 15,
         border: "1px solid #eee",
         backgroundColor: "white",
         marginTop: 20,
       }}
     >
-      {/* months */}
-      <Row>
+      {/* dates */}
+      <Row>     
         <Col>
+        {/* today */}
           <Button
                 style={{
                   backgroundColor:
-                      filter.periodType === "day" && filter.startPeriod === todayString
+                      filter.periodType === "day" && filter.startPeriod === todayString && filter.endPeriod === todayString
                       ? "#e2e2d7"
                       : "white",
-                  fontSize: "0.9rem",
                   fontWeight: "bold",
                   padding: "4px 10px",
                   borderRadius: 4,
                   marginTop: 5,
                   border: 0,
                   color: "black",
+                  fontSize: "0.8rem"
                 }}
                 onClick={() => cb({ periodType: "day", startPeriod: filter.startPeriod === todayString ? "" : todayString, endPeriod: filter.endPeriod === todayString ? "" : todayString})}
               >
-                Aujourd'hui
+                aujourd'hui
           </ Button>
+          {/* tomorrow */}
+          <Button
+                style={{
+                  backgroundColor:
+                      filter.periodType === "day" && filter.startPeriod === tomorrowString
+                      ? "#e2e2d7"
+                      : "white",
+                  fontWeight: "bold",
+                  padding: "4px 10px",
+                  borderRadius: 4,
+                  marginTop: 5,
+                  border: 0,
+                  color: "black",
+                  fontSize: "0.8rem"
+                }}
+                onClick={() => cb({ periodType: "day", startPeriod: filter.startPeriod === tomorrowString ? "" : tomorrowString , endPeriod: filter.endPeriod === tomorrowString ? "" : tomorrowString })}
+              >
+                demain
+          </ Button>
+          {/* next week */}
+          <Button
+                style={{
+                  backgroundColor:
+                      filter.periodType === "day" && filter.startPeriod === todayString && filter.endPeriod === nextWeekString
+                      ? "#e2e2d7"
+                      : "white",
+                  fontWeight: "bold",
+                  padding: "4px 10px",
+                  borderRadius: 4,
+                  marginTop: 5,
+                  border: 0,
+                  color: "black",
+                  fontSize: "0.8rem"
+                }}
+                onClick={() => cb({ periodType: "day", startPeriod: filter.startPeriod === todayString ? "" : todayString , endPeriod: filter.endPeriod === nextWeekString ? "" : nextWeekString })}
+              >
+                7 prochains jours
+          </ Button>
+          {' | '}
           {startPeriods.map((m, i) => (
             <Button
               key={i}
@@ -74,7 +118,7 @@ export const DiscosFilter = (props) => {
                    filter.periodType === "month" && filter.startPeriod === m
                     ? "#e2e2d7"
                     : "white",
-                fontSize: "0.9rem",
+                fontSize: "0.8rem",
                 fontWeight: "bold",
                 padding: "4px 10px",
                 borderRadius: 4,

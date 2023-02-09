@@ -31,8 +31,8 @@ export const DiscoPill = (props) => {
       <Col xs={3} md={2} style={{ padding: 0 }}>
         <div
           style={{
-            width: 90,
-            height: 90,
+            width: 120,
+            height: 120,
             position: "relative",
             display: "block",
           }}

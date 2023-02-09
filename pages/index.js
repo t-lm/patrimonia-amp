@@ -29,16 +29,13 @@ export const getStaticProps = async () => {
 
 const Index = ({ Discos = [] }) => {
 
-  let startPeriod = new Date()
-  startPeriod.setDate(1)
-  let endPeriod = new Date()
-  endPeriod.setUTCMonth(endPeriod.getMonth() + 1)
-  endPeriod.setDate(0)
+  let today = new Date();
+  const todayString = today.toISOString().slice(0, 10)
 
   // state
   const [username, setUsername] = useState();
   const [discos, setDiscos] = useState([]);
-  const [filter, setFilter] = useState({periodType: "month", startPeriod: startPeriod.toISOString().slice(0, 10), endPeriod: endPeriod.toISOString().slice(0, 10)});
+  const [filter, setFilter] = useState({periodType: "day", startPeriod: todayString, endPeriod: todayString});
 
   const updateFilter = (f) => {
     let fil = {...filter}
@@ -81,6 +78,8 @@ const Index = ({ Discos = [] }) => {
 
   }, [Discos, filter]);
   useEffect(() => setUsername(getCurrentUser().username), []);
+
+  console.log(discos)
 
   return (
     <Layout>
