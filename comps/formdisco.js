@@ -393,6 +393,25 @@ const handleUpdateDiscoStyles = (key) => {
             />
           </Col>
         </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Réservation obligatoire</Form.Label>
+          </Col>
+          <Col sm="9">
+          <Form.Check
+                inline
+                label="Oui"
+                onChange={() => setDisco({ ...disco, bookingRequired: true})}
+                checked={disco.bookingRequired}
+              />
+              <Form.Check
+                inline
+                label="Non"
+                onChange={() => setDisco({ ...disco, bookingRequired: false})}
+                checked={!disco.bookingRequired}
+              />
+          </Col>
+        </Form.Group>
   
         {/* Pictures */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />

@@ -27,7 +27,7 @@ export const DiscoAddress = (props) => {
     </Row>
     {disco.address && (
       <Row>
-        <Col xs={6} md={3}>
+        <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
           {Keys[LANG].address}
         </Col>
         <Col xs={6} md={9}>
@@ -43,13 +43,13 @@ export const DiscoAddress = (props) => {
         </Col>
       </Row>
     )}
-    {disco.meetingPoint && (
+    {disco.practicalInfo && (
       <Row>
-        <Col xs={6} md={3}>
-          {Keys[LANG].meetingPoint}
+        <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
+          Information pratique
         </Col>
         <Col xs={6} md={9} style={{ color: "grey" }}>
-          {disco.meetingPoint}
+          {disco.practicalInfo}
         </Col>
       </Row>
     )}
