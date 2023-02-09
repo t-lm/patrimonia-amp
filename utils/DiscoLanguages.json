@@ -1,7 +1,7 @@
-{
-    "cn": { "fr": "Chinois","en": "Chinese"},
+{    
     "de": { "fr": "Allemand","en": "German"},
     "en": { "fr": "Anglais","en": "English"},
+    "cn": { "fr": "Chinois","en": "Chinese"},
     "es": { "fr": "Espagnol","en": "Spanish"},
     "fr": { "fr": "Français","en": "French"},
     "it": { "fr": "Italien","en": "Italian"},

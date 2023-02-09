@@ -217,7 +217,7 @@ export const onCreateDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
-      meetingPoint
+      practicalInfo
       bookingRequired
       dateStart
       dateEnd
@@ -335,7 +335,7 @@ export const onUpdateDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
-      meetingPoint
+      practicalInfo
       bookingRequired
       dateStart
       dateEnd
@@ -453,7 +453,7 @@ export const onDeleteDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
-      meetingPoint
+      practicalInfo
       bookingRequired
       dateStart
       dateEnd

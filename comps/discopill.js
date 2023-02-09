@@ -18,9 +18,7 @@ export const DiscoPill = (props) => {
   return (
     <Row
       style={{
-        marginTop: 10,
-        marginLeft: 0,
-        marginRight: 0,
+        margin: "10px 0px 0px 0px",
         padding: 15,
         border: "1px solid #eee",
         backgroundColor: "white",

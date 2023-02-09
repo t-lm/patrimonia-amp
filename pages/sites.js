@@ -73,9 +73,7 @@ const Sites = ({ Sites = [] }) => {
       </Head>
 
       {/* Filter */}
-      <div style={{marginTop: 30}}>
-        <SitesFilter cb={(x) => handleFilter(x)} filter={filter} FilterPeriodOptions={FilterPeriodOptions}/>
-      </div>
+      <SitesFilter cb={(x) => handleFilter(x)} filter={filter} FilterPeriodOptions={FilterPeriodOptions} />
 
       {/* Main */}
       {sites.map(site => <SitePill key={site.id} site={site} /> )}

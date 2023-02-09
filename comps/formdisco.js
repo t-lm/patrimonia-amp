@@ -19,6 +19,7 @@ import { Error } from "./error";
 const DiscoAudiences = require("../utils/DiscoAudiences.json");
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoLanguages = require("../utils/DiscoLanguages.json");
+const DiscoPrices = require("../utils/DiscoPrices.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const DiscoTypes = require("../utils/DiscoTypes.json");
 const SitePeriods = require("../utils/SitePeriods.json");
@@ -37,7 +38,7 @@ const FormDisco = (props) => {
   const handleUpdateDiscoSubjects = (key) => {
     let index = disco.subjects.indexOf(key)
     let subjects = disco.subjects
-    if (index > -1) { subjects.splice(index, 1); setDisco({...site, subjects }) }
+    if (index > -1) { subjects.splice(index, 1); setDisco({...disco, subjects }) }
     else if (disco.subjects.length > 0 ) { subjects.push(key); setDisco({...disco, subjects }) }
     else setDisco({...disco, subjects: [key]})
 }
@@ -45,7 +46,7 @@ const FormDisco = (props) => {
 const handleUpdateDiscoLanguages = (key) => {
   let index = disco.languages.indexOf(key)
   let languages = disco.languages
-  if (index > -1) { languages.splice(index, 1); setDisco({...site, languages }) }
+  if (index > -1) { languages.splice(index, 1); setDisco({...disco, languages }) }
   else if (disco.languages.length > 0 ) { languages.push(key); setDisco({...disco, languages }) }
   else setDisco({...disco, languages: [key]})
 }
@@ -53,7 +54,7 @@ const handleUpdateDiscoLanguages = (key) => {
 const handleUpdateDiscoAudiences = (key) => {
   let index = disco.audiences.indexOf(key)
   let audiences = disco.audiences
-  if (index > -1) { audiences.splice(index, 1); setDisco({...site, audiences }) }
+  if (index > -1) { audiences.splice(index, 1); setDisco({...disco, audiences }) }
   else if (disco.audiences.length > 0 ) { audiences.push(key); setDisco({...disco, audiences }) }
   else setDisco({...disco, audiences: [key]})
 }
@@ -89,7 +90,7 @@ const handleUpdateDiscoStyles = (key) => {
         },
       });
 
-      window.location.href = `/discos`;
+      window.location.href = `/`;
     } catch (e) {
       console.error(e);
       setError("Nous n'avons pu enregistrer cette découverte");
@@ -170,6 +171,7 @@ const handleUpdateDiscoStyles = (key) => {
           </Col>
           <Col sm="9">
           <Form.Select as="select" size="sm" defaultValue={disco.type} onChange={(e) => setDisco({ ...disco, type: e.target.value })}>
+                <option value={""}>Choisir le type</option>
               {Object.keys(DiscoTypes).map(x => <option key={x} value={x}>{DiscoTypes[x][LANG]}</option>)}
             </Form.Select>
           </Col>
@@ -181,6 +183,7 @@ const handleUpdateDiscoStyles = (key) => {
           </Col>
           <Col sm="9">
           <Form.Select as="select" size="sm" defaultValue={disco.format} onChange={(e) => setDisco({ ...disco, format: e.target.value })}>
+              <option value={""}>Choisir le format</option>
               {Object.keys(DiscoFormats).map(x => <option key={x} value={x}>{DiscoFormats[x][LANG]}</option>)}
             </Form.Select>
           </Col>
@@ -188,25 +191,30 @@ const handleUpdateDiscoStyles = (key) => {
 
 
         {/* Validité */}
-        <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        
         {["regular", "demand"].includes(disco.type) &&
-        <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
-          <Col>
-            <Form.Label>Validité</Form.Label>
-          </Col>
-          <Col sm="9">
-            <Form.Check
-              label="Toujours"
-              onChange={() => setDisco({ ...disco, dateStart: "0000-01-01", dateEnd: "9999-12-31" })}
-              checked={disco.dateEnd === "9999-12-31"}
-            />
-            <Form.Check
-              label="Limitée"
-              onChange={() => setDisco({ ...disco, dateStart: "", dateEnd: "" })}
-              checked={disco.dateEnd !== "9999-12-31"}
-            />
-          </Col>
-        </Form.Group>
+        <>
+          <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+          <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+            <Col>
+              <Form.Label>Validité</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Check
+                inline
+                label="Permanente"
+                onChange={() => setDisco({ ...disco, dateStart: "0000-01-01", dateEnd: "9999-12-31" })}
+                checked={disco.dateEnd === "9999-12-31"}
+              />
+              <Form.Check
+                inline
+                label="Limitée"
+                onChange={() => setDisco({ ...disco, dateStart: "", dateEnd: "" })}
+                checked={disco.dateEnd !== "9999-12-31"}
+              />
+            </Col>
+          </Form.Group>
+        </>
         }
         {disco.dateStart !== "0000-01-01" &&
           <>
@@ -243,7 +251,7 @@ const handleUpdateDiscoStyles = (key) => {
 
         {disco.type === "regular" &&
         <>
-          <div style={{fontWeight: "bold"}}>Heures d'ouverture</div>
+          <div style={{marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd"}}>Heures d'ouverture</div>
           <Form.Group as={Row} style={{marginTop: 20}}>
             <Col>
               <Form.Label>Lundi</Form.Label>
@@ -352,6 +360,32 @@ const handleUpdateDiscoStyles = (key) => {
               type="text"
               onChange={(e) => setDisco({ ...disco, siteID: e.target.value })}
               value={disco.siteID}
+              size="sm"
+            />
+          </Col>
+        </Form.Group>
+
+        {/* Prix */}
+        <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Prix</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Select as="select" size="sm" defaultValue={disco.price} onChange={(e) => setDisco({ ...disco, price: e.target.value })}>
+                {Object.keys(DiscoPrices).map(x => <option key={x} value={x}>{DiscoPrices[x][LANG]}</option>)}
+              </Form.Select>
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
+          <Col>
+            <Form.Label>Détails du prix</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              onChange={(e) => setDisco({ ...disco, priceCommentary: e.target.value.split(",") })}
+              value={disco.priceCommentary}
               size="sm"
             />
           </Col>
@@ -514,7 +548,7 @@ const handleUpdateDiscoStyles = (key) => {
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 5 }}>
           <Col>
-            <Form.Label>Point de rendez-vous</Form.Label>
+            <Form.Label>Infos pratiques</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
@@ -522,10 +556,10 @@ const handleUpdateDiscoStyles = (key) => {
               onChange={(e) =>
                 setDisco({
                   ...disco,
-                  meetingPoint: { ...disco, meetingPoint: e.target.value },
+                  practicalInfo: { ...disco, practicalInfo: e.target.value },
                 })
               }
-              value={disco.meetingPoint}
+              value={disco.practicalInfo}
               size="sm"
             />
           </Col>

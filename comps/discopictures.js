@@ -66,7 +66,7 @@ export const DiscoPictures = (props) => {
               />
             </div>
           ))}
-          {disco.pictures.length > 4 && (
+          {disco.pictures.length > 5 && (
             <div
               style={{
                 textDecoration: "underline",
@@ -79,7 +79,7 @@ export const DiscoPictures = (props) => {
                 paddingTop: 30,
               }}
             >
-              <DiscoMedia lang="fr" num={disco.pictures.length - 4} />
+              <DiscoMedia lang="fr" num={disco.pictures.length - 5} />
             </div>
           )}
         </Col>

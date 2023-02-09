@@ -19,7 +19,8 @@ export const SitesFilter = (props) => {
         fontSize: "0.9rem",
         border: "1px solid #eee",
         backgroundColor: "pink",
-        padding: 20,
+        padding: 15,
+        marginTop: 20
       }}
       
     >

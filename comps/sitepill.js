@@ -20,8 +20,7 @@ export const SitePill = (props) => {
   return (
     <Row
       style={{
-        marginTop: 10,
-        marginLeft: 5,
+        margin: "10px 0px 0px 0px",
         padding: 20,
         border: "1px solid #eee",
         backgroundColor: "white",

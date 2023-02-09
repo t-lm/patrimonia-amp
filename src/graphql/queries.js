@@ -151,7 +151,7 @@ export const getDisco = /* GraphQL */ `
       format
       format2
       demandCommentary
-      meetingPoint
+      practicalInfo
       bookingRequired
       dateStart
       dateEnd
@@ -265,7 +265,7 @@ export const listDiscos = /* GraphQL */ `
         format
         format2
         demandCommentary
-        meetingPoint
+        practicalInfo
         bookingRequired
         dateStart
         dateEnd
@@ -362,7 +362,7 @@ export const discoByDateStartAndEnd = /* GraphQL */ `
         format
         format2
         demandCommentary
-        meetingPoint
+        practicalInfo
         bookingRequired
         dateStart
         dateEnd
@@ -459,7 +459,7 @@ export const discoByDateEndAndStart = /* GraphQL */ `
         format
         format2
         demandCommentary
-        meetingPoint
+        practicalInfo
         bookingRequired
         dateStart
         dateEnd

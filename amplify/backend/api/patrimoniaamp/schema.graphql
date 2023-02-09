@@ -29,7 +29,7 @@ type Disco
     format: DiscoFormats! # the format of the discovery
     format2: String
     demandCommentary: String
-    meetingPoint: String
+    practicalInfo: String
     bookingRequired: Boolean
     dateStart: String! @index(name: "byDateStartAndEnd", sortKeyFields: ["dateEnd"], queryField: "discoByDateStartAndEnd")
     dateEnd: String! @index(name: "byDateEndAndStart", sortKeyFields: ["dateStart"], queryField: "discoByDateEndAndStart")
@@ -180,6 +180,7 @@ enum DiscoAudiences {
 }
 
 enum DiscoFormats {
+    self
     guidedTour
     mediatedTour
     conference
@@ -188,9 +189,9 @@ enum DiscoFormats {
 }
 
 enum DiscoLanguages {
-    cn
     de
     en
+    cn
     es
     fr
     it

@@ -22,10 +22,10 @@ export const getStaticProps = async ({ req }) => {
       query: listOrganisers,
       authMode: "AWS_IAM",
     });
-    return { props: { Organisers: response.data.listOrganisers.items } };
+    return { props: { Organisers: response.data.listOrganisers.items }, revalidate: 10  };
   } catch (err) {
     console.log(err);
-    return { props: {} };
+    return { props: {}, revalidate: 10  };
   }
 };
 
