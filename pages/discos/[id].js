@@ -76,6 +76,7 @@ const Disco = ({ disco }) => {
       {username === "tlm" && (
         <div style={{ marginTop: 30 }}>
           <Link
+            style={{color: "black"}}
             href={{
               pathname: "/admin/update",
               query: { model: "disco", id: disco.id },

@@ -18,13 +18,13 @@ export const DiscoOrganiser = (props) => {
       style={{
         backgroundColor: "white",
         padding: "10px 10px",
-        marginTop: 10,
+        marginTop: 30,
         color: "black",
       }}
     >
       <h3 style={{ fontWeight: "bold", color: "black" }}>
         <Link href={`/organisers/${organiser.id}`}>
-          {Keys[LANG].organiser}: {organiser.name}
+          {organiser.name}
         </Link>
       </h3>
       <Row

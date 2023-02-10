@@ -61,7 +61,7 @@ const Organisers = ({ Organisers = [] }) => {
             />
           </Col>
           <Col>
-            <Link style={{ color: "black" }} href={`/organisers/${organiser.id}`}>{organiser.name}</Link>
+            <Link style={{ color: "black" }} href={`/organisers/${organiser.id}`}>{organiser.name} - {organiser.id}</Link>
           </Col>
         </Row>
       ))}

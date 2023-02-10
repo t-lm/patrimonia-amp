@@ -23,7 +23,7 @@ export const SiteLinks = (props) => {
           (l,i) =>
             l[LANG] && (
               <li key={i}>
-                <a href={l.link}>{l[LANG]}</a>
+                <a style={{color: "black"}} href={l.www} target="_blank">{l[LANG]}</a>
               </li>
             )
         )}

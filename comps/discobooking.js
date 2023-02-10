@@ -162,7 +162,7 @@ export const DiscoBooking = (props) => {
           <ul>
             {disco.organiser.www && (
               <li>
-                <a href={disco.organiser.www}>{disco.organiser.www}</a>
+                <a style={{color: "black"}} href={disco.organiser.www} target="_blank">{disco.organiser.www}</a>
               </li>
             )}
             {disco.organiser.email && (

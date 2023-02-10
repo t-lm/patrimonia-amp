@@ -15,7 +15,7 @@ export const DiscoBasics = (props) => {
       style={{
         backgroundColor: "white",
         padding: "10px 10px",
-        marginTop: 10,
+        marginTop: 30,
         color: "black",
       }}
     >
