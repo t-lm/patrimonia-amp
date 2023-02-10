@@ -15,7 +15,6 @@ type Site
   pictureID: ID!
   picture: Media @hasOne(fields: ["pictureID"])
   media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
-  #discos: [Disco] @hasMany(indexName: "bySite", fields: ["id"])
 }
 
 type Disco
@@ -26,7 +25,7 @@ type Disco
     headline: String!
     organiserID: ID! @index(name: "byOrganiser")
     organiser: Organiser @hasOne(fields: ["organiserID"])
-    type: DiscoTypes! # the occurence of the discovery
+    type: DiscoTypes! 
     format: DiscoFormats! # the format of the discovery
     format2: String
     demandCommentary: String
@@ -35,6 +34,7 @@ type Disco
     dateStart: String! 
     dateEnd: String!
     dates: [EventDate]
+    description: String
     openingHours: OpeningHours
     pictures: [String]
     duration: [String]
@@ -63,6 +63,7 @@ type Media
   source: String
   copyright: String
 }
+
 
 type Organiser
   @model

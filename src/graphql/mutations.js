@@ -225,6 +225,7 @@ export const createDisco = /* GraphQL */ `
         start
         end
       }
+      description
       openingHours {
         sun
         mon
@@ -343,6 +344,7 @@ export const updateDisco = /* GraphQL */ `
         start
         end
       }
+      description
       openingHours {
         sun
         mon
@@ -461,6 +463,7 @@ export const deleteDisco = /* GraphQL */ `
         start
         end
       }
+      description
       openingHours {
         sun
         mon

@@ -7,7 +7,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 import { API } from "aws-amplify";
-import { createDisco, updateDisco } from "../src/graphql/mutations";
+import {
+  createDisco,
+  updateDisco
+} from "../src/graphql/mutations";
 
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -30,50 +33,78 @@ const slugify = require("slugify");
 const LANG = "fr";
 
 const FormDisco = (props) => {
-
   const action = props.action;
   const [disco, setDisco] = useState(props.input);
   const [error, setError] = useState(false);
 
   const handleUpdateDiscoSubjects = (key) => {
-    let index = disco.subjects.indexOf(key)
-    let subjects = disco.subjects
-    if (index > -1) { subjects.splice(index, 1); setDisco({...disco, subjects }) }
-    else if (disco.subjects.length > 0 ) { subjects.push(key); setDisco({...disco, subjects }) }
-    else setDisco({...disco, subjects: [key]})
-}
+    let index = disco.subjects.indexOf(key);
+    let subjects = disco.subjects;
+    if (index > -1) {
+      subjects.splice(index, 1);
+      setDisco({ ...disco, subjects });
+    } else if (disco.subjects.length > 0) {
+      subjects.push(key);
+      setDisco({ ...disco, subjects });
+    } else setDisco({ ...disco, subjects: [key] });
+  };
 
-const handleUpdateDiscoLanguages = (key) => {
-  let index = disco.languages.indexOf(key)
-  let languages = disco.languages
-  if (index > -1) { languages.splice(index, 1); setDisco({...disco, languages }) }
-  else if (disco.languages.length > 0 ) { languages.push(key); setDisco({...disco, languages }) }
-  else setDisco({...disco, languages: [key]})
-}
+  const handleUpdateDiscoLanguages = (key) => {
+    let index = disco.languages.indexOf(key);
+    let languages = disco.languages;
+    if (index > -1) {
+      languages.splice(index, 1);
+      setDisco({ ...disco, languages });
+    } else if (disco.languages.length > 0) {
+      languages.push(key);
+      setDisco({ ...disco, languages });
+    } else setDisco({ ...disco, languages: [key] });
+  };
 
-const handleUpdateDiscoAudiences = (key) => {
-  let index = disco.audiences.indexOf(key)
-  let audiences = disco.audiences
-  if (index > -1) { audiences.splice(index, 1); setDisco({...disco, audiences }) }
-  else if (disco.audiences.length > 0 ) { audiences.push(key); setDisco({...disco, audiences }) }
-  else setDisco({...disco, audiences: [key]})
-}
+  const handleUpdateDiscoAudiences = (key) => {
+    let index = disco.audiences.indexOf(key);
+    let audiences = disco.audiences;
+    if (index > -1) {
+      audiences.splice(index, 1);
+      setDisco({ ...disco, audiences });
+    } else if (disco.audiences.length > 0) {
+      audiences.push(key);
+      setDisco({ ...disco, audiences });
+    } else setDisco({ ...disco, audiences: [key] });
+  };
 
-const handleUpdateDiscoPeriods = (key) => {
-  let index = disco.periods.indexOf(key)
-  let periods = disco.periods
-  if (index > -1) { periods.splice(index, 1); setDisco({...disco, periods }) }
-  else if (disco.periods.length > 0 ) { periods.push(key); setDisco({...disco, periods }) }
-  else setDisco({...disco, periods: [key]})
-}
+  const handleUpdateDiscoPeriods = (key) => {
+    let index = disco.periods.indexOf(key);
+    let periods = disco.periods;
+    if (index > -1) {
+      periods.splice(index, 1);
+      setDisco({ ...disco, periods });
+    } else if (disco.periods.length > 0) {
+      periods.push(key);
+      setDisco({ ...disco, periods });
+    } else setDisco({ ...disco, periods: [key] });
+  };
 
-const handleUpdateDiscoStyles = (key) => {
-  let index = disco.styles.indexOf(key)
-  let styles = disco.styles
-  if (index > -1) { styles.splice(index, 1); setDisco({...disco, styles }) }
-  else if (disco.styles.length > 0 ) { styles.push(key); setDisco({...disco, styles }) }
-  else setDisco({...disco, styles: [key]})
-}
+  const handleUpdateDiscoStyles = (key) => {
+    let index = disco.styles.indexOf(key);
+    let styles = disco.styles;
+    if (index > -1) {
+      styles.splice(index, 1);
+      setDisco({ ...disco, styles });
+    } else if (disco.styles.length > 0) {
+      styles.push(key);
+      setDisco({ ...disco, styles });
+    } else setDisco({ ...disco, styles: [key] });
+  };
+
+  const handleUpdateEventDates = (text) => {
+    let lines = text.split("\n");
+    let dates = lines.map((l) => ({
+      start: l.split(",")[0],
+      end: l.split(",")[1],
+    }));
+    setDisco({ ...disco, dates });
+  };
 
   const handleCreateDisco = async (event) => {
     event.preventDefault();
@@ -85,7 +116,7 @@ const handleUpdateDiscoStyles = (key) => {
         variables: {
           input: {
             id: slugify(disco["name"]).toLowerCase(),
-            ...disco
+            ...disco,
           },
         },
       });
@@ -114,30 +145,33 @@ const handleUpdateDiscoStyles = (key) => {
     }
   };
 
-
   return (
-    <div style={{color: "black"}}>
+    <div style={{ color: "black" }}>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Créer la découverte"}
         {action === "update" && "Mettre à jour la découverte"}
       </h4>
       <Form style={{ fontSize: "0.9rem" }}>
-
-      <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20 }}>
+        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20 }}>
           <Col>
             <Form.Label>Identifiant de l'organisateur</Form.Label>
           </Col>
           <Col sm="9">
             <Form.Control
               type="text"
-              onChange={(e) => setDisco({ ...disco, organiserID: e.target.value })}
+              onChange={(e) =>
+                setDisco({ ...disco, organiserID: e.target.value })
+              }
               value={disco.organiserID}
               size="sm"
             />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+        <Form.Group
+          as={Row}
+          style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}
+        >
           <Col>
             <Form.Label>Nom</Form.Label>
           </Col>
@@ -164,60 +198,109 @@ const handleUpdateDiscoStyles = (key) => {
             />
           </Col>
         </Form.Group>
-        
+
         {/* Identifiants, type et format */}
-        <Form.Group as={Row} style={{ marginTop: 20}}>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
             <Form.Label>Type</Form.Label>
           </Col>
           <Col sm="9">
-          <Form.Select as="select" size="sm" defaultValue={disco.type} onChange={(e) => setDisco({ ...disco, type: e.target.value })}>
-                <option value={""}>Choisir le type</option>
-              {Object.keys(DiscoTypes).map(x => <option key={x} value={x}>{DiscoTypes[x][LANG]}</option>)}
+            <Form.Select
+              as="select"
+              size="sm"
+              defaultValue={disco.type}
+              onChange={(e) => setDisco({ ...disco, type: e.target.value })}
+            >
+              <option value={""}>Choisir le type</option>
+              {Object.keys(DiscoTypes).map((x) => (
+                <option key={x} value={x}>
+                  {DiscoTypes[x][LANG]}
+                </option>
+              ))}
             </Form.Select>
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} style={{ marginTop: 20}}>
+        <Form.Group as={Row} style={{ marginTop: 20 }}>
           <Col>
             <Form.Label>Format</Form.Label>
           </Col>
           <Col sm="9">
-          <Form.Select as="select" size="sm" defaultValue={disco.format} onChange={(e) => setDisco({ ...disco, format: e.target.value })}>
+            <Form.Select
+              as="select"
+              size="sm"
+              defaultValue={disco.format}
+              onChange={(e) => setDisco({ ...disco, format: e.target.value })}
+            >
               <option value={""}>Choisir le format</option>
-              {Object.keys(DiscoFormats).map(x => <option key={x} value={x}>{DiscoFormats[x][LANG]}</option>)}
+              {Object.keys(DiscoFormats).map((x) => (
+                <option key={x} value={x}>
+                  {DiscoFormats[x][LANG]}
+                </option>
+              ))}
             </Form.Select>
           </Col>
         </Form.Group>
 
+        <Form.Group
+          as={Row}
+          style={{
+            marginTop: 20,
+            borderBottom: "1px solid #ddd",
+            paddingBottom: 20,
+          }}
+        >
+          <Col>
+            <Form.Label>Description</Form.Label>
+          </Col>
+          <Col sm="9">
+            <Form.Control
+              as="textarea"
+              rows={5}
+              onChange={(e) =>
+                setDisco({ ...disco, description: e.target.value })
+              }
+              value={disco.description}
+              size="sm"
+            />
+          </Col>
+        </Form.Group>
 
         {/* Validité */}
-        
-        {["regular", "demand"].includes(disco.type) &&
-        <>
-          <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
-          <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
-            <Col>
-              <Form.Label>Validité</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Check
-                inline
-                label="Permanente"
-                onChange={() => setDisco({ ...disco, dateStart: "0000-01-01", dateEnd: "9999-12-31" })}
-                checked={disco.dateEnd === "9999-12-31"}
-              />
-              <Form.Check
-                inline
-                label="Limitée"
-                onChange={() => setDisco({ ...disco, dateStart: "", dateEnd: "" })}
-                checked={disco.dateEnd !== "9999-12-31"}
-              />
-            </Col>
-          </Form.Group>
-        </>
-        }
-        {disco.dateStart !== "0000-01-01" &&
+
+        {["regular", "demand"].includes(disco.type) && (
+          <>
+            <Row style={{ margin: "10px 0px" }} />
+            <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
+              <Col>
+                <Form.Label>Validité</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Check
+                  inline
+                  label="Limitée"
+                  onChange={() =>
+                    setDisco({ ...disco, dateStart: "", dateEnd: "" })
+                  }
+                  checked={disco.dateEnd !== "9999-12-31"}
+                />
+                <Form.Check
+                  inline
+                  label="Permanente"
+                  onChange={() =>
+                    setDisco({
+                      ...disco,
+                      dateStart: "0000-01-01",
+                      dateEnd: "9999-12-31",
+                    })
+                  }
+                  checked={disco.dateEnd === "9999-12-31"}
+                />
+              </Col>
+            </Form.Group>
+          </>
+        )}
+        {disco.dateStart !== "0000-01-01" && (
           <>
             <Form.Group as={Row} style={{ marginTop: 20 }}>
               <Col>
@@ -241,114 +324,236 @@ const handleUpdateDiscoStyles = (key) => {
               <Col sm="9">
                 <Form.Control
                   type="text"
-                  onChange={(e) => setDisco({ ...disco, dateEnd: e.target.value })}
+                  onChange={(e) =>
+                    setDisco({ ...disco, dateEnd: e.target.value })
+                  }
                   value={disco.dateEnd}
                   size="sm"
                 />
               </Col>
             </Form.Group>
           </>
-        }
+        )}
 
-        {disco.type === "regular" &&
-        <>
-          <div style={{marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd"}}>Heures d'ouverture</div>
-          <Form.Group as={Row} style={{marginTop: 20}}>
-            <Col>
-              <Form.Label>Lundi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, mon: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
-                value={disco.openingHours && disco.openingHours.mon ?  disco.openingHours.mon.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            <Form.Text className="text-muted">
-                Le format est 8h-17h pour une ouverture de 8h à 17h et 8h-12h,14h-17h pour deux créneaux par jour
-              </Form.Text>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Mardi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, tue: e.target.value.split(",").map(x => x.split("-")) }})}
-                value={disco.openingHours && disco.openingHours.tue?  disco.openingHours.tue.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Mercredi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, wed: e.target.value.split(",").map(x => x.split("-")) }})}
-                value={disco.openingHours && disco.openingHours.wed ?  disco.openingHours.wed.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Jeudi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, thu: e.target.value.split(",").map(x => x.split("-")) }})}
-                value={disco.openingHours && disco.openingHours.thu?  disco.openingHours.thu.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Vendredi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, fri: e.target.value.split(",").map(x => x.split("-")) }})}
-                value={disco.openingHours && disco.openingHours.fri ?  disco.openingHours.fri.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Samedi</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sat: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
-                value={disco.openingHours && disco.openingHours.sat ?  disco.openingHours.sat.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginTop: 10}}>
-            <Col>
-              <Form.Label>Dimanche</Form.Label>
-            </Col>
-            <Col sm="9">
-              <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, openingHours: {...disco.openingHours, sun: e.target.value !== "" ? e.target.value.split(",").map(x => x.split("-")) : null }})}
-                value={disco.openingHours && disco.openingHours.sun?  disco.openingHours.sun.map(x => x.join("-")).join(",") : ""}
-                size="sm"
-              />
-            </Col>
-          </Form.Group>
+        {disco.type === "regular" && (
+          <>
+            <div
+              style={{
+                marginTop: 20,
+                paddingTop: 20,
+                borderTop: "1px solid #ddd",
+              }}
+            >
+              Heures d'ouverture
+            </div>
+            <Form.Group as={Row} style={{ marginTop: 20 }}>
+              <Col>
+                <Form.Label>Lundi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        mon:
+                          e.target.value !== ""
+                            ? e.target.value.split(",").map((x) => x.split("-"))
+                            : null,
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.mon
+                      ? disco.openingHours.mon.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+                <Form.Text className="text-muted">
+                  Le format est 8h-17h pour une ouverture de 8h à 17h et
+                  8h-12h,14h-17h pour deux créneaux par jour
+                </Form.Text>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Mardi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        tue: e.target.value.split(",").map((x) => x.split("-")),
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.tue
+                      ? disco.openingHours.tue.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Mercredi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        wed: e.target.value.split(",").map((x) => x.split("-")),
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.wed
+                      ? disco.openingHours.wed.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Jeudi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        thu: e.target.value.split(",").map((x) => x.split("-")),
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.thu
+                      ? disco.openingHours.thu.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Vendredi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        fri: e.target.value.split(",").map((x) => x.split("-")),
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.fri
+                      ? disco.openingHours.fri.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Samedi</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        sat:
+                          e.target.value !== ""
+                            ? e.target.value.split(",").map((x) => x.split("-"))
+                            : null,
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.sat
+                      ? disco.openingHours.sat.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Dimanche</Form.Label>
+              </Col>
+              <Col sm="9">
+                <Form.Control
+                  type="text"
+                  onChange={(e) =>
+                    setDisco({
+                      ...disco,
+                      openingHours: {
+                        ...disco.openingHours,
+                        sun:
+                          e.target.value !== ""
+                            ? e.target.value.split(",").map((x) => x.split("-"))
+                            : null,
+                      },
+                    })
+                  }
+                  value={
+                    disco.openingHours && disco.openingHours.sun
+                      ? disco.openingHours.sun.map((x) => x.join("-")).join(",")
+                      : ""
+                  }
+                  size="sm"
+                />
+              </Col>
+            </Form.Group>
           </>
-          }
+        )}
+
+        {disco.type === "event" && (
+          <Form.Group as={Row} style={{ marginTop: 20 }}>
+            <Col>
+              <Form.Label>Dates</Form.Label>
+            </Col>
+            <Col sm="9">
+              <Form.Control
+                required
+                as="textarea"
+                rows={5}
+                onChange={(e) => handleUpdateEventDates(e.target.value)}
+                value={disco.dates.map((x) => `${x.start},${x.end}`).join("\n")}
+                size="sm"
+              />
+            </Col>
+          </Form.Group>
+        )}
 
         {/* Sites */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
@@ -373,10 +578,19 @@ const handleUpdateDiscoStyles = (key) => {
             <Form.Label>Prix</Form.Label>
           </Col>
           <Col sm="9">
-            <Form.Select as="select" size="sm" defaultValue={disco.price} onChange={(e) => setDisco({ ...disco, price: e.target.value })}>
-                <option value="">Choisir le prix</option>
-                {Object.keys(DiscoPrices).map(x => <option key={x} value={x}>{DiscoPrices[x][LANG]}</option>)}
-              </Form.Select>
+            <Form.Select
+              as="select"
+              size="sm"
+              defaultValue={disco.price}
+              onChange={(e) => setDisco({ ...disco, price: e.target.value })}
+            >
+              <option value="">Choisir le prix</option>
+              {Object.keys(DiscoPrices).map((x) => (
+                <option key={x} value={x}>
+                  {DiscoPrices[x][LANG]}
+                </option>
+              ))}
+            </Form.Select>
           </Col>
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 20 }}>
@@ -386,7 +600,12 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
             <Form.Control
               type="text"
-              onChange={(e) => setDisco({ ...disco, priceCommentary: e.target.value.split(",") })}
+              onChange={(e) =>
+                setDisco({
+                  ...disco,
+                  priceCommentary: e.target.value.split(","),
+                })
+              }
               value={disco.priceCommentary}
               size="sm"
             />
@@ -397,21 +616,21 @@ const handleUpdateDiscoStyles = (key) => {
             <Form.Label>Réservation obligatoire</Form.Label>
           </Col>
           <Col sm="9">
-          <Form.Check
-                inline
-                label="Oui"
-                onChange={() => setDisco({ ...disco, bookingRequired: true})}
-                checked={disco.bookingRequired}
-              />
-              <Form.Check
-                inline
-                label="Non"
-                onChange={() => setDisco({ ...disco, bookingRequired: false})}
-                checked={!disco.bookingRequired}
-              />
+            <Form.Check
+              inline
+              label="Oui"
+              onChange={() => setDisco({ ...disco, bookingRequired: true })}
+              checked={disco.bookingRequired}
+            />
+            <Form.Check
+              inline
+              label="Non"
+              onChange={() => setDisco({ ...disco, bookingRequired: false })}
+              checked={!disco.bookingRequired}
+            />
           </Col>
         </Form.Group>
-  
+
         {/* Pictures */}
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
         <Form.Group as={Row} style={{ marginTop: 20 }}>
@@ -421,7 +640,9 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
             <Form.Control
               type="text"
-              onChange={(e) => setDisco({ ...disco, pictures: e.target.value.split(",") })}
+              onChange={(e) =>
+                setDisco({ ...disco, pictures: e.target.value.split(",") })
+              }
               value={disco.pictures.join(",")}
               size="sm"
             />
@@ -430,34 +651,37 @@ const handleUpdateDiscoStyles = (key) => {
         <Row
           style={{
             marginTop: 20,
-            marginBottom: 20
+            marginBottom: 20,
           }}
-        ><Col>
-          {disco.pictures.map((x) => (
-            <Image
-              key={x}
-              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${x}`}
-              className="shadow-1-strong rounded"
-              alt="alternative text"
-              priority
-              style={{ objectFit: "cover", marginRight: 10 }}
-              display="block"
-              width={100}
-              height={100}
-            />
-          ))}
+        >
+          <Col>
+            {disco.pictures.map((x) => (
+              <Image
+                key={x}
+                src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${x}`}
+                className="shadow-1-strong rounded"
+                alt="alternative text"
+                priority
+                style={{ objectFit: "cover", marginRight: 10 }}
+                display="block"
+                width={100}
+                height={100}
+              />
+            ))}
           </Col>
         </Row>
-        
+
         <Row style={{ margin: "30px 0px", borderTop: "1px solid #ddd" }} />
         <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
           <Col>
             <Form.Label>Durée</Form.Label>
           </Col>
           <Col sm="9">
-          <Form.Control
+            <Form.Control
               type="text"
-              onChange={(e) => setDisco({ ...disco, duration: e.target.value.split(",") })}
+              onChange={(e) =>
+                setDisco({ ...disco, duration: e.target.value.split(",") })
+              }
               value={disco.duration.join(",")}
               size="sm"
             />
@@ -574,15 +798,19 @@ const handleUpdateDiscoStyles = (key) => {
           <Col sm="9">
             <Form.Control
               type="text"
-              onChange={(e) => setDisco({ ...disco, practicalInfo: e.target.value})}
+              onChange={(e) =>
+                setDisco({ ...disco, practicalInfo: e.target.value })
+              }
               value={disco.practicalInfo}
               size="sm"
             />
           </Col>
         </Form.Group>
 
-
-        <Form.Group as={Row} style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}>
+        <Form.Group
+          as={Row}
+          style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid #ddd" }}
+        >
           <Col>
             <Form.Label>Périodes</Form.Label>
           </Col>
@@ -617,12 +845,18 @@ const handleUpdateDiscoStyles = (key) => {
             <Form.Label>Personnage(s) importants</Form.Label>
           </Col>
           <Col sm="9">
-          <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, persons: e.target.value !== "" ? e.target.value.split(",") : [] })}
-                value={disco.persons.join(",")}
-                size="sm"
-              />
+            <Form.Control
+              type="text"
+              onChange={(e) =>
+                setDisco({
+                  ...disco,
+                  persons:
+                    e.target.value !== "" ? e.target.value.split(",") : [],
+                })
+              }
+              value={disco.persons.join(",")}
+              size="sm"
+            />
           </Col>
         </Form.Group>
         <Form.Group as={Row} style={{ marginTop: 20, fontSize: "0.9rem" }}>
@@ -631,14 +865,19 @@ const handleUpdateDiscoStyles = (key) => {
           </Col>
           <Col sm="9">
             <Form.Control
-                type="text"
-                onChange={(e) => setDisco({ ...disco, events: e.target.value !== "" ? e.target.value.split(",") : []  })}
-                value={disco.events.join(",")}
-                size="sm"
-              />
+              type="text"
+              onChange={(e) =>
+                setDisco({
+                  ...disco,
+                  events:
+                    e.target.value !== "" ? e.target.value.split(",") : [],
+                })
+              }
+              value={disco.events.join(",")}
+              size="sm"
+            />
           </Col>
         </Form.Group>
-
 
         <Button
           onClick={action === "add" ? handleCreateDisco : handleUpdateDisco}

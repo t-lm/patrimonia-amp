@@ -159,6 +159,7 @@ export const getDisco = /* GraphQL */ `
         start
         end
       }
+      description
       openingHours {
         sun
         mon
@@ -273,6 +274,7 @@ export const listDiscos = /* GraphQL */ `
           start
           end
         }
+        description
         openingHours {
           sun
           mon
@@ -368,6 +370,7 @@ export const discosByOrganiserID = /* GraphQL */ `
           start
           end
         }
+        description
         openingHours {
           sun
           mon
@@ -463,6 +466,7 @@ export const discosBySiteID = /* GraphQL */ `
           start
           end
         }
+        description
         openingHours {
           sun
           mon
