@@ -38,7 +38,7 @@ export const SiteBasics = (props) => {
         {site.address.city}
         {" . "}
         <a
-          style={{ color: "grey" }}
+          style={{ color: "black" }}
           href={`https://www.google.com/maps/place/${encodeURIComponent(
             `${site.address.street},${site.address.postalCode} ${site.address.city} France`
           )}`}

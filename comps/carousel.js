@@ -27,15 +27,16 @@ export const PictureCarousel = ({ media }) => {
               />
             </div>
             <Carousel.Caption>
-              <p
+              <div
                 style={{
                   backgroundColor: "pink",
                   color: "black",
                   borderRadius: 5,
                 }}
               >
-                {p.description_fr}
-              </p>
+                <div>{p.description_fr}</div>
+                {p.source && <div style={{marginTop: 5, paddingTop: 0}}>{"Source: "}{p.source}</div>}
+              </div>
             </Carousel.Caption>
           </Carousel.Item>
         ))}

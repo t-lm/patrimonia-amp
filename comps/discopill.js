@@ -194,7 +194,6 @@ export const DiscoPill = (props) => {
                   <span
                     key={i}
                     style={{
-                      //backgroundColor: {`${DiscoSubjects[sub]["color"]},0.5`},
                       backgroundColor: `rgba(${DiscoSubjects[sub]["r"]}, ${DiscoSubjects[sub]["g"]}, ${DiscoSubjects[sub]["b"]}, 0.2)`,
                       fontSize: "0.7rem",
                       padding: 4,

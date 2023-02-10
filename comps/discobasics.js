@@ -29,10 +29,8 @@ export const DiscoBasics = (props) => {
           fontSize: "1.1rem",
         }}
       >
-        <span>{disco.address.city}</span>
         <span>
-          {" "}
-          .{" "}
+          {disco.address.city} .{" "}
           <Link
             style={{ color: "black" }}
             href={`/organisers/${disco.organiser.id}`}
@@ -57,14 +55,26 @@ export const DiscoBasics = (props) => {
         </span>
       </div>
 
+      <span
+        style={{
+          color: "black",
+          fontSize: "1.1rem",
+          fontWeight: "bold",
+        }}
+      >
+        <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
+          {disco.site.name}
+        </Link>
+      </span>
+
       {disco.subjects && (
-        <div>
+        <div style={{ marginTop: 10 }}>
           {disco.subjects.map((sub, i) => (
             <span
               key={sub}
               style={{
-                backgroundColor: DiscoSubjects[sub]["color"],
-                color: "white",
+                backgroundColor: `rgba(${DiscoSubjects[sub]["r"]}, ${DiscoSubjects[sub]["g"]}, ${DiscoSubjects[sub]["b"]}, 0.4)`,
+                color: "black",
                 fontSize: "0.8rem",
                 padding: 4,
                 borderRadius: 4,
