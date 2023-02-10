@@ -1,5 +1,5 @@
 import { parseISO, format } from "date-fns";
-import { fr, en } from "date-fns/locale";
+import { fr } from "date-fns/locale";
 import { intervalToDuration } from "date-fns";
 
 const Weekdays = require("../utils/Weekdays.json");
@@ -130,12 +130,12 @@ export const FormattedEventDates = ({ dates, lang }) => {
     let start = parseISO(dates[0].start);
     let end = parseISO(dates[0].end);
     if (lang === "fr") return <span>{`Le ${format(start, "EEEE d LLLL yyyy", { locale: fr })} de ${format(start, "H:mm", { locale: fr })} à ${format(end, "H:mm", { locale: fr })}`}</span>;
-    else return <span>{`Single date on ${format(start, "EEEE d LLLL yyyy at H:mm", { locale: en })}`}</span>;
+    else return <span>{`Single date on ${format(start, "EEEE d LLLL yyyy at H:mm")}`}</span>;
   }
   else if (dates.length > 1) {
-    let multi = (dates[0].start.slice(0,7) === dates.slice(-1).start.slice(0,7))
+    let multi = (dates[0].start.slice(0,7) === dates.slice(-1)[0].start.slice(0,7))
     let start = parseISO(dates[0].start);
-    let end = parseISO(dates.slice(-1).end);
+    let end = parseISO(dates.slice(-1)[0].end);
     if (multi) {
       return <span>{`Plusieurs dates entre ${format(start, "LLLL", { locale: fr })} et ${format(end, "LLLL", { locale: fr })}`}</span>;
     }
