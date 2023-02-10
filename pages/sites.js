@@ -20,10 +20,12 @@ export const getStaticProps = async () => {
       query: listSites,
       authMode: "AWS_IAM",
     });
-    return { props: { Sites: response.data.listSites.items }, revalidate: 10 };
+  //  return { props: { Sites: response.data.listSites.items }, revalidate: 10 };
+  return { props: { Sites: response.data.listSites.items } };
   } catch (err) {
     console.error(err);
-    return { props: {}, revalidate: 10 };
+  //  return { props: {}, revalidate: 10 };
+  return { props: {} };
   }
 };
 
