@@ -14,8 +14,14 @@ export const FormattedDate = ({ dateString }) => {
 };
 
 export const FormattedDateAndTime = ({ dateString }) => {
+  try {
   const date = parseISO(dateString);
   return format(date, "EEEE d LLLL yyyy, H:mm", { locale: fr });
+  }
+  catch(e) {
+    console.log(e)
+    return ''
+  }
 };
 
 export const FormattedMonth = ({ dateString }) => {
@@ -126,6 +132,7 @@ export const FormattedDays = ({ slots, lang }) => {
 
 export const FormattedEventDates = ({ dates, lang }) => {
   // dates needs to be filtered here
+  try{
   if (dates.length === 1) {
     let start = parseISO(dates[0].start);
     let end = parseISO(dates[0].end);
@@ -141,5 +148,10 @@ export const FormattedEventDates = ({ dates, lang }) => {
     }
     else return <span>{`Plusieurs dates en ${format(start, "LLLL", { locale: fr })}`}</span>;
   }
+}
+catch (e) {
+  console.log(e)
+  return <span></span>
+}
 
 };
