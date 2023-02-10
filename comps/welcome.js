@@ -21,7 +21,7 @@ export const Welcome = () => {
         }}
       >
         <span> 
-          DÉCOUVRIR LE PATRIMOINE AVEC SES MEILLEURS GUIDES
+          DÉCOUVRIR LE PATRIMOINE AVEC LES MEILLEURS GUIDES
           <Image src="/var/noun-family.svg" alt="" height={60} width={60} style={{marginLeft: 10}}/>
           <Image src="/var/noun-man.svg"alt="" height={60} width={60} style={{marginLeft: 10}}/>
           <Image src="/var/noun-woman.svg" alt="" height={60} width={60} style={{marginLeft: 10}}/>

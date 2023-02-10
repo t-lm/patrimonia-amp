@@ -75,3 +75,21 @@ export const FormattedLength = ({ dateString }) => {
     </time>
   );
 };
+
+
+export const FormattedSlots = ({
+  slots, lang
+}) => {
+  if (slots.length === 1 ) {
+    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]}`}</span>;
+    else return <span>{`Open between ${slots[0]} and ${slots[1]}`}</span>;
+  }
+  if (slots.length === 2 ) {
+    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]} et entre ${slots[1][0]} et ${slots[1][1]}`}</span>;
+    else return <span>{`Open between ${slots[0][0]} and ${slots[0][1]} and between ${slots[1][0]} and ${slots[1][1]}`}</span>;
+  }
+  if (slots.length === 3 ) {
+    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]}, entre ${slots[1][0]} et ${slots[1][1]} et entre ${slots[2][0]} et ${slots[2][1]}`}</span>;
+    else return <span>{`Open between ${slots[0][0]} and ${slots[0][1]}, between ${slots[1][0]} and ${slots[1][1]} and between ${slots[2][0]} and ${slots[2][1]}`}</span>;
+  }
+};

@@ -54,7 +54,7 @@ export const DiscosFilter = (props) => {
           <Button
             style={{
               backgroundColor:
-                filter.periodType === "day" &&
+                filter.periodRange === "today" &&
                 filter.startPeriod === todayString &&
                 filter.endPeriod === todayString
                   ? "#e2e2d7"
@@ -69,7 +69,7 @@ export const DiscosFilter = (props) => {
             }}
             onClick={() =>
               cb({
-                periodType: "day",
+                periodRange: "today",
                 startPeriod:todayString,
                 endPeriod: todayString,
               })
@@ -81,7 +81,7 @@ export const DiscosFilter = (props) => {
           <Button
             style={{
               backgroundColor:
-                filter.periodType === "day" &&
+                filter.periodRange === "tomorrow" &&
                 filter.startPeriod === tomorrowString
                   ? "#e2e2d7"
                   : "white",
@@ -95,7 +95,7 @@ export const DiscosFilter = (props) => {
             }}
             onClick={() =>
               cb({
-                periodType: "day",
+                periodRange: "tomorrow",
                 startPeriod: tomorrowString,
                 endPeriod: tomorrowString,
               })
@@ -103,11 +103,11 @@ export const DiscosFilter = (props) => {
           >
             demain
           </Button>
-          {/* next week */}
+          {/* this week */}
           <Button
             style={{
               backgroundColor:
-                filter.periodType === "day" &&
+                filter.periodRange === "thisweek" &&
                 filter.startPeriod === todayString &&
                 filter.endPeriod === nextWeekString
                   ? "#e2e2d7"
@@ -122,7 +122,7 @@ export const DiscosFilter = (props) => {
             }}
             onClick={() =>
               cb({
-                periodType: "day",
+                periodRange: "thisweek",
                 startPeriod: todayString,
                 endPeriod: nextWeekString,
               })
@@ -136,7 +136,7 @@ export const DiscosFilter = (props) => {
               key={i}
               style={{
                 backgroundColor:
-                  filter.periodType === "month" && filter.startPeriod === m
+                  filter.periodRange === "month" && filter.startPeriod === m
                     ? "#e2e2d7"
                     : "white",
                 fontSize: "0.8rem",
@@ -150,7 +150,7 @@ export const DiscosFilter = (props) => {
               }}
               onClick={() =>
                 cb({
-                  periodType: "month",
+                  periodRange: "month",
                   startPeriod: m,
                   endPeriod: endPeriods[i]
                 })
@@ -163,7 +163,7 @@ export const DiscosFilter = (props) => {
             <Button
             style={{
               backgroundColor:
-                ! filter.periodType || 
+                ! filter.periodRange || 
                 ! filter.startPeriod || 
                 ! filter.endPeriod
                   ? "#e2e2d7"
@@ -178,7 +178,7 @@ export const DiscosFilter = (props) => {
             }}
             onClick={() =>
               cb({
-                periodType: "",
+                periodRange: "",
                 startPeriod: "",
                 endPeriod: "",
               })

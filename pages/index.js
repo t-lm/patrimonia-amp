@@ -11,12 +11,10 @@ import { listDiscos } from "../src/graphql/queries";
 
 import { getCurrentUser } from "../utils/auth";
 import Layout from "../comps/layout";
-import { DiscosFilter } from "../comps/discosfilter";
-import { DiscosList } from "../comps/discoslist";
+import { Alldiscos } from "../comps/alldiscos";
 import { Welcome } from "../comps/welcome";
 
 const today = new Date().toISOString().slice(0, 10);
-const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
 export const getStaticProps = async () => {
   try {
@@ -30,65 +28,10 @@ export const getStaticProps = async () => {
 
 const Index = ({ Discos = [] }) => {
 
-  let today = new Date();
-  const todayString = today.toISOString().slice(0, 10)
-
-  // state
   const [username, setUsername] = useState();
-  const [discos, setDiscos] = useState([]);
-  const [filter, setFilter] = useState({periodType: "day", startPeriod: todayString, endPeriod: todayString});
-
-  const updateFilter = (f) => {
-    let fil = {...filter}
-    Object.keys(f).forEach(x => {
-      fil[x] = f[x]
-    })
-    setFilter(fil)
-  }
-
-  useEffect(() => {
-    
-    setDiscos(
-      Discos
-        .filter((x) => {
-          if (filter.type && filter.type !== "") {
-            return x.type === filter.type;
-          } else return true;
-        })
-        .filter((x) => {
-          if (filter.subject && filter.subject !== "") {
-            return x.subjects.includes(filter.subject);
-          } else return true;
-        })
-        .filter((x) => {
-          if (filter.audience && filter.audience !== "") {
-            return x.audiences.includes(filter.audience);
-          } else return true;
-        })
-        .filter((x) => {
-          if (filter.startPeriod && filter.startPeriod !== "") {
-            return ( new Date(x.dateEnd) >= new Date(filter.startPeriod) );
-          } else return true;
-        })
-        .filter((x) => {
-          if (filter.endPeriod && filter.endPeriod !== "") {
-            return ( new Date(x.dateStart) <= new Date(filter.endPeriod) );
-          } else return true;
-        })
-        .filter((x) => {
-          if (filter.periodType === "day" && x.type === "regular" && filter.startPeriod !== "") {
-            let day = new Date(filter.startPeriod)
-            let num = day.getDay() - 1 % 7
-            if (x.openingHours[week[num]][0] && x.openingHours[week[num]][0] !== "") return true
-            else return false
-          } else return true;
-        })
-    )
-
-  }, [Discos, filter]);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  //console.log(filter)
+  console.log(Discos)
 
   return (
     <Layout>
@@ -97,16 +40,9 @@ const Index = ({ Discos = [] }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Welcome */}
       <Welcome />
+      <Alldiscos Discos={Discos} />
 
-      {/* Filter */}
-      <DiscosFilter filter={filter} cb={(x) => updateFilter(x) } />
-
-      {/* Main */}
-      <DiscosList discos={discos} />
-      
-      {/* Admin */}
       {username && username === "tlm" && (
         <div style={{ marginTop: 50 }}>
           <Link

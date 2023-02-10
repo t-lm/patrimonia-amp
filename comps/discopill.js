@@ -6,7 +6,7 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { FormattedDate } from "./date";
+import { FormattedDate, FormattedSlots } from "./date";
 
 const LANG = "fr";
 const DiscoFormats = require("../utils/DiscoFormats.json");
@@ -16,6 +16,7 @@ const DiscoSubjects = require("../utils/DiscoSubjects.json");
 export const DiscoPill = (props) => {
 
   const disco = props.disco;
+  const filter = props.filter;
   //console.log(disco)
 
   return (
@@ -32,8 +33,8 @@ export const DiscoPill = (props) => {
       <Col xs={3} md={2} style={{ padding: 0 }}>
         <div
           style={{
-            width: 120,
-            height: 120,
+            width: "100%",
+            height: 100,
             position: "relative",
             display: "block",
           }}
@@ -131,11 +132,11 @@ export const DiscoPill = (props) => {
         >
           {/*<span>{DiscoTypes[disco.type][LANG]}</span>*/}
           {/* Dates */}
-          {/*disco.type === "regular" && (
+          {disco.type === "regular" && (
             <>
-              XXXX
+              <FormattedSlots slots={disco.openingHours["fri"]} lang={LANG} />
             </>
-          )*/}
+          )}
 
           {disco.type === "event" && (
             <>
@@ -154,8 +155,8 @@ export const DiscoPill = (props) => {
                   <span
                     key={i}
                     style={{
-                      backgroundColor: DiscoSubjects[sub]["color"],
-                      color: "white",
+                      //backgroundColor: {`${DiscoSubjects[sub]["color"]},0.5`},
+                      backgroundColor: `rgba(${DiscoSubjects[sub]["r"]}, ${DiscoSubjects[sub]["g"]}, ${DiscoSubjects[sub]["b"]}, 0.2)`,
                       fontSize: "0.7rem",
                       padding: 4,
                       borderRadius: 4,

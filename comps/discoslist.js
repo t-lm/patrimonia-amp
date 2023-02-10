@@ -8,99 +8,31 @@ import { Keys } from "../utils/dictionary";
 const LANG = "fr";
 
 export const DiscosList = (props) => {
-  
   const discos = props.discos;
-  const allGuides = props.allGuides;
-  const allSites = props.allSites;
-  const showHeaders = props.showHeaders
+  const filter = props.filter;
 
   return (
     <>
       {/* events */}
       {discos
         .filter((x) => x.type === "event")
-        .sort((a, b) => a.dates[0].start > b.dates[0].start ? 1 : -1)
-        .map((v, j) => (
-          <div key={j}>
-            {j == 0 && showHeaders && (
-              <div
-                style={{
-                  fontSize: "1rem",
-                  padding: "5px 10px",
-                  fontWeight: "bold",
-                  borderRadius: 5,
-                  marginBottom: 10,
-                  backgroundColor: "pink"
-                }}
-              >
-                {Keys[LANG]["discosEvent"]}
-              </div>
-            )}
-            <DiscoPill
-              key={v.id}
-              num={j}
-              disco={v}
-              allGuides={allGuides}
-              allSites={allSites}
-            />
-          </div>
+        .sort((a, b) => (a.dates[0].start > b.dates[0].start ? 1 : -1))
+        .map((d) => (
+          <DiscoPill key={d.id} disco={d} filter={filter} />
         ))}
 
       {/* regular */}
-
       {discos
         .filter((x) => x.type === "regular")
-        .map((v, j) => (
-          <div key={j}>
-            {j == 0 && showHeaders && (
-              <div
-                style={{
-                  padding: "5px 10px",
-                  fontWeight: "bold",
-                  borderRadius: 5,
-                  marginTop: 10,
-                  marginBottom: 10,
-                  backgroundColor: "#e2e2d7"
-                }}
-              >
-                {Keys[LANG]["discosRegular"]}
-              </div>
-            )}
-            <DiscoPill
-              key={v.id}
-              num={j}
-              disco={v}
-              allGuides={allGuides}
-              allSites={allSites}
-            />
-          </div>
+        .map((d) => (
+          <DiscoPill key={d.id} disco={d} filter={filter} />
         ))}
 
       {/* demand */}
       {discos
         .filter((x) => x.type === "demand")
-        .map((v, j) => (
-          <div key={j} style={{marginTop: 10,
-          marginBottom: 10}}>
-            {j == 0 && showHeaders && (
-              <div
-                style={{
-                  padding: "5px 10px",
-                  fontWeight: "bold",
-                  borderRadius: 5,
-                  backgroundColor: "#fcc933"
-                }}
-              >
-                {Keys[LANG]["discosDemand"]}
-              </div>
-            )}
-            <DiscoPill
-              num={j}
-              disco={v}
-              allGuides={allGuides}
-              allSites={allSites}
-            />
-          </div>
+        .map((d) => (
+          <DiscoPill key={d.id} disco={d} filter={filter} />
         ))}
     </>
   );
