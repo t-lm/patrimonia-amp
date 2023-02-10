@@ -40,7 +40,7 @@ export const getStaticProps = async ({ params }) => {
       revalidate: 10,
     };
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return { props: {}, revalidate: 10 };
   }
 };

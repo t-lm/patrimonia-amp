@@ -31,9 +31,9 @@ const Sign = (props) => {
       await Auth.signIn(username, password);
       setUserLocal({ username })
       window.location.href = "/";
-      console.log("you are connected: ", username);
+      console.error("you are connected: ", username);
     } catch (e) {
-      console.log("error signing up:", e);
+      console.error("error signing up:", e);
     }
   };
 

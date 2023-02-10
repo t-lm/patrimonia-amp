@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 
 export const Error = (props) => {
   const error = props.error;
-  console.log(props)
 
   const [show, setShow] = useState(true)
 

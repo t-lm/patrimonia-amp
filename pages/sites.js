@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
     });
     return { props: { Sites: response.data.listSites.items }, revalidate: 10 };
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return { props: {}, revalidate: 10 };
   }
 };

@@ -16,7 +16,6 @@ const SiteProtections = require("../utils/SiteProtections.json");
 
 export const SiteFacts = (props) => {
   const site = props.site;
-  console.log(site)
   return (
     <div
       style={{

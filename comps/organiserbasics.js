@@ -1,7 +1,4 @@
 // ./comps/organiserbasics.js
-
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Image from "next/image";
 
 const OrganiserTypes = require("../utils/OrganiserTypes.json");
@@ -9,7 +6,6 @@ const LANG = "fr";
 
 export const OrganiserBasics = (props) => {
   const organiser = props.organiser;
-  console.log(organiser);
 
   return (
     <div

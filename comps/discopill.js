@@ -18,7 +18,7 @@ const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 export const DiscoPill = (props) => {
   const disco = props.disco;
   const filter = props.filter;
-  //console.log(disco)
+
 
   return (
     <Row

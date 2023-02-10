@@ -24,7 +24,7 @@ export const getStaticProps = async ({ req }) => {
     });
     return { props: { Organisers: response.data.listOrganisers.items }, revalidate: 10  };
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return { props: {}, revalidate: 10  };
   }
 };
@@ -34,7 +34,6 @@ const Organisers = ({ Organisers = [] }) => {
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  //console.log(Organisers);
 
   return (
     <Layout>

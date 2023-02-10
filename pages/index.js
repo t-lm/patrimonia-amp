@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
     const response = await API.graphql({ query: listDiscos, variables: {filter: { dateEnd: { gt: today}}}, authMode: "AWS_IAM" });
     return { props: { Discos: response.data.listDiscos.items }, revalidate: 10 };
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return { props: {}, revalidate: 10 };
   }
 };

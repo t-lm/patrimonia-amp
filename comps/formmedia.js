@@ -90,7 +90,7 @@ const FormMedia = (props) => {
         contentType: newImage.type,
       })
     } catch (error) {
-      console.log("L'image n'a pas pu être sauvée", error)
+      console.error("L'image n'a pas pu être sauvée", error)
     }
     
   };
@@ -98,7 +98,7 @@ const FormMedia = (props) => {
   useEffect(() => {
     API.graphql({ query: listSites })
     .then(res => setSites(res.data.listSites.items))
-    .catch(e => console.log(e))
+    .catch(e => console.error(e))
   },[])
   
 

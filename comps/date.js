@@ -19,7 +19,7 @@ export const FormattedDateAndTime = ({ dateString }) => {
   return format(date, "EEEE d LLLL yyyy, H:mm", { locale: fr });
   }
   catch(e) {
-    console.log(e)
+    console.error(e)
     return ''
   }
 };
@@ -150,7 +150,7 @@ export const FormattedEventDates = ({ dates, lang }) => {
   }
 }
 catch (e) {
-  console.log(e)
+  console.error(e)
   return <span></span>
 }
 

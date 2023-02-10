@@ -29,7 +29,7 @@ export const getStaticProps = async ({ params }) => {
     return { props: { disco: data.getDisco }, revalidate: 10 }
   }
   catch (err) {
-    console.log(err);
+    console.error(err);
     return { props: {}, revalidate: 10 };
   }
 }
@@ -50,7 +50,7 @@ export const getStaticPaths = async () => {
     return { paths, fallback: false };
   }
   catch (err) {
-    console.log(err);
+    console.error(err);
     return { paths: [], fallback: false};
   }
 }
@@ -59,8 +59,6 @@ const Disco = ({ disco }) => {
 
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
-
-  console.log(disco)
 
   return (
     <Layout>

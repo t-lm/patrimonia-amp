@@ -27,13 +27,13 @@ const Media = () => {
   useEffect(() => {
     API.graphql({ query: listSites })
     .then(res => setSites(res.data.listSites.items.sort((a,b) => a.id > b.id ? 1 : -1)))
-    .catch(e => console.log(e))
+    .catch(e => console.error(e))
   },[])
 
   useEffect(() => {
     API.graphql({ query: mediaBySiteID, variables: { siteID: filter, limit: 20 }})
     .then(res => setMedia(res.data.mediaBySiteID.items))
-    .catch(e => console.log(e))
+    .catch(e => console.error(e))
   },[filter])
 
   return (

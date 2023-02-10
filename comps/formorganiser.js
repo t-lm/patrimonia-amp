@@ -91,7 +91,7 @@ const FormOrganiser = (props) => {
         contentType: newImage.type,
       });
     } catch (error) {
-      console.log("L'image n'a pas pu être sauvée", error);
+      console.error("L'image n'a pas pu être sauvée", error);
     }
   };
 

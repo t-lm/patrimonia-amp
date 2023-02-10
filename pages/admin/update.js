@@ -38,7 +38,7 @@ const Update = () => {
           ["organiser","site", "updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.error(e));
     }
 
     else if (model === "media") {
@@ -48,7 +48,7 @@ const Update = () => {
           ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.error(e));
     }
 
 
@@ -59,7 +59,7 @@ const Update = () => {
           ["updatedAt", "createdAt", "owner"].forEach((x) => delete res[x]);
           setInput(res);
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.error(e));
     }
 
     else if (model === "site") {
@@ -71,7 +71,7 @@ const Update = () => {
           );
           setInput(res);
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.error(e));
     }
   }, [model, id]);
 
