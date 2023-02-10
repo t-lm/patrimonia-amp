@@ -7,8 +7,7 @@ import React, { useEffect, useState } from "react";
 import { DiscosFilter } from "./discosfilter";
 import { DiscosList } from "./discoslist";
 
-const today = new Date().toISOString().slice(0, 10);
-const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 export const Alldiscos = ({ Discos }) => {
 
@@ -41,7 +40,7 @@ export const Alldiscos = ({ Discos }) => {
         .filter((x) => {
           if (["today", "tomorrow"].includes(filter.periodRange) && x.type === "regular" && filter.startPeriod !== "") {
             let day = new Date(filter.startPeriod)
-            let num = day.getDay() - 1 % 7
+            let num = day.getDay()
             if (x.openingHours[week[num]][0] && x.openingHours[week[num]][0] !== "") return true
             else return false
           } else return true;

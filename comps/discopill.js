@@ -6,15 +6,16 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { FormattedDate, FormattedSlots } from "./date";
+import { FormattedDate, FormattedDaySlots, FormattedDays } from "./date";
 
 const LANG = "fr";
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 //const DiscoTypes = require("../utils/DiscoTypes.json");
 
-export const DiscoPill = (props) => {
+const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
+export const DiscoPill = (props) => {
   const disco = props.disco;
   const filter = props.filter;
   //console.log(disco)
@@ -26,7 +27,7 @@ export const DiscoPill = (props) => {
         padding: 15,
         border: "1px solid #eee",
         backgroundColor: "white",
-        fontSize: "0.9rem"
+        fontSize: "0.9rem",
       }}
     >
       {/* Image */}
@@ -75,10 +76,12 @@ export const DiscoPill = (props) => {
         </Row>
 
         {/* City, site and format */}
-        <div style={{ fontWeight: "bold"}}>
+        <div style={{ fontWeight: "bold" }}>
           <span>{disco.address.city}</span>
           {" . "}
-          <span><Link href={`/sites/${disco.siteID}`}>{disco.site.name}</Link></span>
+          <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
+            {disco.site.name}
+          </Link>
           {" . "}
           <span>{DiscoFormats[disco.format][LANG]}</span>
         </div>
@@ -87,11 +90,12 @@ export const DiscoPill = (props) => {
         <div>
           <Link
             style={{ color: "black" }}
-            href={`/guides/${disco.organiserID}`}
+            href={`/organisers/${disco.organiserID}`}
           >
             {disco.organiser.name}
           </Link>
-          <Image src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
+          <Image
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${disco.organiserID}`}
             className="rounded"
             alt={disco.organiser.name}
             title={disco.organiser.name}
@@ -108,16 +112,14 @@ export const DiscoPill = (props) => {
         </div>
 
         {/* headline */}
-        <div>
-          <Link href={`/discos/${disco.id}`}>
-            <div
-              style={{
-                paddingTop: 0,
-                fontSize: "0.9rem",
-              }}
-            >
-              {disco.headline.slice(0, 150)}
-            </div>
+        <div
+          style={{
+            paddingTop: 0,
+            fontSize: "0.9rem",
+          }}
+        >
+          <Link style={{ color: "black" }} href={`/discos/${disco.id}`}>
+            {disco.headline.slice(0, 150)}
           </Link>
         </div>
 
@@ -132,17 +134,39 @@ export const DiscoPill = (props) => {
         >
           {/*<span>{DiscoTypes[disco.type][LANG]}</span>*/}
           {/* Dates */}
-          {disco.type === "regular" && (
-            <>
-              <FormattedSlots slots={disco.openingHours["fri"]} lang={LANG} />
-            </>
-          )}
+          {disco.type === "regular" &&
+            ["today", "tomorrow"].includes(filter.periodRange) && (
+              <FormattedDaySlots
+                slots={
+                  disco.openingHours[
+                    week[new Date(filter.startPeriod).getDay()]
+                  ]
+                }
+                lang={LANG}
+                verbose={
+                  filter.periodRange === "today"
+                    ? "aujourd'hui"
+                    : filter.periodRange === "tomorrow"
+                    ? "demain"
+                    : ""
+                }
+              />
+            )}
+          {disco.type === "regular" &&
+            ["thisweek", "month"].includes(filter.periodRange) && (
+              <FormattedDays slots={disco.openingHours} lang={LANG} />
+            )}
 
           {disco.type === "event" && (
-            <>
-              {" . "}
-              <FormattedDate dateString={disco.dates[0].start} />
-            </>
+            <FormattedDate dateString={disco.dates[0].start} />
+          )}
+          {disco.type === "demand" && (
+            <Link
+              href={`/discos/${disco.id}`}
+              style={{ color: "black", fontWeight: "bold" }}
+            >
+              Visites sur demande
+            </Link>
           )}
         </div>
 

@@ -2,6 +2,8 @@ import { parseISO, format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { intervalToDuration } from "date-fns";
 
+const Weekdays = require("../utils/Weekdays.json");
+
 export const FormattedDate = ({ dateString }) => {
   const date = parseISO(dateString);
   return (
@@ -77,19 +79,47 @@ export const FormattedLength = ({ dateString }) => {
 };
 
 
-export const FormattedSlots = ({
-  slots, lang
+export const FormattedDaySlots = ({
+  slots, lang, verbose
 }) => {
   if (slots.length === 1 ) {
-    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]}`}</span>;
-    else return <span>{`Open between ${slots[0]} and ${slots[1]}`}</span>;
+    if (lang === "fr") return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]}`}</span>;
+    else return <span>{`Open ${verbose ? verbose : ""} between ${slots[0]} and ${slots[1]}`}</span>;
   }
   if (slots.length === 2 ) {
-    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]} et entre ${slots[1][0]} et ${slots[1][1]}`}</span>;
-    else return <span>{`Open between ${slots[0][0]} and ${slots[0][1]} and between ${slots[1][0]} and ${slots[1][1]}`}</span>;
+    if (lang === "fr") return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]} et entre ${slots[1][0]} et ${slots[1][1]}`}</span>;
+    else return <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${slots[0][1]} and between ${slots[1][0]} and ${slots[1][1]}`}</span>;
   }
   if (slots.length === 3 ) {
-    if (lang === "fr") return <span>{`Ouvert entre ${slots[0][0]} et ${slots[0][1]}, entre ${slots[1][0]} et ${slots[1][1]} et entre ${slots[2][0]} et ${slots[2][1]}`}</span>;
-    else return <span>{`Open between ${slots[0][0]} and ${slots[0][1]}, between ${slots[1][0]} and ${slots[1][1]} and between ${slots[2][0]} and ${slots[2][1]}`}</span>;
+    if (lang === "fr") return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]}, entre ${slots[1][0]} et ${slots[1][1]} et entre ${slots[2][0]} et ${slots[2][1]}`}</span>;
+    else return <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${slots[0][1]}, between ${slots[1][0]} and ${slots[1][1]} and between ${slots[2][0]} and ${slots[2][1]}`}</span>;
   }
+};
+
+export const FormattedDays = ({ slots, lang }) => {
+  const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const openDays = week.filter(x => {return slots[x][0]})
+  const closedDays =  week.filter(x => {return !slots[x][0]})
+
+  if (openDays.length === 7) {
+    if (lang === "fr") return <span>{`Ouvert tous les jours`}</span>;
+    else return <span>{`Open every day`}</span>;
+  }
+  else if (openDays.length === 6) {
+    if (lang === "fr") return <span>{`Ouvert tous les jours sauf ${Weekdays[closedDays[0]][lang]}`}</span>;
+    else return <span>{`Open every day except ${Weekdays[closedDays[0]][lang]}`}</span>;
+  }
+  else if (openDays.length === 5) {
+    if (lang === "fr") return <span>{`Ouvert tous les jours sauf ${Weekdays[closedDays[0]][lang]} et ${Weekdays[closedDays[1]][lang]}`}</span>;
+    else return <span>{`Open every day except ${Weekdays[closedDays[0]][lang]} and ${Weekdays[closedDays[1]][lang]}`}</span>;
+  }
+  else if (openDays.length > 1) {
+    if (lang === "fr") return <span>{`Ouvert les ${openDays.map(x => ` ${Weekdays[x][lang]}`)}`}</span>;
+    else return <span>{`Open on ${openDays.map(x => ` ${Weekdays[x][lang]}`)}`}</span>;
+  }
+  else if (openDays.length == 1) {
+    if (lang === "fr") return <span>{`Ouvert le ${Weekdays[openDays[0]][lang]}`}</span>;
+    else return <span>{`Open on ${Weekdays[openDays[0]][lang]}`}</span>;
+  }
+
 };
