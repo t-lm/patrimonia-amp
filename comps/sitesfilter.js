@@ -20,7 +20,8 @@ export const SitesFilter = (props) => {
         border: "1px solid #eee",
         backgroundColor: "pink",
         padding: 15,
-        marginTop: 20
+        marginTop: 20,
+        color: "black"
       }}
       
     >

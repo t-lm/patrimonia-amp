@@ -25,12 +25,12 @@ export const DiscoFacts = (props) => {
   const disco = props.disco;
 
   return (
-    <section
-      id="facts"
+    <div
       style={{
         backgroundColor: "white",
         padding: "10px 10px",
         marginTop: 10,
+        color: "black"
       }}
     >
       <Row>
@@ -97,7 +97,6 @@ export const DiscoFacts = (props) => {
         </Row>
       )}
       
-      {/* format */}
       <Row>
         <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
           {Keys[LANG]["discoFormat"]}
@@ -198,6 +197,6 @@ export const DiscoFacts = (props) => {
           )}
         </div>
       )}
-    </section>
+    </div>
   );
 };

@@ -14,48 +14,43 @@ import { PictureCarousel } from "./carousel";
 import { SiteMedia } from "../utils/dictionary";
 import { Keys } from "../utils/dictionary";
 
-const LANG = "fr"
+const LANG = "fr";
 
 export const SitePictures = (props) => {
-  
-  const site = props.site
-  const media = props.media
-  
+  const site = props.site;
+  const media = props.media;
+
   const [showCarousel, setShowCarousel] = useState(false);
 
   return (
+    <div style={{ color: "black" }}>
+      {/* top pic */}
 
-    <section id="pictures">
-    {/* top pic */}
-    <Row style={{ marginTop: 20 }}>
-      <Col>
-        <div
-          style={{
-            width: "100%",
-            height: 400,
-            position: "relative",
-            display: "block",
-          }}
-        >
-          {/* rewrite all this with the picture */}
-          <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${site.picture.id}`}
-            className="shadow-1-strong rounded"
-            alt={site.picture.description_fr}
-            title={site.name}
-            onClick={() => setShowCarousel(true)}
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-            sizes="100vw"
-          />
-        </div>
-      </Col>
-    </Row>
+      <div
+        style={{
+          marginTop: 20,
+          width: "100%",
+          height: 400,
+          position: "relative",
+          display: "block",
+        }}
+      >
+        {/* rewrite all this with the picture */}
+        <Image
+          src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${site.picture.id}`}
+          className="shadow-1-strong rounded"
+          alt={site.picture.description_fr}
+          title={site.name}
+          onClick={() => setShowCarousel(true)}
+          fill
+          priority
+          style={{ objectFit: "cover" }}
+          sizes="100vw"
+        />
+      </div>
 
-    {/* supporting pics */}
-    <Row style={{ marginTop: 10 }}>
-      <Col>
+      {/* supporting pics */}
+      <div style={{ marginTop: 10 }}>
         {media.slice(0, 4).map((p, i) => (
           <div
             key={i}
@@ -95,27 +90,24 @@ export const SitePictures = (props) => {
             <SiteMedia lang="fr" num={media.length - 5} />
           </div>
         )}
-      </Col>
-    </Row>
+      </div>
 
-    {/* Carousel */}
-    <Modal show={showCarousel} onHide={() => setShowCarousel(false)}>
-      <Modal.Body>
-        <PictureCarousel siteID={site.id} media={media} />
-      </Modal.Body>
-      <Modal.Footer style={{ border: "0px" }}>
-        <Button
-          size="sm"
-          variant="link"
-          style={{ color: "grey", width: "20%", border: "0px" }}
-          onClick={() => setShowCarousel(false)}
-        >
-          {Keys[LANG].close}
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  </section>
-
-
+      {/* Carousel */}
+      <Modal show={showCarousel} onHide={() => setShowCarousel(false)}>
+        <Modal.Body>
+          <PictureCarousel siteID={site.id} media={media} />
+        </Modal.Body>
+        <Modal.Footer style={{ border: "0px" }}>
+          <Button
+            size="sm"
+            variant="link"
+            style={{ color: "grey", width: "20%", border: "0px" }}
+            onClick={() => setShowCarousel(false)}
+          >
+            {Keys[LANG].close}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 };

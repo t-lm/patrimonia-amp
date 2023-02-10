@@ -13,7 +13,9 @@ import SSRProvider from "react-bootstrap/SSRProvider";
 
 const App = ({ Component, pageProps }) => (
     <SSRProvider>
-      <Component {...pageProps} />
+      <div style={{backgroundColor: "#f9f9f9" }}>
+        <Component {...pageProps} />
+      </div>
       <Analytics />
     </SSRProvider>
 )

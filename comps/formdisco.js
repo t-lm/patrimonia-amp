@@ -114,10 +114,9 @@ const handleUpdateDiscoStyles = (key) => {
     }
   };
 
-  console.log(disco)
 
   return (
-    <>
+    <div style={{color: "black"}}>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Créer la découverte"}
         {action === "update" && "Mettre à jour la découverte"}
@@ -657,7 +656,7 @@ const handleUpdateDiscoStyles = (key) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </>
+    </div>
   );
 };
 

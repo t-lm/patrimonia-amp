@@ -1,51 +1,42 @@
 // ./comps/discopictures.js
+
 import Image from "next/image";
 
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
-import {
-  DiscoMedia
-} from "../utils/dictionary";
+import { DiscoMedia } from "../utils/dictionary";
 
 export const DiscoPictures = (props) => {
-  
-  const disco = props.disco
+  const disco = props.disco;
 
   return (
-    <section
-    id="pictures"
-    style={{
-      backgroundColor: "white",
-      padding: "10px 10px",
-      marginTop: 10,
-    }}
-  >
-      <Row id="pictures-main" style={{ marginTop: 20 }}>
-        <Col>
-          <div
-            style={{
-              width: "100%",
-              height: 400,
-              position: "relative",
-              display: "block",
-            }}
-          >
-            <Image
-              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
-              alt={disco.name}
-              style={{ objectFit: "cover" }}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw,100vw"
-            />
-          </div>
-        </Col>
-      </Row>
+    <div
+      style={{
+        backgroundColor: "white",
+        padding: "10px 10px",
+        marginTop: 10,
+        color: "black",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          height: 400,
+          position: "relative",
+          display: "block",
+          marginTop: 20,
+        }}
+      >
+        <Image
+          src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
+          alt={disco.name}
+          style={{ objectFit: "cover" }}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw,100vw"
+        />
+      </div>
 
-    {disco.pictures.length > 1 && (
-      <Row id="pictures-secondary" style={{ marginTop: 10 }}>
-        <Col>
+      {disco.pictures.length > 1 && (
+        <div style={{ marginTop: 10 }}>
           {disco.pictures.slice(1, 5).map((m, i) => (
             <div
               key={i}
@@ -82,9 +73,8 @@ export const DiscoPictures = (props) => {
               <DiscoMedia lang="fr" num={disco.pictures.length - 5} />
             </div>
           )}
-        </Col>
-      </Row>
-    )}
-  </section>
+        </div>
+      )}
+    </div>
   );
 };

@@ -18,19 +18,17 @@ export const SiteFacts = (props) => {
   const site = props.site;
 
   return (
-    <section
-      id="facts"
+    <div
       style={{
+        color: "black",
         marginTop: 20,
         backgroundColor: "white", 
         padding: 10
       }}
     >
-      <Row>
-        <Col>
-          <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].keyFacts}</h3>
-        </Col>
-      </Row>
+
+      <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].keyFacts}</h3>
+
       {site.periods.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
@@ -49,6 +47,7 @@ export const SiteFacts = (props) => {
           </Col>
         </Row>
       )}
+
       {site.styles.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
@@ -68,7 +67,7 @@ export const SiteFacts = (props) => {
         </Row>
       )}
 
-      {/*site.persons.length > 0 && (
+      {site.persons && site.persons.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.persons.length > 1
@@ -85,9 +84,9 @@ export const SiteFacts = (props) => {
               ))}
           </Col>
         </Row>
-      )*/}
+      )}
 
-      {/*site.events && (
+      {site.events && site.events.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.events.length > 1
@@ -105,7 +104,8 @@ export const SiteFacts = (props) => {
               ))}
           </Col>
         </Row>
-        )*/}
+        )}
+      
       {site.protections && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
@@ -136,6 +136,6 @@ export const SiteFacts = (props) => {
           </Col>
         </Row>
       )}
-    </section>
+    </div>
   );
 };

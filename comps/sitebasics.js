@@ -14,9 +14,13 @@ export const SiteBasics = (props) => {
   const site = props.site;
 
   return (
-    <section
-      id="basics"
-      style={{ backgroundColor: "white", padding: 10, marginTop: 10 }}
+    <div
+      style={{
+        backgroundColor: "white",
+        padding: 10,
+        marginTop: 10,
+        color: "black",
+      }}
     >
       {/* site name */}
       <h1 style={{ marginBottom: 0 }} className={utilStyles.heading2Xl}>
@@ -24,56 +28,52 @@ export const SiteBasics = (props) => {
       </h1>
 
       {/* city */}
-      <Row>
-        <Col
-          style={{
-            fontWeight: "bold",
-            marginTop: 5,
-            fontSize: "1.1rem",
-          }}
+      <div
+        style={{
+          fontWeight: "bold",
+          marginTop: 5,
+          fontSize: "1.1rem",
+        }}
+      >
+        {site.address.city}
+        {" . "}
+        <a
+          style={{ color: "grey" }}
+          href={`https://www.google.com/maps/place/${encodeURIComponent(
+            `${site.address.street},${site.address.postalCode} ${site.address.city} France`
+          )}`}
         >
-            {site.address.city}
-            {" . "}
-          <a
-            style={{ color: "grey" }}
-            href={`https://www.google.com/maps/place/${encodeURIComponent(
-              `${site.address.street},${site.address.postalCode} ${site.address.city} France`
-            )}`}
-          >
-            {site.address.street}, {site.address.postalCode} {site.address.city}
-            , France
-          </a>
-        </Col>
-        </Row>
+          {site.address.street}, {site.address.postalCode} {site.address.city},
+          France
+        </a>
+      </div>
 
       {/* types */}
-      <Row>
-        <Col
-          style={{
-            fontWeight: "bold",
-            marginTop: 10,
-            fontSize: "1.1rem",
-          }}
-        >
-          {site.types &&
-            site.types.map((t, i) => (
-              <span
-                key={i}
-                style={{
-                  backgroundColor: "#e2e2d7",
-                  color: "black",
-                  padding: "3px 10px",
-                  borderRadius: 3,
-                }}
-              >
-                <span style={{marginRight: 10}}>{SiteTypes[t][LANG]}</span>
-                <span>{Icons[t]}</span>
-              </span>
-            ))}
-        </Col>
-      </Row>
+      <div
+        style={{
+          fontWeight: "bold",
+          marginTop: 10,
+          fontSize: "1.1rem",
+        }}
+      >
+        {site.types &&
+          site.types.map((t, i) => (
+            <span
+              key={i}
+              style={{
+                backgroundColor: "#e2e2d7",
+                color: "black",
+                padding: "3px 10px",
+                borderRadius: 3,
+              }}
+            >
+              <span style={{ marginRight: 10 }}>{SiteTypes[t][LANG]}</span>
+              <span>{Icons[t]}</span>
+            </span>
+          ))}
+      </div>
 
       <h5 style={{ marginTop: 20, color: "#333" }}>{site.headline}</h5>
-    </section>
+    </div>
   );
 };

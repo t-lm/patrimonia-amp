@@ -323,6 +323,101 @@ export const listDiscos = /* GraphQL */ `
     }
   }
 `;
+export const discosByOrganiserID = /* GraphQL */ `
+  query DiscosByOrganiserID(
+    $organiserID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelDiscoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    discosByOrganiserID(
+      organiserID: $organiserID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        headline
+        organiserID
+        organiser {
+          id
+          name
+          description_fr
+          description_en
+          www
+          phone
+          email
+          type
+          createdAt
+          updatedAt
+          owner
+        }
+        type
+        format
+        format2
+        demandCommentary
+        practicalInfo
+        bookingRequired
+        dateStart
+        dateEnd
+        dates {
+          start
+          end
+        }
+        openingHours {
+          sun
+          mon
+          tue
+          wed
+          thu
+          fri
+          sat
+        }
+        pictures
+        duration
+        price
+        priceCommentary
+        subjects
+        languages
+        audiences
+        styles
+        periods
+        events
+        persons
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        siteID
+        site {
+          id
+          name
+          headline
+          types
+          styles
+          periods
+          protections
+          description
+          pictureID
+          createdAt
+          updatedAt
+          owner
+        }
+        priority
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const discosBySiteID = /* GraphQL */ `
   query DiscosBySiteID(
     $siteID: ID!

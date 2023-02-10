@@ -3,6 +3,8 @@
 import React from "react";
 
 import { useRouter } from "next/router";
+import Head from "next/head";
+
 import { nanoid } from "nanoid";
 
 import Row from "react-bootstrap/Row";
@@ -27,6 +29,10 @@ const New = () => {
   
   return (
     <Layout>
+      <Head>
+        <title>Création</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Row style={{ marginTop: 20 }}>
         <Col>
           {model === "disco" && <FormDisco action="add" input={defaultDisco} />}

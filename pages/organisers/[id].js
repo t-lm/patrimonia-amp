@@ -61,6 +61,7 @@ const Organiser = ({ organiser }) => {
       {username === "tlm" && (
         <div style={{ marginTop: 30 }}>
           <Link
+            style={{ color: "black"}}
             href={{
               pathname: "/admin/update",
               query: { model: "organiser", id: organiser.id },

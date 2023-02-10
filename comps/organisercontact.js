@@ -12,12 +12,13 @@ export const OrganiserContact = (props) => {
 
   return (
 
-    <section
+    <div
     id="contact"
     style={{
       backgroundColor: "white",
       padding: "10px 10px",
       marginTop: 30,
+      color: "black"
     }}
   >
     <h4 style={{ marginBottom: 20 }}>{Keys[LANG].contact}</h4>
@@ -95,6 +96,6 @@ export const OrganiserContact = (props) => {
         </Col>
       </Row>
     )}
-  </section>
+  </div>
   );
 };

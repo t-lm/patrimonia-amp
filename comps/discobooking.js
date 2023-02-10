@@ -29,6 +29,7 @@ export const DiscoBooking = (props) => {
     const slots = props.slots;
 
     return (
+      
       <Row style={{ paddingLeft: 10 }}>
         <Col xs={3}>{Weekdays[d][LANG]}</Col>
         <Col xs={9}>
@@ -47,11 +48,12 @@ export const DiscoBooking = (props) => {
 
   return (
     <>
-      <section
+      <div
         style={{
           backgroundColor: "white",
           padding: "10px 10px",
           marginTop: 30,
+          color: "black"
         }}
       >
         {disco.type === "demand" && (
@@ -149,13 +151,12 @@ export const DiscoBooking = (props) => {
             }
           </>
         )}
-      </section>
+      </div>
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Body>
-          <p>{Keys[LANG]["bookingTemp"]}</p>
           <p>
-            {Keys[LANG]["bookingTemp2"]} {disco.organiser.name}{" "}
+            {Keys[LANG]["bookingTemp"]} {disco.organiser.name}{" "}
             {Keys[LANG]["here"]}:
           </p>
           <ul>

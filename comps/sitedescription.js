@@ -18,7 +18,8 @@ export const SiteDescription = (props) => {
         style={{
           marginTop: 20,
           backgroundColor: "white",
-          padding: 10
+          padding: 10,
+          color: "black" 
         }}
         >
       <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].description}</h3>

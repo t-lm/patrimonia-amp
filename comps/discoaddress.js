@@ -12,19 +12,17 @@ export const DiscoAddress = (props) => {
 
   return (
 
-    <section
-    id="where"
+    <div
     style={{
       backgroundColor: "white",
       padding: "10px 10px",
       marginTop: 10,
+      color: "black",
     }}
   >
-    <Row>
-      <Col xs={12}>
-        <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys[LANG].meetingPoint}</h3>
-      </Col>
-    </Row>
+
+    <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys[LANG].meetingPoint}</h3>
+
     {disco.address && (
       <Row>
         <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
@@ -53,7 +51,7 @@ export const DiscoAddress = (props) => {
         </Col>
       </Row>
     )}
-  </section>
+  </div>
 
   );
 };

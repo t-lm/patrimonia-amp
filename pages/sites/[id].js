@@ -25,22 +25,32 @@ const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
   try {
-    const { data } = await API.graphql({ query: getSite, variables: { id: params.id }, authMode: 'AWS_IAM' });
-    const response = await API.graphql({ query: discosBySiteID, variables: { siteID: params.id, filter: { dateEnd: { gt: today}} }, authMode: 'AWS_IAM' });
-    return { props: { site: data.getSite, discos: response.data.discosBySiteID.items }, revalidate: 10 }
-  }
-  catch (err) {
+    const { data } = await API.graphql({
+      query: getSite,
+      variables: { id: params.id },
+      authMode: "AWS_IAM",
+    });
+    const response = await API.graphql({
+      query: discosBySiteID,
+      variables: { siteID: params.id, filter: { dateEnd: { gt: today } } },
+      authMode: "AWS_IAM",
+    });
+    return {
+      props: { site: data.getSite, discos: response.data.discosBySiteID.items },
+      revalidate: 10,
+    };
+  } catch (err) {
     console.log(err);
     return { props: {}, revalidate: 10 };
   }
-}
+};
 
 export async function getStaticPaths() {
-  const response = await API.graphql({ query: listSites, authMode: 'AWS_IAM' });
+  const response = await API.graphql({ query: listSites, authMode: "AWS_IAM" });
   const paths = response.data.listSites.items.map((s) => {
     return {
       params: {
-        id: s.id
+        id: s.id,
       },
     };
   });
@@ -88,45 +98,55 @@ const Site = ({ site, discos }) => {
       </Head>
 
       <main>
-        
         {/* basics */}
         <SiteBasics site={site} />
 
         {/* pictures */}
-        {site.media.items.length > 0 && <SitePictures site={site} media={site.media.items.filter(x => x.id !== site.pictureID)} />}
-        
+        {site.media.items.length > 0 && (
+          <SitePictures
+            site={site}
+            media={site.media.items.filter((x) => x.id !== site.pictureID)}
+          />
+        )}
+
         {/* Key facts */}
-        {(site.periods || site.styles || site.persons || site.events || site.protections) && <SiteFacts site={site} />}
+        {(site.periods ||
+          site.styles ||
+          site.persons ||
+          site.events ||
+          site.protections) && <SiteFacts site={site} />}
 
         {/* Description */}
-        {site.description && <SiteDescription site={site} /> }
+        {site.description && <SiteDescription site={site} />}
 
         {/* Discoveries */}
         <div
-        style={{
-          marginTop: 20,
-          backgroundColor: "white",
-          padding: 10
-        }}
+          style={{
+            marginTop: 20,
+            backgroundColor: "white",
+            padding: 10,
+            color: "black",
+          }}
         >
           <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
-          <DiscosList discos={discos} filter={{}}/>
+          <DiscosList discos={discos} filter={{}} />
         </div>
 
         {/* Further on */}
         {site.links && site.links.length > 0 && <SiteLinks site={site} />}
-       
+
         {username === "tlm" && (
-          <Row style={{marginTop: 30}}>
+          <Row style={{ marginTop: 30 }}>
             <Col>
-            <Link
+              <Link
+                style={{color: "black" }}
                 href={{
                   pathname: "/admin/update",
-                  query: { model: "site", id: site.id }
+                  query: { model: "site", id: site.id },
                 }}
-            >
-              Mettre à jour le site
-            </Link>
+              >
+                Mettre à jour le site
+              </Link>
             </Col>
           </Row>
         )}

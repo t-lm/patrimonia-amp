@@ -1,31 +1,23 @@
 // ./comps/sitelinks.js
 
-import React, { useState } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
-import { Keys } from "../utils/dictionary";
+import React from "react";
 
 const LANG = "fr";
 
 export const SiteLinks = (props) => {
+
   const links = props.site.links;
 
-
   return (
-    <section
-      id="description"
+    <div
       style={{
         marginTop: 20,
         backgroundColor: "white",
-        padding: 10
+        padding: 10,
+        color: "black" 
       }}
     >
-      <Row>
-        <Col>
-          <h3 style={{ fontWeight: "bold" }}>Aller plus loin</h3>
-        </Col>
-      </Row>
+      <h3 style={{ fontWeight: "bold" }}>Aller plus loin</h3>
       <ul>
         {links.map(
           (l,i) =>
@@ -36,6 +28,6 @@ export const SiteLinks = (props) => {
             )
         )}
       </ul>
-    </section>
+    </div>
   );
 };

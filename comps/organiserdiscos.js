@@ -11,8 +11,9 @@ export const OrganiserDiscos = (props) => {
   const discos = props.discos;
 
   return (
-    <>
-        <section
+            
+    <div style={{color: "black"}}>
+        <div
           style={{
             backgroundColor: "white",
             padding: 10,
@@ -20,9 +21,9 @@ export const OrganiserDiscos = (props) => {
           }}
         >
           <h4>{Keys[LANG].visits}</h4>
-        </section>
+        </div>
         
-        <section style={{padding: 10}}>
+        <div style={{padding: 10}}>
           
           { discos.map((v) => (
           <Row
@@ -160,7 +161,7 @@ export const OrganiserDiscos = (props) => {
             </Col>
           </Row>
                       ))} 
-        </section>
-      </>
+        </div>
+      </div>
   );
 };

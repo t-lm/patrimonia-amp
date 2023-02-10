@@ -96,7 +96,7 @@ const FormOrganiser = (props) => {
   };
 
   return (
-    <>
+    <div style={{color: "black"}}>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Créer l'organisateur"}
         {action === "update" && "Mettre à jour l'organisateur"}
@@ -355,7 +355,7 @@ const FormOrganiser = (props) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </>
+    </div>
   );
 };
 

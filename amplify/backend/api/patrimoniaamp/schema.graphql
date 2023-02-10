@@ -24,7 +24,7 @@ type Disco
     id: ID!
     name: String!
     headline: String!
-    organiserID: ID!
+    organiserID: ID! @index(name: "byOrganiser")
     organiser: Organiser @hasOne(fields: ["organiserID"])
     type: DiscoTypes! # the occurence of the discovery
     format: DiscoFormats! # the format of the discovery

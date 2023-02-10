@@ -12,7 +12,7 @@ export const Welcome = () => {
         style={{
           width: "100%",
           //backgroundColor: "#aaa",
-          //backgroundColor: "#d4e9fb",
+          color: "black",
           backgroundColor: "#edebea",
           fontSize: "2.5rem",
           fontWeight: 700,

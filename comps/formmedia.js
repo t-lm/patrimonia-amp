@@ -34,7 +34,7 @@ const FormMedia = (props) => {
         variables: { input: media },
       });
 
-      window.location.href = `/app/media`;
+      window.location.href = `/admin/media`;
     } catch (e) {
       console.error(e);
       setError("There is an error with this form");
@@ -50,7 +50,7 @@ const FormMedia = (props) => {
         query: updateMedia,
         variables: { input: media },
       });
-      window.location.href = `/app/media`;
+      window.location.href = `/admin/media`;
     } catch (e) {
       console.error(e);
       setError("There is an error with this form");
@@ -103,7 +103,7 @@ const FormMedia = (props) => {
   
 
   return (
-    <>
+    <div style={{color: "black"}}>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Créer l'image"}
         {action === "update" && "Mettre à jour l'image"}
@@ -231,7 +231,7 @@ const FormMedia = (props) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </>
+    </div>
   );
 };
 

@@ -70,6 +70,12 @@ const Layout = ({ children }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
+            <Nav.Link
+                style={{ marginRight: 25, color: "black" }}
+                href="/"
+              >
+                DÉCOUVERTES
+              </Nav.Link>
               <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/sites"
@@ -84,10 +90,12 @@ const Layout = ({ children }) => {
               </Nav.Link> */}
               <NavDropdown
                 align="end"
+                style={{color: "black"}}
                 title={
                   <span
                     style={{
                       marginRight: 10,
+                      color: "black"
                     }}
                   >
                     {username && username.toUpperCase()}
@@ -117,7 +125,7 @@ const Layout = ({ children }) => {
             </Navbar.Collapse>
           </Navbar>
 
-          <main style={{ marginTop: 30 }}>{children}</main>
+          <main style={{ marginTop: 30, marginBottom: 10, minHeight: "90vh" }}>{children}</main>
 
           <footer>
             <div

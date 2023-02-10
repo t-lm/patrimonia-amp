@@ -110,7 +110,7 @@ const handleUpdateLinks = (text) => {
   };
 
   return (
-    <>
+    <div style={{color: "black"}}>
       <h4 style={{ fontWeight: "bold" }}>
         {action === "add" && "Créer le site"}
         {action === "update" && "Mettre à jour le site"}
@@ -341,7 +341,7 @@ const handleUpdateLinks = (text) => {
         </Button>
       </Form>
       {error && <Error error={error} />}
-    </>
+    </div>
   );
 };
 

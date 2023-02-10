@@ -11,27 +11,22 @@ import { Keys } from "../utils/dictionary";
 const LANG = "fr";
 
 export const DiscoOrganiser = (props) => {
-  
   const organiser = props.organiser;
 
   return (
-    <section
-      id="organiser"
+    <div
       style={{
         backgroundColor: "white",
         padding: "10px 10px",
         marginTop: 10,
+        color: "black",
       }}
     >
-      <Row>
-        <Col>
-          <h3 style={{ fontWeight: "bold" }}>
-            <Link href={`/organisers/${organiser.id}`}>
-              {Keys[LANG].organiser}: {organiser.name}
-            </Link>
-          </h3>
-        </Col>
-      </Row>
+      <h3 style={{ fontWeight: "bold", color: "black" }}>
+        <Link href={`/organisers/${organiser.id}`}>
+          {Keys[LANG].organiser}: {organiser.name}
+        </Link>
+      </h3>
       <Row
         style={{
           marginTop: 20,
@@ -60,6 +55,6 @@ export const DiscoOrganiser = (props) => {
           </Col>
         )}
       </Row>
-    </section>
+    </div>
   );
 };

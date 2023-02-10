@@ -28,6 +28,7 @@ export const DiscoPill = (props) => {
         border: "1px solid #eee",
         backgroundColor: "white",
         fontSize: "0.9rem",
+        color: "black"
       }}
     >
       {/* Image */}

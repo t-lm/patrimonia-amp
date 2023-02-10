@@ -24,6 +24,7 @@ export const SitePill = (props) => {
         padding: 20,
         border: "1px solid #eee",
         backgroundColor: "white",
+        color: "black"
       }}
     >
       {/* Image */}
@@ -50,7 +51,7 @@ export const SitePill = (props) => {
       </Col>
 
       {/* Text */}
-      <Col style={{ marginLeft: 20 }}>
+      <Col style={{ marginLeft: 20, color: "black" }}>
         <div style={{ marginBottom: 5, paddingTop: 0 }}>
           <Link
             href={`/sites/${s.id}`}

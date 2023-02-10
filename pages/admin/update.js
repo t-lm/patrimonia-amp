@@ -1,7 +1,10 @@
 // pages/update.js
 
 import React, { useState, useEffect } from "react";
+
 import { useRouter } from "next/router";
+import Head from "next/head";
+
 import { API } from 'aws-amplify';
 
 import {
@@ -74,6 +77,10 @@ const Update = () => {
 
   return (
     <Layout>
+        <Head>
+        <title>Modification</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {input && (
         <>
           {model === "disco" && <FormDisco action="update" input={input} />}

@@ -1,4 +1,4 @@
-// ./comps/filterdiscos.js
+// ./comps/discosfilter.js
 
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -45,149 +45,144 @@ export const DiscosFilter = (props) => {
         border: "1px solid #eee",
         backgroundColor: "white",
         marginTop: 20,
+        marginTop: 20,
       }}
     >
       {/* dates */}
-      <Row>
-        <Col>
-          {/* today */}
-          <Button
-            style={{
-              backgroundColor:
-                filter.periodRange === "today" &&
-                filter.startPeriod === todayString &&
-                filter.endPeriod === todayString
-                  ? "#e2e2d7"
-                  : "white",
-              fontWeight: "bold",
-              padding: "4px 10px",
-              borderRadius: 4,
-              marginTop: 5,
-              border: 0,
-              color: "black",
-              fontSize: "0.8rem",
-            }}
-            onClick={() =>
-              cb({
-                periodRange: "today",
-                startPeriod:todayString,
-                endPeriod: todayString,
-              })
-            }
-          >
-            aujourd'hui
-          </Button>
-          {/* tomorrow */}
-          <Button
-            style={{
-              backgroundColor:
-                filter.periodRange === "tomorrow" &&
-                filter.startPeriod === tomorrowString
-                  ? "#e2e2d7"
-                  : "white",
-              fontWeight: "bold",
-              padding: "4px 10px",
-              borderRadius: 4,
-              marginTop: 5,
-              border: 0,
-              color: "black",
-              fontSize: "0.8rem",
-            }}
-            onClick={() =>
-              cb({
-                periodRange: "tomorrow",
-                startPeriod: tomorrowString,
-                endPeriod: tomorrowString,
-              })
-            }
-          >
-            demain
-          </Button>
-          {/* this week */}
-          <Button
-            style={{
-              backgroundColor:
-                filter.periodRange === "thisweek" &&
-                filter.startPeriod === todayString &&
-                filter.endPeriod === nextWeekString
-                  ? "#e2e2d7"
-                  : "white",
-              fontWeight: "bold",
-              padding: "4px 10px",
-              borderRadius: 4,
-              marginTop: 5,
-              border: 0,
-              color: "black",
-              fontSize: "0.8rem",
-            }}
-            onClick={() =>
-              cb({
-                periodRange: "thisweek",
-                startPeriod: todayString,
-                endPeriod: nextWeekString,
-              })
-            }
-          >
-            7 prochains jours
-          </Button>
-          {" | "}
-          {startPeriods.map((m, i) => (
-            <Button
-              key={i}
-              style={{
-                backgroundColor:
-                  filter.periodRange === "month" && filter.startPeriod === m
-                    ? "#e2e2d7"
-                    : "white",
-                fontSize: "0.8rem",
-                fontWeight: "bold",
-                padding: "4px 10px",
-                borderRadius: 4,
-                marginLeft: 7,
-                marginTop: 5,
-                border: 0,
-                color: "black",
-              }}
-              onClick={() =>
-                cb({
-                  periodRange: "month",
-                  startPeriod: m,
-                  endPeriod: endPeriods[i]
-                })
-              }
-            >
-              <FormattedMonth dateString={m} />
-            </Button>
-          ))}
-            {" | "}
-            <Button
-            style={{
-              backgroundColor:
-                ! filter.periodRange || 
-                ! filter.startPeriod || 
-                ! filter.endPeriod
-                  ? "#e2e2d7"
-                  : "white",
-              fontWeight: "bold",
-              padding: "4px 10px",
-              borderRadius: 4,
-              marginTop: 5,
-              border: 0,
-              color: "black",
-              fontSize: "0.8rem",
-            }}
-            onClick={() =>
-              cb({
-                periodRange: "",
-                startPeriod: "",
-                endPeriod: "",
-              })
-            }
-          >
-            tous
-          </Button>
-        </Col>
-      </Row>
+      {/* today */}
+      <Button
+        style={{
+          backgroundColor:
+            filter.periodRange === "today" &&
+            filter.startPeriod === todayString &&
+            filter.endPeriod === todayString
+              ? "#e2e2d7"
+              : "white",
+          fontWeight: "bold",
+          padding: "4px 10px",
+          borderRadius: 4,
+          marginTop: 5,
+          border: 0,
+          color: "black",
+          fontSize: "0.8rem",
+        }}
+        onClick={() =>
+          cb({
+            periodRange: "today",
+            startPeriod: todayString,
+            endPeriod: todayString,
+          })
+        }
+      >
+        aujourd'hui
+      </Button>
+      {/* tomorrow */}
+      <Button
+        style={{
+          backgroundColor:
+            filter.periodRange === "tomorrow" &&
+            filter.startPeriod === tomorrowString
+              ? "#e2e2d7"
+              : "white",
+          fontWeight: "bold",
+          padding: "4px 10px",
+          borderRadius: 4,
+          marginTop: 5,
+          border: 0,
+          color: "black",
+          fontSize: "0.8rem",
+        }}
+        onClick={() =>
+          cb({
+            periodRange: "tomorrow",
+            startPeriod: tomorrowString,
+            endPeriod: tomorrowString,
+          })
+        }
+      >
+        demain
+      </Button>
+      {/* this week */}
+      <Button
+        style={{
+          backgroundColor:
+            filter.periodRange === "thisweek" &&
+            filter.startPeriod === todayString &&
+            filter.endPeriod === nextWeekString
+              ? "#e2e2d7"
+              : "white",
+          fontWeight: "bold",
+          padding: "4px 10px",
+          borderRadius: 4,
+          marginTop: 5,
+          border: 0,
+          color: "black",
+          fontSize: "0.8rem",
+        }}
+        onClick={() =>
+          cb({
+            periodRange: "thisweek",
+            startPeriod: todayString,
+            endPeriod: nextWeekString,
+          })
+        }
+      >
+        7 prochains jours
+      </Button>
+      {" | "}
+      {startPeriods.map((m, i) => (
+        <Button
+          key={i}
+          style={{
+            backgroundColor:
+              filter.periodRange === "month" && filter.startPeriod === m
+                ? "#e2e2d7"
+                : "white",
+            fontSize: "0.8rem",
+            fontWeight: "bold",
+            padding: "4px 10px",
+            borderRadius: 4,
+            marginLeft: 7,
+            marginTop: 5,
+            border: 0,
+            color: "black",
+          }}
+          onClick={() =>
+            cb({
+              periodRange: "month",
+              startPeriod: m,
+              endPeriod: endPeriods[i],
+            })
+          }
+        >
+          <FormattedMonth dateString={m} />
+        </Button>
+      ))}
+      {" | "}
+      <Button
+        style={{
+          backgroundColor:
+            !filter.periodRange || !filter.startPeriod || !filter.endPeriod
+              ? "#e2e2d7"
+              : "white",
+          fontWeight: "bold",
+          padding: "4px 10px",
+          borderRadius: 4,
+          marginTop: 5,
+          border: 0,
+          color: "black",
+          fontSize: "0.8rem",
+        }}
+        onClick={() =>
+          cb({
+            periodRange: "",
+            startPeriod: "",
+            endPeriod: "",
+          })
+        }
+      >
+        tous
+      </Button>
 
       {/* site geography */}
       <Form>

@@ -12,16 +12,16 @@ export const OrganiserBasics = (props) => {
   console.log(organiser);
 
   return (
-    <section
+    <div
       id="basics"
       style={{
         backgroundColor: "white",
         padding: "10px 10px",
         marginTop: 30,
+        color: "black"
       }}
     >
-    <Row>
-      <Col>
+    <div>
         <Image
           src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/organisers/${organiser.id}`}
           className="rounded pe-1"
@@ -40,8 +40,7 @@ export const OrganiserBasics = (props) => {
         >
           {organiser.name}
         </span>
-      </Col>
-    </Row>
+    </div>
  
     <div
       style={{
@@ -66,15 +65,18 @@ export const OrganiserBasics = (props) => {
           </div>
           
 
-    <Row
-      style={{
-        display: "flexbox",
-        alignItems: "center",
-        marginTop: 20,
-      }}
-    >
-      {organiser.description_fr && <Col><span style={{whiteSpace: "pre-line"}}>{organiser.description_fr}</span></Col>}
-    </Row>
-    </section>
+    {organiser.description_fr &&
+      <div
+        style={{
+          display: "flexbox",
+          alignItems: "center",
+          marginTop: 20,
+          whiteSpace: "pre-line"
+        }}
+      >
+      {organiser.description_fr}</div>
+      }
+      
+    </div>
   );
 };
