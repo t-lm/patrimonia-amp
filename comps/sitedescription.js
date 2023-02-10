@@ -14,24 +14,16 @@ export const SiteDescription = (props) => {
   const description = props.site.description;
   
   return (
-    <section id="description" 
+    <div
         style={{
           marginTop: 20,
           backgroundColor: "white",
           padding: 10
         }}
         >
-      <Row>
-        <Col>
-          <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].description}</h3>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-        <span style={{whiteSpace: "pre-line"}}>{description}</span>
-        </Col>
-      </Row>
+      <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].description}</h3>
+      <span style={{whiteSpace: "pre-line"}}>{description}</span>
 
-    </section>
+    </div>
   );
 };

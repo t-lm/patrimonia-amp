@@ -6,7 +6,7 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { FormattedDate, FormattedDaySlots, FormattedDays } from "./date";
+import { FormattedEventDates, FormattedDaySlots, FormattedDays } from "./date";
 
 const LANG = "fr";
 const DiscoFormats = require("../utils/DiscoFormats.json");
@@ -132,34 +132,49 @@ export const DiscoPill = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          {/*<span>{DiscoTypes[disco.type][LANG]}</span>*/}
           {/* Dates */}
           {disco.type === "regular" &&
             ["today", "tomorrow"].includes(filter.periodRange) && (
-              <FormattedDaySlots
-                slots={
-                  disco.openingHours[
-                    week[new Date(filter.startPeriod).getDay()]
-                  ]
-                }
-                lang={LANG}
-                verbose={
-                  filter.periodRange === "today"
-                    ? "aujourd'hui"
-                    : filter.periodRange === "tomorrow"
-                    ? "demain"
-                    : ""
-                }
-              />
+              <Link
+                href={`/discos/${disco.id}`}
+                style={{ color: "black", fontWeight: "bold" }}
+              >
+                <FormattedDaySlots
+                  slots={
+                    disco.openingHours[
+                      week[new Date(filter.startPeriod).getDay()]
+                    ]
+                  }
+                  lang={LANG}
+                  verbose={
+                    filter.periodRange === "today"
+                      ? "aujourd'hui"
+                      : filter.periodRange === "tomorrow"
+                      ? "demain"
+                      : ""
+                  }
+                />
+              </Link>
             )}
           {disco.type === "regular" &&
             ["thisweek", "month"].includes(filter.periodRange) && (
-              <FormattedDays slots={disco.openingHours} lang={LANG} />
+              <Link
+                href={`/discos/${disco.id}`}
+                style={{ color: "black", fontWeight: "bold" }}
+              >
+                <FormattedDays slots={disco.openingHours} lang={LANG} />
+              </Link>
             )}
 
           {disco.type === "event" && (
-            <FormattedDate dateString={disco.dates[0].start} />
+            <Link
+              href={`/discos/${disco.id}`}
+              style={{ color: "black", fontWeight: "bold" }}
+            >
+              <FormattedEventDates dates={disco.dates} lang={LANG} />
+            </Link>
           )}
+
           {disco.type === "demand" && (
             <Link
               href={`/discos/${disco.id}`}

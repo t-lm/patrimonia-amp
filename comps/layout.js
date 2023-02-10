@@ -88,10 +88,9 @@ const Layout = ({ children }) => {
                   <span
                     style={{
                       marginRight: 10,
-                      fontWeight: "bold"
                     }}
                   >
-                    {username && username}
+                    {username && username.toUpperCase()}
                   </span>
                 }
               >
@@ -100,7 +99,7 @@ const Layout = ({ children }) => {
                     <>
                       <NavDropdown.Item href={`/admin`}>
                         <BsHouse style={{ marginRight: 5 }} />
-                        Admin
+                        MON COMPTE
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/" onClick={(e) => logout()}>
                         <BsBoxArrowRight style={{ marginRight: 5 }} />

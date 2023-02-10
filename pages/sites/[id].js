@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { API } from "aws-amplify";
-import { getSite, listSites } from "../../src/graphql/queries";
+import { getSite, listSites, discosBySiteID } from "../../src/graphql/queries";
 
 import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
@@ -18,12 +18,16 @@ import { SiteDescription } from "../../comps/sitedescription";
 import { SiteFacts } from "../../comps/sitefacts";
 import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
+import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
+
+const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
   try {
     const { data } = await API.graphql({ query: getSite, variables: { id: params.id }, authMode: 'AWS_IAM' });
-    return { props: { site: data.getSite }, revalidate: 10 }
+    const response = await API.graphql({ query: discosBySiteID, variables: { siteID: params.id, filter: { dateEnd: { gt: today}} }, authMode: 'AWS_IAM' });
+    return { props: { site: data.getSite, discos: response.data.discosBySiteID.items }, revalidate: 10 }
   }
   catch (err) {
     console.log(err);
@@ -44,9 +48,8 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-const Site = ({ site }) => {
+const Site = ({ site, discos }) => {
   const router = useRouter();
-
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -98,7 +101,19 @@ const Site = ({ site }) => {
         {/* Description */}
         {site.description && <SiteDescription site={site} /> }
 
-        {/* Links */}
+        {/* Discoveries */}
+        <div
+        style={{
+          marginTop: 20,
+          backgroundColor: "white",
+          padding: 10
+        }}
+        >
+          <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
+          <DiscosList discos={discos} filter={{}}/>
+        </div>
+
+        {/* Further on */}
         {site.links && site.links.length > 0 && <SiteLinks site={site} />}
        
         {username === "tlm" && (
