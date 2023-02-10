@@ -603,7 +603,7 @@ const FormDisco = (props) => {
               onChange={(e) =>
                 setDisco({
                   ...disco,
-                  priceCommentary: e.target.value.split(","),
+                  priceCommentary: e.target.value,
                 })
               }
               value={disco.priceCommentary}

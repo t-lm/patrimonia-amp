@@ -133,13 +133,13 @@ export const FormattedEventDates = ({ dates, lang }) => {
     else return <span>{`Single date on ${format(start, "EEEE d LLLL yyyy at H:mm")}`}</span>;
   }
   else if (dates.length > 1) {
-    let multi = (dates[0].start.slice(0,7) === dates.slice(-1)[0].start.slice(0,7))
+    let multi = (dates[0].start.slice(0,7) !== dates.slice(-1)[0].start.slice(0,7))
     let start = parseISO(dates[0].start);
-    let end = parseISO(dates.slice(-1)[0].end);
+    let end = parseISO(dates.slice(-1)[0].start);
     if (multi) {
       return <span>{`Plusieurs dates entre ${format(start, "LLLL", { locale: fr })} et ${format(end, "LLLL", { locale: fr })}`}</span>;
     }
-    else return <span>{`Plusieurs dates en ${format(start, "LLLL", { locale: fr })}`}</span>;;
+    else return <span>{`Plusieurs dates en ${format(start, "LLLL", { locale: fr })}`}</span>;
   }
 
 };
