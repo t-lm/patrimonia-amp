@@ -16,7 +16,7 @@ const SiteProtections = require("../utils/SiteProtections.json");
 
 export const SiteFacts = (props) => {
   const site = props.site;
-
+  console.log(site)
   return (
     <div
       style={{
@@ -106,7 +106,7 @@ export const SiteFacts = (props) => {
         </Row>
         )}
       
-      {site.protections && (
+      {site.protections && site.protections.length > 0 && site.protections[0] !== "" && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.protections.length > 1

@@ -28,8 +28,6 @@ const FormSite = (props) => {
   const [site, setSite] = useState(props.input);
   const [error, setError] = useState(false);
 
-  console.log(site.links.map(x => `${x.www},${x.fr}`).join("\n"))
-
   const handleUpdateSiteTypes = (key) => {
     let index = site.types.indexOf(key)
     let types = site.types
@@ -75,14 +73,11 @@ const handleUpdateLinks = (text) => {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
         query: createSite,
-        variables: {
-          input: {
-            id: slugify(site["name"]).toLowerCase(),
-            name: site["name"],
-            headline: site["headline"],
-          },
-        },
-      });
+        variables: { input: {
+          id: slugify(site["name"]).toLowerCase(),
+          ...site
+        }
+      }});
 
       window.location.href = `/sites/${site.id}`;
     } catch (e) {
@@ -108,6 +103,7 @@ const handleUpdateLinks = (text) => {
       setError("There is an error with this form")
     }
   };
+
 
   return (
     <div style={{color: "black"}}>
@@ -237,7 +233,7 @@ const handleUpdateLinks = (text) => {
           }}
         >
         <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/${site.pictureID}`}
+            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${site.pictureID}`}
             className="shadow-1-strong rounded"
             alt="alternative text"
             fill

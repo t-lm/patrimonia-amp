@@ -7,5 +7,6 @@
   "antiquity": { "fr": "Batiment antique", "en": "Antique building"},
   "civil": { "fr": "Batiment privé","en": "Private building"},
   "industrial": { "fr": "Bâtiment industriel","en": "Industrial building"},
-  "military": { "fr": "Bâtiment militaire","en": "Military building"}
+  "military": { "fr": "Bâtiment militaire","en": "Military building"},
+  "urban": { "fr": "Espace public","en": "Public space"}
   }

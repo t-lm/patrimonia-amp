@@ -25,7 +25,7 @@ const New = () => {
   const defaultDisco = { name: "", headline: "", organiserID: "", dateStart: "", dateEnd: "", type: "", price: "", priceCommentary: "", format: "", siteID: "", audiences: [], pictures: [], duration: [], subjects: [], languages: [], persons: [], events: [], periods: [], styles: [], address: { street: "", city: "", postalCode: ""}, practicalInfo: "", openingHours: { sun: [], mon: [], tue: [], wed: [], thu: [], fri: [], sat: [] }, bookingRequired: false, description: "", dates: []};
   const defaultMedia = { id: nanoid(8), siteID: "", description_fr: "", description_en: "", source: "", copyright: "" };
   const defaultOrganiser = { name: "", description_fr: "", www: "", phone: "", email: "", address: { street: "", city: "", postalCode: ""} };
-  const defaultSite = { name: "", headline: "", address: { street: "", city: "", postalCode: ""}, description: "", types: [], styles: [], periods: [], protections: [], pictureID: "patrimonia_green.png", links: [] };
+  const defaultSite = { name: "", headline: "", address: { street: "", city: "", postalCode: ""}, description: "", types: [], styles: [], periods: [], protections: [], pictureID: "", links: [] };
   
   return (
     <Layout>

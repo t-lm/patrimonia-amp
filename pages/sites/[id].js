@@ -120,17 +120,19 @@ const Site = ({ site, discos }) => {
         {site.description && <SiteDescription site={site} />}
 
         {/* Discoveries */}
-        <div
-          style={{
-            marginTop: 20,
-            backgroundColor: "white",
-            padding: 10,
-            color: "black",
-          }}
-        >
-          <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
-          <DiscosList discos={discos} filter={{}} />
-        </div>
+        {discos.length > 0 && 
+          <div
+            style={{
+              marginTop: 20,
+              backgroundColor: "white",
+              padding: 10,
+              color: "black",
+            }}
+          >
+            <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
+            <DiscosList discos={discos} filter={{}} />
+          </div>
+        }
 
         {/* Further on */}
         {site.links && site.links.length > 0 && <SiteLinks site={site} />}
