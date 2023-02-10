@@ -1,11 +1,12 @@
-// ./comps/sitedescription.js
+// ./comps/discodescription.js
+
 
 import { Keys } from "../utils/dictionary";
 const LANG = "fr";
 
-export const SiteDescription = (props) => {
+export const DiscoDescription = (props) => {
 
-  const description = props.site.description;
+  const description = props.disco.description;
   
   return (
     <div

@@ -22,8 +22,8 @@ export const DiscoOrganiser = (props) => {
         color: "black",
       }}
     >
-      <h3 style={{ fontWeight: "bold", color: "black" }}>
-        <Link href={`/organisers/${organiser.id}`}>
+      <h3>
+        <Link href={`/organisers/${organiser.id}`} style={{ fontWeight: "bold", color: "black" }}>
           {organiser.name}
         </Link>
       </h3>

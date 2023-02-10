@@ -11,6 +11,7 @@ import Layout from "../../comps/layout";
 import { DiscoAddress } from "../../comps/discoaddress";
 import { DiscoBasics } from "../../comps/discobasics";
 import { DiscoBooking } from "../../comps/discobooking";
+import { DiscoDescription } from "../../comps/discodescription";
 import { DiscoFacts } from "../../comps/discofacts";
 import { DiscoOrganiser } from "../../comps/discoorganiser";
 import { DiscoPictures } from "../../comps/discopictures";
@@ -71,6 +72,7 @@ const Disco = ({ disco }) => {
       <Separator backgroundColor="pink" />
       <DiscoPictures disco={disco} />
       <DiscoFacts disco={disco} />
+      {disco.description && <DiscoDescription disco={disco} />}
       <DiscoBooking disco={disco} />
       <DiscoAddress disco={disco} />
       <DiscoOrganiser organiser={disco.organiser} />

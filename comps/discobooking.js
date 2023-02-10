@@ -153,11 +153,10 @@ export const DiscoBooking = (props) => {
         )}
       </div>
 
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered style={{color: "black"}}>
         <Modal.Body>
           <p>
-            {Keys[LANG]["bookingTemp"]} {disco.organiser.name}{" "}
-            {Keys[LANG]["here"]}:
+            {Keys[LANG]["bookingTemp"]}
           </p>
           <ul>
             {disco.organiser.www && (
