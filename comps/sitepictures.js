@@ -1,20 +1,14 @@
 // ./comps/sitepictures.js
 
-// main site pictures
 import React, { useState } from "react";
 import Image from "next/image";
 
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 import { PictureCarousel } from "./carousel";
 
 import { SiteMedia } from "../utils/dictionary";
-import { Keys } from "../utils/dictionary";
-
-const LANG = "fr";
 
 export const SitePictures = (props) => {
   const site = props.site;
@@ -33,6 +27,7 @@ export const SitePictures = (props) => {
           height: 400,
           position: "relative",
           display: "block",
+          sizes: "100vw"
         }}
       >
         {/* rewrite all this with the picture */}
@@ -95,7 +90,7 @@ export const SitePictures = (props) => {
       {/* Carousel */}
       <Modal show={showCarousel} onHide={() => setShowCarousel(false)}>
         <Modal.Body>
-          <PictureCarousel siteID={site.id} media={media} />
+          <PictureCarousel media={media} />
         </Modal.Body>
         <Modal.Footer style={{ border: "0px" }}>
           <Button
@@ -104,7 +99,7 @@ export const SitePictures = (props) => {
             style={{ color: "grey", width: "20%", border: "0px" }}
             onClick={() => setShowCarousel(false)}
           >
-            {Keys[LANG].close}
+            Fermer
           </Button>
         </Modal.Footer>
       </Modal>

@@ -10,7 +10,7 @@ export const Error = (props) => {
   const [show, setShow] = useState(true)
 
   return (
-    <Modal show={show} onHide={() => setShow(false)}>
+    <Modal show={show} style={{color: "black"}} onHide={() => setShow(false)}>
       <Modal.Body>
         <p>{error}</p>
       </Modal.Body>

@@ -28,7 +28,7 @@ export const DiscoPill = (props) => {
         border: "1px solid #eee",
         backgroundColor: "white",
         fontSize: "0.9rem",
-        color: "black"
+        color: "black",
       }}
     >
       {/* Image */}
@@ -41,56 +41,55 @@ export const DiscoPill = (props) => {
             display: "block",
           }}
         >
-          <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
-            alt={disco.name}
-            className="shadow-1-strong rounded"
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 25vw, 16vw"
-          />
+          <Link href={`/discos/${disco.id}`}>
+            <Image
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
+              alt={disco.name}
+              className="shadow-1-strong rounded"
+              fill
+              priority
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 25vw, 16vw"
+            />
+          </Link>
         </div>
       </Col>
 
       {/* Main */}
       <Col style={{ marginLeft: 10 }}>
         {/* Name */}
-        <Row>
-          <Col>
-            <span
-              style={{
-                fontWeight: "bold",
-                marginTop: 10,
-                fontSize: "1.1rem",
-                overflowWrap: "break-word",
-              }}
-            >
-              <Link
-                href={`/discos/${disco.id}`}
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                {disco.name}
-              </Link>
-            </span>
-          </Col>
-        </Row>
+
+        <span
+          style={{
+            fontWeight: "bold",
+            marginTop: 10,
+            fontSize: "1.1rem",
+            overflowWrap: "break-word",
+          }}
+        >
+          <Link
+            href={`/discos/${disco.id}`}
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            {disco.name}
+          </Link>
+        </span>
 
         {/* City, site and format */}
         <div style={{ fontWeight: "bold" }}>
-          <span>{disco.address.city}</span>
-          {" . "}
           <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
+            {disco.address.city}
+            {" . "}
             {disco.site.name}
+            {" . "}
+            {DiscoFormats[disco.format][LANG]}
           </Link>
-          {" . "}
-          <span>{DiscoFormats[disco.format][LANG]}</span>
         </div>
 
         {/* Organiser */}
         <div>
           <Link
-            style={{ color: "black" }}
+            style={{ color: "#266dff", fontWeight: "bold" }}
             href={`/organisers/${disco.organiserID}`}
           >
             {disco.organiser.name}

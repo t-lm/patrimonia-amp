@@ -17,6 +17,7 @@ import { getCurrentUser } from "../../utils/auth";
 
 
 const LANG = "fr";
+const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
   const { data } = await API.graphql({
@@ -47,7 +48,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const Organiser = ({ organiser }) => {
+const Organiser = ({ organiser, discos }) => {
 
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);

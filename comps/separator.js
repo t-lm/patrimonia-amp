@@ -9,7 +9,7 @@ export const Separator = ({backgroundColor}) => {
         backgroundColor,
         height: 10,
         padding: "10px 10px",
-        marginTop: 10,
+        marginTop: 20,
     }}
   />
 

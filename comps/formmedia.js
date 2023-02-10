@@ -168,6 +168,7 @@ const FormMedia = (props) => {
           </Col>
           <Col sm="9">
             <Form.Select as="select" size="sm" defaultValue="none" onChange={(e) => setMedia({ ...media, siteID: e.target.value })}>
+              <option value="">Choisir un site</option>
               {sites.map(x => <option key={x.id} value={x.id}>{x.id}</option>)}
             </Form.Select>
           </Col>

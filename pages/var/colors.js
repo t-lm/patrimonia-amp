@@ -35,7 +35,7 @@ const Colors = () => {
 
       {/* Main */}
       {Object.keys(COLORS).map(c => 
-      <Row key={c} style={{marginTop: 10}}>
+      <Row key={c} style={{marginTop: 10, color: "black"}}>
         <Col style={{backgroundColor: COLORS[c], height: 50, width: 50, display: "block" }}></Col>
         <Col>{c} [{COLORS[c]}]</Col>
       </Row> )}

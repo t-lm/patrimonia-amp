@@ -45,7 +45,7 @@ export const DiscosFilter = (props) => {
         border: "1px solid #eee",
         backgroundColor: "white",
         marginTop: 20,
-        marginTop: 20,
+        color: "black",
       }}
     >
       {/* dates */}

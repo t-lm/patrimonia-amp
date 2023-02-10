@@ -24,7 +24,7 @@ export const SitePill = (props) => {
         padding: 20,
         border: "1px solid #eee",
         backgroundColor: "white",
-        color: "black"
+        color: "black",
       }}
     >
       {/* Image */}
@@ -37,16 +37,18 @@ export const SitePill = (props) => {
             display: "block",
           }}
         >
-          <Image
-            src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${s.picture.id}`}
-            alt={s.picture.description_fr}
-            title={s.name}
-            className="shadow-1-strong rounded"
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 25vw, 16vw"
-          />
+          <Link href={`/discos/${s.id}`}>
+            <Image
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${s.picture.id}`}
+              alt={s.picture.description_fr}
+              title={s.name}
+              className="shadow-1-strong rounded"
+              fill
+              priority
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 25vw, 16vw"
+            />
+          </Link>
         </div>
       </Col>
 
@@ -71,13 +73,15 @@ export const SitePill = (props) => {
         >
           {s.address.city}
           {" . "}
-          {s.types.map((t, i) =>  (
-              <span key={i}>
-                <span style={{marginRight: 10}}>{i > 0 && ", "}{SiteTypes[t][LANG]}</span>
-                <span>{Icons[t]}</span>
+          {s.types.map((t, i) => (
+            <span key={i}>
+              <span style={{ marginRight: 10 }}>
+                {i > 0 && " "}
+                {SiteTypes[t][LANG]}
               </span>
-          ))
-          }
+              <span>{Icons[t]}</span>
+            </span>
+          ))}
         </div>
 
         {/* Headline */}

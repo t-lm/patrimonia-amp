@@ -1,11 +1,19 @@
 // ./comps/discopictures.js
 
+import React, { useState } from "react";
 import Image from "next/image";
+
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+import { PictureCarousel } from "./carousel";
 
 import { DiscoMedia } from "../utils/dictionary";
 
 export const DiscoPictures = (props) => {
+  
   const disco = props.disco;
+  const [showCarousel, setShowCarousel] = useState(false);
 
   return (
     <div
@@ -32,6 +40,7 @@ export const DiscoPictures = (props) => {
           fill
           priority
           sizes="(max-width: 768px) 100vw,100vw"
+          onClick={() => setShowCarousel(true)}
         />
       </div>
 
@@ -54,6 +63,7 @@ export const DiscoPictures = (props) => {
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,25vw"
+                onClick={() => setShowCarousel(true)}
               />
             </div>
           ))}
@@ -75,6 +85,23 @@ export const DiscoPictures = (props) => {
           )}
         </div>
       )}
+
+        {/* Carousel */}
+        <Modal show={showCarousel} onHide={() => setShowCarousel(false)}>
+        <Modal.Body>
+          <PictureCarousel media={disco.pictures.map(x => { return { "id": x}})} />
+        </Modal.Body>
+        <Modal.Footer style={{ border: "0px" }}>
+          <Button
+            size="sm"
+            variant="link"
+            style={{ color: "grey", width: "20%", border: "0px" }}
+            onClick={() => setShowCarousel(false)}
+          >
+            Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
