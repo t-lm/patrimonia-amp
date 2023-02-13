@@ -45,15 +45,22 @@ export const getStaticProps = async ({ params }) => {
 
 export async function getStaticPaths() {
   const response = await API.graphql({ query: listSites, authMode: "AWS_IAM" });
-  const paths = response.data.listSites.items.map((s) => {
+  const pathsFR = response.data.listSites.items.map((s) => {
     return {
       params: {
-        id: s.id,
-      },
+        id: s.id, 
+      }, locale: "fr"
     };
   });
-
-  return { paths, fallback: false };
+  const pathsEN = response.data.listSites.items.map((s) => {
+    return ({
+      params: {
+        id: s.id
+      }, 
+      locale: "en"
+    })
+  })
+  return { paths: pathsFR.concat(pathsEN), fallback: false };
 }
 
 const Site = ({ site, discos }) => {

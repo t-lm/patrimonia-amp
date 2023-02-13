@@ -38,14 +38,22 @@ export const getStaticPaths = async () => {
     query: listOrganisers,
     authMode: "AWS_IAM",
   });
-  const paths = response.data.listOrganisers.items.map((s) => {
+  const pathsFR = response.data.listOrganisers.items.map((s) => {
     return {
       params: {
-        id: s.id,
-      },
+        id: s.id, 
+      }, locale: "fr"
     };
   });
-  return { paths, fallback: false };
+  const pathsEN = response.data.listOrganisers.items.map((s) => {
+    return ({
+      params: {
+        id: s.id
+      }, 
+      locale: "en"
+    })
+  })
+  return { paths: pathsFR.concat(pathsEN), fallback: false };
 };
 
 const Organiser = ({ organiser, discos }) => {

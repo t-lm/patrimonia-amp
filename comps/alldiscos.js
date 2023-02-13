@@ -25,8 +25,7 @@ export const Alldiscos = ({ Discos }) => {
     startPeriod: todayString,
     endPeriod: todayString,
   });
-  
-  console.log(discos);
+
 
   const updateFilter = (f) => {
     let fil = { ...filter };

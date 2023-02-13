@@ -23,17 +23,17 @@ import { Separator } from "../../comps/separator";
 import { Keys } from "../../utils/dictionary";
 import { getCurrentUser, lang } from "../../utils/auth";
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params, locale }) => {
   try {
     const { data } = await API.graphql({
       query: getDisco,
       variables: { id: params.id },
       authMode: "AWS_IAM",
     });
-    return { props: { disco: data.getDisco }, revalidate: 10 };
+    return { props: { disco: data.getDisco, lang: locale }, revalidate: 10 };
   } catch (err) {
     console.error(err);
-    return { props: {}, revalidate: 10 };
+    return { props: { lang: locale }, revalidate: 10 };
   }
 };
 
@@ -43,22 +43,32 @@ export const getStaticPaths = async () => {
       query: listDiscos,
       authMode: "AWS_IAM",
     });
-    const paths = response.data.listDiscos.items.map((s) => {
-      return {
+    const pathsFR = response.data.listDiscos.items.map((s) => {
+      return ({
         params: {
-          id: s.id,
-        },
-      };
-    });
-    return { paths, fallback: false };
+          id: s.id, 
+        }, locale: "fr"
+      })
+    })
+    const pathsEN = response.data.listDiscos.items.map((s) => {
+      return ({
+        params: {
+          id: s.id
+        }, 
+        locale: "en"
+      })
+    })
+    return { paths: pathsFR.concat(pathsEN), fallback: false };
+
   } catch (err) {
     console.error(err);
     return { paths: [], fallback: false };
   }
 };
 
-const Disco = ({ disco }) => {
-  const lang = useRouter().locale
+const Disco = ({ disco, lang }) => {
+  
+  //const lang = useRouter().locale
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
