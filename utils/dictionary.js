@@ -203,6 +203,16 @@ export const Keys = {
   }
 }
 
+export const SiteFilter = {
+  fr: {
+    type: "Type de lieu",
+    when: "Période"
+  },
+  en: {
+    type: "Type of site",
+    when: "Period"
+  }
+}
 
 export const SiteMedia = ({lang, num}) => {
   if (lang === "fr") return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;

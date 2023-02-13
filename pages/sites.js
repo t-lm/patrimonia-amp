@@ -1,8 +1,9 @@
 // pages/index.js
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { API } from "aws-amplify";
 import { listSites } from "../src/graphql/queries";
@@ -40,11 +41,11 @@ const FilterPeriodOptions = {
 }
 
 const Sites = ({ Sites = [] }) => {
+
   // state
-  const [username, setUsername] = useState();
+  const lang = useRouter().locale;
   const [filter, setFilter] = useState();
   const [sites, setSites] = useState(Sites);
-
 
   // functions
   const handleFilter = (f) => {
@@ -65,8 +66,6 @@ const Sites = ({ Sites = [] }) => {
     );
   };
 
-  useEffect(() => setUsername(getCurrentUser().username), []);
-
   return (
     <Layout>
       <Head>
@@ -75,22 +74,11 @@ const Sites = ({ Sites = [] }) => {
       </Head>
 
       {/* Filter */}
-      <SitesFilter cb={(x) => handleFilter(x)} filter={filter} FilterPeriodOptions={FilterPeriodOptions} />
+      <SitesFilter cb={(x) => handleFilter(x)} filter={filter} FilterPeriodOptions={FilterPeriodOptions} lang={lang} />
 
       {/* Main */}
-      {sites.map(site => <SitePill key={site.id} site={site} /> )}
+      {sites.map(site => <SitePill key={site.id} site={site} lang={lang} /> )}
 
-      {/* Admin */}
-      {username && username === "tlm" && (
-        <div style={{ marginTop: 50 }}>
-          <Link
-            style={{ color: "black", textDecoration: "none" }}
-            href={{ pathname: "/admin/new", query: { model: "site" } }}
-          >
-            Add new site
-          </Link>
-        </div>
-      )}
     </Layout>
   );
 };

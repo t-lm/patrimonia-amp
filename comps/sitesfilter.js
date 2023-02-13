@@ -5,6 +5,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const SiteTypes = require("../utils/SiteTypes.json");
+const Locations = require("../utils/Locations.json");
+
+import { SiteFilter } from "../utils/dictionary";
 
 export const SitesFilter = (props) => {
 
@@ -29,11 +32,12 @@ export const SitesFilter = (props) => {
         {/* site geography */}
         <Row>
           <Col xs={12} sm={8} md={6}>
-            <Form.Select
-              size="sm"
-              onChange={() => cb({ region: "beziers" })}
-            >
-              <option>Béziers et ses environs</option>
+          <Form.Select size="sm" onChange={() => cb({ location: "beziers" })}>
+            {Object.keys(Locations).map((x) => (
+              <option key={x} value={x}>
+                {Locations[x][lang]}
+              </option>
+              ))}
             </Form.Select>
           </Col>
         </Row>
@@ -45,7 +49,7 @@ export const SitesFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ type: e.target.value })}
             >
-              <option value="">Type de bâtiment</option>
+              <option value="">{SiteFilter[lang]["type"]}</option>
               {Object.keys(SiteTypes).map((x) => (
                 <option key={x} value={x}>
                   {SiteTypes[x][lang]}
@@ -60,7 +64,7 @@ export const SitesFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ periodOption: e.target.value })}
             >
-              <option value="">Période architecturale</option>
+              <option value="">{SiteFilter[lang]["when"]}</option>
               {Object.keys(FilterPeriodOptions).map((x) => (
                 <option key={x} value={x}>
                   {FilterPeriodOptions[x][lang]}

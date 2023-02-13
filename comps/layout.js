@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -71,18 +72,18 @@ const Layout = ({ children }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
-            <Nav.Link
+            <Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/"
               >
                 {Keys[lang]["DISCOVERIES"]}
-              </Nav.Link>
-              <Nav.Link
+              </Link>
+              <Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/sites"
               >
                 {Keys[lang]["SITES"]}
-              </Nav.Link>
+              </Link>
              {/* <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/organisers"
