@@ -8,18 +8,30 @@ const today = new Date().toISOString().slice(0, 10);
 
 function generateSiteMap(sites, discos, organisers) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
      <url>
        <loc>https://www.patrimonia.app</loc>
+       <xhtml:link
+       rel="alternate"
+       hreflang="en"
+       href="https://www.patrimonia.app/en"/>
      </url>
      <url>
        <loc>https://www.patrimonia.app/sites</loc>
+       <xhtml:link
+       rel="alternate"
+       hreflang="en"
+       href="https://www.patrimonia.app/en/sites"/>
      </url>
      ${sites
        .map((x) => {
          return `
        <url>
            <loc>${`${URL}/sites/${x}`}</loc>
+           <xhtml:link
+           rel="alternate"
+           hreflang="en"
+           href="${`${URL}/en/sites/${x}`}"/>
        </url>
      `;
        })
@@ -30,6 +42,10 @@ function generateSiteMap(sites, discos, organisers) {
           return `
       <url>
           <loc>${`${URL}/discos/${x}`}</loc>
+          <xhtml:link
+          rel="alternate"
+          hreflang="en"
+          href="${`${URL}/en/discos/${x}`}"/>
       </url>
     `;
         })
@@ -40,6 +56,10 @@ function generateSiteMap(sites, discos, organisers) {
           return `
         <url>
             <loc>${`${URL}/organisers/${x}`}</loc>
+            <xhtml:link
+            rel="alternate"
+            hreflang="en"
+            href="${`${URL}/en/organisers/${x}`}"/>
         </url>
       `;
         })
