@@ -44,10 +44,10 @@ export const DiscoOrganiser = (props) => {
             }}
           />
         </Col>
-        {organiser.description_fr && (
+        {organiser.description && (
           <Col>
             <span style={{ whiteSpace: "pre-line" }}>
-              {organiser.description_fr}
+              {organiser.description}
             </span>
           </Col>
         )}

@@ -1,9 +1,9 @@
 {
-    "sun": { "fr": "Dimanche"}, 
-    "mon": { "fr": "Lundi"}, 
-    "tue": { "fr": "Mardi"}, 
-    "wed": { "fr": "Mercredi"}, 
-    "thu": { "fr": "Jeudi"}, 
-    "fri": { "fr": "Vendredi"}, 
-    "sat": { "fr": "Samedi"}
+    "sun": { "fr": "Dimanche", "en": "Sunday" }, 
+    "mon": { "fr": "Lundi", "en": "Monday"}, 
+    "tue": { "fr": "Mardi", "en": "Tuesday"}, 
+    "wed": { "fr": "Mercredi", "en": "Wednesday"}, 
+    "thu": { "fr": "Jeudi", "en": "Thursday"}, 
+    "fri": { "fr": "Vendredi", "en": "Friday"}, 
+    "sat": { "fr": "Samedi", "en": "Saturday"}
   }
