@@ -5,10 +5,9 @@ import Col from "react-bootstrap/Col";
 
 import { Keys } from "../utils/dictionary";
 
-const LANG = "fr";
-
 export const DiscoAddress = (props) => {
   const disco = props.disco;
+  const lang = props.lang
 
   return (
 
@@ -21,12 +20,12 @@ export const DiscoAddress = (props) => {
     }}
   >
 
-    <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys[LANG].meetingPoint}</h3>
+    <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys[lang].meetingPoint}</h3>
 
     {disco.address && (
       <Row>
         <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
-          {Keys[LANG].address}
+          {Keys[lang].address}
         </Col>
         <Col xs={6} md={9}>
           <a

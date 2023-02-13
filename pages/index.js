@@ -1,15 +1,12 @@
 // pages/index.js
-//
-// store filter in a state
 
-import React, { useEffect, useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
+import React from "react";
+
+import Head from 'next/head'
 
 import { API } from "aws-amplify";
 import { listDiscos } from "../src/graphql/queries";
 
-import { getCurrentUser } from "../utils/auth";
 import Layout from "../comps/layout";
 import { Alldiscos } from "../comps/alldiscos";
 import { Welcome } from "../comps/welcome";
@@ -29,9 +26,6 @@ export const getStaticProps = async () => {
 };
 
 const Index = ({ Discos = [] }) => {
-
-  const [username, setUsername] = useState();
-  useEffect(() => setUsername(getCurrentUser().username), []);
 
   return (
     <Layout>

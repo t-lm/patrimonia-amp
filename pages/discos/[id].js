@@ -1,8 +1,10 @@
 // ./pages/discos/[id].js
 
 import React, { useState, useEffect } from "react";
+
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 import { API } from "aws-amplify";
 import { getDisco, listDiscos } from "../../src/graphql/queries";
@@ -19,7 +21,7 @@ import { DiscoPictures } from "../../comps/discopictures";
 import { Separator } from "../../comps/separator";
 
 import { Keys } from "../../utils/dictionary";
-import { getCurrentUser, LANG } from "../../utils/auth";
+import { getCurrentUser, lang } from "../../utils/auth";
 
 export const getStaticProps = async ({ params }) => {
   try {
@@ -56,6 +58,7 @@ export const getStaticPaths = async () => {
 };
 
 const Disco = ({ disco }) => {
+  const lang = useRouter().locale
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -69,7 +72,7 @@ const Disco = ({ disco }) => {
       window.location.href = `/`;
     } catch (e) {
       console.error(e);
-      setError(Keys[LANG]["errorDiscoDelete"]);
+      setError(Keys[lang]["errorDiscoDelete"]);
     }
   };
 
@@ -79,14 +82,14 @@ const Disco = ({ disco }) => {
         <title>{disco.name}</title>
       </Head>
 
-      <DiscoBasics disco={disco} />
+      <DiscoBasics disco={disco} lang={lang} />
       <Separator backgroundColor="pink" />
-      <DiscoPictures disco={disco} />
-      <DiscoFacts disco={disco} />
-      {disco.description && <DiscoDescription disco={disco} />}
-      <DiscoBooking disco={disco} />
-      <DiscoAddress disco={disco} />
-      <DiscoOrganiser organiser={disco.organiser} />
+      <DiscoPictures disco={disco} lang={lang} />
+      <DiscoFacts disco={disco} lang={lang} />
+      {disco.description && <DiscoDescription disco={disco} lang={lang} />}
+      <DiscoBooking disco={disco} lang={lang} />
+      <DiscoAddress disco={disco} lang={lang} />
+      <DiscoOrganiser organiser={disco.organiser} lang={lang} />
 
       {["tlm", disco.organiserID].includes(username) && (
         <div style={{ marginTop: 50 }}
@@ -111,7 +114,7 @@ const Disco = ({ disco }) => {
                 query: { model: "disco", id: disco.id },
               }}
             >
-              {Keys[LANG]["update"]}
+              {Keys[lang]["update"]}
             </Link>
           </div>
           <div
@@ -134,7 +137,7 @@ const Disco = ({ disco }) => {
                 fontStyle: 'italic'
               }}
             >
-              {Keys[LANG]["remove"]}
+              {Keys[lang]["remove"]}
             </button>
           </div>
         </div>

@@ -8,7 +8,6 @@ import { Keys } from "../utils/dictionary";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const LANG = "fr";
 const SiteEvents = require("../utils/SiteEvents.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SitePeriods = require("../utils/SitePeriods.json");
@@ -16,6 +15,8 @@ const SiteProtections = require("../utils/SiteProtections.json");
 
 export const SiteFacts = (props) => {
   const site = props.site;
+  const lang = props.lang
+  
   return (
     <div
       style={{
@@ -26,20 +27,20 @@ export const SiteFacts = (props) => {
       }}
     >
 
-      <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].keyFacts}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys[lang].keyFacts}</h3>
 
       {site.periods.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.periods.length > 1
-              ? Keys[LANG]["keyPeriods"]
-              : Keys[LANG]["keyPeriod"]}
+              ? Keys[lang]["keyPeriods"]
+              : Keys[lang]["keyPeriod"]}
             :
           </Col>
           <Col xs={8} md={10}>
             { site.periods.map((t, i) => (
                 <span key={i}>
-                  {t in SitePeriods ? SitePeriods[t][LANG] : t}
+                  {t in SitePeriods ? SitePeriods[t][lang] : t}
                   {i < site.periods.length - 1 && ", "}
                 </span>
               ))}
@@ -51,14 +52,14 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.styles.length > 1
-              ? Keys[LANG]["keyStyles"]
-              : Keys[LANG]["keyStyle"]}
+              ? Keys[lang]["keyStyles"]
+              : Keys[lang]["keyStyle"]}
             :
           </Col>
           <Col xs={8} md={10}>
             { site.styles.map((t, i) => (
                 <span key={i}>
-                  {t in SiteStyles ? SiteStyles[t][LANG] : t}
+                  {t in SiteStyles ? SiteStyles[t][lang] : t}
                   {i < site.styles.length - 1 && ", "}
                 </span>
               ))}
@@ -70,8 +71,8 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.persons.length > 1
-              ? Keys[LANG]["keyPeople"]
-              : Keys[LANG]["keyPerson"]}
+              ? Keys[lang]["keyPeople"]
+              : Keys[lang]["keyPerson"]}
             :
           </Col>
           <Col xs={8} md={10}>
@@ -89,15 +90,15 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.events.length > 1
-              ? Keys[LANG]["keyEvents"]
-              : Keys[LANG]["keyEvents"]}
+              ? Keys[lang]["keyEvents"]
+              : Keys[lang]["keyEvents"]}
             :
           </Col>
           <Col xs={8} md={10}>
             {site.events.length > 0 &&
               site.events.map((t, i) => (
                 <span key={i}>
-                  {t in SiteEvents ? SiteEvents[t][LANG] : t}
+                  {t in SiteEvents ? SiteEvents[t][lang] : t}
                   {i < site.events.length - 1 && ", "}
                 </span>
               ))}
@@ -109,15 +110,15 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.protections.length > 1
-              ? Keys[LANG]["protections"]
-              : Keys[LANG]["protection"]}
+              ? Keys[lang]["protections"]
+              : Keys[lang]["protection"]}
             :
           </Col>
           <Col xs={8} md={10}>
             {site.protections.length > 0 &&
               site.protections.map((t, i) => (
                 <span key={i}>
-                  {t in SiteProtections && SiteProtections[t][LANG]}
+                  {t in SiteProtections && SiteProtections[t][lang]}
                   {t === "mh" && (
                     <span style={{ marginLeft: 5 }}>
                       <Image

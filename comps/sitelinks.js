@@ -2,12 +2,13 @@
 
 import React from "react";
 
-const LANG = "fr";
+const lang = "fr";
 
 export const SiteLinks = (props) => {
 
   const links = props.site.links;
-
+  const lang = props.lang
+  
   return (
     <div
       style={{
@@ -21,9 +22,9 @@ export const SiteLinks = (props) => {
       <ul>
         {links.map(
           (l,i) =>
-            l[LANG] && (
+            l[lang] && (
               <li key={i}>
-                <a style={{color: "black"}} href={l.www} target="_blank">{l[LANG]}</a>
+                <a style={{color: "black"}} href={l.www} target="_blank">{l[lang]}</a>
               </li>
             )
         )}

@@ -1,31 +1,32 @@
 import { parseISO, format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { enGB, fr } from "date-fns/locale";
 import { intervalToDuration } from "date-fns";
 
 const Weekdays = require("../utils/Weekdays.json");
+
 
 export const FormattedDate = ({ dateString }) => {
   const date = parseISO(dateString);
   return (
     <time dateTime={dateString}>
-      {format(date, "d LLLL yyyy", { locale: fr })}
+      {format(date, "d LLLL yyyy", { locale: lang === "fr" ? fr : enGB })}
     </time>
   );
 };
 
-export const FormattedDateAndTime = ({ dateString }) => {
+export const FormattedDateAndTime = ({ dateString, lang }) => {
   try {
     const date = parseISO(dateString);
-    return format(date, "EEEE d LLLL yyyy, H:mm", { locale: fr });
+    return format(date, "EEEE d LLLL yyyy, H:mm", { locale: lang === "fr" ? fr : enGB });
   } catch (e) {
     console.error(e);
     return "";
   }
 };
 
-export const FormattedMonth = ({ dateString }) => {
+export const FormattedMonth = ({ dateString, lang }) => {
   const date = parseISO(dateString);
-  return format(date, "MMMM yy", { locale: fr });
+  return format(date, "MMMM yy", { locale: lang === "fr" ? fr : enGB });
 };
 
 export const FormattedDuration = ({ dateStart, dateEnd }) => {
@@ -82,7 +83,7 @@ export const FormattedLength = ({ dateString }) => {
   const date = parseISO(dateString);
   return (
     <time dateTime={dateString}>
-      {format(date, "d LLLL yyyy, H:mm", { locale: fr })}
+      {format(date, "d LLLL yyyy, H:mm", { locale: lang === "fr" ? fr : enGB })}
     </time>
   );
 };
@@ -98,8 +99,8 @@ export const FormattedDaySlots = ({ slots, lang, verbose }) => {
         );
       else
         return (
-          <span>{`Open ${verbose ? verbose : ""} between ${slots[0]} and ${
-            slots[1]
+          <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${
+            slots[0][1]
           }`}</span>
         );
     }
@@ -217,7 +218,7 @@ export const FormattedEventDates = ({ dates, lang }) => {
           })} de ${format(start, "H:mm", { locale: fr })} à ${format(
             end,
             "H:mm",
-            { locale: fr }
+            { locale: enGB }
           )}`}</span>
         );
       else
@@ -233,18 +234,30 @@ export const FormattedEventDates = ({ dates, lang }) => {
       let start = parseISO(dates[0].start);
       let end = parseISO(dates.slice(-1)[0].start);
       if (multi) {
+        if (lang === "fr") {
         return (
           <span>{`Plusieurs dates entre ${format(start, "LLLL", {
             locale: fr,
           })} et ${format(end, "LLLL", { locale: fr })}`}</span>
-        );
-      } else
+        )}
+        else return <span>{`Multiple dates between ${format(start, "LLLL", {
+          locale: enGB,
+        })} and ${format(end, "LLLL", { locale: enGB })}`}</span>
+      } else {
+      if (lang === "fr") {
         return (
           <span>{`Plusieurs dates en ${format(start, "LLLL", {
-            locale: fr,
+            locale: enGB,
           })}`}</span>
-        );
+        )} else {
+            return (
+              <span>{`Multiple dates in ${format(start, "LLLL", {
+                locale: enGB,
+              })}`}</span>        
+             )
+      }
     }
+  }
   } catch (e) {
     console.error(e);
     return <span></span>;

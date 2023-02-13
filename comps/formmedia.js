@@ -14,11 +14,12 @@ import Button from "react-bootstrap/Button";
 import { Error } from "./error";
 
 const MediaLicences = require("../utils/MediaLicences.json");
-const LANG = "fr"
 
 const FormMedia = (props) => {
 
   const action = props.action;
+  const lang = props.lang;
+  
   const [media, setMedia] = useState(props.input);
   const [newImage, setNewImage] = useState(false);
   const [error, setError] = useState(false);
@@ -194,7 +195,7 @@ const FormMedia = (props) => {
           </Col>
           <Col sm="9">
             <Form.Control as="select" size="sm" required defaultValue="licence_ccbync" onChange={(e) => setMedia({ ...media, copyright: e.target.value })}>
-              {Object.keys(MediaLicences).map(x => <option key={x} value={x}>{MediaLicences[x][LANG]}</option>)}
+              {Object.keys(MediaLicences).map(x => <option key={x} value={x}>{MediaLicences[x][lang]}</option>)}
             </Form.Control>
           </Col>
         </Form.Group>

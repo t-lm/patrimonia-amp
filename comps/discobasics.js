@@ -4,11 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 
-const LANG = "fr";
+const lang = "fr";
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 
 export const DiscoBasics = (props) => {
   const disco = props.disco;
+  const lang = props.lang
 
   return (
     <div
@@ -81,7 +82,7 @@ export const DiscoBasics = (props) => {
                 marginLeft: i > 0 ? 7 : 0,
               }}
             >
-              {sub in DiscoSubjects && <span>{DiscoSubjects[sub][LANG]}</span>}
+              {sub in DiscoSubjects && <span>{DiscoSubjects[sub][lang]}</span>}
             </span>
           ))}
         </div>

@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 
 import { FormattedEventDates, FormattedDaySlots, FormattedDays } from "./date";
 
-import { LANG } from "../utils/auth";
 import { Keys } from "../utils/dictionary";
 
 const DiscoFormats = require("../utils/DiscoFormats.json");
@@ -18,9 +17,11 @@ const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 export const DiscoPill = (props) => {
+
   const disco = props.disco;
   const filter = props.filter;
-
+  const lang = props.lang;
+  
   return (
     <Row
       style={{
@@ -83,7 +84,7 @@ export const DiscoPill = (props) => {
             {" . "}
             {disco.site.name}
             {" . "}
-            {DiscoFormats[disco.format][LANG]}
+            {DiscoFormats[disco.format][lang]}
           </Link>
         </div>
 
@@ -147,12 +148,8 @@ export const DiscoPill = (props) => {
                       week[new Date(filter.startPeriod).getDay()]
                     ]
                   }
-                  lang={LANG}
-                  verbose={
-                    ["today", "tomorrow"].includes(filter.periodRange)
-                      ? Keys[LANG][filter.periodRange]
-                      : ""
-                  }
+                  lang={lang}
+                  verbose={Keys[lang][filter.periodRange]}
                 />
               </Link>
               ) : (
@@ -160,7 +157,7 @@ export const DiscoPill = (props) => {
                 href={`/discos/${disco.id}`}
                 style={{ color: "black", fontWeight: "bold" }}
               >
-                <FormattedDays slots={disco.openingHours} lang={LANG} />
+                <FormattedDays slots={disco.openingHours} lang={lang} />
               </Link>
               )}
             </>
@@ -171,7 +168,7 @@ export const DiscoPill = (props) => {
               href={`/discos/${disco.id}`}
               style={{ color: "black", fontWeight: "bold" }}
             >
-              <FormattedEventDates dates={disco.dates} lang={LANG} />
+              <FormattedEventDates dates={disco.dates} lang={lang} />
             </Link>
           )}
 
@@ -180,7 +177,7 @@ export const DiscoPill = (props) => {
               href={`/discos/${disco.id}`}
               style={{ color: "black", fontWeight: "bold" }}
             >
-              {Keys[LANG]["discosOnDemand"]}
+              {Keys[lang]["discosOnDemand"]}
             </Link>
           )}
         </div>
@@ -201,7 +198,7 @@ export const DiscoPill = (props) => {
                       marginLeft: i > 0 ? 7 : 0,
                     }}
                   >
-                    {DiscoSubjects[sub][LANG]}
+                    {DiscoSubjects[sub][lang]}
                   </span>
                 )
             )}

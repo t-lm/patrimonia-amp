@@ -5,10 +5,9 @@ import Col from "react-bootstrap/Col";
 
 import { Keys } from "../utils/dictionary";
 
-const LANG = "fr";
-
 export const OrganiserContact = (props) => {
   const organiser = props.organiser;
+  const lang = props.lang
 
   return (
 
@@ -21,7 +20,7 @@ export const OrganiserContact = (props) => {
       color: "black"
     }}
   >
-    <h4 style={{ marginBottom: 20 }}>{Keys[LANG].contact}</h4>
+    <h4 style={{ marginBottom: 20 }}>{Keys[lang].contact}</h4>
     {organiser.address && (
       <Row
         style={{
@@ -31,7 +30,7 @@ export const OrganiserContact = (props) => {
         }}
       >
         <Col xs={4} md={3}>
-          {Keys[LANG]["address"]}
+          {Keys[lang]["address"]}
         </Col>
         <Col xs={8} md={9}>
           <a
@@ -57,7 +56,7 @@ export const OrganiserContact = (props) => {
         }}
       >
         <Col xs={4} md={3}>
-          {Keys[LANG]["www"]}
+          {Keys[lang]["www"]}
         </Col>
         <Col xs={8} md={9} style={{ color: "grey" }}>
           <a href={`${organiser.www}`}>{organiser.www}</a>
@@ -73,7 +72,7 @@ export const OrganiserContact = (props) => {
         }}
       >
         <Col xs={4} md={3}>
-          {Keys[LANG]["phone"]}
+          {Keys[lang]["phone"]}
         </Col>
         <Col xs={8} md={9} style={{ color: "grey" }}>
           {organiser.phone}
@@ -89,7 +88,7 @@ export const OrganiserContact = (props) => {
         }}
       >
         <Col xs={4} md={3}>
-          {Keys[LANG]["email"]}
+          {Keys[lang]["email"]}
         </Col>
         <Col xs={8} md={9} style={{ color: "grey" }}>
           {organiser.email}

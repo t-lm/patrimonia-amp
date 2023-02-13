@@ -1,14 +1,15 @@
 // ./comps/welcome.js
 
+import { useRouter } from 'next/router'
 import Image from "next/image";
 
 import { Keys } from "../utils/dictionary";
-import { LANG } from "../utils/auth";
 
 export const Welcome = () => {
+
+  const lang = useRouter().locale
+  
   return (
-    <>
-    {/*<Frieze />*/}
     <div
         style={{
           width: "100%",
@@ -21,7 +22,7 @@ export const Welcome = () => {
           lineHeight: "3rem"
         }}
       >
-        <span>{Keys[LANG]["welcome"]}</span>
+        <span>{Keys[lang]["welcome"]}</span>
         <span style={{ marginTop: 10, display: "block" }}>
           <Image src="/var/noun-man.svg"alt="" height={60} width={60}/>
           {/*<Image src="/var/noun-woman.svg" alt="" height={60} width={60} style={{marginLeft: 10}}/>*/}
@@ -34,6 +35,5 @@ export const Welcome = () => {
         
         </span>
       </div>
-    </>
   );
 };

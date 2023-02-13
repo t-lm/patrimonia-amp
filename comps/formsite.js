@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { API } from "aws-amplify";
 import { createSite, updateSite } from "../src/graphql/mutations";
+//import * as deepl from 'deepl-node';
 
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -20,11 +21,12 @@ const SiteTypes = require("../utils/SiteTypes.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const slugify = require("slugify");
 
-const LANG = "fr";
+const authKey = "f63c02c5-f056-..."; // Replace with your key
 
 const FormSite = (props) => {
 
   const action = props.action;
+  const lang = props.lang;
   const [site, setSite] = useState(props.input);
   const [error, setError] = useState(false);
 
@@ -65,6 +67,9 @@ const handleUpdateLinks = (text) => {
   let links = lines.map(l => ({ www: l.split(",")[0], fr: l.split(",")[1]}))
   setSite({...site, links})
 }
+
+
+//const translator = new deepl.Translator(authKey);
 
   const handleCreateSite = async (event) => {
     event.preventDefault();
@@ -253,7 +258,7 @@ const handleUpdateLinks = (text) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateSiteTypes(x)}
-                label={SiteTypes[x][LANG]}
+                label={SiteTypes[x][lang]}
                 checked={site.types.includes(x)}
               />
             ))}
@@ -268,7 +273,7 @@ const handleUpdateLinks = (text) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateSitePeriods(x)}
-                label={SitePeriods[x][LANG]}
+                label={SitePeriods[x][lang]}
                 checked={site.periods && site.periods.includes(x)}
               />
             ))}
@@ -283,7 +288,7 @@ const handleUpdateLinks = (text) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateSiteStyles(x)}
-                label={SiteStyles[x][LANG]}
+                label={SiteStyles[x][lang]}
                 checked={site.styles && site.styles.includes(x)}
               />
             ))}
@@ -298,7 +303,7 @@ const handleUpdateLinks = (text) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateSiteProtections(x)}
-                label={SiteProtections[x][LANG]}
+                label={SiteProtections[x][lang]}
                 checked={site.protections && site.protections.includes(x)}
               />
             ))}

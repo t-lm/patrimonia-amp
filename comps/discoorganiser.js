@@ -6,12 +6,9 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Keys } from "../utils/dictionary";
-
-const LANG = "fr";
-
 export const DiscoOrganiser = (props) => {
   const organiser = props.organiser;
+  const lang = props.lang
 
   return (
     <div

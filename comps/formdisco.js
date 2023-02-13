@@ -30,10 +30,10 @@ const SiteStyles = require("../utils/SiteStyles.json");
 
 const slugify = require("slugify");
 
-const LANG = "fr";
-
 const FormDisco = (props) => {
+  
   const action = props.action;
+  const lang = props.lang;
   const [disco, setDisco] = useState(props.input);
   const [error, setError] = useState(false);
 
@@ -214,7 +214,7 @@ const FormDisco = (props) => {
               <option value={""}>Choisir le type</option>
               {Object.keys(DiscoTypes).map((x) => (
                 <option key={x} value={x}>
-                  {DiscoTypes[x][LANG]}
+                  {DiscoTypes[x][lang]}
                 </option>
               ))}
             </Form.Select>
@@ -235,7 +235,7 @@ const FormDisco = (props) => {
               <option value={""}>Choisir le format</option>
               {Object.keys(DiscoFormats).map((x) => (
                 <option key={x} value={x}>
-                  {DiscoFormats[x][LANG]}
+                  {DiscoFormats[x][lang]}
                 </option>
               ))}
             </Form.Select>
@@ -587,7 +587,7 @@ const FormDisco = (props) => {
               <option value="">Choisir le prix</option>
               {Object.keys(DiscoPrices).map((x) => (
                 <option key={x} value={x}>
-                  {DiscoPrices[x][LANG]}
+                  {DiscoPrices[x][lang]}
                 </option>
               ))}
             </Form.Select>
@@ -697,7 +697,7 @@ const FormDisco = (props) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateDiscoAudiences(x)}
-                label={DiscoAudiences[x][LANG]}
+                label={DiscoAudiences[x][lang]}
                 checked={disco.audiences && disco.audiences.includes(x)}
               />
             ))}
@@ -712,7 +712,7 @@ const FormDisco = (props) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateDiscoSubjects(x)}
-                label={DiscoSubjects[x][LANG]}
+                label={DiscoSubjects[x][lang]}
                 checked={disco.subjects && disco.subjects.includes(x)}
               />
             ))}
@@ -727,7 +727,7 @@ const FormDisco = (props) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateDiscoLanguages(x)}
-                label={DiscoLanguages[x][LANG]}
+                label={DiscoLanguages[x][lang]}
                 checked={disco.languages && disco.languages.includes(x)}
               />
             ))}
@@ -819,7 +819,7 @@ const FormDisco = (props) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateDiscoPeriods(x)}
-                label={SitePeriods[x][LANG]}
+                label={SitePeriods[x][lang]}
                 checked={disco.periods && disco.periods.includes(x)}
               />
             ))}
@@ -834,7 +834,7 @@ const FormDisco = (props) => {
               <Form.Check
                 key={x}
                 onChange={() => handleUpdateDiscoStyles(x)}
-                label={SiteStyles[x][LANG]}
+                label={SiteStyles[x][lang]}
                 checked={disco.styles && disco.styles.includes(x)}
               />
             ))}

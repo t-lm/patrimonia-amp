@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
+import { useRouter } from 'next/router'
 import Head from "next/head";
 import Image from "next/image";
 
@@ -17,11 +18,11 @@ import { BsHouse, BsBoxArrowInRight, BsBoxArrowRight } from "react-icons/bs";
 import { Keys } from "../utils/dictionary";
 import { getCurrentUser, logout } from "../utils/auth";
 
-const LANG = "fr";
 export const siteTitle = "Patrimonia";
 
 const Layout = ({ children }) => {
   
+  const lang = useRouter().locale
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -74,13 +75,13 @@ const Layout = ({ children }) => {
                 style={{ marginRight: 25, color: "black" }}
                 href="/"
               >
-                DÉCOUVERTES
+                {Keys[lang]["DISCOVERIES"]}
               </Nav.Link>
               <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
                 href="/sites"
               >
-                SITES
+                {Keys[lang]["SITES"]}
               </Nav.Link>
              {/* <Nav.Link
                 style={{ marginRight: 25, color: "black" }}
@@ -107,17 +108,17 @@ const Layout = ({ children }) => {
                     <>
                       <NavDropdown.Item href={`/admin`}>
                         <BsHouse style={{ marginRight: 5 }} />
-                        MON COMPTE
+                        {Keys[lang]["MYACCOUNT"]}
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/" onClick={(e) => logout()}>
                         <BsBoxArrowRight style={{ marginRight: 5 }} />
-                        SE DECONNECTER
+                        {Keys[lang]["SIGNOUT"]}
                       </NavDropdown.Item>
                     </>
                   ) : (
                     <NavDropdown.Item href={`/sign`}>
                       <BsBoxArrowInRight style={{ marginRight: 5 }} />
-                      SE CONNECTER
+                      {Keys[lang]["SIGNIN"]}
                     </NavDropdown.Item>
                   )}
                 </small>
@@ -140,7 +141,7 @@ const Layout = ({ children }) => {
             >
               © Patrimonia 2023 -{" "}
               <a style={{ color: "grey" }} href="mailto:hi@patrimonia.app">
-                {Keys[LANG]["getInTouch"]}
+                {Keys[lang]["getInTouch"]}
               </a>
             </div>
           </footer>

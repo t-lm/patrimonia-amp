@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 import { API } from "aws-amplify";
 import { getOrganiser, listOrganisers, discosByOrganiserID } from "../../src/graphql/queries";
@@ -14,9 +15,8 @@ import { OrganiserBasics } from "../../comps/organiserbasics";
 import { OrganiserContact } from "../../comps/organisercontact";
 import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
+import { Keys } from "../../utils/dictionary";
 
-
-const LANG = "fr";
 const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
@@ -49,7 +49,8 @@ export const getStaticPaths = async () => {
 };
 
 const Organiser = ({ organiser, discos }) => {
-
+  
+  const lang = useRouter().locale
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -59,7 +60,7 @@ const Organiser = ({ organiser, discos }) => {
         <title>{organiser.name}</title>
       </Head>
 
-      <OrganiserBasics organiser={organiser} />
+      <OrganiserBasics organiser={organiser} lang={lang} />
       <Separator backgroundColor="#fb4333" />
 
       <div
@@ -71,10 +72,10 @@ const Organiser = ({ organiser, discos }) => {
           }}
         >
           <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
-          <DiscosList discos={discos} filter={{}} />
+          <DiscosList discos={discos} filter={{}} lang={lang}/>
       </div>
 
-      <OrganiserContact organiser={organiser} />
+      <OrganiserContact organiser={organiser} lang={lang} />
 
       {username === "tlm" && (
         <div style={{ marginTop: 30 }}>
@@ -85,7 +86,7 @@ const Organiser = ({ organiser, discos }) => {
               query: { model: "organiser", id: organiser.id },
             }}
           >
-            Mettre à jour
+            {Keys[lang]["update"]}
           </Link>
         </div>
       )}

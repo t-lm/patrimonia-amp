@@ -5,13 +5,13 @@ import Col from "react-bootstrap/Col";
 
 import utilStyles from "../styles/utils.module.css";
 
-const LANG = "fr";
 const Countries = require("../utils/Countries.json");
 const SiteTypes = require("../utils/SiteTypes.json");
 const { Icons } = require("../utils/icons");
 
 export const SiteBasics = (props) => {
   const site = props.site;
+  const lang = props.lang
 
   return (
     <div
@@ -67,7 +67,7 @@ export const SiteBasics = (props) => {
                 borderRadius: 3,
               }}
             >
-              <span style={{ marginRight: 10 }}>{SiteTypes[t][LANG]}</span>
+              <span style={{ marginRight: 10 }}>{SiteTypes[t][lang]}</span>
               <span>{Icons[t]}</span>
             </span>
           ))}

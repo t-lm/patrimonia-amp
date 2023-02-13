@@ -4,13 +4,12 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const LANG = "fr";
 const SiteTypes = require("../utils/SiteTypes.json");
-const { Icons } = require("../utils/icons");
 
 export const SitesFilter = (props) => {
 
   const cb = props.cb;
+  const lang = props.lang
   const FilterPeriodOptions = props.FilterPeriodOptions
 
   return (
@@ -49,7 +48,7 @@ export const SitesFilter = (props) => {
               <option value="">Type de bâtiment</option>
               {Object.keys(SiteTypes).map((x) => (
                 <option key={x} value={x}>
-                  {SiteTypes[x][LANG]}
+                  {SiteTypes[x][lang]}
                 </option>
               ))}
             </Form.Select>
@@ -64,7 +63,7 @@ export const SitesFilter = (props) => {
               <option value="">Période architecturale</option>
               {Object.keys(FilterPeriodOptions).map((x) => (
                 <option key={x} value={x}>
-                  {FilterPeriodOptions[x][LANG]}
+                  {FilterPeriodOptions[x][lang]}
                 </option>
               ))}
             </Form.Select>

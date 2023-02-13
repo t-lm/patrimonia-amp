@@ -6,10 +6,23 @@ export const Departments = {
     34: [ "Occitanie", "Hérault"]
 }
 
+export const DiscoFilter = {
+  fr: {
+    subject: "Sujet",
+    type: "Type de découverte",
+    who: "Pour qui?"
+  },
+  en: {
+    subject: "Subject",
+    type: "What it is",
+    who: "For who"
+  }
+}
+
 export const Keys = {
   fr: {
     address: "Adresse",
-    all: "Toutes",
+    all: "tous",
     book: "Réserver",
     bookNo: "Pas de réservation nécessaire",
     booking: "Réservation",
@@ -21,6 +34,7 @@ export const Keys = {
     disco: "Découverte",
     discos: "Découvertes",
     discos: "Découvertes",
+    DiscosAroundBeziers: "DÉCOUVERTES À BÉZIERS ET AUTOUR",
     discoAudiences: "Pour qui",
     discoDuration: "Durée",
     discoFormat: "Format",
@@ -33,6 +47,7 @@ export const Keys = {
     discosOpen: "Libres",
     discosOnDemand: "Visites sur demande",
     discosRegular: "Régulières",
+    DISCOVERIES: "DÉCOUVERTES",
     edition: "Edition",
     email: "Email",
     errorDiscoDelete: "La découverte n'a pas pu être supprimée. Merci de réessayer.",
@@ -57,6 +72,9 @@ export const Keys = {
     links: "Liens utiles",
     makeARequest: "Faire une demande",
     meetingPoint: "Rendez-vous",
+    MYACCOUNT: "MON COMPTE",
+    SIGNIN: "SE CONNECTER",
+    SIGNOUT: "SE DECONNECTE",
     nextDates: "Prochaines dates",
     noDisco: "Il n'y a pas de visite ou d'évènement connus pour ce site pour le moment",
     ok: "OK",
@@ -76,6 +94,8 @@ export const Keys = {
     seeless: "Voir moins",
     seemore: "Voir plus",
     setNoDate: "Il ne semble pas y avoir de date pour cette visite. Contactez l'organisateur s'il vous plait",
+    sevendays: "7 jours",
+    SITES: "SITES",
     sites: "Sites",
     sitePageMaintainedBy: "Page maintenue par",
     siteTypes: "Types de sites",
@@ -85,7 +105,7 @@ export const Keys = {
     today: "aujourd'hui",
     tomorrow: "demain",
     update: "Mettre à jour",
-    welcome: "DÉCOUVRIR LE PATRIMOINE",
+    welcome: "DÉCOUVREZ LE PATRIMOINE AUTOUR DE VOUS",
     www: "Site internet",
     writeEmail: "Confirmez avec votre email",
     yourEmail: "Votre email ...",
@@ -93,6 +113,7 @@ export const Keys = {
   },
   en: {
     address: "Address",
+    all: "all",
     book: "Book",
     bookNo: "No booking. We'll see you there",
     booking: "Booking",
@@ -103,6 +124,7 @@ export const Keys = {
     description: "Description",
     disco: "Discovery",
     discos: "Discoveries",
+    DiscosAroundBeziers: "DISCOVERIES IN BÉZIERS AND AROUND",
     discoAudiences: "Pour qui",
     discoDuration: "Duration",
     discoFormat: "Format",
@@ -116,6 +138,7 @@ export const Keys = {
     discosOpen: "Open",
     discosOnDemand: "Visits on demand",
     discosRegular: "Regular",
+    DISCOVERIES: "DISCOVERIES",
     edition: "Edition",
     email: "Email",
     errorDiscoDelete: "The discovery could not be removed. Please try again.",
@@ -139,6 +162,7 @@ export const Keys = {
     links: "Useful links",
     makeARequest: "Make a request",
     meetingPoint: "Meeting point",
+    MYACCOUNT: "MY ACCOUNT",
     nextDates: "Next dates",
     noDisco: "There is no known visit or event for this site",
     ok: "OK",
@@ -159,6 +183,10 @@ export const Keys = {
     setNoDate: "There does not seem to be any date for this visit. Please contact the organiser",
     stars: "Stars",
     seemore: "See more",
+    sevendays: "7 days",
+    SIGNIN: "SIGN-IN",
+    SIGNOUT: "SIGN-OUT",
+    SITES: "SITES",
     sites: "Sites",
     sitePageMaintainedBy: "Page maintained by",
     siteTypes: "Site types",
@@ -168,7 +196,7 @@ export const Keys = {
     tomorrow: "tomorrow",
     update: "Update",
     writeEmail: "Confirm with your email",
-    welcome: "DISCOVER HERITAGE SITES",
+    welcome: "DISCOVER HERITAGE SITES AROUND YOU",
     www: "Website",
     yourEmail: "Your email ...",
     yourEmailWasSent: "Your email aws sent"

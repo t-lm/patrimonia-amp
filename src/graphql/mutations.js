@@ -9,28 +9,7 @@ export const createSite = /* GraphQL */ `
     createSite(input: $input, condition: $condition) {
       id
       ambassadorID
-      name
-      headline
-      address {
-        name
-        street
-        postalCode
-        city
-      }
-      position {
-        latitude
-        longitude
-      }
-      types
-      styles
-      periods
-      protections
-      description
-      links {
-        fr
-        en
-        www
-      }
+      locationID
       pictureID
       picture {
         id
@@ -42,6 +21,21 @@ export const createSite = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      description
+      description_enGB
+      headline
+      headline_enGB
+      links {
+        fr
+        en
+        www
       }
       media {
         items {
@@ -57,6 +51,21 @@ export const createSite = /* GraphQL */ `
         }
         nextToken
       }
+      name
+      name_enGB {
+        name
+        street
+        postalCode
+        city
+      }
+      periods
+      position {
+        latitude
+        longitude
+      }
+      protections
+      styles
+      types
       createdAt
       updatedAt
       owner
@@ -71,28 +80,7 @@ export const updateSite = /* GraphQL */ `
     updateSite(input: $input, condition: $condition) {
       id
       ambassadorID
-      name
-      headline
-      address {
-        name
-        street
-        postalCode
-        city
-      }
-      position {
-        latitude
-        longitude
-      }
-      types
-      styles
-      periods
-      protections
-      description
-      links {
-        fr
-        en
-        www
-      }
+      locationID
       pictureID
       picture {
         id
@@ -104,6 +92,21 @@ export const updateSite = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      description
+      description_enGB
+      headline
+      headline_enGB
+      links {
+        fr
+        en
+        www
       }
       media {
         items {
@@ -119,6 +122,21 @@ export const updateSite = /* GraphQL */ `
         }
         nextToken
       }
+      name
+      name_enGB {
+        name
+        street
+        postalCode
+        city
+      }
+      periods
+      position {
+        latitude
+        longitude
+      }
+      protections
+      styles
+      types
       createdAt
       updatedAt
       owner
@@ -133,28 +151,7 @@ export const deleteSite = /* GraphQL */ `
     deleteSite(input: $input, condition: $condition) {
       id
       ambassadorID
-      name
-      headline
-      address {
-        name
-        street
-        postalCode
-        city
-      }
-      position {
-        latitude
-        longitude
-      }
-      types
-      styles
-      periods
-      protections
-      description
-      links {
-        fr
-        en
-        www
-      }
+      locationID
       pictureID
       picture {
         id
@@ -166,6 +163,21 @@ export const deleteSite = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      description
+      description_enGB
+      headline
+      headline_enGB
+      links {
+        fr
+        en
+        www
       }
       media {
         items {
@@ -181,6 +193,21 @@ export const deleteSite = /* GraphQL */ `
         }
         nextToken
       }
+      name
+      name_enGB {
+        name
+        street
+        postalCode
+        city
+      }
+      periods
+      position {
+        latitude
+        longitude
+      }
+      protections
+      styles
+      types
       createdAt
       updatedAt
       owner
@@ -194,14 +221,13 @@ export const createDisco = /* GraphQL */ `
   ) {
     createDisco(input: $input, condition: $condition) {
       id
-      name
-      headline
+      locationID
       organiserID
       organiser {
         id
         name
-        description_fr
-        description_en
+        description
+        description_enGB
         www
         phone
         email
@@ -216,71 +242,11 @@ export const createDisco = /* GraphQL */ `
         updatedAt
         owner
       }
-      type
-      format
-      format2
-      demandCommentary
-      practicalInfo
-      bookingRequired
-      dateStart
-      dateEnd
-      dates {
-        start
-        end
-      }
-      description
-      openingHours {
-        sun
-        mon
-        tue
-        wed
-        thu
-        fri
-        sat
-      }
-      pictures
-      duration
-      price
-      priceCommentary
-      subjects
-      languages
-      audiences
-      styles
-      periods
-      events
-      persons
-      address {
-        name
-        street
-        postalCode
-        city
-      }
       siteID
       site {
         id
         ambassadorID
-        name
-        headline
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        position {
-          latitude
-          longitude
-        }
-        types
-        styles
-        periods
-        protections
-        description
-        links {
-          fr
-          en
-          www
-        }
+        locationID
         pictureID
         picture {
           id
@@ -293,14 +259,90 @@ export const createDisco = /* GraphQL */ `
           updatedAt
           owner
         }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        description
+        description_enGB
+        headline
+        headline_enGB
+        links {
+          fr
+          en
+          www
+        }
         media {
           nextToken
         }
+        name
+        name_enGB {
+          name
+          street
+          postalCode
+          city
+        }
+        periods
+        position {
+          latitude
+          longitude
+        }
+        protections
+        styles
+        types
         createdAt
         updatedAt
         owner
       }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      audiences
+      bookingRequired
+      dateStart
+      dateEnd
+      dates {
+        start
+        end
+      }
+      duration
+      description
+      description_enGB
+      demandCommentary
+      demandCommentary_enGB
+      events
+      format
+      headline
+      headline_enGB
+      languages
+      name
+      name_enGB
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
+      periods
+      persons
+      pictures
+      practicalInfo
+      practicalInfo_enGB
+      price
+      priceCommentary
+      priceCommentary_enGB
       priority
+      type
+      subjects
+      styles
       createdAt
       updatedAt
       owner
@@ -314,14 +356,13 @@ export const updateDisco = /* GraphQL */ `
   ) {
     updateDisco(input: $input, condition: $condition) {
       id
-      name
-      headline
+      locationID
       organiserID
       organiser {
         id
         name
-        description_fr
-        description_en
+        description
+        description_enGB
         www
         phone
         email
@@ -336,71 +377,11 @@ export const updateDisco = /* GraphQL */ `
         updatedAt
         owner
       }
-      type
-      format
-      format2
-      demandCommentary
-      practicalInfo
-      bookingRequired
-      dateStart
-      dateEnd
-      dates {
-        start
-        end
-      }
-      description
-      openingHours {
-        sun
-        mon
-        tue
-        wed
-        thu
-        fri
-        sat
-      }
-      pictures
-      duration
-      price
-      priceCommentary
-      subjects
-      languages
-      audiences
-      styles
-      periods
-      events
-      persons
-      address {
-        name
-        street
-        postalCode
-        city
-      }
       siteID
       site {
         id
         ambassadorID
-        name
-        headline
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        position {
-          latitude
-          longitude
-        }
-        types
-        styles
-        periods
-        protections
-        description
-        links {
-          fr
-          en
-          www
-        }
+        locationID
         pictureID
         picture {
           id
@@ -413,14 +394,90 @@ export const updateDisco = /* GraphQL */ `
           updatedAt
           owner
         }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        description
+        description_enGB
+        headline
+        headline_enGB
+        links {
+          fr
+          en
+          www
+        }
         media {
           nextToken
         }
+        name
+        name_enGB {
+          name
+          street
+          postalCode
+          city
+        }
+        periods
+        position {
+          latitude
+          longitude
+        }
+        protections
+        styles
+        types
         createdAt
         updatedAt
         owner
       }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      audiences
+      bookingRequired
+      dateStart
+      dateEnd
+      dates {
+        start
+        end
+      }
+      duration
+      description
+      description_enGB
+      demandCommentary
+      demandCommentary_enGB
+      events
+      format
+      headline
+      headline_enGB
+      languages
+      name
+      name_enGB
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
+      periods
+      persons
+      pictures
+      practicalInfo
+      practicalInfo_enGB
+      price
+      priceCommentary
+      priceCommentary_enGB
       priority
+      type
+      subjects
+      styles
       createdAt
       updatedAt
       owner
@@ -434,14 +491,13 @@ export const deleteDisco = /* GraphQL */ `
   ) {
     deleteDisco(input: $input, condition: $condition) {
       id
-      name
-      headline
+      locationID
       organiserID
       organiser {
         id
         name
-        description_fr
-        description_en
+        description
+        description_enGB
         www
         phone
         email
@@ -456,71 +512,11 @@ export const deleteDisco = /* GraphQL */ `
         updatedAt
         owner
       }
-      type
-      format
-      format2
-      demandCommentary
-      practicalInfo
-      bookingRequired
-      dateStart
-      dateEnd
-      dates {
-        start
-        end
-      }
-      description
-      openingHours {
-        sun
-        mon
-        tue
-        wed
-        thu
-        fri
-        sat
-      }
-      pictures
-      duration
-      price
-      priceCommentary
-      subjects
-      languages
-      audiences
-      styles
-      periods
-      events
-      persons
-      address {
-        name
-        street
-        postalCode
-        city
-      }
       siteID
       site {
         id
         ambassadorID
-        name
-        headline
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        position {
-          latitude
-          longitude
-        }
-        types
-        styles
-        periods
-        protections
-        description
-        links {
-          fr
-          en
-          www
-        }
+        locationID
         pictureID
         picture {
           id
@@ -533,14 +529,90 @@ export const deleteDisco = /* GraphQL */ `
           updatedAt
           owner
         }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        description
+        description_enGB
+        headline
+        headline_enGB
+        links {
+          fr
+          en
+          www
+        }
         media {
           nextToken
         }
+        name
+        name_enGB {
+          name
+          street
+          postalCode
+          city
+        }
+        periods
+        position {
+          latitude
+          longitude
+        }
+        protections
+        styles
+        types
         createdAt
         updatedAt
         owner
       }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      audiences
+      bookingRequired
+      dateStart
+      dateEnd
+      dates {
+        start
+        end
+      }
+      duration
+      description
+      description_enGB
+      demandCommentary
+      demandCommentary_enGB
+      events
+      format
+      headline
+      headline_enGB
+      languages
+      name
+      name_enGB
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
+      periods
+      persons
+      pictures
+      practicalInfo
+      practicalInfo_enGB
+      price
+      priceCommentary
+      priceCommentary_enGB
       priority
+      type
+      subjects
+      styles
       createdAt
       updatedAt
       owner
@@ -609,8 +681,8 @@ export const createOrganiser = /* GraphQL */ `
     createOrganiser(input: $input, condition: $condition) {
       id
       name
-      description_fr
-      description_en
+      description
+      description_enGB
       www
       phone
       email
@@ -635,8 +707,8 @@ export const updateOrganiser = /* GraphQL */ `
     updateOrganiser(input: $input, condition: $condition) {
       id
       name
-      description_fr
-      description_en
+      description
+      description_enGB
       www
       phone
       email
@@ -661,8 +733,8 @@ export const deleteOrganiser = /* GraphQL */ `
     deleteOrganiser(input: $input, condition: $condition) {
       id
       name
-      description_fr
-      description_en
+      description
+      description_enGB
       www
       phone
       email

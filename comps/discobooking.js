@@ -12,10 +12,10 @@ import Modal from "react-bootstrap/Modal";
 import { FormattedDateAndTime } from "./date";
 const Weekdays = require("../utils/Weekdays.json");
 
-const LANG = "fr";
 
 export const DiscoBooking = (props) => {
   const disco = props.disco;
+  const lang = props.lang;
 
   const today = new Date();
   today.setUTCHours(1);
@@ -31,7 +31,7 @@ export const DiscoBooking = (props) => {
     return (
       
       <Row style={{ paddingLeft: 10 }}>
-        <Col xs={3}>{Weekdays[d][LANG]}</Col>
+        <Col xs={3}>{Weekdays[d][lang]}</Col>
         <Col xs={9}>
           {!slots || slots.length === 0
             ? "Fermé"
@@ -74,7 +74,7 @@ export const DiscoBooking = (props) => {
                   }}
                   onClick={() => setShowModal(true)}
                 >
-                  {Keys[LANG]["makeARequest"]}
+                  {Keys[lang]["makeARequest"]}
                 </Button>
               </Col>
             </Row>
@@ -112,7 +112,7 @@ export const DiscoBooking = (props) => {
             </h3>
 
             {disco.dates.filter((d) => new Date(d.start) >= today).length ===
-            0 ? <>{Keys[LANG]["setNoDate"]}</>
+            0 ? <>{Keys[lang]["setNoDate"]}</>
             : <>
                 {disco.dates
                   .filter((d) => new Date(d.start) >= today)
@@ -129,7 +129,7 @@ export const DiscoBooking = (props) => {
                         xs={8}
                         style={{ marginTop: 3, padding: "5.625px 0px" }}
                       >
-                        <FormattedDateAndTime dateString={date.start} />
+                        <FormattedDateAndTime dateString={date.start} lang={lang} />
                       </Col>
                       <Col xs={4} style={{ marginTop: 3, textAlign: "right" }}>
                         <Button
@@ -141,8 +141,8 @@ export const DiscoBooking = (props) => {
                           onClick={() => setShowModal(true)}
                         >
                           {disco.bookingRequired
-                            ? Keys[LANG]["book"]
-                            : Keys[LANG]["bookNo"]}
+                            ? Keys[lang]["book"]
+                            : Keys[lang]["bookNo"]}
                         </Button>
                       </Col>
                     </Row>
@@ -156,7 +156,7 @@ export const DiscoBooking = (props) => {
       <Modal show={showModal} onHide={() => setShowModal(false)} centered style={{color: "black"}}>
         <Modal.Body>
           <p>
-            {Keys[LANG]["bookingTemp"]}
+            {Keys[lang]["bookingTemp"]}
           </p>
           <ul>
             {disco.organiser.www && (
@@ -182,7 +182,7 @@ export const DiscoBooking = (props) => {
             style={{ backgroundColor: "pink", color: "black", border: "0px" }}
             onClick={() => setShowModal(false)}
           >
-            {Keys[LANG]["close"]}
+            {Keys[lang]["close"]}
           </Button>
         </Modal.Body>
       </Modal>

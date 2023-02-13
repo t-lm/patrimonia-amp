@@ -18,10 +18,12 @@ import { Error } from "./error";
 
 const OrganiserTypes = require("../utils/OrganiserTypes.json");
 const slugify = require("slugify");
-const LANG = "fr"
 
 const FormOrganiser = (props) => {
+
   const action = props.action;
+  const lang = props.lang;
+  
   const [organiser, setOrganiser] = useState(props.input);
   const [newImage, setNewImage] = useState(false);
   const [error, setError] = useState(false);
@@ -146,7 +148,7 @@ const FormOrganiser = (props) => {
             >
               {Object.keys(OrganiserTypes).map((x) => (
                 <option key={x} value={x}>
-                  {OrganiserTypes[x][LANG]}
+                  {OrganiserTypes[x][lang]}
                 </option>
               ))}
             </Form.Select>
@@ -166,9 +168,9 @@ const FormOrganiser = (props) => {
               as="textarea"
               rows={10}
               onChange={(e) =>
-                setOrganiser({ ...organiser, description_fr: e.target.value })
+                setOrganiser({ ...organiser, description: e.target.value })
               }
-              value={organiser.description_fr}
+              value={organiser.description}
               size="sm"
               required
             />

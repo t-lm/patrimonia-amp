@@ -27,7 +27,3 @@ export const logout = () => {
   setUserLocal({})
   window.location.href = "/";
 }
-
-export const LANG = "fr"
-
-//export const lg = isSignedIn() ? (["fr", "en"].includes(getCurrentUser().lang) ? getCurrentUser().lang : "en") : (getUserLocale().slice(0, 2) === "fr" ? "fr" : "en")

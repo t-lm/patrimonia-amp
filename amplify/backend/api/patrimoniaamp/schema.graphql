@@ -3,55 +3,65 @@ type Site
   @auth(rules: [{ allow: owner }, { allow: public,  provider: iam, operations: [read] }]) {
   id: ID! @primaryKey
   ambassadorID: ID!
-  name: String!
-  headline: String!
-  address: Address!
-  position: Position
-  types: [SiteTypes]!
-  styles: [SiteStyles]
-  periods: [SitePeriods]
-  protections: [SiteProtections]
-  description: String!
-  links: [Link]
+  locationID: ID!
   pictureID: ID!
   picture: Media @hasOne(fields: ["pictureID"])
+  address: Address!
+  description: String!
+  description_enGB: String
+  headline: String!
+  headline_enGB: String
+  links: [Link]
   media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
+  name: String!
+  name_enGB: Address
+  periods: [SitePeriods]
+  position: Position  
+  protections: [SiteProtections]
+  styles: [SiteStyles]
+  types: [SiteTypes]!
 }
 
 type Disco
 @model
 @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
     id: ID!
-    name: String!
-    headline: String!
+    locationID: ID!
     organiserID: ID! @index(name: "byOrganiser")
     organiser: Organiser @hasOne(fields: ["organiserID"])
-    type: DiscoTypes! 
-    format: DiscoFormats! # the format of the discovery
-    format2: String
-    demandCommentary: String
-    practicalInfo: String
+    siteID: ID! @index(name: "bySite")
+    site: Site @hasOne(fields: ["siteID"])
+    address: Address
+    audiences: [DiscoAudiences]
     bookingRequired: Boolean
     dateStart: String! 
     dateEnd: String!
     dates: [EventDate]
-    description: String
-    openingHours: OpeningHours
-    pictures: [String]
     duration: [String]
+    description: String
+    description_enGB: String
+    demandCommentary: String
+    demandCommentary_enGB: String
+    events: [String]
+    format: DiscoFormats! # the format of the discovery
+    headline: String!
+    headline_enGB: String
+    languages: [DiscoLanguages]
+    name: String!
+    name_enGB: String
+    openingHours: OpeningHours
+    periods: [SitePeriods]
+    persons: [String]
+    pictures: [String]
+    practicalInfo: String
+    practicalInfo_enGB: String
     price: DiscoPrices!
     priceCommentary: String
-    subjects: [DiscoSubjects]
-    languages: [DiscoLanguages]
-    audiences: [DiscoAudiences]
-    styles: [SiteStyles]
-    periods: [SitePeriods]
-    events: [String]
-    persons: [String]
-    address: Address
-    siteID: ID! @index(name: "bySite")
-    site: Site @hasOne(fields: ["siteID"])
+    priceCommentary_enGB: String
     priority: String
+    type: DiscoTypes! 
+    subjects: [DiscoSubjects]
+    styles: [SiteStyles]
 }
 
 type Media
@@ -71,8 +81,8 @@ type Organiser
   @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
   id: ID! @primaryKey
   name: String!
-  description_fr: String!
-  description_en: String  
+  description: String!
+  description_enGB: String  
   www: String
   phone: String
   email: String

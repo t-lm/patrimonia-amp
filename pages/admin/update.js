@@ -25,6 +25,7 @@ const Update = () => {
   const router = useRouter();
   const model = router.query.model;
   const id = router.query.id;
+  const lang = useRouter().locale
 
   // state
   const [input, setInput] = useState();
@@ -83,10 +84,10 @@ const Update = () => {
       </Head>
       {input && (
         <>
-          {model === "disco" && <FormDisco action="update" input={input} />}
-          {model === "media" && <FormMedia action="update" input={input} />}
-          {model === "organiser" && <FormOrganiser action="update" input={input} />}
-          {model === "site" && <FormSite action="update" input={input} />}
+          {model === "disco" && <FormDisco lang={lang} action="update" input={input} />}
+          {model === "media" && <FormMedia lang={lang} action="update" input={input} />}
+          {model === "organiser" && <FormOrganiser lang={lang} action="update" input={input} />}
+          {model === "site" && <FormSite lang={lang} action="update" input={input} />}
         </>
       )}
     </Layout>

@@ -8,7 +8,6 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const LANG = "fr";
 const SitePeriods = require("../utils/SitePeriods.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SiteTypes = require("../utils/SiteTypes.json");
@@ -16,6 +15,7 @@ const { Icons } = require("../utils/icons");
 
 export const SitePill = (props) => {
   const s = props.site;
+  const lang = props.lang
 
   return (
     <Row
@@ -77,7 +77,7 @@ export const SitePill = (props) => {
             <span key={i}>
               <span style={{ marginRight: 10 }}>
                 {i > 0 && " "}
-                {SiteTypes[t][LANG]}
+                {SiteTypes[t][lang]}
               </span>
               <span>{Icons[t]}</span>
             </span>
@@ -110,7 +110,7 @@ export const SitePill = (props) => {
                   padding: "2px 5px",
                 }}
               >
-                {p in SitePeriods ? SitePeriods[p][LANG] : p}
+                {p in SitePeriods ? SitePeriods[p][lang] : p}
               </span>
             ))}
 
@@ -127,7 +127,7 @@ export const SitePill = (props) => {
                   padding: "2px 5px",
                 }}
               >
-                {s in SiteStyles ? SiteStyles[s][LANG] : s}
+                {s in SiteStyles ? SiteStyles[s][lang] : s}
               </span>
             ))}
         </div>

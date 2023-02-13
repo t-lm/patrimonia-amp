@@ -2,11 +2,12 @@
 
 
 import { Keys } from "../utils/dictionary";
-const LANG = "fr";
+
 
 export const DiscoDescription = (props) => {
 
   const description = props.disco.description;
+  const lang = props.lang
   
   return (
     <div
@@ -17,7 +18,7 @@ export const DiscoDescription = (props) => {
           color: "black" 
         }}
         >
-      <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].description}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys[lang].description}</h3>
       <span style={{whiteSpace: "pre-line"}}>{description}</span>
 
     </div>

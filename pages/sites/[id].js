@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
 import { API } from "aws-amplify";
 import { getSite, listSites, discosBySiteID } from "../../src/graphql/queries";
@@ -16,7 +16,7 @@ import { SiteFacts } from "../../comps/sitefacts";
 import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { DiscosList } from "../../comps/discoslist";
-import { getCurrentUser, LANG } from "../../utils/auth";
+import { getCurrentUser } from "../../utils/auth";
 import { Keys } from "../../utils/dictionary";
 
 const today = new Date().toISOString().slice(0, 10);
@@ -58,6 +58,7 @@ export async function getStaticPaths() {
 
 const Site = ({ site, discos }) => {
 
+  const lang = useRouter().locale
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -74,7 +75,7 @@ const Site = ({ site, discos }) => {
       window.location.href = "/";
     } catch (e) {
       console.error(e);
-      setError(Keys[LANG]["errorSiteDelete"]);
+      setError(Keys[lang]["errorSiteDelete"]);
     }
   }
 
@@ -87,7 +88,7 @@ const Site = ({ site, discos }) => {
 
       <main>
         {/* basics */}
-        <SiteBasics site={site} />
+        <SiteBasics site={site} lang={lang}/>
 
         {/* pictures */}
         {site.media.items.length > 0 && (
@@ -102,10 +103,10 @@ const Site = ({ site, discos }) => {
           site.styles ||
           site.persons ||
           site.events ||
-          site.protections) && <SiteFacts site={site} />}
+          site.protections) && <SiteFacts site={site} lang={lang}/>}
 
         {/* Description */}
-        {site.description && <SiteDescription site={site} />}
+        {site.description && <SiteDescription site={site} lang={lang}/>}
 
         {/* Discoveries */}
         {discos.length > 0 && (
@@ -118,12 +119,12 @@ const Site = ({ site, discos }) => {
             }}
           >
             <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
-            <DiscosList discos={discos} filter={{}} />
+            <DiscosList discos={discos} filter={{}} lang={lang}/>
           </div>
         )}
 
         {/* Further on */}
-        {site.links && site.links.length > 0 && <SiteLinks site={site} />}
+        {site.links && site.links.length > 0 && <SiteLinks site={site} lang={lang}/>}
 
         {[site.ambassadorID, "tlm"].includes(username) && (
           <>
@@ -147,7 +148,7 @@ const Site = ({ site, discos }) => {
                 query: { model: "site", id: site.id },
               }}
             >
-              {Keys[LANG]["update"]}
+              {Keys[lang]["update"]}
             </Link>
           </div>
           <div
@@ -170,7 +171,7 @@ const Site = ({ site, discos }) => {
                 fontStyle: 'italic'
               }}
             >
-              {Keys[LANG]["remove"]}
+              {Keys[lang]["remove"]}
             </button>
           </div>
           </>

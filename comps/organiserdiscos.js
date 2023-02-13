@@ -5,10 +5,9 @@ import Col from "react-bootstrap/Col";
 
 import { Keys } from "../utils/dictionary";
 
-const LANG = "fr";
-
 export const OrganiserDiscos = (props) => {
   const discos = props.discos;
+  const lang = props.lang
 
   return (
             
@@ -20,7 +19,7 @@ export const OrganiserDiscos = (props) => {
             marginTop: 30,
           }}
         >
-          <h4>{Keys[LANG].visits}</h4>
+          <h4>{Keys[lang].visits}</h4>
         </div>
         
         <div style={{padding: 10}}>
@@ -95,7 +94,7 @@ export const OrganiserDiscos = (props) => {
                           }}
                         >
                           {sub in DiscoSubjects && (
-                            <span>{DiscoSubjects[sub][LANG]}</span>
+                            <span>{DiscoSubjects[sub][lang]}</span>
                           )}
                         </span>
                       ))}
@@ -126,7 +125,7 @@ export const OrganiserDiscos = (props) => {
                 {v.type && (
                   <span>
                     {v.type in DiscoTypes
-                      ? DiscoTypes[v.type][LANG]
+                      ? DiscoTypes[v.type][lang]
                       : v.type}
                   </span>
                 )}

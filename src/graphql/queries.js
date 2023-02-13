@@ -6,28 +6,7 @@ export const getSite = /* GraphQL */ `
     getSite(id: $id) {
       id
       ambassadorID
-      name
-      headline
-      address {
-        name
-        street
-        postalCode
-        city
-      }
-      position {
-        latitude
-        longitude
-      }
-      types
-      styles
-      periods
-      protections
-      description
-      links {
-        fr
-        en
-        www
-      }
+      locationID
       pictureID
       picture {
         id
@@ -39,6 +18,21 @@ export const getSite = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+      }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      description
+      description_enGB
+      headline
+      headline_enGB
+      links {
+        fr
+        en
+        www
       }
       media {
         items {
@@ -54,6 +48,21 @@ export const getSite = /* GraphQL */ `
         }
         nextToken
       }
+      name
+      name_enGB {
+        name
+        street
+        postalCode
+        city
+      }
+      periods
+      position {
+        latitude
+        longitude
+      }
+      protections
+      styles
+      types
       createdAt
       updatedAt
       owner
@@ -78,28 +87,7 @@ export const listSites = /* GraphQL */ `
       items {
         id
         ambassadorID
-        name
-        headline
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        position {
-          latitude
-          longitude
-        }
-        types
-        styles
-        periods
-        protections
-        description
-        links {
-          fr
-          en
-          www
-        }
+        locationID
         pictureID
         picture {
           id
@@ -112,9 +100,39 @@ export const listSites = /* GraphQL */ `
           updatedAt
           owner
         }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        description
+        description_enGB
+        headline
+        headline_enGB
+        links {
+          fr
+          en
+          www
+        }
         media {
           nextToken
         }
+        name
+        name_enGB {
+          name
+          street
+          postalCode
+          city
+        }
+        periods
+        position {
+          latitude
+          longitude
+        }
+        protections
+        styles
+        types
         createdAt
         updatedAt
         owner
@@ -127,14 +145,13 @@ export const getDisco = /* GraphQL */ `
   query GetDisco($id: ID!) {
     getDisco(id: $id) {
       id
-      name
-      headline
+      locationID
       organiserID
       organiser {
         id
         name
-        description_fr
-        description_en
+        description
+        description_enGB
         www
         phone
         email
@@ -149,71 +166,11 @@ export const getDisco = /* GraphQL */ `
         updatedAt
         owner
       }
-      type
-      format
-      format2
-      demandCommentary
-      practicalInfo
-      bookingRequired
-      dateStart
-      dateEnd
-      dates {
-        start
-        end
-      }
-      description
-      openingHours {
-        sun
-        mon
-        tue
-        wed
-        thu
-        fri
-        sat
-      }
-      pictures
-      duration
-      price
-      priceCommentary
-      subjects
-      languages
-      audiences
-      styles
-      periods
-      events
-      persons
-      address {
-        name
-        street
-        postalCode
-        city
-      }
       siteID
       site {
         id
         ambassadorID
-        name
-        headline
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        position {
-          latitude
-          longitude
-        }
-        types
-        styles
-        periods
-        protections
-        description
-        links {
-          fr
-          en
-          www
-        }
+        locationID
         pictureID
         picture {
           id
@@ -226,14 +183,90 @@ export const getDisco = /* GraphQL */ `
           updatedAt
           owner
         }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        description
+        description_enGB
+        headline
+        headline_enGB
+        links {
+          fr
+          en
+          www
+        }
         media {
           nextToken
         }
+        name
+        name_enGB {
+          name
+          street
+          postalCode
+          city
+        }
+        periods
+        position {
+          latitude
+          longitude
+        }
+        protections
+        styles
+        types
         createdAt
         updatedAt
         owner
       }
+      address {
+        name
+        street
+        postalCode
+        city
+      }
+      audiences
+      bookingRequired
+      dateStart
+      dateEnd
+      dates {
+        start
+        end
+      }
+      duration
+      description
+      description_enGB
+      demandCommentary
+      demandCommentary_enGB
+      events
+      format
+      headline
+      headline_enGB
+      languages
+      name
+      name_enGB
+      openingHours {
+        sun
+        mon
+        tue
+        wed
+        thu
+        fri
+        sat
+      }
+      periods
+      persons
+      pictures
+      practicalInfo
+      practicalInfo_enGB
+      price
+      priceCommentary
+      priceCommentary_enGB
       priority
+      type
+      subjects
+      styles
       createdAt
       updatedAt
       owner
@@ -249,14 +282,13 @@ export const listDiscos = /* GraphQL */ `
     listDiscos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        headline
+        locationID
         organiserID
         organiser {
           id
           name
-          description_fr
-          description_en
+          description
+          description_enGB
           www
           phone
           email
@@ -265,11 +297,32 @@ export const listDiscos = /* GraphQL */ `
           updatedAt
           owner
         }
-        type
-        format
-        format2
-        demandCommentary
-        practicalInfo
+        siteID
+        site {
+          id
+          ambassadorID
+          locationID
+          pictureID
+          description
+          description_enGB
+          headline
+          headline_enGB
+          name
+          periods
+          protections
+          styles
+          types
+          createdAt
+          updatedAt
+          owner
+        }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        audiences
         bookingRequired
         dateStart
         dateEnd
@@ -277,7 +330,18 @@ export const listDiscos = /* GraphQL */ `
           start
           end
         }
+        duration
         description
+        description_enGB
+        demandCommentary
+        demandCommentary_enGB
+        events
+        format
+        headline
+        headline_enGB
+        languages
+        name
+        name_enGB
         openingHours {
           sun
           mon
@@ -287,40 +351,18 @@ export const listDiscos = /* GraphQL */ `
           fri
           sat
         }
+        periods
+        persons
         pictures
-        duration
+        practicalInfo
+        practicalInfo_enGB
         price
         priceCommentary
-        subjects
-        languages
-        audiences
-        styles
-        periods
-        events
-        persons
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        siteID
-        site {
-          id
-          ambassadorID
-          name
-          headline
-          types
-          styles
-          periods
-          protections
-          description
-          pictureID
-          createdAt
-          updatedAt
-          owner
-        }
+        priceCommentary_enGB
         priority
+        type
+        subjects
+        styles
         createdAt
         updatedAt
         owner
@@ -346,14 +388,13 @@ export const discosByOrganiserID = /* GraphQL */ `
     ) {
       items {
         id
-        name
-        headline
+        locationID
         organiserID
         organiser {
           id
           name
-          description_fr
-          description_en
+          description
+          description_enGB
           www
           phone
           email
@@ -362,11 +403,32 @@ export const discosByOrganiserID = /* GraphQL */ `
           updatedAt
           owner
         }
-        type
-        format
-        format2
-        demandCommentary
-        practicalInfo
+        siteID
+        site {
+          id
+          ambassadorID
+          locationID
+          pictureID
+          description
+          description_enGB
+          headline
+          headline_enGB
+          name
+          periods
+          protections
+          styles
+          types
+          createdAt
+          updatedAt
+          owner
+        }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        audiences
         bookingRequired
         dateStart
         dateEnd
@@ -374,7 +436,18 @@ export const discosByOrganiserID = /* GraphQL */ `
           start
           end
         }
+        duration
         description
+        description_enGB
+        demandCommentary
+        demandCommentary_enGB
+        events
+        format
+        headline
+        headline_enGB
+        languages
+        name
+        name_enGB
         openingHours {
           sun
           mon
@@ -384,40 +457,18 @@ export const discosByOrganiserID = /* GraphQL */ `
           fri
           sat
         }
+        periods
+        persons
         pictures
-        duration
+        practicalInfo
+        practicalInfo_enGB
         price
         priceCommentary
-        subjects
-        languages
-        audiences
-        styles
-        periods
-        events
-        persons
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        siteID
-        site {
-          id
-          ambassadorID
-          name
-          headline
-          types
-          styles
-          periods
-          protections
-          description
-          pictureID
-          createdAt
-          updatedAt
-          owner
-        }
+        priceCommentary_enGB
         priority
+        type
+        subjects
+        styles
         createdAt
         updatedAt
         owner
@@ -443,14 +494,13 @@ export const discosBySiteID = /* GraphQL */ `
     ) {
       items {
         id
-        name
-        headline
+        locationID
         organiserID
         organiser {
           id
           name
-          description_fr
-          description_en
+          description
+          description_enGB
           www
           phone
           email
@@ -459,11 +509,32 @@ export const discosBySiteID = /* GraphQL */ `
           updatedAt
           owner
         }
-        type
-        format
-        format2
-        demandCommentary
-        practicalInfo
+        siteID
+        site {
+          id
+          ambassadorID
+          locationID
+          pictureID
+          description
+          description_enGB
+          headline
+          headline_enGB
+          name
+          periods
+          protections
+          styles
+          types
+          createdAt
+          updatedAt
+          owner
+        }
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        audiences
         bookingRequired
         dateStart
         dateEnd
@@ -471,7 +542,18 @@ export const discosBySiteID = /* GraphQL */ `
           start
           end
         }
+        duration
         description
+        description_enGB
+        demandCommentary
+        demandCommentary_enGB
+        events
+        format
+        headline
+        headline_enGB
+        languages
+        name
+        name_enGB
         openingHours {
           sun
           mon
@@ -481,40 +563,18 @@ export const discosBySiteID = /* GraphQL */ `
           fri
           sat
         }
+        periods
+        persons
         pictures
-        duration
+        practicalInfo
+        practicalInfo_enGB
         price
         priceCommentary
-        subjects
-        languages
-        audiences
-        styles
-        periods
-        events
-        persons
-        address {
-          name
-          street
-          postalCode
-          city
-        }
-        siteID
-        site {
-          id
-          ambassadorID
-          name
-          headline
-          types
-          styles
-          periods
-          protections
-          description
-          pictureID
-          createdAt
-          updatedAt
-          owner
-        }
+        priceCommentary_enGB
         priority
+        type
+        subjects
+        styles
         createdAt
         updatedAt
         owner
@@ -603,8 +663,8 @@ export const getOrganiser = /* GraphQL */ `
     getOrganiser(id: $id) {
       id
       name
-      description_fr
-      description_en
+      description
+      description_enGB
       www
       phone
       email
@@ -639,8 +699,8 @@ export const listOrganisers = /* GraphQL */ `
       items {
         id
         name
-        description_fr
-        description_en
+        description
+        description_enGB
         www
         phone
         email

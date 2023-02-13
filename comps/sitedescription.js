@@ -1,11 +1,12 @@
 // ./comps/sitedescription.js
 
 import { Keys } from "../utils/dictionary";
-const LANG = "fr";
+
 
 export const SiteDescription = (props) => {
 
   const description = props.site.description;
+  const lang = props.lang
   
   return (
     <div
@@ -16,7 +17,7 @@ export const SiteDescription = (props) => {
           color: "black" 
         }}
         >
-      <h3 style={{ fontWeight: "bold" }}>{Keys[LANG].description}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys[lang].description}</h3>
       <span style={{whiteSpace: "pre-line"}}>{description}</span>
 
     </div>

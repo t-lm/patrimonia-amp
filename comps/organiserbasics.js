@@ -2,10 +2,10 @@
 import Image from "next/image";
 
 const OrganiserTypes = require("../utils/OrganiserTypes.json");
-const LANG = "fr";
 
 export const OrganiserBasics = (props) => {
   const organiser = props.organiser;
+  const lang = props.lang
 
   return (
     <div
@@ -55,7 +55,7 @@ export const OrganiserBasics = (props) => {
         >
           .{" "}
           {organiser.type in OrganiserTypes &&
-            OrganiserTypes[organiser.type][LANG]}
+            OrganiserTypes[organiser.type][lang]}
         </span>
       )}
           </div>
