@@ -27,3 +27,5 @@ export const logout = () => {
   setUserLocal({})
   window.location.href = "/";
 }
+
+export const authKey = "14cf515d-0f25-c9da-68ff-9c931cd63244:fx"
