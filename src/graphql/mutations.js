@@ -8,6 +8,7 @@ export const createSite = /* GraphQL */ `
   ) {
     createSite(input: $input, condition: $condition) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -69,6 +70,7 @@ export const updateSite = /* GraphQL */ `
   ) {
     updateSite(input: $input, condition: $condition) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -130,6 +132,7 @@ export const deleteSite = /* GraphQL */ `
   ) {
     deleteSite(input: $input, condition: $condition) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -255,6 +258,7 @@ export const createDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {
@@ -374,6 +378,7 @@ export const updateDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {
@@ -493,6 +498,7 @@ export const deleteDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {

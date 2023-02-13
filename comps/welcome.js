@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 
-import { Frieze } from "../comps/frieze";
+import { Keys } from "../utils/dictionary";
+import { LANG } from "../utils/auth";
 
 export const Welcome = () => {
   return (
@@ -20,7 +21,7 @@ export const Welcome = () => {
           lineHeight: "3rem"
         }}
       >
-        <span>DÉCOUVRONS NOTRE PATRIMOINE</span>
+        <span>{Keys[LANG]["welcome"]}</span>
         <span style={{ marginTop: 10, display: "block" }}>
           <Image src="/var/noun-man.svg"alt="" height={60} width={60}/>
           {/*<Image src="/var/noun-woman.svg" alt="" height={60} width={60} style={{marginLeft: 10}}/>*/}

@@ -2,6 +2,7 @@ type Site
   @model
   @auth(rules: [{ allow: owner }, { allow: public,  provider: iam, operations: [read] }]) {
   id: ID! @primaryKey
+  ambassadorID: ID!
   name: String!
   headline: String!
   address: Address!
@@ -217,6 +218,7 @@ enum DiscoSubjects {
     litterature
     military
     music
+    nature
     philosophy
     politics
     religion

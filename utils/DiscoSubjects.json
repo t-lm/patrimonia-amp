@@ -7,6 +7,7 @@
     "litterature": {"fr": "Littérature","en": "Litterature","color":"#fcc933", "r": 252, "g": 201, "b": 51},
     "military": {"fr": "Militaire","en": "Military","color":"#fcc933", "r": 252, "g": 201, "b": 51},
     "music": {"fr": "Musique","en": "Music","color":"#266dff", "r": 38, "g": 109, "b": 255},
+    "nature": {"fr": "Nature","en": "Nature","color":"#149E71", "r": 20, "g": 158, "b": 113},
     "philosophy": {"fr": "Philosophie","en": "Philosophy","color": "#e13028", "r": 225, "g": 48, "b": 40},
     "politics": {"fr": "Politique","en": "Politics","color":"#e2e2d7", "r": 226, "g": 226, "b": 215},
     "religion": {"fr": "Religion","en": "Religion","color":"#fb4333", "r": 251, "g": 67, "b": 51},

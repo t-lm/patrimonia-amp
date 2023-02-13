@@ -122,7 +122,7 @@ export const DiscoBooking = (props) => {
                       style={{
                         margin: "5px 3px",
                         borderRadius: 3,
-                        borderTop: i > 0 && "1px solid #eee",
+                        borderTop: i > 0 ? "1px solid #eee" : "0px",
                       }}
                     >
                       <Col

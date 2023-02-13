@@ -13,17 +13,18 @@ export const DiscosList = (props) => {
 
   return (
     <>
-      {/* events */}
-      {discos
-        .filter((x) => x.type === "event")
-        .sort((a, b) => (a.dates[0].start > b.dates[0].start ? 1 : -1))
+      {/* regular */}
+          {discos
+        .filter((x) => x.type === "regular")
         .map((d) => (
           <DiscoPill key={d.id} disco={d} filter={filter} />
         ))}
 
-      {/* regular */}
+
+      {/* events */}
       {discos
-        .filter((x) => x.type === "regular")
+        .filter((x) => x.type === "event")
+        .sort((a, b) => (a.dates[0].start > b.dates[0].start ? 1 : -1))
         .map((d) => (
           <DiscoPill key={d.id} disco={d} filter={filter} />
         ))}

@@ -5,6 +5,7 @@ export const getSite = /* GraphQL */ `
   query GetSite($id: ID!) {
     getSite(id: $id) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -76,6 +77,7 @@ export const listSites = /* GraphQL */ `
     ) {
       items {
         id
+        ambassadorID
         name
         headline
         address {
@@ -189,6 +191,7 @@ export const getDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {
@@ -304,6 +307,7 @@ export const listDiscos = /* GraphQL */ `
         siteID
         site {
           id
+          ambassadorID
           name
           headline
           types
@@ -400,6 +404,7 @@ export const discosByOrganiserID = /* GraphQL */ `
         siteID
         site {
           id
+          ambassadorID
           name
           headline
           types
@@ -496,6 +501,7 @@ export const discosBySiteID = /* GraphQL */ `
         siteID
         site {
           id
+          ambassadorID
           name
           headline
           types

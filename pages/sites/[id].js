@@ -6,9 +6,6 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
 import { API } from "aws-amplify";
 import { getSite, listSites, discosBySiteID } from "../../src/graphql/queries";
 
@@ -19,7 +16,8 @@ import { SiteFacts } from "../../comps/sitefacts";
 import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { DiscosList } from "../../comps/discoslist";
-import { getCurrentUser } from "../../utils/auth";
+import { getCurrentUser, LANG } from "../../utils/auth";
+import { Keys } from "../../utils/dictionary";
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -59,20 +57,12 @@ export async function getStaticPaths() {
 }
 
 const Site = ({ site, discos }) => {
-  const router = useRouter();
+
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
-  if (router.isFallback) {
-    return (
-      <div>
-        <h1>Loading&hellip;</h1>
-      </div>
-    );
-  }
-
-  async function handleDelete() {
-    /*
+  async function handleDeleteSite() {
+    
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
@@ -81,13 +71,11 @@ const Site = ({ site, discos }) => {
           input: { id: site.id },
         },
       });
-
       window.location.href = "/";
-    } catch ({ errors }) {
-      console.error(...errors);
-      throw new Error(errors[0].message);
+    } catch (e) {
+      console.error(e);
+      setError(Keys[LANG]["errorSiteDelete"]);
     }
-    */
   }
 
   return (
@@ -120,7 +108,7 @@ const Site = ({ site, discos }) => {
         {site.description && <SiteDescription site={site} />}
 
         {/* Discoveries */}
-        {discos.length > 0 && 
+        {discos.length > 0 && (
           <div
             style={{
               marginTop: 20,
@@ -132,25 +120,60 @@ const Site = ({ site, discos }) => {
             <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
             <DiscosList discos={discos} filter={{}} />
           </div>
-        }
+        )}
 
         {/* Further on */}
         {site.links && site.links.length > 0 && <SiteLinks site={site} />}
 
-        {username === "tlm" && (
-          <Row style={{ marginTop: 30 }}>
-            <Col>
-              <Link
-                style={{color: "black" }}
-                href={{
-                  pathname: "/admin/update",
-                  query: { model: "site", id: site.id },
-                }}
-              >
-                Mettre à jour le site
-              </Link>
-            </Col>
-          </Row>
+        {[site.ambassadorID, "tlm"].includes(username) && (
+          <>
+          <div
+            style={{
+              marginTop: 30,
+              backgroundColor: "white",
+              border: "1px solid pink",
+              color: "black",
+              fontWeight: "bold",
+              padding: "5px 30px",
+              borderRadius: 5,
+              width: 200,
+              textAlign: "center",
+            }}
+          >
+            <Link
+              style={{ color: "black" }}
+              href={{
+                pathname: "/admin/update",
+                query: { model: "site", id: site.id },
+              }}
+            >
+              {Keys[LANG]["update"]}
+            </Link>
+          </div>
+          <div
+            style={{
+              marginTop: 20,
+              borderTop: "1px solid #eee",
+              paddingTop: 20,
+            }}
+          >
+            <button
+              onClick={() => handleDeleteSite()}
+              size="md"
+              style={{
+                backgroundColor: "white",
+                border: "1px dotted pink",
+                color: "grey",
+                padding: "5px 30px",
+                borderRadius: 5,
+                width: 200,
+                fontStyle: 'italic'
+              }}
+            >
+              {Keys[LANG]["remove"]}
+            </button>
+          </div>
+          </>
         )}
       </main>
     </Layout>

@@ -8,6 +8,7 @@ export const onCreateSite = /* GraphQL */ `
   ) {
     onCreateSite(filter: $filter, owner: $owner) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -69,6 +70,7 @@ export const onUpdateSite = /* GraphQL */ `
   ) {
     onUpdateSite(filter: $filter, owner: $owner) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -130,6 +132,7 @@ export const onDeleteSite = /* GraphQL */ `
   ) {
     onDeleteSite(filter: $filter, owner: $owner) {
       id
+      ambassadorID
       name
       headline
       address {
@@ -255,6 +258,7 @@ export const onCreateDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {
@@ -374,6 +378,7 @@ export const onUpdateDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {
@@ -493,6 +498,7 @@ export const onDeleteDisco = /* GraphQL */ `
       siteID
       site {
         id
+        ambassadorID
         name
         headline
         address {

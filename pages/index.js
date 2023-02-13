@@ -42,17 +42,6 @@ const Index = ({ Discos = [] }) => {
 
       <Welcome />
       <Alldiscos Discos={Discos} />
-
-      {username && username === "tlm" && (
-        <div style={{ marginTop: 50 }}>
-          <Link
-            style={{ color: "black" }}
-            href={{ pathname: "/admin/new", query: { model: "disco" } }}
-          >
-            Ajouter
-          </Link>
-        </div>
-      )}
     </Layout>
   );
 };

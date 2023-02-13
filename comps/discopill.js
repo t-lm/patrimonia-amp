@@ -8,7 +8,9 @@ import Col from "react-bootstrap/Col";
 
 import { FormattedEventDates, FormattedDaySlots, FormattedDays } from "./date";
 
-const LANG = "fr";
+import { LANG } from "../utils/auth";
+import { Keys } from "../utils/dictionary";
+
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 //const DiscoTypes = require("../utils/DiscoTypes.json");
@@ -18,7 +20,6 @@ const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 export const DiscoPill = (props) => {
   const disco = props.disco;
   const filter = props.filter;
-
 
   return (
     <Row
@@ -123,7 +124,7 @@ export const DiscoPill = (props) => {
           </Link>
         </div>
 
-        {/* Type & date */}
+        {/* Type & date helper */}
         <div
           style={{
             margin: "5px 0px",
@@ -133,8 +134,9 @@ export const DiscoPill = (props) => {
           }}
         >
           {/* Dates */}
-          {disco.type === "regular" &&
-            ["today", "tomorrow"].includes(filter.periodRange) && (
+          {disco.type === "regular" && (
+            <>
+              {["today", "tomorrow"].includes(filter.periodRange) ? (
               <Link
                 href={`/discos/${disco.id}`}
                 style={{ color: "black", fontWeight: "bold" }}
@@ -147,24 +149,22 @@ export const DiscoPill = (props) => {
                   }
                   lang={LANG}
                   verbose={
-                    filter.periodRange === "today"
-                      ? "aujourd'hui"
-                      : filter.periodRange === "tomorrow"
-                      ? "demain"
+                    ["today", "tomorrow"].includes(filter.periodRange)
+                      ? Keys[LANG][filter.periodRange]
                       : ""
                   }
                 />
               </Link>
-            )}
-          {disco.type === "regular" &&
-            ["thisweek", "month"].includes(filter.periodRange) && (
+              ) : (
               <Link
                 href={`/discos/${disco.id}`}
                 style={{ color: "black", fontWeight: "bold" }}
               >
                 <FormattedDays slots={disco.openingHours} lang={LANG} />
               </Link>
-            )}
+              )}
+            </>
+          )}
 
           {disco.type === "event" && (
             <Link
@@ -180,7 +180,7 @@ export const DiscoPill = (props) => {
               href={`/discos/${disco.id}`}
               style={{ color: "black", fontWeight: "bold" }}
             >
-              Visites sur demande
+              {Keys[LANG]["discosOnDemand"]}
             </Link>
           )}
         </div>
