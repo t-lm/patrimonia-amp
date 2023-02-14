@@ -2,7 +2,7 @@
 
 
 import { Keys } from "../utils/dictionary";
-
+const { Languages } = require("../utils/auth");
 
 export const DiscoDescription = (props) => {
 

@@ -6,6 +6,7 @@ import utilStyles from "../styles/utils.module.css";
 
 const lang = "fr";
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
+const { Languages } = require("../utils/auth");
 
 export const DiscoBasics = (props) => {
   const disco = props.disco;
@@ -21,7 +22,7 @@ export const DiscoBasics = (props) => {
       }}
     >
       <h1 style={{ marginBottom: 0 }} className={utilStyles.heading2Xl}>
-        {disco.name}
+        {disco[Languages.includes(lang) ? `name_${lang}` : "name"]}
       </h1>
       <div
         style={{
@@ -64,7 +65,7 @@ export const DiscoBasics = (props) => {
         }}
       >
         <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
-          {disco.site.name}
+          {disco.site[Languages.includes(lang) ? `name_${lang}` : "name"]}
         </Link>
       </span>
 
@@ -88,7 +89,7 @@ export const DiscoBasics = (props) => {
         </div>
       )}
 
-      <h5 style={{ marginTop: 20, color: "#666" }}>{disco.headline}</h5>
+      <h5 style={{ marginTop: 20, color: "#666" }}>{disco[Languages.includes(lang) ? `headline_${lang}` : "headline"]}</h5>
     </div>
   );
 };

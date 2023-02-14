@@ -11,6 +11,7 @@ import Modal from "react-bootstrap/Modal";
 
 import { FormattedDateAndTime } from "./date";
 const Weekdays = require("../utils/Weekdays.json");
+const { Languages } = require("../utils/auth");
 
 
 export const DiscoBooking = (props) => {
@@ -59,7 +60,7 @@ export const DiscoBooking = (props) => {
         {disco.type === "demand" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Réservation
+              {Keys[lang]["Booking"]}
             </h3>
             <Row style={{ margin: "5px 3px" }}>
               <Col xs={8} style={{ marginTop: 3, padding: "5.625px 0px" }}>
@@ -84,7 +85,7 @@ export const DiscoBooking = (props) => {
         {disco.type === "regular" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Heures d'ouverture
+              {Keys[lang]["openingHours"]}
             </h3>
             <div>{disco.datesCommentary && disco.datesCommentary}</div>
             <div style={{ marginTop: 20, textAlign: "left", color: "grey" }}>
@@ -108,7 +109,7 @@ export const DiscoBooking = (props) => {
         {disco.type === "event" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              Prochaines dates
+              {Keys[lang]["nextDates"]}
             </h3>
 
             {disco.dates.filter((d) => new Date(d.start) >= today).length ===

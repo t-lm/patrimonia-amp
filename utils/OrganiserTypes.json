@@ -2,5 +2,5 @@
       "association": {"fr": "Association","en": "Association"},
       "business": {"fr":"Entreprise","en": "Business"},
       "governmentLocal": {"fr": "Collectivité locale","en": "Local government"},
-      "governmentNational": {"fr": "Gouvernement national","en": "State government"}
+      "governmentNational": {"fr": "Gouvernement","en": "Government"}
     }

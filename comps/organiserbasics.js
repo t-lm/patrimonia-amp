@@ -2,8 +2,10 @@
 import Image from "next/image";
 
 const OrganiserTypes = require("../utils/OrganiserTypes.json");
+const { Languages } = require("../utils/auth");
 
 export const OrganiserBasics = (props) => {
+
   const organiser = props.organiser;
   const lang = props.lang
 
@@ -61,7 +63,7 @@ export const OrganiserBasics = (props) => {
           </div>
           
 
-    {organiser.description_fr &&
+    {organiser.description &&
       <div
         style={{
           display: "flexbox",
@@ -70,7 +72,7 @@ export const OrganiserBasics = (props) => {
           whiteSpace: "pre-line"
         }}
       >
-      {organiser.description_fr}</div>
+      {organiser[Languages.includes(lang) ? `description_${lang}` : "description"]}</div>
       }
       
     </div>

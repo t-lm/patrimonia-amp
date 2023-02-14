@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import { PictureCarousel } from "./carousel";
 
 import { Keys, DiscoMedia } from "../utils/dictionary";
+const { Languages } = require("../utils/auth");
 
 export const DiscoPictures = (props) => {
   

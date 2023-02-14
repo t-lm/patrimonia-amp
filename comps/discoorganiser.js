@@ -6,7 +6,10 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const { Languages } = require("../utils/auth");
+
 export const DiscoOrganiser = (props) => {
+  
   const organiser = props.organiser;
   const lang = props.lang
 
@@ -47,7 +50,7 @@ export const DiscoOrganiser = (props) => {
         {organiser.description && (
           <Col>
             <span style={{ whiteSpace: "pre-line" }}>
-              {organiser.description}
+              {organiser[Languages.includes(lang) ? `description_${lang}` : "description"]}
             </span>
           </Col>
         )}

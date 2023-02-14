@@ -64,6 +64,21 @@
     }
   },
   "function": {
+    "patrimoniaTranslateSite": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "patrimoniaamp"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "translateSite": {
       "build": true,
       "dependsOn": [
@@ -87,6 +102,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_patrimoniaTranslateSite_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateSite"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateSite_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateSite"
+        }
+      ]
+    },
     "AMPLIFY_function_translateSite_deploymentBucketName": {
       "usedBy": [
         {

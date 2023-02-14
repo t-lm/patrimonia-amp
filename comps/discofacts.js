@@ -18,6 +18,7 @@ const DiscoLanguages = require("../utils/DiscoLanguages.json");
 const SitePeriods = require("../utils/SitePeriods.json");
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoPrices = require("../utils/DiscoPrices.json");
+const { Languages } = require("../utils/auth");
 
 export const DiscoFacts = (props) => {
 

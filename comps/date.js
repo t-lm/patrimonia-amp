@@ -211,23 +211,8 @@ export const FormattedEventDates = ({ dates, lang }) => {
     if (dates.length === 1) {
       let start = parseISO(dates[0].start);
       let end = parseISO(dates[0].end);
-      if (lang === "fr")
-        return (
-          <span>{`Le ${format(start, "EEEE d LLLL yyyy", {
-            locale: fr,
-          })} de ${format(start, "H:mm", { locale: fr })} à ${format(
-            end,
-            "H:mm",
-            { locale: enGB }
-          )}`}</span>
-        );
-      else
-        return (
-          <span>{`Single date on ${format(
-            start,
-            "EEEE d LLLL yyyy at H:mm"
-          )}`}</span>
-        );
+      if (lang === "fr") return (<span>{`Le ${format(start, "EEEE d LLLL yyyy", { locale: fr })} de ${format(start, "H:mm", { locale: fr })} à ${format(end,"H:mm",{ locale: fr })}`}</span>);
+      else return (<span>{`${format(start, "EEEE d LLLL yyyy", { locale: enGB })} from ${format(start, "H:mm", { locale: enGB })} to ${format(end,"H:mm",{ locale: enGB })}`}</span>);
     } else if (dates.length > 1) {
       let multi =
         dates[0].start.slice(0, 7) !== dates.slice(-1)[0].start.slice(0, 7);

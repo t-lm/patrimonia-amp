@@ -3,7 +3,7 @@
   "museum": { "fr": "Musée","en": "Museum"},
   "garden": { "fr":  "Parc et jardin","en": "Park and garden"},
   "public": { "fr":"Bâtiment public","en": "Public building"},
-  "theater": { "fr": "Lieu de spectacle","en": "Theater or place for shows"},
+  "theater": { "fr": "Lieu de spectacle","en": "Theater"},
   "antiquity": { "fr": "Batiment antique", "en": "Antique building"},
   "civil": { "fr": "Batiment privé","en": "Private building"},
   "industrial": { "fr": "Bâtiment industriel","en": "Industrial building"},

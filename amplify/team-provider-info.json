@@ -28,6 +28,10 @@
         "translateSite": {
           "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
           "s3Key": "amplify-builds/translateSite-2b6b774d483255366445-build.zip"
+        },
+        "patrimoniaTranslateSite": {
+          "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+          "s3Key": "amplify-builds/patrimoniaTranslateSite-53523577515846414679-build.zip"
         }
       }
     }
