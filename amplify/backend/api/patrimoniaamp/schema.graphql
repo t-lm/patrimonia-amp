@@ -275,7 +275,9 @@ enum OrganiserTypes {
   association
   business
   governmentLocal
+  governmentRegional
   governmentNational
+  public
 }
 
 

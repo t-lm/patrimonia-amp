@@ -34,7 +34,7 @@ export const DiscoBasics = (props) => {
         <span>
           {disco.address.city} .{" "}
           <Link
-            style={{ color: "black" }}
+            style={{ color: "black", textDecoration: "underline" }}
             href={`/organisers/${disco.organiser.id}`}
           >
             {disco.organiser.name}
@@ -64,7 +64,7 @@ export const DiscoBasics = (props) => {
           fontWeight: "bold",
         }}
       >
-        <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
+        <Link style={{ color: "black", textDecoration: "underline" }} href={`/sites/${disco.siteID}`}>
           {disco.site[Languages.includes(lang) ? `name_${lang}` : "name"]}
         </Link>
       </span>

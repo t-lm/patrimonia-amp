@@ -8,7 +8,6 @@ import { Keys } from "../utils/dictionary";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const SiteEvents = require("../utils/SiteEvents.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SitePeriods = require("../utils/SitePeriods.json");
 const SiteProtections = require("../utils/SiteProtections.json");
@@ -98,7 +97,7 @@ export const SiteFacts = (props) => {
             {site.events.length > 0 &&
               site.events.map((t, i) => (
                 <span key={i}>
-                  {t in SiteEvents ? SiteEvents[t][lang] : t}
+                  {t}
                   {i < site.events.length - 1 && ", "}
                 </span>
               ))}

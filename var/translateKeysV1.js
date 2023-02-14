@@ -7,7 +7,15 @@
 //const Keys = require("../utils/DiscoLanguages.json");
 //const Keys = require("../utils/DiscoPrices.json");
 //const Keys = require("../utils/DiscoSubjects.json");
-const Keys = require("../utils/DiscoTypes.json");
+//const Keys = require("../utils/DiscoTypes.json");
+//const Keys = require("../utils/Locations.json");
+//const Keys = require("../utils/OrganiserTypes.json");
+//const Keys = require("../utils/SitePeriods.json");
+//const Keys = require("../utils/SiteProtections.json");
+//const Keys = require("../utils/SiteStyles.json");
+//const Keys = require("../utils/SiteTypes.json");
+//const Keys = require("../utils/Weekdays.json");
+const { Keys } = require("../dictionary");
 
 const LANG = "es"
 const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate");

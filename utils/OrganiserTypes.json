@@ -1,6 +1,7 @@
 {
-      "association": {"fr": "Association","en": "Association"},
-      "business": {"fr":"Entreprise","en": "Business"},
-      "governmentLocal": {"fr": "Collectivité locale","en": "Local government"},
-      "governmentNational": {"fr": "Gouvernement","en": "Government"}
-    }
+      "association": {"fr": "Association","en": "Association","es": "Asociación"},
+      "business": {"fr":"Entreprise","en": "Business","es": "Empresa"},
+      "governmentLocal": {"fr": "Mairie","en": "City council","es": "Autoridad local"},
+      "governmentRegional": {"fr": "Département ou région","en": "Regional body","es": "región"},
+      "public": {"fr": "Organisme public","en": "Public body", "es": "Organismo público"}
+  }

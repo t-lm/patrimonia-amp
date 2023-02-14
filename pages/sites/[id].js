@@ -13,12 +13,13 @@ import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
 import { SiteDescription } from "../../comps/sitedescription";
 import { SiteFacts } from "../../comps/sitefacts";
-import { SiteLinks } from "../../comps/sitelinks";
+//import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
 import { Keys } from "../../utils/dictionary";
 
+const { Languages } = require("../../utils/auth");
 const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
@@ -76,7 +77,7 @@ const Site = ({ site, discos }) => {
   return (
     <Layout>
       <Head>
-        <title>{site.name}</title>
+        <title>{site[Languages.includes(lang) ? `name_${lang}` : "name"]}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

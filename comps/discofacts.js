@@ -114,11 +114,10 @@ export const DiscoFacts = (props) => {
         </Col>
         <Col xs={8} md={9}>
           {DiscoPrices[disco.price][lang]}
-          {disco.priceCommentary && <>{", "}{disco.priceCommentary}</>}
+          {disco.priceCommentary && <>{", "}{disco[Languages.includes(lang) ? `priceCommentary_${lang}` : "priceCommentary"]}</>}
         </Col>
       </Row>
 
-      {/* ici je rajouterai bien les qualifications des personnes */}
       {(disco.periods.length > 0 || disco.styles.length > 0 || disco.persons.length > 0 || disco.events.length > 0) && (
         <div
           id="facts-science"

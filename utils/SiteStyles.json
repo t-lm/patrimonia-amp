@@ -1,14 +1,14 @@
 {
-  "antiquityGreek": {"fr": "Grec antique","en": "Antique Greek"},
-  "antiquityRoman": {"fr": "Rome antique","en": "Antique Roman"},
-  "carolingian": {"fr": "Carolingien","en": "Carolingian"},
-  "roman": {"fr": "Roman","en": "Roman"},
-  "gothic": {"fr": "Gothique","en": "Gothic"},
-  "renaissance": {"fr": "Renaissance","en": "Renaissance"},
-  "classic": {"fr": "Classique","en": "Classic"},
-  "baroque": {"fr": "Baroque","en": "Baroque"},
-  "xix": {"fr": "19ème","en": "19th"},
-  "artDeco": {"fr": "Art Déco","en": "Art Déco"},
-  "artNouveau": {"fr": "Art Nouveau","en": "Art Nouveau"},
-  "contemporary": {"fr": "Contemporain","en": "Contemporary"}
+  "antiquityGreek": {"fr": "Grec antique","en": "Antique Greek","es": "Griego antiguo"},
+  "antiquityRoman": {"fr": "Rome antique","en": "Antique Roman","es": "Roma antigua"},
+  "carolingian": {"fr": "Carolingien","en": "Carolingian","es": "Carolingio"},
+  "roman": {"fr": "Roman","en": "Roman","es": "Romano"},
+  "gothic": {"fr": "Gothique","en": "Gothic","es": "Gótico"},
+  "renaissance": {"fr": "Renaissance","en": "Renaissance","es": "Renacimiento"},
+  "classic": {"fr": "Classique","en": "Classic","es": "Clásico"},
+  "baroque": {"fr": "Baroque","en": "Baroque","es": "Barroco"},
+  "xix": {"fr": "19ème","en": "19th","es": "19º"},
+  "artDeco": {"fr": "Art Déco","en": "Art Déco","es": "Art Decó"},
+  "artNouveau": {"fr": "Art Nouveau","en": "Art Nouveau","es": "Art Nouveau"},
+  "contemporary": {"fr": "Contemporain","en": "Contemporary","es": "Contemporáneo"}
 }

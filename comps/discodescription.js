@@ -6,7 +6,7 @@ const { Languages } = require("../utils/auth");
 
 export const DiscoDescription = (props) => {
 
-  const description = props.disco.description;
+  const disco = props.disco;
   const lang = props.lang
   
   return (
@@ -19,7 +19,7 @@ export const DiscoDescription = (props) => {
         }}
         >
       <h3 style={{ fontWeight: "bold" }}>{Keys[lang].description}</h3>
-      <span style={{whiteSpace: "pre-line"}}>{description}</span>
+      <span style={{whiteSpace: "pre-line"}}>{disco[Languages.includes(lang) ? `description_${lang}` : "description"]}</span>
 
     </div>
   );

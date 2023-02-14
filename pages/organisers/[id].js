@@ -79,7 +79,7 @@ const Organiser = ({ organiser, discos }) => {
             color: "black",
           }}
         >
-          <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
+          <h3 style={{ fontWeight: "bold" }}>{Keys[lang]["discover"]}</h3>
           <DiscosList discos={discos} filter={{}} lang={lang}/>
       </div>
 

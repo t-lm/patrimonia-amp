@@ -141,7 +141,7 @@ const FormOrganiser = (props) => {
           <Col sm="9">
             <Form.Select
               size="sm"
-              defaultValue="cathedrale-saint-nazaire-beziers"
+              defaultValue={organiser.type}
               onChange={(e) =>
                 setOrganiser({ ...organiser, type: e.target.value })
               }

@@ -1,9 +1,9 @@
 {
-    "sun": { "fr": "Dimanche", "en": "Sunday" }, 
-    "mon": { "fr": "Lundi", "en": "Monday"}, 
-    "tue": { "fr": "Mardi", "en": "Tuesday"}, 
-    "wed": { "fr": "Mercredi", "en": "Wednesday"}, 
-    "thu": { "fr": "Jeudi", "en": "Thursday"}, 
-    "fri": { "fr": "Vendredi", "en": "Friday"}, 
-    "sat": { "fr": "Samedi", "en": "Saturday"}
-  }
+    "sun": { "fr": "Dimanche", "en": "Sunday" ,"es": "domingo"}, 
+    "mon": { "fr": "Lundi", "en": "Monday","es": "lunes"}, 
+    "tue": { "fr": "Mardi", "en": "Tuesday","es": "martes"}, 
+    "wed": { "fr": "Mercredi", "en": "Wednesday","es": "miércoles"}, 
+    "thu": { "fr": "Jeudi", "en": "Thursday","es": "jueves"}, 
+    "fri": { "fr": "Vendredi", "en": "Friday","es": "viernes"}, 
+    "sat": { "fr": "Samedi", "en": "Saturday","es": "sábado"}
+}
