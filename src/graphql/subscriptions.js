@@ -29,9 +29,15 @@ export const onCreateSite = /* GraphQL */ `
         city
       }
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       links {
         fr
         en
@@ -52,12 +58,10 @@ export const onCreateSite = /* GraphQL */ `
         nextToken
       }
       name
-      name_enGB {
-        name
-        street
-        postalCode
-        city
-      }
+      name_en
+      name_es
+      name_de
+      name_nl
       periods
       position {
         latitude
@@ -100,9 +104,15 @@ export const onUpdateSite = /* GraphQL */ `
         city
       }
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       links {
         fr
         en
@@ -123,12 +133,10 @@ export const onUpdateSite = /* GraphQL */ `
         nextToken
       }
       name
-      name_enGB {
-        name
-        street
-        postalCode
-        city
-      }
+      name_en
+      name_es
+      name_de
+      name_nl
       periods
       position {
         latitude
@@ -171,9 +179,15 @@ export const onDeleteSite = /* GraphQL */ `
         city
       }
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       links {
         fr
         en
@@ -194,12 +208,10 @@ export const onDeleteSite = /* GraphQL */ `
         nextToken
       }
       name
-      name_enGB {
-        name
-        street
-        postalCode
-        city
-      }
+      name_en
+      name_es
+      name_de
+      name_nl
       periods
       position {
         latitude
@@ -227,7 +239,10 @@ export const onCreateDisco = /* GraphQL */ `
         id
         name
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         www
         phone
         email
@@ -266,9 +281,15 @@ export const onCreateDisco = /* GraphQL */ `
           city
         }
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         links {
           fr
           en
@@ -278,12 +299,10 @@ export const onCreateDisco = /* GraphQL */ `
           nextToken
         }
         name
-        name_enGB {
-          name
-          street
-          postalCode
-          city
-        }
+        name_en
+        name_es
+        name_de
+        name_nl
         periods
         position {
           latitude
@@ -312,16 +331,25 @@ export const onCreateDisco = /* GraphQL */ `
       }
       duration
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       demandCommentary
-      demandCommentary_enGB
+      demandCommentary_en
       events
       format
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       languages
       name
-      name_enGB
+      name_en
+      name_es
+      name_de
+      name_nl
       openingHours {
         sun
         mon
@@ -335,10 +363,10 @@ export const onCreateDisco = /* GraphQL */ `
       persons
       pictures
       practicalInfo
-      practicalInfo_enGB
+      practicalInfo_en
       price
       priceCommentary
-      priceCommentary_enGB
+      priceCommentary_en
       priority
       type
       subjects
@@ -362,7 +390,10 @@ export const onUpdateDisco = /* GraphQL */ `
         id
         name
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         www
         phone
         email
@@ -401,9 +432,15 @@ export const onUpdateDisco = /* GraphQL */ `
           city
         }
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         links {
           fr
           en
@@ -413,12 +450,10 @@ export const onUpdateDisco = /* GraphQL */ `
           nextToken
         }
         name
-        name_enGB {
-          name
-          street
-          postalCode
-          city
-        }
+        name_en
+        name_es
+        name_de
+        name_nl
         periods
         position {
           latitude
@@ -447,16 +482,25 @@ export const onUpdateDisco = /* GraphQL */ `
       }
       duration
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       demandCommentary
-      demandCommentary_enGB
+      demandCommentary_en
       events
       format
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       languages
       name
-      name_enGB
+      name_en
+      name_es
+      name_de
+      name_nl
       openingHours {
         sun
         mon
@@ -470,10 +514,10 @@ export const onUpdateDisco = /* GraphQL */ `
       persons
       pictures
       practicalInfo
-      practicalInfo_enGB
+      practicalInfo_en
       price
       priceCommentary
-      priceCommentary_enGB
+      priceCommentary_en
       priority
       type
       subjects
@@ -497,7 +541,10 @@ export const onDeleteDisco = /* GraphQL */ `
         id
         name
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         www
         phone
         email
@@ -536,9 +583,15 @@ export const onDeleteDisco = /* GraphQL */ `
           city
         }
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         links {
           fr
           en
@@ -548,12 +601,10 @@ export const onDeleteDisco = /* GraphQL */ `
           nextToken
         }
         name
-        name_enGB {
-          name
-          street
-          postalCode
-          city
-        }
+        name_en
+        name_es
+        name_de
+        name_nl
         periods
         position {
           latitude
@@ -582,16 +633,25 @@ export const onDeleteDisco = /* GraphQL */ `
       }
       duration
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       demandCommentary
-      demandCommentary_enGB
+      demandCommentary_en
       events
       format
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       languages
       name
-      name_enGB
+      name_en
+      name_es
+      name_de
+      name_nl
       openingHours {
         sun
         mon
@@ -605,10 +665,10 @@ export const onDeleteDisco = /* GraphQL */ `
       persons
       pictures
       practicalInfo
-      practicalInfo_enGB
+      practicalInfo_en
       price
       priceCommentary
-      priceCommentary_enGB
+      priceCommentary_en
       priority
       type
       subjects
@@ -682,7 +742,10 @@ export const onCreateOrganiser = /* GraphQL */ `
       id
       name
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       www
       phone
       email
@@ -708,7 +771,10 @@ export const onUpdateOrganiser = /* GraphQL */ `
       id
       name
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       www
       phone
       email
@@ -734,7 +800,10 @@ export const onDeleteOrganiser = /* GraphQL */ `
       id
       name
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       www
       phone
       email

@@ -63,10 +63,45 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "translateSite": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "patrimoniaamp"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "S3AndCloudFront": {
       "providerPlugin": "awscloudformation",
       "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_translateSite_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "translateSite"
+        }
+      ]
+    },
+    "AMPLIFY_function_translateSite_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "translateSite"
+        }
+      ]
     }
   },
   "storage": {

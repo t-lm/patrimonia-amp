@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import { API } from "aws-amplify";
 import { getSite, listSites, discosBySiteID } from "../../src/graphql/queries";
@@ -46,38 +46,25 @@ export const getStaticProps = async ({ params }) => {
 export async function getStaticPaths() {
   const response = await API.graphql({ query: listSites, authMode: "AWS_IAM" });
   const pathsFR = response.data.listSites.items.map((s) => {
-    return {
-      params: {
-        id: s.id, 
-      }, locale: "fr"
-    };
+    return { params: { id: s.id }, locale: "fr" };
   });
   const pathsEN = response.data.listSites.items.map((s) => {
-    return ({
-      params: {
-        id: s.id
-      }, 
-      locale: "en"
-    })
-  })
+    return { params: { id: s.id }, locale: "en" };
+  });
   return { paths: pathsFR.concat(pathsEN), fallback: false };
 }
 
 const Site = ({ site, discos }) => {
-
-  const lang = useRouter().locale
+  const lang = useRouter().locale;
   const [username, setUsername] = useState(false);
   useEffect(() => setUsername(getCurrentUser().username), []);
 
   async function handleDeleteSite() {
-    
     try {
       await API.graphql({
         authMode: "AMAZON_COGNITO_USER_POOLS",
         query: deleteSite,
-        variables: {
-          input: { id: site.id },
-        },
+        variables: { input: { id: site.id } },
       });
       window.location.href = "/";
     } catch (e) {
@@ -95,7 +82,7 @@ const Site = ({ site, discos }) => {
 
       <main>
         {/* basics */}
-        <SiteBasics site={site} lang={lang}/>
+        <SiteBasics site={site} lang={lang} />
 
         {/* pictures */}
         {site.media.items.length > 0 && (
@@ -110,10 +97,10 @@ const Site = ({ site, discos }) => {
           site.styles ||
           site.persons ||
           site.events ||
-          site.protections) && <SiteFacts site={site} lang={lang}/>}
+          site.protections) && <SiteFacts site={site} lang={lang} />}
 
         {/* Description */}
-        {site.description && <SiteDescription site={site} lang={lang}/>}
+        {site.description && <SiteDescription site={site} lang={lang} />}
 
         {/* Discoveries */}
         {discos.length > 0 && (
@@ -126,61 +113,63 @@ const Site = ({ site, discos }) => {
             }}
           >
             <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
-            <DiscosList discos={discos} filter={{}} lang={lang}/>
+            <DiscosList discos={discos} filter={{}} lang={lang} />
           </div>
         )}
 
         {/* Further on */}
-        {site.links && site.links.length > 0 && <SiteLinks site={site} lang={lang}/>}
+        {site.links && site.links.length > 0 && (
+          <SiteLinks site={site} lang={lang} />
+        )}
 
         {[site.ambassadorID, "tlm"].includes(username) && (
           <>
-          <div
-            style={{
-              marginTop: 30,
-              backgroundColor: "white",
-              border: "1px solid pink",
-              color: "black",
-              fontWeight: "bold",
-              padding: "5px 30px",
-              borderRadius: 5,
-              width: 200,
-              textAlign: "center",
-            }}
-          >
-            <Link
-              style={{ color: "black" }}
-              href={{
-                pathname: "/admin/update",
-                query: { model: "site", id: site.id },
-              }}
-            >
-              {Keys[lang]["update"]}
-            </Link>
-          </div>
-          <div
-            style={{
-              marginTop: 20,
-              borderTop: "1px solid #eee",
-              paddingTop: 20,
-            }}
-          >
-            <button
-              onClick={() => handleDeleteSite()}
-              size="md"
+            <div
               style={{
+                marginTop: 30,
                 backgroundColor: "white",
-                border: "1px dotted pink",
-                color: "grey",
+                border: "1px solid pink",
+                color: "black",
+                fontWeight: "bold",
                 padding: "5px 30px",
                 borderRadius: 5,
                 width: 200,
-                fontStyle: 'italic'
+                textAlign: "center",
               }}
             >
-              {Keys[lang]["remove"]}
-            </button>
-          </div>
+              <Link
+                style={{ color: "black" }}
+                href={{
+                  pathname: "/admin/update",
+                  query: { model: "site", id: site.id },
+                }}
+              >
+                {Keys[lang]["update"]}
+              </Link>
+            </div>
+            <div
+              style={{
+                marginTop: 20,
+                borderTop: "1px solid #eee",
+                paddingTop: 20,
+              }}
+            >
+              <button
+                onClick={() => handleDeleteSite()}
+                size="md"
+                style={{
+                  backgroundColor: "white",
+                  border: "1px dotted pink",
+                  color: "grey",
+                  padding: "5px 30px",
+                  borderRadius: 5,
+                  width: 200,
+                  fontStyle: "italic",
+                }}
+              >
+                {Keys[lang]["remove"]}
+              </button>
+            </div>
           </>
         )}
       </main>

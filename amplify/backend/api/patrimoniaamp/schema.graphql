@@ -8,13 +8,22 @@ type Site
   picture: Media @hasOne(fields: ["pictureID"])
   address: Address!
   description: String!
-  description_enGB: String
+  description_en: String
+  description_es: String
+  description_de: String
+  description_nl: String
   headline: String!
-  headline_enGB: String
+  headline_en: String
+  headline_es: String
+  headline_de: String
+  headline_nl: String
   links: [Link]
   media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
   name: String!
-  name_enGB: Address
+    name_en: String
+    name_es: String
+    name_de: String
+    name_nl: String
   periods: [SitePeriods]
   position: Position  
   protections: [SiteProtections]
@@ -39,25 +48,34 @@ type Disco
     dates: [EventDate]
     duration: [String]
     description: String
-    description_enGB: String
+    description_en: String
+    description_es: String
+    description_de: String
+    description_nl: String
     demandCommentary: String
-    demandCommentary_enGB: String
+    demandCommentary_en: String
     events: [String]
     format: DiscoFormats! # the format of the discovery
     headline: String!
-    headline_enGB: String
+    headline_en: String
+    headline_es: String
+    headline_de: String
+    headline_nl: String
     languages: [DiscoLanguages]
     name: String!
-    name_enGB: String
+    name_en: String
+    name_es: String
+    name_de: String
+    name_nl: String
     openingHours: OpeningHours
     periods: [SitePeriods]
     persons: [String]
     pictures: [String]
     practicalInfo: String
-    practicalInfo_enGB: String
+    practicalInfo_en: String
     price: DiscoPrices!
     priceCommentary: String
-    priceCommentary_enGB: String
+    priceCommentary_en: String
     priority: String
     type: DiscoTypes! 
     subjects: [DiscoSubjects]
@@ -82,7 +100,10 @@ type Organiser
   id: ID! @primaryKey
   name: String!
   description: String!
-  description_enGB: String  
+  description_en: String
+  description_es: String
+  description_de: String
+  description_nl: String
   www: String
   phone: String
   email: String

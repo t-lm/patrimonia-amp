@@ -1,8 +1,5 @@
 // ./comps/sitebasics.js
 
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
 import utilStyles from "../styles/utils.module.css";
 
 const Countries = require("../utils/Countries.json");
@@ -10,6 +7,7 @@ const SiteTypes = require("../utils/SiteTypes.json");
 const { Icons } = require("../utils/icons");
 
 export const SiteBasics = (props) => {
+  
   const site = props.site;
   const lang = props.lang
 
@@ -24,7 +22,7 @@ export const SiteBasics = (props) => {
     >
       {/* site name */}
       <h1 style={{ marginBottom: 0 }} className={utilStyles.heading2Xl}>
-        {site.name}
+        {site[lang === "en" ? `name_${lang}` : "name"]}
       </h1>
 
       {/* city */}
@@ -40,11 +38,10 @@ export const SiteBasics = (props) => {
         <a
           style={{ color: "black" }}
           href={`https://www.google.com/maps/place/${encodeURIComponent(
-            `${site.address.street},${site.address.postalCode} ${site.address.city} France`
+            `${site.address.street},${site.address.postalCode} ${site.address.city} ${Countries["fr"][lang]}`
           )}`}
         >
-          {site.address.street}, {site.address.postalCode} {site.address.city},
-          France
+          {site.address.street}, {site.address.postalCode} {site.address.city}, {Countries["fr"][lang]}
         </a>
       </div>
 

@@ -26,9 +26,15 @@ export const getSite = /* GraphQL */ `
         city
       }
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       links {
         fr
         en
@@ -49,12 +55,10 @@ export const getSite = /* GraphQL */ `
         nextToken
       }
       name
-      name_enGB {
-        name
-        street
-        postalCode
-        city
-      }
+      name_en
+      name_es
+      name_de
+      name_nl
       periods
       position {
         latitude
@@ -107,9 +111,15 @@ export const listSites = /* GraphQL */ `
           city
         }
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         links {
           fr
           en
@@ -119,12 +129,10 @@ export const listSites = /* GraphQL */ `
           nextToken
         }
         name
-        name_enGB {
-          name
-          street
-          postalCode
-          city
-        }
+        name_en
+        name_es
+        name_de
+        name_nl
         periods
         position {
           latitude
@@ -151,7 +159,10 @@ export const getDisco = /* GraphQL */ `
         id
         name
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         www
         phone
         email
@@ -190,9 +201,15 @@ export const getDisco = /* GraphQL */ `
           city
         }
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         links {
           fr
           en
@@ -202,12 +219,10 @@ export const getDisco = /* GraphQL */ `
           nextToken
         }
         name
-        name_enGB {
-          name
-          street
-          postalCode
-          city
-        }
+        name_en
+        name_es
+        name_de
+        name_nl
         periods
         position {
           latitude
@@ -236,16 +251,25 @@ export const getDisco = /* GraphQL */ `
       }
       duration
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       demandCommentary
-      demandCommentary_enGB
+      demandCommentary_en
       events
       format
       headline
-      headline_enGB
+      headline_en
+      headline_es
+      headline_de
+      headline_nl
       languages
       name
-      name_enGB
+      name_en
+      name_es
+      name_de
+      name_nl
       openingHours {
         sun
         mon
@@ -259,10 +283,10 @@ export const getDisco = /* GraphQL */ `
       persons
       pictures
       practicalInfo
-      practicalInfo_enGB
+      practicalInfo_en
       price
       priceCommentary
-      priceCommentary_enGB
+      priceCommentary_en
       priority
       type
       subjects
@@ -288,7 +312,10 @@ export const listDiscos = /* GraphQL */ `
           id
           name
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           www
           phone
           email
@@ -304,10 +331,20 @@ export const listDiscos = /* GraphQL */ `
           locationID
           pictureID
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           headline
-          headline_enGB
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
           name
+          name_en
+          name_es
+          name_de
+          name_nl
           periods
           protections
           styles
@@ -332,16 +369,25 @@ export const listDiscos = /* GraphQL */ `
         }
         duration
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         demandCommentary
-        demandCommentary_enGB
+        demandCommentary_en
         events
         format
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         languages
         name
-        name_enGB
+        name_en
+        name_es
+        name_de
+        name_nl
         openingHours {
           sun
           mon
@@ -355,10 +401,10 @@ export const listDiscos = /* GraphQL */ `
         persons
         pictures
         practicalInfo
-        practicalInfo_enGB
+        practicalInfo_en
         price
         priceCommentary
-        priceCommentary_enGB
+        priceCommentary_en
         priority
         type
         subjects
@@ -394,7 +440,10 @@ export const discosByOrganiserID = /* GraphQL */ `
           id
           name
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           www
           phone
           email
@@ -410,10 +459,20 @@ export const discosByOrganiserID = /* GraphQL */ `
           locationID
           pictureID
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           headline
-          headline_enGB
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
           name
+          name_en
+          name_es
+          name_de
+          name_nl
           periods
           protections
           styles
@@ -438,16 +497,25 @@ export const discosByOrganiserID = /* GraphQL */ `
         }
         duration
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         demandCommentary
-        demandCommentary_enGB
+        demandCommentary_en
         events
         format
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         languages
         name
-        name_enGB
+        name_en
+        name_es
+        name_de
+        name_nl
         openingHours {
           sun
           mon
@@ -461,10 +529,10 @@ export const discosByOrganiserID = /* GraphQL */ `
         persons
         pictures
         practicalInfo
-        practicalInfo_enGB
+        practicalInfo_en
         price
         priceCommentary
-        priceCommentary_enGB
+        priceCommentary_en
         priority
         type
         subjects
@@ -500,7 +568,10 @@ export const discosBySiteID = /* GraphQL */ `
           id
           name
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           www
           phone
           email
@@ -516,10 +587,20 @@ export const discosBySiteID = /* GraphQL */ `
           locationID
           pictureID
           description
-          description_enGB
+          description_en
+          description_es
+          description_de
+          description_nl
           headline
-          headline_enGB
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
           name
+          name_en
+          name_es
+          name_de
+          name_nl
           periods
           protections
           styles
@@ -544,16 +625,25 @@ export const discosBySiteID = /* GraphQL */ `
         }
         duration
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         demandCommentary
-        demandCommentary_enGB
+        demandCommentary_en
         events
         format
         headline
-        headline_enGB
+        headline_en
+        headline_es
+        headline_de
+        headline_nl
         languages
         name
-        name_enGB
+        name_en
+        name_es
+        name_de
+        name_nl
         openingHours {
           sun
           mon
@@ -567,10 +657,10 @@ export const discosBySiteID = /* GraphQL */ `
         persons
         pictures
         practicalInfo
-        practicalInfo_enGB
+        practicalInfo_en
         price
         priceCommentary
-        priceCommentary_enGB
+        priceCommentary_en
         priority
         type
         subjects
@@ -664,7 +754,10 @@ export const getOrganiser = /* GraphQL */ `
       id
       name
       description
-      description_enGB
+      description_en
+      description_es
+      description_de
+      description_nl
       www
       phone
       email
@@ -700,7 +793,10 @@ export const listOrganisers = /* GraphQL */ `
         id
         name
         description
-        description_enGB
+        description_en
+        description_es
+        description_de
+        description_nl
         www
         phone
         email

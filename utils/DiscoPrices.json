@@ -1,12 +1,19 @@
 {
-  "free": { "fr": "Gratuite", "en": "Free" },
+  "free": { "fr": "Gratuite", "en": "Free","de": "Frei" },
   "freeDonation": {
     "fr": "Gratuite - tout don est apprécié",
-    "en": "Free - donation are appreciated"
+    "en": "Free - donation are appreciated","de": "Kostenlos - jede Spende ist willkommen"
   },
   "freeTip": {
     "fr": "Gratuite - tout pourboire est apprécié",
-    "en": "Free - tips are appreciated"
+    "en": "Free - tips are appreciated","de": "Kostenlos - jeder Tipp ist willkommen"
   },
-  "paying": { "fr": "Payant", "en": "Paying" }
+  "paying": { "fr": "Payant", "en": "Paying" ,"de": "Bezahlt"}
 }
+
+
+
+
+
+
+

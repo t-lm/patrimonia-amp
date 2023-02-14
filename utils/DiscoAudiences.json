@@ -1,5 +1,5 @@
 {
-  "everyone": { "fr": "Tous", "en": "Everyone" },
-  "families": { "fr": "Familles", "en": "Families" },
-  "specialists": { "fr": "Spécialistes", "en": "Specialists" }
+  "everyone": { "fr": "Tous", "en": "Everyone", "de": "Alle" },
+  "families": { "fr": "Familles", "en": "Families", "de": "Familien" },
+  "specialists": { "fr": "Spécialistes", "en": "Specialists", "de": "Spezialisten" }
 }

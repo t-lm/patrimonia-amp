@@ -23,6 +23,12 @@
       },
       "hosting": {
         "S3AndCloudFront": {}
+      },
+      "function": {
+        "translateSite": {
+          "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+          "s3Key": "amplify-builds/translateSite-2b6b774d483255366445-build.zip"
+        }
       }
     }
   }

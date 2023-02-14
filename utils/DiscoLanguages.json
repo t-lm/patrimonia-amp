@@ -1,10 +1,18 @@
 {    
-    "de": { "fr": "Allemand","en": "German"},
-    "en": { "fr": "Anglais","en": "English"},
-    "cn": { "fr": "Chinois","en": "Chinese"},
-    "es": { "fr": "Espagnol","en": "Spanish"},
-    "fr": { "fr": "Français","en": "French"},
-    "it": { "fr": "Italien","en": "Italian"},
-    "jp": { "fr": "Japonais","en": "Japanese"},
-    "nl": { "fr": "Néerlandais","en": "Dutch"}
+    "de": { "fr": "Allemand","en": "German", "de": "Deutsch"},
+    "en": { "fr": "Anglais","en": "English","de": "Englisch"},
+    "cn": { "fr": "Chinois","en": "Chinese","de": "Chinesisch"},
+    "es": { "fr": "Espagnol","en": "Spanish","de": "Spanisch"},
+    "fr": { "fr": "Français","en": "French","de": "Französisch"},
+    "it": { "fr": "Italien","en": "Italian","de": "Italienisch"},
+    "jp": { "fr": "Japonais","en": "Japanese","de": "japanisch"},
+    "nl": { "fr": "Néerlandais","en": "Dutch","de": "Niederländisch"}
   }
+
+
+
+
+
+
+
+
