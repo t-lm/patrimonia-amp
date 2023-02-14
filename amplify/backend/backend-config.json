@@ -79,20 +79,10 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "translateSite": {
+    "patrimoniaamppatrimoniaAwsSdKLayer": {
       "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ],
-          "category": "api",
-          "resourceName": "patrimoniaamp"
-        }
-      ],
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "LambdaLayer"
     }
   },
   "hosting": {
@@ -118,19 +108,19 @@
         }
       ]
     },
-    "AMPLIFY_function_translateSite_deploymentBucketName": {
+    "AMPLIFY_function_patrimoniaamppatrimoniaAwsSdKLayer_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "translateSite"
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
         }
       ]
     },
-    "AMPLIFY_function_translateSite_s3Key": {
+    "AMPLIFY_function_patrimoniaamppatrimoniaAwsSdKLayer_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "translateSite"
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
         }
       ]
     }
