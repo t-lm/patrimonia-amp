@@ -1,4 +1,4 @@
-// ./var/build.js
+// ./var/translateKeys.js
 
 const Countries = require("../utils/Countries.json");
 const DiscoAudiences = require("../utils/DiscoAudiences.json");

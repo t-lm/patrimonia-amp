@@ -5,6 +5,7 @@ import utilStyles from "../styles/utils.module.css";
 const Countries = require("../utils/Countries.json");
 const SiteTypes = require("../utils/SiteTypes.json");
 const { Icons } = require("../utils/icons");
+const { Languages } = require("../utils/auth");
 
 export const SiteBasics = (props) => {
   
@@ -22,7 +23,7 @@ export const SiteBasics = (props) => {
     >
       {/* site name */}
       <h1 style={{ marginBottom: 0 }} className={utilStyles.heading2Xl}>
-        {site[lang === "en" ? `name_${lang}` : "name"]}
+        {site[Languages.includes(lang) ? `name_${lang}` : "name"]}
       </h1>
 
       {/* city */}
@@ -70,7 +71,9 @@ export const SiteBasics = (props) => {
           ))}
       </div>
 
-      <h5 style={{ marginTop: 20, color: "#333" }}>{site.headline}</h5>
+      <h5 style={{ marginTop: 20, color: "#333" }}>
+        {site[Languages.includes(lang) ? `headline_${lang}` : "headline"]}
+      </h5>
     </div>
   );
 };

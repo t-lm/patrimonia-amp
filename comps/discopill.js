@@ -12,6 +12,7 @@ import { Keys } from "../utils/dictionary";
 
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
+const { Languages } = require("../utils/auth");
 //const DiscoTypes = require("../utils/DiscoTypes.json");
 
 const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -46,7 +47,7 @@ export const DiscoPill = (props) => {
           <Link href={`/discos/${disco.id}`}>
             <Image
               src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${disco.pictures[0]}`}
-              alt={disco.name}
+              alt={disco[Languages.includes(lang) ? `name_${lang}` : "name"]}
               className="shadow-1-strong rounded"
               fill
               priority
@@ -73,7 +74,7 @@ export const DiscoPill = (props) => {
             href={`/discos/${disco.id}`}
             style={{ color: "black", fontWeight: "bold" }}
           >
-            {disco.name}
+            {disco[Languages.includes(lang) ? `name_${lang}` : "name"]}
           </Link>
         </span>
 
@@ -82,7 +83,7 @@ export const DiscoPill = (props) => {
           <Link style={{ color: "black" }} href={`/sites/${disco.siteID}`}>
             {disco.address.city}
             {" . "}
-            {disco.site.name}
+            {disco.site[Languages.includes(lang) ? `name_${lang}` : "name"]}
             {" . "}
             {DiscoFormats[disco.format][lang]}
           </Link>
@@ -121,7 +122,7 @@ export const DiscoPill = (props) => {
           }}
         >
           <Link style={{ color: "black" }} href={`/discos/${disco.id}`}>
-            {disco.headline.slice(0, 150)}
+            {disco[Languages.includes(lang) ? `headline_${lang}` : "headline"]}
           </Link>
         </div>
 

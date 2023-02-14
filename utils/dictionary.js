@@ -47,6 +47,7 @@ export const Keys = {
     discosOpen: "Libres",
     discosOnDemand: "Visites sur demande",
     discosRegular: "Régulières",
+    Discover: "Découvrir",
     DISCOVERIES: "DÉCOUVERTES",
     edition: "Edition",
     email: "Email",
@@ -69,7 +70,7 @@ export const Keys = {
     keyStyle: "Style principal",
     keyStyles: "Styles",
     learnMore: "Plus d'information",
-    links: "Liens utiles",
+    links: "Aller plus loin",
     makeARequest: "Faire une demande",
     meetingPoint: "Rendez-vous",
     MYACCOUNT: "MON COMPTE",
@@ -138,6 +139,7 @@ export const Keys = {
     discosOpen: "Open",
     discosOnDemand: "Visits on demand",
     discosRegular: "Regular",
+    Discover: "Discover",
     DISCOVERIES: "DISCOVERIES",
     edition: "Edition",
     email: "Email",
@@ -203,6 +205,7 @@ export const Keys = {
   }
 }
 
+
 export const SiteFilter = {
   fr: {
     type: "Type de lieu",
@@ -215,9 +218,8 @@ export const SiteFilter = {
 }
 
 export const SiteMedia = ({lang, num}) => {
-  if (lang === "fr") return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
-  //if (lang === "fr") return <span>{num} autres photos</span>;
-  else return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
+  if (lang === "en") return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
+  else return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
 }
 
 export const VisitDonations = {
@@ -232,7 +234,6 @@ export const VisitDonations = {
 }
 
 export const DiscoMedia = ({lang, num}) => {
-  if (lang === "fr") return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
-  //if (lang === "fr") return <span>{num} autres photos</span>;
-  else return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
+  if (lang === "en") return <span>{num > 1 ? <span>{num} other pictures</span> : <span>Another picture</span>}</span>;
+  return <span>{num > 1 ? <span>{num} autres photos</span> : <span>Une autre photo</span>}</span>;
 }

@@ -36,8 +36,8 @@ export const getSite = /* GraphQL */ `
       headline_de
       headline_nl
       links {
-        fr
-        en
+        text
+        text_en
         www
       }
       media {
@@ -121,8 +121,8 @@ export const listSites = /* GraphQL */ `
         headline_de
         headline_nl
         links {
-          fr
-          en
+          text
+          text_en
           www
         }
         media {
@@ -211,8 +211,8 @@ export const getDisco = /* GraphQL */ `
         headline_de
         headline_nl
         links {
-          fr
-          en
+          text
+          text_en
           www
         }
         media {
@@ -257,6 +257,9 @@ export const getDisco = /* GraphQL */ `
       description_nl
       demandCommentary
       demandCommentary_en
+      demandCommentary_es
+      demandCommentary_de
+      demandCommentary_nl
       events
       format
       headline
@@ -284,9 +287,15 @@ export const getDisco = /* GraphQL */ `
       pictures
       practicalInfo
       practicalInfo_en
+      practicalInfo_es
+      practicalInfo_de
+      practicalInfo_nl
       price
       priceCommentary
       priceCommentary_en
+      priceCommentary_es
+      priceCommentary_de
+      priceCommentary_nl
       priority
       type
       subjects
@@ -375,6 +384,9 @@ export const listDiscos = /* GraphQL */ `
         description_nl
         demandCommentary
         demandCommentary_en
+        demandCommentary_es
+        demandCommentary_de
+        demandCommentary_nl
         events
         format
         headline
@@ -402,9 +414,15 @@ export const listDiscos = /* GraphQL */ `
         pictures
         practicalInfo
         practicalInfo_en
+        practicalInfo_es
+        practicalInfo_de
+        practicalInfo_nl
         price
         priceCommentary
         priceCommentary_en
+        priceCommentary_es
+        priceCommentary_de
+        priceCommentary_nl
         priority
         type
         subjects
@@ -503,6 +521,9 @@ export const discosByOrganiserID = /* GraphQL */ `
         description_nl
         demandCommentary
         demandCommentary_en
+        demandCommentary_es
+        demandCommentary_de
+        demandCommentary_nl
         events
         format
         headline
@@ -530,9 +551,15 @@ export const discosByOrganiserID = /* GraphQL */ `
         pictures
         practicalInfo
         practicalInfo_en
+        practicalInfo_es
+        practicalInfo_de
+        practicalInfo_nl
         price
         priceCommentary
         priceCommentary_en
+        priceCommentary_es
+        priceCommentary_de
+        priceCommentary_nl
         priority
         type
         subjects
@@ -631,6 +658,9 @@ export const discosBySiteID = /* GraphQL */ `
         description_nl
         demandCommentary
         demandCommentary_en
+        demandCommentary_es
+        demandCommentary_de
+        demandCommentary_nl
         events
         format
         headline
@@ -658,9 +688,15 @@ export const discosBySiteID = /* GraphQL */ `
         pictures
         practicalInfo
         practicalInfo_en
+        practicalInfo_es
+        practicalInfo_de
+        practicalInfo_nl
         price
         priceCommentary
         priceCommentary_en
+        priceCommentary_es
+        priceCommentary_de
+        priceCommentary_nl
         priority
         type
         subjects

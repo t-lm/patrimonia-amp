@@ -375,7 +375,7 @@ const FormSite = (props) => {
               as="textarea"
               rows={3}
               onChange={(e) => handleUpdateLinks(e.target.value)}
-              value={site.links.map((x) => `${x.www},${x.fr}`).join("\n")}
+              value={site.links.map((x) => `${x.www},${x.text}`).join("\n")}
               size="sm"
             />
           </Col>

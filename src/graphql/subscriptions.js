@@ -39,8 +39,8 @@ export const onCreateSite = /* GraphQL */ `
       headline_de
       headline_nl
       links {
-        fr
-        en
+        text
+        text_en
         www
       }
       media {
@@ -114,8 +114,8 @@ export const onUpdateSite = /* GraphQL */ `
       headline_de
       headline_nl
       links {
-        fr
-        en
+        text
+        text_en
         www
       }
       media {
@@ -189,8 +189,8 @@ export const onDeleteSite = /* GraphQL */ `
       headline_de
       headline_nl
       links {
-        fr
-        en
+        text
+        text_en
         www
       }
       media {
@@ -291,8 +291,8 @@ export const onCreateDisco = /* GraphQL */ `
         headline_de
         headline_nl
         links {
-          fr
-          en
+          text
+          text_en
           www
         }
         media {
@@ -337,6 +337,9 @@ export const onCreateDisco = /* GraphQL */ `
       description_nl
       demandCommentary
       demandCommentary_en
+      demandCommentary_es
+      demandCommentary_de
+      demandCommentary_nl
       events
       format
       headline
@@ -364,9 +367,15 @@ export const onCreateDisco = /* GraphQL */ `
       pictures
       practicalInfo
       practicalInfo_en
+      practicalInfo_es
+      practicalInfo_de
+      practicalInfo_nl
       price
       priceCommentary
       priceCommentary_en
+      priceCommentary_es
+      priceCommentary_de
+      priceCommentary_nl
       priority
       type
       subjects
@@ -442,8 +451,8 @@ export const onUpdateDisco = /* GraphQL */ `
         headline_de
         headline_nl
         links {
-          fr
-          en
+          text
+          text_en
           www
         }
         media {
@@ -488,6 +497,9 @@ export const onUpdateDisco = /* GraphQL */ `
       description_nl
       demandCommentary
       demandCommentary_en
+      demandCommentary_es
+      demandCommentary_de
+      demandCommentary_nl
       events
       format
       headline
@@ -515,9 +527,15 @@ export const onUpdateDisco = /* GraphQL */ `
       pictures
       practicalInfo
       practicalInfo_en
+      practicalInfo_es
+      practicalInfo_de
+      practicalInfo_nl
       price
       priceCommentary
       priceCommentary_en
+      priceCommentary_es
+      priceCommentary_de
+      priceCommentary_nl
       priority
       type
       subjects
@@ -593,8 +611,8 @@ export const onDeleteDisco = /* GraphQL */ `
         headline_de
         headline_nl
         links {
-          fr
-          en
+          text
+          text_en
           www
         }
         media {
@@ -639,6 +657,9 @@ export const onDeleteDisco = /* GraphQL */ `
       description_nl
       demandCommentary
       demandCommentary_en
+      demandCommentary_es
+      demandCommentary_de
+      demandCommentary_nl
       events
       format
       headline
@@ -666,9 +687,15 @@ export const onDeleteDisco = /* GraphQL */ `
       pictures
       practicalInfo
       practicalInfo_en
+      practicalInfo_es
+      practicalInfo_de
+      practicalInfo_nl
       price
       priceCommentary
       priceCommentary_en
+      priceCommentary_es
+      priceCommentary_de
+      priceCommentary_nl
       priority
       type
       subjects

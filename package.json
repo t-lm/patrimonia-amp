@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^4.3.4",
+    "@aws-sdk/client-dynamodb": "^3.267.0",
     "@aws-sdk/client-translate": "^3.267.0",
     "@vercel/analytics": "^0.1.8",
     "aws-amplify": "^5.0.11",
+    "aws-sdk": "^2.1314.0",
     "bootstrap": "^5.2.3",
     "date-fns": "^2.29.3",
     "deepl-node": "^1.8.0",

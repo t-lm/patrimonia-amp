@@ -54,6 +54,9 @@ type Disco
     description_nl: String
     demandCommentary: String
     demandCommentary_en: String
+    demandCommentary_es: String
+    demandCommentary_de: String
+    demandCommentary_nl: String
     events: [String]
     format: DiscoFormats! # the format of the discovery
     headline: String!
@@ -73,9 +76,15 @@ type Disco
     pictures: [String]
     practicalInfo: String
     practicalInfo_en: String
+    practicalInfo_es: String
+    practicalInfo_de: String
+    practicalInfo_nl: String
     price: DiscoPrices!
     priceCommentary: String
     priceCommentary_en: String
+    priceCommentary_es: String
+    priceCommentary_de: String
+    priceCommentary_nl: String
     priority: String
     type: DiscoTypes! 
     subjects: [DiscoSubjects]
@@ -125,8 +134,8 @@ type EventDate {
 }
 
 type Link {
-  fr: String!
-  en: String
+  text: String!
+  text_en: String
   www: String!
 }
 

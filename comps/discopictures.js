@@ -8,11 +8,12 @@ import Button from "react-bootstrap/Button";
 
 import { PictureCarousel } from "./carousel";
 
-import { DiscoMedia } from "../utils/dictionary";
+import { Keys, DiscoMedia } from "../utils/dictionary";
 
 export const DiscoPictures = (props) => {
   
   const disco = props.disco;
+  const lang = props.lang;
   const [showCarousel, setShowCarousel] = useState(false);
 
   return (
@@ -80,7 +81,7 @@ export const DiscoPictures = (props) => {
                 paddingTop: 30,
               }}
             >
-              <DiscoMedia lang="fr" num={disco.pictures.length - 5} />
+              <DiscoMedia lang={lang} num={disco.pictures.length - 5} />
             </div>
           )}
         </div>
@@ -98,7 +99,7 @@ export const DiscoPictures = (props) => {
             style={{ color: "grey", width: "20%", border: "0px" }}
             onClick={() => setShowCarousel(false)}
           >
-            Fermer
+            {Keys[lang]["close"]}
           </Button>
         </Modal.Footer>
       </Modal>

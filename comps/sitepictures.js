@@ -8,11 +8,14 @@ import Button from "react-bootstrap/Button";
 
 import { PictureCarousel } from "./carousel";
 
-import { SiteMedia } from "../utils/dictionary";
+import { Keys, SiteMedia } from "../utils/dictionary";
+const { Languages } = require("../utils/auth");
 
 export const SitePictures = (props) => {
+  
   const site = props.site;
   const media = props.media;
+  const lang = props.lang;
 
   const [showCarousel, setShowCarousel] = useState(false);
 
@@ -82,7 +85,7 @@ export const SitePictures = (props) => {
             }}
             onClick={() => setShowCarousel(true)}
           >
-            <SiteMedia lang="fr" num={media.length - 5} />
+            <SiteMedia lang={lang} num={media.length - 5} />
           </div>
         )}
       </div>
@@ -99,7 +102,7 @@ export const SitePictures = (props) => {
             style={{ color: "grey", width: "20%", border: "0px" }}
             onClick={() => setShowCarousel(false)}
           >
-            Fermer
+            {Keys[lang]["close"]}
           </Button>
         </Modal.Footer>
       </Modal>

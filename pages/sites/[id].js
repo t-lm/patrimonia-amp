@@ -88,6 +88,7 @@ const Site = ({ site, discos }) => {
         {site.media.items.length > 0 && (
           <SitePictures
             site={site}
+            lang={lang}
             media={site.media.items.filter((x) => x.id !== site.pictureID)}
           />
         )}
@@ -112,15 +113,15 @@ const Site = ({ site, discos }) => {
               color: "black",
             }}
           >
-            <h3 style={{ fontWeight: "bold" }}>Visites et évènements</h3>
+            <h3 style={{ fontWeight: "bold" }}>{Keys[lang]["Discover"]}</h3>
             <DiscosList discos={discos} filter={{}} lang={lang} />
           </div>
         )}
 
         {/* Further on */}
-        {site.links && site.links.length > 0 && (
+        {/*site.links && site.links.length > 0 && (
           <SiteLinks site={site} lang={lang} />
-        )}
+        )*/}
 
         {[site.ambassadorID, "tlm"].includes(username) && (
           <>
