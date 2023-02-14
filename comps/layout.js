@@ -1,8 +1,8 @@
-8// ./comps/layout.js
+8; // ./comps/layout.js
 
 import React, { useEffect, useState } from "react";
 
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,14 +16,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { BsHouse, BsBoxArrowInRight, BsBoxArrowRight } from "react-icons/bs";
 
-import { Keys } from "../utils/dictionary";
+
 import { getCurrentUser, logout } from "../utils/auth";
+
+const Keys = require("../utils/Keys.json");
+const DiscoLanguages = require("../utils/DiscoLanguages.json");
 
 export const siteTitle = "Patrimonia";
 
 const Layout = ({ children }) => {
-  
-  const lang = useRouter().locale
+
+  const lang = useRouter().locale;
+  const path = useRouter().asPath;
   const [username, setUsername] = useState();
   useEffect(() => setUsername(getCurrentUser().username), []);
 
@@ -31,10 +35,7 @@ const Layout = ({ children }) => {
     <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Découvrir le patrimoine"
-        />
+        <meta name="description" content="Découvrir le patrimoine" />
         <meta name="og:title" content={siteTitle} />
       </Head>
 
@@ -49,55 +50,43 @@ const Layout = ({ children }) => {
             }}
           >
             <Container>
-            <Navbar.Brand href="/">
-              <Image
-                alt="Patrimonia"
-                src="/logo_pink.png"
-                width={30}
-                height={30}
-                className="d-inline-block align-top"
-              />
-              <span
-                style={{
-                  marginLeft: 20,
-                  fontWeight: 700,
-                  fontSize: "1.7rem",
-                  color: "black",
-                }}
-              >
-                PATRIMONIA
-              </span>
-            </Navbar.Brand>
+              <Navbar.Brand href="/">
+                <Image
+                  alt="Patrimonia"
+                  src="/logo_pink.png"
+                  width={30}
+                  height={30}
+                  className="d-inline-block align-top"
+                />
+                <span
+                  style={{
+                    marginLeft: 20,
+                    fontWeight: 700,
+                    fontSize: "1.7rem",
+                    color: "black",
+                  }}
+                >
+                  PATRIMONIA
+                </span>
+              </Navbar.Brand>
             </Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
-            <Link
-                style={{ marginRight: 25, color: "black" }}
-                href="/"
-              >
-                {Keys[lang]["DISCOVERIES"]}
+              <Link style={{ marginRight: 25, color: "black" }} href="/">
+                {Keys["DISCOVERIES"][lang]}
               </Link>
-              <Link
-                style={{ marginRight: 25, color: "black" }}
-                href="/sites"
-              >
-                {Keys[lang]["SITES"]}
+              <Link style={{ marginRight: 25, color: "black" }} href="/sites">
+                {Keys["SITES"][lang]}
               </Link>
-             {/* <Nav.Link
-                style={{ marginRight: 25, color: "black" }}
-                href="/organisers"
-              >
-                GUIDES
-              </Nav.Link> */}
               <NavDropdown
                 align="end"
-                style={{color: "black"}}
+                style={{ color: "black" }}
                 title={
                   <span
                     style={{
                       marginRight: 10,
-                      color: "black"
+                      color: "black",
                     }}
                   >
                     {username && username.toUpperCase()}
@@ -109,17 +98,17 @@ const Layout = ({ children }) => {
                     <>
                       <NavDropdown.Item href={`/admin`}>
                         <BsHouse style={{ marginRight: 5 }} />
-                        {Keys[lang]["MYACCOUNT"]}
+                        {Keys["MYACCOUNT"][lang]}
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/" onClick={(e) => logout()}>
                         <BsBoxArrowRight style={{ marginRight: 5 }} />
-                        {Keys[lang]["SIGNOUT"]}
+                        {Keys["SIGNOUT"][lang]}
                       </NavDropdown.Item>
                     </>
                   ) : (
                     <NavDropdown.Item href={`/sign`}>
                       <BsBoxArrowInRight style={{ marginRight: 5 }} />
-                      {Keys[lang]["SIGNIN"]}
+                      {Keys["SIGNIN"][lang]}
                     </NavDropdown.Item>
                   )}
                 </small>
@@ -127,24 +116,38 @@ const Layout = ({ children }) => {
             </Navbar.Collapse>
           </Navbar>
 
-          <main style={{ marginTop: 30, marginBottom: 10, minHeight: "90vh" }}>{children}</main>
+          <main style={{ marginTop: 30, marginBottom: 10, minHeight: "90vh" }}>
+            {children}
+          </main>
 
           <footer>
-            <div
+            <Navbar
               style={{
                 fontSize: "0.8rem",
                 color: "grey",
                 borderTop: "1px solid #eee",
                 paddingTop: 10,
                 marginTop: 50,
+                display: "flex",
                 textAlign: "center",
               }}
             >
-              © Patrimonia 2023 -{" "}
-              <a style={{ color: "grey" }} href="mailto:hi@patrimonia.app">
-                {Keys[lang]["getInTouch"]}
-              </a>
-            </div>
+              <Container>
+              <Nav className="me-auto" style={{display: "flex", alignItems: "center"}}>
+                <span>© Patrimonia 2023 </span>
+                <span style={{marginLeft: 10}}>
+                  <a style={{ color: "grey" }} href="mailto:hi@patrimonia.app">
+                    {Keys["getInTouch"][lang]}
+                  </a>
+                </span>
+                <NavDropdown drop="up" title={Keys["Language"][lang]} style={{marginLeft: 10}}>
+                  <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/fr/${path}`}>{DiscoLanguages["fr"][lang]}</NavDropdown.Item>
+                  <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/en/${path}`}>{DiscoLanguages["en"][lang]}</NavDropdown.Item>
+                  <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/es/${path}`}>{DiscoLanguages["es"][lang]}</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              </Container>
+            </Navbar>
           </footer>
         </Col>
       </Row>

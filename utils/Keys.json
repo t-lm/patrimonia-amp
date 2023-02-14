@@ -1,0 +1,481 @@
+{
+  "address": {
+    "fr": "Adresse",
+    "en": "Address",
+    "es": "Dirección",
+    "de": "Adresse"
+  },
+  "all": { "fr": "tous", "en": "all", "es": "todos", "de": "alle" },
+  "book": {
+    "fr": "Réserver",
+    "en": "Book",
+    "es": "Reserva",
+    "de": "Reservieren"
+  },
+  "bookNo": {
+    "fr": "Pas de réservation nécessaire",
+    "en": "No booking. We'll see you there",
+    "es": "No se requiere reserva",
+    "de": "Keine Reservierung erforderlich"
+  },
+  "booking": {
+    "fr": "réservation",
+    "en": "booking",
+    "es": "reserva",
+    "de": "Reservierung"
+  },
+  "Booking": {
+    "fr": "Réservation",
+    "en": "Booking",
+    "es": "Reserva",
+    "de": "Buchung"
+  },
+  "bookingTemp": {
+    "fr": "Réservez directement sur:",
+    "en": "Book directly here:",
+    "es": "Reserva directamente en:",
+    "de": "Buchen Sie direkt auf:"
+  },
+  "close": {
+    "fr": "Fermer",
+    "en": "Close",
+    "es": "Cerrar",
+    "de": "Schliessen"
+  },
+  "contact": {
+    "fr": "Contact",
+    "en": "Details",
+    "es": "Contacto",
+    "de": "Kontakt"
+  },
+  "date": { "fr": "Date", "en": "Date", "es": "Fecha", "de": "Datum" },
+  "description": {
+    "fr": "Description",
+    "en": "Description",
+    "es": "Descripción",
+    "de": "Beschreibung"
+  },
+  "disco": {
+    "fr": "Découverte",
+    "en": "Discovery",
+    "es": "Descubrimiento",
+    "de": "Entdeckung"
+  },
+  "discos": {
+    "fr": "Découvertes",
+    "en": "Visits",
+    "es": "Descubrimientos",
+    "de": "Entdeckungen"
+  },
+  "DiscosAroundBeziers": {
+    "fr": "DÉCOUVERTES À BÉZIERS ET AUTOUR",
+    "en": "DISCOVERIES IN BÉZIERS AND AROUND",
+    "es": "DESCUBRIMIENTOS EN BÉZIERS Y SUS ALREDEDORES",
+    "de": "ENTDECKUNGEN IN BÉZIERS UND UMGEBUNG"
+  },
+  "discoAudiences": {
+    "fr": "Pour qui",
+    "en": "Pour qui",
+    "es": "Para quién",
+    "de": "Für wen"
+  },
+  "discoDuration": {
+    "fr": "Durée",
+    "en": "Duration",
+    "es": "Duración",
+    "de": "Dauer"
+  },
+  "discoFormat": {
+    "fr": "Format",
+    "en": "Format",
+    "es": "Formato",
+    "de": "Format"
+  },
+  "discoTypes": {
+    "fr": "Types de découverte",
+    "en": "Visit types",
+    "es": "Tipos de descubrimiento",
+    "de": "Entdeckungstypen"
+  },
+  "discoToldIn": {
+    "fr": "Langue",
+    "en": "Language",
+    "es": "Idioma",
+    "de": "Sprache"
+  },
+  "discoSubjects": {
+    "fr": "Sujets",
+    "en": "Themes",
+    "es": "Asignaturas",
+    "de": "Fächer"
+  },
+  "discoProposedBy": {
+    "fr": "Organisé par",
+    "en": "Proposed by",
+    "es": "Organizado por",
+    "de": "Gehostet von"
+  },
+  "discosDemand": {
+    "fr": "Sur demande",
+    "en": "On demand",
+    "es": "A petición",
+    "de": "Auf Anfrage"
+  },
+  "discosEvent": {
+    "fr": "Evènement",
+    "en": "Events",
+    "es": "Evento",
+    "de": "Ereignis"
+  },
+  "discosOpen": {
+    "fr": "Libres",
+    "en": "Open",
+    "es": "Libres",
+    "de": "Libres"
+  },
+  "discosOnDemand": {
+    "fr": "Visites sur demande",
+    "en": "Visits on demand",
+    "es": "Visitas a petición",
+    "de": "Besuche auf Anfrage"
+  },
+  "discosRegular": {
+    "fr": "Régulières",
+    "en": "Regular",
+    "es": "Clientes habituales",
+    "de": "Stammgäste"
+  },
+  "Discover": {
+    "fr": "Découvrir",
+    "en": "Discover",
+    "es": "Descubrir",
+    "de": "Entdecken"
+  },
+  "DISCOVERIES": {
+    "fr": "DÉCOUVERTES",
+    "en": "DISCOVERIES",
+    "es": "DESCUBRIMIENTOS",
+    "de": "ENTDECKUNGEN"
+  },
+  "edition": {
+    "fr": "Edition",
+    "en": "Edition",
+    "es": "Edición",
+    "de": "Ausgabe"
+  },
+  "email": { "fr": "Email", "en": "Email", "es": "Correo", "de": "E-Mail" },
+  "errorDiscoDelete": {
+    "fr": "La découverte n'a pas pu être supprimée. Merci de réessayer.",
+    "en": "The discovery could not be removed. Please try again.",
+    "es": "No se pudo eliminar el descubrimiento. Vuelve a intentarlo",
+    "de": "Die Entdeckung konnte nicht entfernt werden. Bitte versuchen Sie es erneut"
+  },
+  "errorSiteDelete": {
+    "fr": "Le site n'a pas pu être supprimé. Merci de réessayer.",
+    "en": "The site could not be removed. Please try again.",
+    "es": "No se pudo eliminar el sitio. Vuelve a intentarlo",
+    "de": "Die Seite konnte nicht entfernt werden. Bitte versuchen Sie es erneut"
+  },
+  "filter": {
+    "fr": "Filtrer les résultats",
+    "en": "Filter results",
+    "es": "Filtrar resultados",
+    "de": "Ergebnisse filtern"
+  },
+  "getInTouch": {
+    "fr": "Ecrivez-nous",
+    "en": "Get in touch",
+    "es": "Escríbenos",
+    "de": "Schreiben Sie uns"
+  },
+  "guide": { "fr": "Guide", "en": "Guide", "es": "guía", "de": "Reiseführer" },
+  "guides": {
+    "fr": "Guides",
+    "en": "Guides",
+    "es": "Guías",
+    "de": "Leitfäden"
+  },
+  "here": { "fr": "ici", "en": "here", "es": "acá", "de": "hierher" },
+  "keyEvent": {
+    "fr": "Evènement",
+    "en": "Event",
+    "es": "Evento",
+    "de": "Ereignis"
+  },
+  "keyEvents": {
+    "fr": "Evènements",
+    "en": "Events",
+    "es": "Eventos",
+    "de": "Ereignisse"
+  },
+  "keyFacts": {
+    "fr": "Fiche d'identité",
+    "en": "Key facts",
+    "es": "Hoja de identidad",
+    "de": "Ausweisblatt"
+  },
+  "keyPerson": {
+    "fr": "Personnage célèbre",
+    "en": "Key person",
+    "es": "Personaje famoso",
+    "de": "Berühmte Figur"
+  },
+  "keyPeople": {
+    "fr": "Personnage célèbres",
+    "en": "Key people",
+    "es": "Personajes famosos",
+    "de": "Berühmte Charaktere"
+  },
+  "keyPeriod": {
+    "fr": "Période",
+    "en": "Period",
+    "es": "Período",
+    "de": "Zeitraum"
+  },
+  "keyPeriods": {
+    "fr": "Périodes",
+    "en": "Periods",
+    "es": "Períodos",
+    "de": "Perioden"
+  },
+  "keyStyle": {
+    "fr": "Style principal",
+    "en": "Main style",
+    "es": "Estilo principal",
+    "de": "Hauptstil"
+  },
+  "keyStyles": {
+    "fr": "Styles",
+    "en": "Styles",
+    "es": "Estilos",
+    "de": "Stilrichtungen"
+  },
+  "Language": {
+    "fr": "Langue",
+    "en": "Language",
+    "es": "Idioma",
+    "de": "Sprache"
+  },
+  "learnMore": {
+    "fr": "Plus d'information",
+    "en": "Learn more",
+    "es": "Más información",
+    "de": "Mehr Informationen"
+  },
+  "links": {
+    "fr": "Aller plus loin",
+    "en": "Useful links",
+    "es": "Yendo más lejos",
+    "de": "Noch weiter"
+  },
+  "makeARequest": {
+    "fr": "Faire une demande",
+    "en": "Make a request",
+    "es": "Realizar una solicitud",
+    "de": "Stellen Sie eine Anfrage"
+  },
+  "meetingPoint": {
+    "fr": "Rendez-vous",
+    "en": "Meeting point",
+    "es": "Cita",
+    "de": "Rendezvous"
+  },
+  "MYACCOUNT": {
+    "fr": "MON COMPTE",
+    "en": "MY ACCOUNT",
+    "es": "MI CUENTA",
+    "de": "MEIN KONTO"
+  },
+  "SIGNIN": {
+    "fr": "SE CONNECTER",
+    "en": "SIGN-IN",
+    "es": "INICIAR SESIÓN",
+    "de": "MELDEN SIE SICH AN"
+  },
+  "SIGNOUT": {
+    "fr": "SE DECONNECTE",
+    "en": "SIGN-OUT",
+    "es": "DESCONECTA",
+    "de": "TRENNT"
+  },
+  "nextDates": {
+    "fr": "Prochaines dates",
+    "en": "Next dates",
+    "es": "Próximas fechas",
+    "de": "Kommende Termine"
+  },
+  "noDisco": {
+    "fr": "Il n'y a pas de visite ou d'évènement connus pour ce site pour le moment",
+    "en": "There is no known visit or event for this site",
+    "es": "No hay visitas ni eventos conocidos para este sitio en este momento",
+    "de": "Für diese Seite sind derzeit keine Besuche oder Veranstaltungen bekannt"
+  },
+  "ok": { "fr": "OK", "en": "OK", "es": "DE ACUERDO", "de": "OK" },
+  "onDemandDefault": {
+    "fr": "Les visites sont organisées sur demande. S'il vous plait, écrivez-nous pour plus d'information",
+    "en": "Visits are organised on demand. Please get in touch for more information",
+    "es": "Las visitas se organizan bajo petición. Escríbenos para obtener más información",
+    "de": "Besuche werden auf Anfrage organisiert. Bitte schreiben Sie uns für weitere Informationen"
+  },
+  "onSiteDefault": {
+    "fr": "Les visites sont organisées directement sur place. Retrouvez nous aux horaires d'ouverture",
+    "en": "Visits are organised directly on site. Come by during opening hours",
+    "es": "Las visitas se organizan directamente en el sitio. Encuéntrenos durante el horario de apertura",
+    "de": "Besuche werden direkt vor Ort organisiert. Treffen Sie uns während der Öffnungszeiten"
+  },
+  "opening": {
+    "fr": "Ouverture",
+    "en": "Opening",
+    "es": "Apertura",
+    "de": "Eröffnung"
+  },
+  "openingHours": {
+    "fr": "Heures d'ouverture",
+    "en": "Opening hours",
+    "es": "Horarios de apertura",
+    "de": "Öffnungszeiten"
+  },
+  "organiser": {
+    "fr": "L'organisateur",
+    "en": "The organiser",
+    "es": "El organizador",
+    "de": "Der Veranstalter"
+  },
+  "organisers": {
+    "fr": "Organisateurs",
+    "en": "Organisers",
+    "es": "Organizadores",
+    "de": "Organisatoren"
+  },
+  "persons": {
+    "fr": "Nombre de personnes",
+    "en": "Number of people",
+    "es": "Número de personas",
+    "de": "Anzahl der Personen"
+  },
+  "phone": {
+    "fr": "Téléphone",
+    "en": "Phone",
+    "es": "Teléfono",
+    "de": "Telefon"
+  },
+  "price": { "fr": "Prix", "en": "Price", "es": "premio", "de": "Preis" },
+  "pictures": {
+    "fr": "Photos",
+    "en": "Pictures",
+    "es": "Imágenes",
+    "de": "Bilder"
+  },
+  "protection": {
+    "fr": "Protection",
+    "en": "Protection",
+    "es": "Protección",
+    "de": "Schutz"
+  },
+  "protections": {
+    "fr": "Protections",
+    "en": "Protections",
+    "es": "Protecciones",
+    "de": "Schutzmaßnahmen"
+  },
+  "remove": {
+    "fr": "Supprimer",
+    "en": "Remove",
+    "es": "Borrar",
+    "de": "Löschen"
+  },
+  "seeless": {
+    "fr": "Voir moins",
+    "en": "See less",
+    "es": "Ver menos",
+    "de": "Weniger sehen"
+  },
+  "seemore": {
+    "fr": "Voir plus",
+    "en": "See more",
+    "es": "Ver más",
+    "de": "Sehen Sie mehr"
+  },
+  "setNoDate": {
+    "fr": "Il ne semble pas y avoir de date pour cette visite. Contactez l'organisateur s'il vous plait",
+    "en": "There does not seem to be any date for this visit. Please contact the organiser",
+    "es": "No parece haber una fecha para esta visita. Póngase en contacto con el organizador",
+    "de": "Es scheint keinen Termin für diesen Besuch zu geben. Bitte kontaktieren Sie den Veranstalter"
+  },
+  "sevendays": {
+    "fr": "7 jours",
+    "en": "7 days",
+    "es": "7 días",
+    "de": "7 Tage"
+  },
+  "SITES": { "fr": "SITES", "en": "SITES", "es": "SITIOS", "de": "WEBSITES" },
+  "sites": { "fr": "Sites", "en": "Sites", "es": "sitios", "de": "Websites" },
+  "sitePageMaintainedBy": {
+    "fr": "Page maintenue par",
+    "en": "Page maintained by",
+    "es": "Página mantenida por",
+    "de": "Seite gepflegt von"
+  },
+  "siteTypes": {
+    "fr": "Types de sites",
+    "en": "Site types",
+    "es": "Tipos de sitios",
+    "de": "Arten von Websites"
+  },
+  "source": { "fr": "Source", "en": "Source", "es": "Fuente", "de": "Quelle" },
+  "sources": {
+    "fr": "Sources",
+    "en": "Sources",
+    "es": "abastecimiento",
+    "de": "Beschaffung"
+  },
+  "stars": {
+    "fr": "Etoiles",
+    "en": "Stars",
+    "es": "Estrellas",
+    "de": "Sterne"
+  },
+  "today": { "fr": "aujourd'hui", "en": "today", "es": "hoy", "de": "heute" },
+  "tomorrow": {
+    "fr": "demain",
+    "en": "tomorrow",
+    "es": "mañana",
+    "de": "morgen"
+  },
+  "update": {
+    "fr": "Mettre à jour",
+    "en": "Update",
+    "es": "Actualizar",
+    "de": "Aktualisieren"
+  },
+  "welcome": {
+    "fr": "DÉCOUVREZ LE PATRIMOINE AUTOUR DE VOUS",
+    "en": "DISCOVER HERITAGE SITES AROUND YOU",
+    "es": "DESCUBRE EL PATRIMONIO QUE TE RODEA",
+    "de": "ENTDECKEN SIE DAS ERBE UM SIE HERUM"
+  },
+  "www": {
+    "fr": "Site internet",
+    "en": "Website",
+    "es": "Sitio web",
+    "de": "Webseite"
+  },
+  "writeEmail": {
+    "fr": "Confirmez avec votre email",
+    "en": "Confirm with your email",
+    "es": "Confirma con tu correo electrónico",
+    "de": "Bestätigen Sie mit Ihrer E-Mail"
+  },
+  "yourEmail": {
+    "fr": "Votre email ...",
+    "en": "Your email ...",
+    "es": "Tu correo electrónico...",
+    "de": "Deine E-Mail..."
+  },
+  "yourEmailWasSent": {
+    "fr": "Votre email a été envoyé",
+    "en": "Your email aws sent",
+    "es": "Tu correo electrónico ha sido enviado",
+    "de": "Deine E-Mail wurde versendet"
+  }
+}

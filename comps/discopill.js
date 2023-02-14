@@ -8,12 +8,10 @@ import Col from "react-bootstrap/Col";
 
 import { FormattedEventDates, FormattedDaySlots, FormattedDays } from "./date";
 
-import { Keys } from "../utils/dictionary";
-
+const Keys = require("../utils/Keys.json");
 const DiscoFormats = require("../utils/DiscoFormats.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const { Languages } = require("../utils/auth");
-//const DiscoTypes = require("../utils/DiscoTypes.json");
 
 const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -150,7 +148,7 @@ export const DiscoPill = (props) => {
                     ]
                   }
                   lang={lang}
-                  verbose={Keys[lang][filter.periodRange]}
+                  verbose={Keys[filter.periodRange][lang]}
                 />
               </Link>
               ) : (
@@ -178,7 +176,7 @@ export const DiscoPill = (props) => {
               href={`/discos/${disco.id}`}
               style={{ color: "black", fontWeight: "bold" }}
             >
-              {Keys[lang]["discosOnDemand"]}
+              {Keys["discosOnDemand"][lang]}
             </Link>
           )}
         </div>

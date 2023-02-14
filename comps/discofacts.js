@@ -6,7 +6,7 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Keys } from "../utils/dictionary";
+const Keys = require("../utils/Keys.json");
 
 import {
   FormattedDurationFromMinutes,
@@ -37,7 +37,7 @@ export const DiscoFacts = (props) => {
       <Row>
         <Col xs={6} md={8} lg={10}>
           <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-            {Keys[lang]["discoProposedBy"]} {disco.organiser.name}
+            {Keys["discoProposedBy"][lang]} {disco.organiser.name}
           </h3>
         </Col>
         <Col>
@@ -60,7 +60,7 @@ export const DiscoFacts = (props) => {
       {disco.duration && (
         <Row>
           <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
-            {Keys[lang]["discoDuration"]}
+            {Keys["discoDuration"][lang]}
           </Col>
           <Col xs={8} md={9}>
             {disco.duration && (
@@ -85,7 +85,7 @@ export const DiscoFacts = (props) => {
       {disco.languages && disco.languages.length > 0 && (
         <Row>
           <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
-            {Keys[lang]["discoToldIn"]}
+            {Keys["discoToldIn"][lang]}
           </Col>
           <Col xs={8} md={9}>
             {disco.languages.map((l, i) => (
@@ -100,7 +100,7 @@ export const DiscoFacts = (props) => {
       
       <Row>
         <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
-          {Keys[lang]["discoFormat"]}
+          {Keys["discoFormat"][lang]}
         </Col>
         <Col xs={8} md={9}>
           {DiscoFormats[disco.format][lang]}
@@ -110,7 +110,7 @@ export const DiscoFacts = (props) => {
       {/* price */}
       <Row>
         <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
-          {Keys[lang]["price"]}
+          {Keys["price"][lang]}
         </Col>
         <Col xs={8} md={9}>
           {DiscoPrices[disco.price][lang]}
@@ -131,8 +131,8 @@ export const DiscoFacts = (props) => {
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.periods.length > 1
-                  ? Keys[lang]["keyPeriods"]
-                  : Keys[lang]["keyPeriod"]}
+                  ? Keys["keyPeriods"][lang]
+                  : Keys["keyPeriod"][lang]}
               </Col>
               <Col xs={8} md={9}>
                 {disco.periods.map((t, i) => (
@@ -148,8 +148,8 @@ export const DiscoFacts = (props) => {
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.styles.length > 1
-                  ? Keys[lang]["keyStyles"]
-                  : Keys[lang]["keyStyle"]}
+                  ? Keys["keyStyles"][lang]
+                  : Keys["keyStyle"][lang]}
               </Col>
               <Col xs={8} md={9}>
                 {disco.styles.map((t, i) => (
@@ -165,8 +165,8 @@ export const DiscoFacts = (props) => {
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.persons.length > 1
-                  ? Keys[lang]["keyPeople"]
-                  : Keys[lang]["keyPerson"]}
+                  ? Keys["keyPeople"][lang]
+                  : Keys["keyPerson"][lang]}
               </Col>
               <Col xs={8} md={9}>
                 {disco.persons.map((t, i) => (
@@ -182,8 +182,8 @@ export const DiscoFacts = (props) => {
             <Row>
               <Col xs={4} md={3} style={{ fontWeight: "bold" }}>
                 {disco.events.length > 1
-                  ? Keys[lang]["keyEvents"]
-                  : Keys[lang]["keyEvent"]}
+                  ? Keys["keyEvents"][lang]
+                  : Keys["keyEvent"][lang]}
               </Col>
               <Col xs={8} md={9}>
                 {disco.events.map((t, i) => (

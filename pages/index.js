@@ -16,7 +16,7 @@ const today = new Date().toISOString().slice(0, 10);
 export const getStaticProps = async () => {
   try {
     const response = await API.graphql({ query: listDiscos, variables: {filter: { dateEnd: { gt: today}}}, authMode: "AWS_IAM" });
-   // return { props: { Discos: response.data.listDiscos.items }, revalidate: 10 };
+    // return { props: { Discos: response.data.listDiscos.items }, revalidate: 10 };
     return { props: { Discos: response.data.listDiscos.items } };
   } catch (err) {
     console.error(err);

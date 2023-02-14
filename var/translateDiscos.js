@@ -6,9 +6,12 @@ const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-trans
 
 const REGION = "eu-west-1";
 const TABLE = "Disco-dg6n37kw5bezfgxg7zofsv3j4m-dev"
+const lang = "de"
+const keys = ["name", "headline", "description", "practicalInfo", "priceCommentary", "demandCommentary"]
+
 const client = new DynamoDBClient({ region: REGION });
 
-const translate = async (text, lang) => {
+const translate = async (text) => {
   const client = new TranslateClient({ region: REGION });
   const params = {
     Text: text,
@@ -30,13 +33,12 @@ const updateItem = async (obj) => {
   let ExpressionAttributeValues = { ":name": obj["name"] };
   let ExpressionAttributeNames = { "#name": "name" }
   let UpdateExpression = "SET #name = :name";
-
-  let keys = ["name_en", "headline_en", "description_en", "practicalInfo_en", "priceCommentary_en", "demandCommentary_en"]  
+  
   keys.forEach((x) => {
-    if (x in obj) {
-      ExpressionAttributeValues[`:${x}`] = obj[x];
-      ExpressionAttributeNames[`#${x}`] = x;
-      UpdateExpression += `, #${x} = :${x}`;
+    if (Object.keys(obj).includes(`${x}_${lang}`)) {
+      ExpressionAttributeValues[`:${x}_${lang}`] = obj[`:${x}_${lang}`];
+      ExpressionAttributeNames[`#${x}_${lang}`] = `${x}_${lang}`;
+      UpdateExpression += `, #${x}_${lang} = :${x}_${lang}`;
     }
   });
   
@@ -64,7 +66,7 @@ const updateItem = async (obj) => {
   // scan
   let input = {
     TableName: TABLE,
-    AttributesToGet: ["name", "headline", "description", "id", "practicalInfo", "priceCommentary", "demandCommentary"],
+    AttributesToGet: [...keys, "id"]
   };
   const command = new ScanCommand(input);
   let results;
@@ -75,28 +77,30 @@ const updateItem = async (obj) => {
   }
   
   // loop
-  results.Items.slice(0,3).forEach((r) => {
-    console.log("starting", r.id.S)
-    let text = `${r.name.S} ### ${r.headline.S} ### ${"description" in r ? r.description.S : " "} ### ${"practicalInfo" in r  ? r.practicalInfo.S : " "} ### ${"priceCommentary" in r ? r.priceCommentary.S : " "} ### ${"demandCommentary" in r ? r.demandCommentary.S : " "} ###`
-    console.log(text)
-    translate(text, "en")
-    .then(data => {
-      console.log(data.split("###"), data.split("###").length)
-      let obj = {
-        id: r.id, 
-        name: r.name, 
-        name_en: { "S" : data.split("###")[0].trim()}, 
-        headline_en: { "S" : data.split("###")[1].trim()}, 
-        description_en: { "S" : data.split("###")[2].trim()}, 
-        practicalInfo_en: { "S" : data.split("###")[3].trim()},
-        priceCommentary_en: { "S" : data.split("###")[4].trim()},
-        demandCommentary_en: { "S" : data.split("###")[5].trim()}
-      }
+  results.Items.forEach((r) => {
+    
+    let obj = {  id: r.id, name: r.name }
+    let promises = keys.map((x) => {
+      console.log(x, r[x])
+      return new Promise((resolve, reject) => {
+        if (Object.keys(r).includes(x) && typeof(r[x]) === "string") { 
+          translate(r[x]["S"])
+          .then(data => {
+            obj[`${x}_${lang}`] = data
+            resolve(true)
+          })
+          .catch(err => console.log(err))
+        } else resolve(true)
+      });
+    });
+
+    Promise.all(promises).then(() => {
+      console.log(obj)
       updateItem(obj)
-      .then(res => { if(res) console.log(obj.id.S, "success")})
+      .then(res => { if(res) console.log("success")})
       .catch(err => console.log(err))
     })
-    .catch(err => console.log(err))  
+    
   });
   
 })();

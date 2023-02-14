@@ -1,8 +1,8 @@
 // ./comps/discodescription.js
 
 
-import { Keys } from "../utils/dictionary";
 const { Languages } = require("../utils/auth");
+const Keys = require("../utils/Keys.json");
 
 export const DiscoDescription = (props) => {
 
@@ -18,7 +18,7 @@ export const DiscoDescription = (props) => {
           color: "black" 
         }}
         >
-      <h3 style={{ fontWeight: "bold" }}>{Keys[lang].description}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys.description[lang]}</h3>
       <span style={{whiteSpace: "pre-line"}}>{disco[Languages.includes(lang) ? `description_${lang}` : "description"]}</span>
 
     </div>

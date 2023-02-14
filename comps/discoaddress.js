@@ -3,7 +3,7 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Keys } from "../utils/dictionary";
+const Keys = require("../utils/Keys.json");
 const Countries = require("../utils/Countries.json");
 
 export const DiscoAddress = (props) => {
@@ -21,12 +21,12 @@ export const DiscoAddress = (props) => {
     }}
   >
 
-    <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys[lang].meetingPoint}</h3>
+    <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>{Keys.meetingPoint[lang]}</h3>
 
     {disco.address && (
       <Row>
         <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
-          {Keys[lang].address}
+          {Keys.address[lang]}
         </Col>
         <Col xs={6} md={9}>
           <a

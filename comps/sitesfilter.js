@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const SiteTypes = require("../utils/SiteTypes.json");
-const Locations = require("../utils/Locations.json");
 
-import { SiteFilter } from "../utils/dictionary";
+const Locations = require("../utils/Locations.json");
+const SiteFilter = require("../utils/SiteFilter.json");
+const SiteTypes = require("../utils/SiteTypes.json");
 
 export const SitesFilter = (props) => {
 
@@ -49,7 +49,7 @@ export const SitesFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ type: e.target.value })}
             >
-              <option value="">{SiteFilter[lang]["type"]}</option>
+              <option value="">{SiteFilter["type"][lang]}</option>
               {Object.keys(SiteTypes).map((x) => (
                 <option key={x} value={x}>
                   {SiteTypes[x][lang]}
@@ -64,7 +64,7 @@ export const SitesFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ periodOption: e.target.value })}
             >
-              <option value="">{SiteFilter[lang]["when"]}</option>
+              <option value="">{SiteFilter["when"][lang]}</option>
               {Object.keys(FilterPeriodOptions).map((x) => (
                 <option key={x} value={x}>
                   {FilterPeriodOptions[x][lang]}

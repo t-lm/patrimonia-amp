@@ -8,8 +8,8 @@ import Button from "react-bootstrap/Button";
 
 import { PictureCarousel } from "./carousel";
 
-import { Keys, SiteMedia } from "../utils/dictionary";
-const { Languages } = require("../utils/auth");
+import { SiteMedia } from "../utils/dictionary";
+const Keys = require("../utils/Keys.json");
 
 export const SitePictures = (props) => {
   
@@ -102,7 +102,7 @@ export const SitePictures = (props) => {
             style={{ color: "grey", width: "20%", border: "0px" }}
             onClick={() => setShowCarousel(false)}
           >
-            {Keys[lang]["close"]}
+            {Keys["close"][lang]}
           </Button>
         </Modal.Footer>
       </Modal>

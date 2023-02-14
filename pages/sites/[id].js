@@ -17,8 +17,8 @@ import { SiteFacts } from "../../comps/sitefacts";
 import { SitePictures } from "../../comps/sitepictures";
 import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
-import { Keys } from "../../utils/dictionary";
 
+const Keys = require("../../utils/Keys.json");
 const { Languages } = require("../../utils/auth");
 const today = new Date().toISOString().slice(0, 10);
 
@@ -70,7 +70,7 @@ const Site = ({ site, discos }) => {
       window.location.href = "/";
     } catch (e) {
       console.error(e);
-      setError(Keys[lang]["errorSiteDelete"]);
+      setError(Keys["errorSiteDelete"][lang]);
     }
   }
 
@@ -114,7 +114,7 @@ const Site = ({ site, discos }) => {
               color: "black",
             }}
           >
-            <h3 style={{ fontWeight: "bold" }}>{Keys[lang]["Discover"]}</h3>
+            <h3 style={{ fontWeight: "bold" }}>{Keys["Discover"][lang]}</h3>
             <DiscosList discos={discos} filter={{}} lang={lang} />
           </div>
         )}
@@ -146,7 +146,7 @@ const Site = ({ site, discos }) => {
                   query: { model: "site", id: site.id },
                 }}
               >
-                {Keys[lang]["update"]}
+                {Keys["update"][lang]}
               </Link>
             </div>
             <div
@@ -169,7 +169,7 @@ const Site = ({ site, discos }) => {
                   fontStyle: "italic",
                 }}
               >
-                {Keys[lang]["remove"]}
+                {Keys["remove"][lang]}
               </button>
             </div>
           </>

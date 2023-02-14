@@ -1,0 +1,5 @@
+ {
+    "type": {"fr": "Type de lieu", "en": "Site type", "es": "Tipo de lugar", "de": "Ort" },
+    "when": { "fr": "Période", "en": "Period", "es": "Período histórico", "de": "Historische Periode" }
+  }
+

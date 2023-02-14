@@ -6,13 +6,14 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 import { FormattedMonth } from "./date";
-import { Keys, DiscoFilter } from "../utils/dictionary";
 
+
+const DiscoAudiences = require("../utils/DiscoAudiences.json");
+const DiscoFilter = require("../utils/DiscoFilter.json");
 const DiscoTypes = require("../utils/DiscoTypes.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
-const DiscoAudiences = require("../utils/DiscoAudiences.json");
+const Keys = require("../utils/Keys.json");
 const Locations = require("../utils/Locations.json");
-const { Languages } = require("../utils/auth");
 
 let today = new Date();
 const todayString = today.toISOString().slice(0, 10);
@@ -77,7 +78,7 @@ export const DiscosFilter = (props) => {
           })
         }
       >
-        {Keys[lang]["today"]}
+        {Keys["today"][lang]}
       </Button>
       {/* tomorrow */}
       <Button
@@ -103,7 +104,7 @@ export const DiscosFilter = (props) => {
           })
         }
       >
-        {Keys[lang]["tomorrow"]}
+        {Keys["tomorrow"][lang]}
       </Button>
       {/* this week */}
       <Button
@@ -130,7 +131,7 @@ export const DiscosFilter = (props) => {
           })
         }
       >
-        {Keys[lang]["sevendays"]}
+        {Keys["sevendays"][lang]}
       </Button>
       {" | "}
       {startPeriods.map((m, i) => (
@@ -184,7 +185,7 @@ export const DiscosFilter = (props) => {
           })
         }
       >
-         {Keys[lang]["all"]}
+         {Keys["all"][lang]}
       </Button>
 
       {/* site location */}
@@ -208,7 +209,7 @@ export const DiscosFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ type: e.target.value })}
             >
-              <option value="">{DiscoFilter[lang]["type"]}</option>
+              <option value="">{DiscoFilter["type"][lang]}</option>
               {Object.keys(DiscoTypes).map((x) => (
                 <option key={x} value={x}>
                   {DiscoTypes[x][lang]}
@@ -222,7 +223,7 @@ export const DiscosFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ subject: e.target.value })}
             >
-              <option value="">{DiscoFilter[lang]["subject"]}</option>
+              <option value="">{DiscoFilter["subject"][lang]}</option>
               {Object.keys(DiscoSubjects).map((x) => (
                 <option key={x} value={x}>
                   {DiscoSubjects[x][lang]}
@@ -236,7 +237,7 @@ export const DiscosFilter = (props) => {
               size="sm"
               onChange={(e) => cb({ audience: e.target.value })}
             >
-              <option value="">{DiscoFilter[lang]["who"]}</option>
+              <option value="">{DiscoFilter["who"][lang]}</option>
               {Object.keys(DiscoAudiences).map((x) => (
                 <option key={x} value={x}>
                   {DiscoAudiences[x][lang]}

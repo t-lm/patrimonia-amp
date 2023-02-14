@@ -5,9 +5,10 @@ const { DynamoDBClient, UpdateItemCommand, ScanCommand } = require("@aws-sdk/cli
 const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate");
 
 const REGION = "eu-west-1";
+const lang = "es"
 const client = new DynamoDBClient({ region: REGION });
 
-const translate = async (text, lang) => {
+const translate = async (text) => {
   const client = new TranslateClient({ region: REGION });
   const params = {
     Text: text,
@@ -75,7 +76,7 @@ const updateItem = async (obj) => {
   
   // loop
   results.Items.forEach((r) => {
-    translate(`${r.name.S} ### ${r.headline.S} ### ${r.description.S}`, "en")
+    translate(`${r.name.S} ### ${r.headline.S} ### ${r.description.S}`)
     .then(data => {
       let obj = {id: r.id, name: r.name, name_en: { "S" : data.split("###")[0].trim()}, headline_en: { "S" : data.split("###")[1].trim()}, description_en: { "S" : data.split("###")[2].trim()}}
       updateItem(obj)

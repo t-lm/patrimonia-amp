@@ -8,8 +8,8 @@ import Button from "react-bootstrap/Button";
 
 import { PictureCarousel } from "./carousel";
 
-import { Keys, DiscoMedia } from "../utils/dictionary";
-const { Languages } = require("../utils/auth");
+import { DiscoMedia } from "../utils/dictionary";
+const Keys = require("../utils/Keys.json");
 
 export const DiscoPictures = (props) => {
   
@@ -100,7 +100,7 @@ export const DiscoPictures = (props) => {
             style={{ color: "grey", width: "20%", border: "0px" }}
             onClick={() => setShowCarousel(false)}
           >
-            {Keys[lang]["close"]}
+            {Keys["close"][lang]}
           </Button>
         </Modal.Footer>
       </Modal>

@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 
-const lang = "fr";
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const { Languages } = require("../utils/auth");
 

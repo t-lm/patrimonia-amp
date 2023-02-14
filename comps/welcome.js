@@ -3,7 +3,7 @@
 import { useRouter } from 'next/router'
 import Image from "next/image";
 
-import { Keys } from "../utils/dictionary";
+const Keys = require("../utils/Keys.json");
 
 export const Welcome = () => {
 
@@ -22,7 +22,7 @@ export const Welcome = () => {
           lineHeight: "3rem"
         }}
       >
-        <span>{Keys[lang]["welcome"]}</span>
+        <span>{Keys["welcome"][lang]}</span>
           <Image src="/var/noun-man.svg"alt="" height={60} width={60} style={{marginLeft: 10}} />
           {/*<Image src="/var/noun-woman.svg" alt="" height={60} width={60} style={{marginLeft: 10}}/>*/}
           <Image src="/var/noun-pet.svg" alt="" height={60} width={60} style={{marginLeft: 0}}/>

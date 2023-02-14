@@ -15,8 +15,8 @@ import { OrganiserBasics } from "../../comps/organiserbasics";
 import { OrganiserContact } from "../../comps/organisercontact";
 import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
-import { Keys } from "../../utils/dictionary";
 
+const Keys = require("../../utils/Keys.json");
 const today = new Date().toISOString().slice(0, 10);
 
 export const getStaticProps = async ({ params }) => {
@@ -79,7 +79,7 @@ const Organiser = ({ organiser, discos }) => {
             color: "black",
           }}
         >
-          <h3 style={{ fontWeight: "bold" }}>{Keys[lang]["discover"]}</h3>
+          <h3 style={{ fontWeight: "bold" }}>{Keys["discover"][lang]}</h3>
           <DiscosList discos={discos} filter={{}} lang={lang}/>
       </div>
 
@@ -94,7 +94,7 @@ const Organiser = ({ organiser, discos }) => {
               query: { model: "organiser", id: organiser.id },
             }}
           >
-            {Keys[lang]["update"]}
+            {Keys["update"][lang]}
           </Link>
         </div>
       )}

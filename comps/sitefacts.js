@@ -3,11 +3,10 @@
 // main facts on visit page
 import Image from "next/image";
 
-import { Keys } from "../utils/dictionary";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const Keys = require("../utils/Keys.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SitePeriods = require("../utils/SitePeriods.json");
 const SiteProtections = require("../utils/SiteProtections.json");
@@ -26,14 +25,14 @@ export const SiteFacts = (props) => {
       }}
     >
 
-      <h3 style={{ fontWeight: "bold" }}>{Keys[lang].keyFacts}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys.keyFacts[lang]}</h3>
 
       {site.periods.length > 0 && (
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.periods.length > 1
-              ? Keys[lang]["keyPeriods"]
-              : Keys[lang]["keyPeriod"]}
+              ? Keys["keyPeriods"][lang]
+              : Keys["keyPeriod"][lang]}
             :
           </Col>
           <Col xs={8} md={10}>
@@ -51,8 +50,8 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.styles.length > 1
-              ? Keys[lang]["keyStyles"]
-              : Keys[lang]["keyStyle"]}
+              ? Keys["keyStyles"][lang]
+              : Keys["keyStyle"][lang]}
             :
           </Col>
           <Col xs={8} md={10}>
@@ -70,8 +69,8 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.persons.length > 1
-              ? Keys[lang]["keyPeople"]
-              : Keys[lang]["keyPerson"]}
+              ? Keys["keyPeople"][lang]
+              : Keys["keyPerson"][lang]}
             :
           </Col>
           <Col xs={8} md={10}>
@@ -89,8 +88,8 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.events.length > 1
-              ? Keys[lang]["keyEvents"]
-              : Keys[lang]["keyEvents"]}
+              ? Keys["keyEvents"][lang]
+              : Keys["keyEvents"][lang]}
             :
           </Col>
           <Col xs={8} md={10}>
@@ -109,8 +108,8 @@ export const SiteFacts = (props) => {
         <Row style={{ marginTop: 5 }}>
           <Col xs={4} md={2} style={{ fontWeight: "bold" }}>
             {site.protections.length > 1
-              ? Keys[lang]["protections"]
-              : Keys[lang]["protection"]}
+              ? Keys["protections"][lang]
+              : Keys["protection"][lang]}
             :
           </Col>
           <Col xs={8} md={10}>

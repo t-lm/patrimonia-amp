@@ -20,8 +20,9 @@ import { DiscoOrganiser } from "../../comps/discoorganiser";
 import { DiscoPictures } from "../../comps/discopictures";
 import { Separator } from "../../comps/separator";
 
-import { Keys } from "../../utils/dictionary";
-import { getCurrentUser, lang } from "../../utils/auth";
+import { getCurrentUser } from "../../utils/auth";
+
+const Keys = require("../utils/Keys.json");
 
 export const getStaticProps = async ({ params, locale }) => {
   try {
@@ -82,7 +83,7 @@ const Disco = ({ disco, lang }) => {
       window.location.href = `/`;
     } catch (e) {
       console.error(e);
-      setError(Keys[lang]["errorDiscoDelete"]);
+      setError(Keys["errorDiscoDelete"][lang]);
     }
   };
 
@@ -124,7 +125,7 @@ const Disco = ({ disco, lang }) => {
                 query: { model: "disco", id: disco.id },
               }}
             >
-              {Keys[lang]["update"]}
+              {Keys["update"][lang]}
             </Link>
           </div>
           <div
@@ -147,7 +148,7 @@ const Disco = ({ disco, lang }) => {
                 fontStyle: 'italic'
               }}
             >
-              {Keys[lang]["remove"]}
+              {Keys["remove"][lang]}
             </button>
           </div>
         </div>

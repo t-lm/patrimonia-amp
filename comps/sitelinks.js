@@ -2,6 +2,8 @@
 
 import React from "react";
 
+const Keys = require("../utils/Keys.json");
+
 export const SiteLinks = (props) => {
 
   const links = props.site.links;
@@ -16,7 +18,7 @@ export const SiteLinks = (props) => {
         color: "black" 
       }}
     >
-      <h3 style={{ fontWeight: "bold" }}>{Keys[lang]["links"]}</h3>
+      <h3 style={{ fontWeight: "bold" }}>{Keys["links"][lang]}</h3>
       <ul>
         {links.map(
           (l,i) =>

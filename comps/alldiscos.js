@@ -9,8 +9,7 @@ import { useRouter } from "next/router";
 import { DiscosFilter } from "./discosfilter";
 import { DiscosList } from "./discoslist";
 
-import { Keys } from "../utils/dictionary";
-
+const Keys = require("../utils/Keys.json");
 const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 export const Alldiscos = ({ Discos }) => {
@@ -98,7 +97,7 @@ export const Alldiscos = ({ Discos }) => {
           border: "1px solid #eee"
         }}
       >
-        <h2 style={{ fontWeight: "bold", fontSize: "2rem",}}>{Keys[lang]["DiscosAroundBeziers"]}</h2>
+        <h2 style={{ fontWeight: "bold", fontSize: "2rem",}}>{Keys["DiscosAroundBeziers"][lang]}</h2>
       </div>
       <DiscosList lang={lang} discos={discos} filter={filter} />
     </>

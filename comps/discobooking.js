@@ -2,7 +2,6 @@
 // booking module
 
 import React, { useState } from "react";
-import { Keys } from "../utils/dictionary";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,8 +10,7 @@ import Modal from "react-bootstrap/Modal";
 
 import { FormattedDateAndTime } from "./date";
 const Weekdays = require("../utils/Weekdays.json");
-const { Languages } = require("../utils/auth");
-
+const Keys = require("../utils/Keys.json");
 
 export const DiscoBooking = (props) => {
   const disco = props.disco;
@@ -60,7 +58,7 @@ export const DiscoBooking = (props) => {
         {disco.type === "demand" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              {Keys[lang]["Booking"]}
+              {Keys["Booking"][lang]}
             </h3>
             <Row style={{ margin: "5px 3px" }}>
               <Col xs={8} style={{ marginTop: 3, padding: "5.625px 0px" }}>
@@ -75,7 +73,7 @@ export const DiscoBooking = (props) => {
                   }}
                   onClick={() => setShowModal(true)}
                 >
-                  {Keys[lang]["makeARequest"]}
+                  {Keys["makeARequest"][lang]}
                 </Button>
               </Col>
             </Row>
@@ -85,7 +83,7 @@ export const DiscoBooking = (props) => {
         {disco.type === "regular" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              {Keys[lang]["openingHours"]}
+              {Keys["openingHours"][lang]}
             </h3>
             <div>{disco.datesCommentary && disco.datesCommentary}</div>
             <div style={{ marginTop: 20, textAlign: "left", color: "grey" }}>
@@ -109,11 +107,11 @@ export const DiscoBooking = (props) => {
         {disco.type === "event" && (
           <>
             <h3 style={{ marginBottom: 20, fontWeight: "bold" }}>
-              {Keys[lang]["nextDates"]}
+              {Keys["nextDates"][lang]}
             </h3>
 
             {disco.dates.filter((d) => new Date(d.start) >= today).length ===
-            0 ? <>{Keys[lang]["setNoDate"]}</>
+            0 ? <>{Keys["setNoDate"][lang]}</>
             : <>
                 {disco.dates
                   .filter((d) => new Date(d.start) >= today)
@@ -142,8 +140,8 @@ export const DiscoBooking = (props) => {
                           onClick={() => setShowModal(true)}
                         >
                           {disco.bookingRequired
-                            ? Keys[lang]["book"]
-                            : Keys[lang]["bookNo"]}
+                            ? Keys["book"][lang]
+                            : Keys["bookNo"][lang]}
                         </Button>
                       </Col>
                     </Row>
@@ -157,7 +155,7 @@ export const DiscoBooking = (props) => {
       <Modal show={showModal} onHide={() => setShowModal(false)} centered style={{color: "black"}}>
         <Modal.Body>
           <p>
-            {Keys[lang]["bookingTemp"]}
+            {Keys["bookingTemp"][lang]}
           </p>
           <ul>
             {disco.organiser.www && (
@@ -183,7 +181,7 @@ export const DiscoBooking = (props) => {
             style={{ backgroundColor: "pink", color: "black", border: "0px" }}
             onClick={() => setShowModal(false)}
           >
-            {Keys[lang]["close"]}
+            {Keys["close"][lang]}
           </Button>
         </Modal.Body>
       </Modal>
