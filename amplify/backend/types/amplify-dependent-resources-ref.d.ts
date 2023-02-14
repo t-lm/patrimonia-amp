@@ -18,6 +18,20 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "patrimoniaTranslateDisco": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "patrimoniaTranslateOrganiser": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "patrimoniaTranslateSite": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

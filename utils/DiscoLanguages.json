@@ -1,14 +1,13 @@
 {    
-    "de": { "fr": "Allemand","en": "German", "de": "Deutsch"},
-    "en": { "fr": "Anglais","en": "English","de": "Englisch"},
-    "cn": { "fr": "Chinois","en": "Chinese","de": "Chinesisch"},
-    "es": { "fr": "Espagnol","en": "Spanish","de": "Spanisch"},
-    "fr": { "fr": "Français","en": "French","de": "Französisch"},
-    "it": { "fr": "Italien","en": "Italian","de": "Italienisch"},
-    "jp": { "fr": "Japonais","en": "Japanese","de": "japanisch"},
-    "nl": { "fr": "Néerlandais","en": "Dutch","de": "Niederländisch"}
+    "de": { "fr": "Allemand","en": "German", "de": "Deutsch","es": "alemán"},
+    "en": { "fr": "Anglais","en": "English","de": "Englisch","es": "inglés"},
+    "cn": { "fr": "Chinois","en": "Chinese","de": "Chinesisch","es": "chino"},
+    "es": { "fr": "Espagnol","en": "Spanish","de": "Spanisch","es": "español"},
+    "fr": { "fr": "Français","en": "French","de": "Französisch","es": "francés"},
+    "it": { "fr": "Italien","en": "Italian","de": "Italienisch","es": "italiano"},
+    "jp": { "fr": "Japonais","en": "Japanese","de": "japanisch","es": "japonés"},
+    "nl": { "fr": "Néerlandais","en": "Dutch","de": "Niederländisch","es": "holandés"}
   }
-
 
 
 

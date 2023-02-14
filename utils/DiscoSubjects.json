@@ -1,15 +1,15 @@
 {
-    "art": {"fr": "Art","en": "Art", "color":"#f985a4", "r": 249, "g": 133, "b": 164},
-    "architecture": {"fr":"Architecture","en": "Architecture","color":"#149E71", "r": 20, "g": 158, "b": 113},
-    "culture": {"fr":"Culture","en": "Culture","color":"#b3be91", "r": 179, "g": 190, "b": 145},
-    "economics": {"fr": "Economie","en": "Economics","color":"#fb4333", "r": 251, "g": 67, "b": 51},
-    "history": {"fr": "Histoire","en": "History","color":"#b08260", "r": 176, "g": 130, "b": 96},
-    "litterature": {"fr": "Littérature","en": "Litterature","color":"#fcc933", "r": 252, "g": 201, "b": 51},
-    "military": {"fr": "Militaire","en": "Military","color":"#fcc933", "r": 252, "g": 201, "b": 51},
-    "music": {"fr": "Musique","en": "Music","color":"#266dff", "r": 38, "g": 109, "b": 255},
-    "nature": {"fr": "Nature","en": "Nature","color":"#149E71", "r": 20, "g": 158, "b": 113},
-    "philosophy": {"fr": "Philosophie","en": "Philosophy","color": "#e13028", "r": 225, "g": 48, "b": 40},
-    "politics": {"fr": "Politique","en": "Politics","color":"#e2e2d7", "r": 226, "g": 226, "b": 215},
-    "religion": {"fr": "Religion","en": "Religion","color":"#fb4333", "r": 251, "g": 67, "b": 51},
-    "sciences": {"fr": "Sciences","en": "Sciences", "color":"#e13028", "r": 225, "g": 48, "b": 40}
+    "art": {"fr": "Art","es": "Arte","en": "Art", "color":"#f985a4", "r": 249, "g": 133, "b": 164},
+    "architecture": {"fr":"Architecture","es": "Arquitectura","en": "Architecture","color":"#149E71", "r": 20, "g": 158, "b": 113},
+    "culture": {"fr":"Culture","es": "Cultura","en": "Culture","color":"#b3be91", "r": 179, "g": 190, "b": 145},
+    "economics": {"fr": "Economie","es": "Economía","en": "Economics","color":"#fb4333", "r": 251, "g": 67, "b": 51},
+    "history": {"fr": "Histoire","es": "Historia","en": "History","color":"#b08260", "r": 176, "g": 130, "b": 96},
+    "litterature": {"fr": "Littérature","es": "Literatura","en": "Litterature","color":"#fcc933", "r": 252, "g": 201, "b": 51},
+    "military": {"fr": "Militaire","es": "Militar","en": "Military","color":"#fcc933", "r": 252, "g": 201, "b": 51},
+    "music": {"fr": "Musique","es": "Música","en": "Music","color":"#266dff", "r": 38, "g": 109, "b": 255},
+    "nature": {"fr": "Nature","es": "Naturaleza","en": "Nature","color":"#149E71", "r": 20, "g": 158, "b": 113},
+    "philosophy": {"fr": "Philosophie","es": "Filosofía","en": "Philosophy","color": "#e13028", "r": 225, "g": 48, "b": 40},
+    "politics": {"fr": "Politique","es": "Política","en": "Politics","color":"#e2e2d7", "r": 226, "g": 226, "b": 215},
+    "religion": {"fr": "Religion","es": "Religión","en": "Religion","color":"#fb4333", "r": 251, "g": 67, "b": 51},
+    "sciences": {"fr": "Sciences","es": "Ciencias","en": "Sciences", "color":"#e13028", "r": 225, "g": 48, "b": 40}
   }

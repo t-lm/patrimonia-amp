@@ -1,8 +1,8 @@
 {   
-    "self": {"fr": "Visite libre","en": "Free tour", "de": "Freie Tour" },
-    "guidedTour": {"fr": "Visite guidée","en": "Guided tour", "de": "Führung" },
-    "mediatedTour": {"fr": "Visite avec médiateur sur place","en": "Visit with mediator on site", "de": "Besichtigung mit Mediator vor Ort" },
-    "conference": {"fr": "Conférence","en": "Conférence", "de": "Konferenz"},
-    "concert": {"fr": "Concert","en": "Concert", "de": "Konzert"},
-    "workshop": {"fr": "Atelier","en": "Workshop", "de": "Werkstatt"}
+    "self": {"fr": "Visite individuelle","en": "Individual tour", "de": "Individueller Besuch", "es": "Visita individual" },
+    "guidedTour": {"fr": "Visite guidée","en": "Guided tour", "de": "Führung","es": "Visita guiada" },
+    "mediatedTour": {"fr": "Visite avec médiateur","en": "Visit with mediator", "de": "Besichtigung mit Mediator","es": "Visita a un mediador" },
+    "conference": {"fr": "Conférence","en": "Conférence", "de": "Konferenz","es": "Conferencia"},
+    "concert": {"fr": "Concert","en": "Concert", "de": "Konzert","es": "Concierto"},
+    "workshop": {"fr": "Atelier","en": "Workshop", "de": "Werkstatt","es": "Atelier"}
   }

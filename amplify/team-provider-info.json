@@ -32,6 +32,14 @@
         "patrimoniaamppatrimoniaAwsSdKLayer": {
           "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
           "s3Key": "amplify-builds/patrimoniaamppatrimoniaAwsSdKLayer-LambdaLayerVersiond8220f30-build.zip"
+        },
+        "patrimoniaTranslateOrganiser": {
+          "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+          "s3Key": "amplify-builds/patrimoniaTranslateOrganiser-6539526b6b4258577866-build.zip"
+        },
+        "patrimoniaTranslateDisco": {
+          "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+          "s3Key": "amplify-builds/patrimoniaTranslateDisco-374a7a6b726435315750-build.zip"
         }
       }
     }

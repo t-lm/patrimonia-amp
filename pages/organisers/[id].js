@@ -30,7 +30,7 @@ export const getStaticProps = async ({ params }) => {
     variables: { organiserID: params.id, filter: { dateEnd: { gt: today } } },
     authMode: "AWS_IAM",
   });
-  return { props: { organiser: data.getOrganiser, discos: response.data.discosByOrganiserID.items } };
+  return { props: { organiser: data.getOrganiser, discos: response.data.discosByOrganiserID.items }, revalidate: 10 };
 };
 
 export const getStaticPaths = async () => {

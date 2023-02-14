@@ -64,6 +64,50 @@
     }
   },
   "function": {
+    "patrimoniaTranslateDisco": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "patrimoniaamp"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "patrimoniaTranslateOrganiser": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "patrimoniaamp"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "patrimoniaTranslateSite": {
       "build": true,
       "dependsOn": [
@@ -92,6 +136,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_patrimoniaTranslateDisco_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateDisco"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateDisco_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateDisco"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateOrganiser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateOrganiser"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateOrganiser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateOrganiser"
+        }
+      ]
+    },
     "AMPLIFY_function_patrimoniaTranslateSite_deploymentBucketName": {
       "usedBy": [
         {
