@@ -6,6 +6,8 @@ const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-trans
 const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
 const REGION = "eu-west-1";
 const TABLE = "Disco-dg6n37kw5bezfgxg7zofsv3j4m-dev"
+const keys = ["name", "description", "headline", "practicalInfo", "demandCommentary", "priceCommentary"]
+const languages = ["de", "nl", "es", "en"] 
 
 const client = new DynamoDBClient({ region: REGION });
 
@@ -28,19 +30,19 @@ const translate = async (text, lang) => {
 
 const update = async (obj) => {
   
-  let ExpressionAttributeValues = { ":name": obj["name"] };
-  let ExpressionAttributeNames = { "#name": "name" }
-  let UpdateExpression = "SET #name = :name";
-
-  let keys = ["name_en", "headline_en", "description_en", "practicalInfo_en", "priceCommentary_en", "demandCommentary_en"]
-  keys.forEach((x) => {
-    if (x in obj) {
-      ExpressionAttributeValues[`:${x}`] = obj[x];
-      ExpressionAttributeNames[`#${x}`] = x;
-      UpdateExpression += `, #${x} = :${x}`;
-    }
-  });
+  let ExpressionAttributeValues = {};
+  let ExpressionAttributeNames = {}
+  let UpdateExpression = ""
   
+  languages.forEach((lang, j) => {
+    keys.forEach((x, i) => {
+      if (Object.keys(obj).includes(`${x}_${lang}`)) {
+        ExpressionAttributeValues[`:${x}_${lang}`] = obj[`${x}_${lang}`];
+        ExpressionAttributeNames[`#${x}_${lang}`] = `${x}_${lang}`;
+        UpdateExpression += (i === 0 && j === 0) ? `SET #${x}_${lang} = :${x}_${lang}` : `, #${x}_${lang} = :${x}_${lang}`;
+      }
+    })
+  })
 
   let input = {
     TableName: TABLE,
@@ -60,32 +62,46 @@ const update = async (obj) => {
     return null
   }
 };
-
 exports.handler = event => {
 
   for (const r of event.Records) {
-    let text = `${r.dynamodb.NewImage.name.S} ### ${r.dynamodb.NewImage.headline.S} ### ${"description" in r.dynamodb.NewImage ? r.dynamodb.NewImage.description.S : " "} ### ${"practicalInfo" in r.dynamodb.NewImage  ? r.dynamodb.NewImage.practicalInfo.S : " "} ### ${"priceCommentary" in r.dynamodb.NewImage ? r.dynamodb.NewImage.priceCommentary.S : " "} ### ${"demandCommentary" in r ? r.dynamodb.NewImage.demandCommentary.S : " "} ###`
-    translate(text, "en")
-    .then(data => {
-      let obj = {id: r.dynamodb.Keys.id, name: r.dynamodb.NewImage.name, name_en: { "S" : data.split("###")[0].trim()}, headline_en: { "S" : data.split("###")[1].trim()}, description_en: { "S" : data.split("###")[2].trim()}, 
-      practicalInfo_en: { "S" : data.split("###")[3].trim()},
-      priceCommentary_en: { "S" : data.split("###")[4].trim()},
-      demandCommentary_en: { "S" : data.split("###")[5].trim()}
+  
+      let obj = {  id: r.dynamodb.Keys.id }
+      let promises = keys.map((x) => {
+        return new Promise((resolve) => {
+          if (Object.keys(r.dynamodb.NewImage).includes(x) && typeof(r.dynamodb.NewImage[x]) === "object" && r.dynamodb.NewImage[x]["S"]) { 
+            translate(r.dynamodb.NewImage[x]["S"], "en")
+            .then(data => {
+              obj[`${x}_en`] = {"S" : data}
+              translate(r.dynamodb.NewImage[x]["S"], "es")
+              .then(data => {
+                obj[`${x}_es`] = {"S" : data}
+                translate(r.dynamodb.NewImage[x]["S"], "de")
+                .then(data => {
+                  obj[`${x}_de`] = {"S" : data}
+                  translate(r.dynamodb.NewImage[x]["S"], "nl")
+                  .then(data => {
+                    obj[`${x}_nl`] = {"S" : data}
+                    resolve(true)
+                  })
+                  .catch(err => console.log(err))
+                })
+                .catch(err => console.log(err))
+              })
+              .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
+          } else resolve(true)
+        });
+      });
+  
+      Promise.all(promises).then(() => {
+        
+        update(obj)
+        .then(res => { if(res) console.log(obj["id"]["S"], "success")})
+        .catch(err => console.log(err))
+      })
+      
     }
-      update(obj)
-      .then(res => {
-        if(res) console.log(obj.id.S, "success")
-        return Promise.resolve('Successfully processed DynamoDB record');
-      })
-      .catch(err => {
-        console.log(err)
-        return Promise.resolve('Failed in update');
-      })
-    })
-    .catch(err => {
-      console.log(err)
-      return Promise.resolve('Failed in translation');
-    })  
-  }
 
-};
+}

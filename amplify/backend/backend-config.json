@@ -135,6 +135,72 @@
       "service": "S3AndCloudFront"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_patrimoniaTranslateDisco_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateDisco"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateDisco_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateDisco"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateOrganiser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateOrganiser"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateOrganiser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateOrganiser"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateSite_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateSite"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaTranslateSite_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaTranslateSite"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaamppatrimoniaAwsSdKLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_patrimoniaamppatrimoniaAwsSdKLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "patrimoniaamppatrimoniaAwsSdKLayer"
+        }
+      ]
+    }
+  },
   "storage": {
     "media": {
       "dependsOn": [],
