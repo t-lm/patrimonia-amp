@@ -8,8 +8,6 @@ import { useRouter } from "next/router";
 import { API } from "aws-amplify";
 import { listSites } from "../src/graphql/queries";
 
-import { getCurrentUser } from "../utils/auth";
-
 import Layout from "../comps/layout";
 import { SitesFilter } from "../comps/sitesfilter";
 import { SitePill } from "../comps/sitepill";

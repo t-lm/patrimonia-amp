@@ -3,7 +3,6 @@
 // manage filtering logic
 
 import React, { useEffect, useState } from "react";
-
 import { useRouter } from "next/router";
 
 import { DiscosFilter } from "./discosfilter";

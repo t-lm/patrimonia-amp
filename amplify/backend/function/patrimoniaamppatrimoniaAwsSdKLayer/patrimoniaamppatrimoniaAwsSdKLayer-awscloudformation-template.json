@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion38691f3b": {
+    "LambdaLayerVersion4ae06a78": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": [
@@ -30,9 +30,9 @@
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": "amplify-builds/patrimoniaamppatrimoniaAwsSdKLayer-LambdaLayerVersion38691f3b-build.zip"
+          "S3Key": "amplify-builds/patrimoniaamppatrimoniaAwsSdKLayer-LambdaLayerVersion4ae06a78-build.zip"
         },
-        "Description": "Updated layer version 2023-02-15T11:05:01.189Z",
+        "Description": "Updated layer version 2023-02-15T15:28:42.605Z",
         "LayerName": {
           "Fn::Sub": [
             "patrimoniaamppatrimoniaAwsSdKLayer-${env}",
@@ -47,11 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivate38691f3b": {
+    "LambdaLayerPermissionPrivate4ae06a78": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": "arn:aws:lambda:eu-west-1:327897078391:layer:patrimoniaamppatrimoniaAwsSdKLayer-dev:7",
+        "LayerVersionArn": "arn:aws:lambda:eu-west-1:327897078391:layer:patrimoniaamppatrimoniaAwsSdKLayer-dev:8",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -61,7 +61,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion38691f3b"
+        "Ref": "LambdaLayerVersion4ae06a78"
       }
     }
   }

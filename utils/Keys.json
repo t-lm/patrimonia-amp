@@ -571,21 +571,42 @@
     "fr": "SE CONNECTER",
     "en": "SIGN-IN",
     "es": "INICIAR SESIÓN",
-    "de": "MELDEN SIE SICH AN",
-    "nl": "MELD JE AAN"
+    "de": "ANMELDEN",
+    "nl": "INLOGGEN"
+  },
+  "Signin": {
+    "fr": "Se connecter",
+    "en": "Sign in",
+    "es": "Iniciar sesión",
+    "de": "Anmelden",
+    "nl": "Inloggen"
   },
   "SIGNOUT": {
-    "fr": "SE DECONNECTE",
+    "fr": "SE DECONNECTER",
     "en": "SIGN-OUT",
-    "es": "DESCONECTA",
-    "de": "TRENNT",
-    "nl": "VERBREEKT"
+    "es": "DESCONECTAR",
+    "de": "AUSTRAGEN",
+    "nl": "AFMELDEN"
+  },
+  "SIGNUP": {
+    "fr": "Créer un compte",
+    "en": "Create an account",
+    "es": "Inscribirse",
+    "de": "Anmelden",
+    "nl": "Aanmelden"
+  },
+  "Signup": {
+    "fr": "Créer un compte",
+    "en": "Create an account",
+    "es": "Inscribirse",
+    "de": "Anmelden",
+    "nl": "Aanmelden"
   },
   "SITES": {
     "fr": "SITES",
     "en": "SITES",
-    "es": "SITIOS",
-    "de": "STÄTTEN",
+    "es": "LUGARES",
+    "de": "ORTE",
     "nl": "PLAATSEN"
   },
   "sites": {
@@ -699,5 +720,19 @@
     "es": "Su nombre",
     "de": "Ihren Namen",
     "nl": "Uw naam"
+  },
+  "yourPassword": {
+    "fr": "Votre mot de passe",
+    "en": "Your password",
+    "es": "Tu contraseña",
+    "de": "Ihr Passwort",
+    "nl": "Je wachtwoord"
+  },
+  "yourUsername": {
+    "fr": "Votre nom d'utilisateur",
+    "en": "Your username",
+    "es": "Su nombre de usuario",
+    "de": "Ihr Nutzername",
+    "nl": "Je gebruikersnaam"
   }
 }
