@@ -144,6 +144,8 @@ const Layout = ({ children }) => {
                   <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/fr/${path}`}>{DiscoLanguages["fr"][lang]}</NavDropdown.Item>
                   <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/en/${path}`}>{DiscoLanguages["en"][lang]}</NavDropdown.Item>
                   <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/es/${path}`}>{DiscoLanguages["es"][lang]}</NavDropdown.Item>
+                  <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/de/${path}`}>{DiscoLanguages["de"][lang]}</NavDropdown.Item>
+                  <NavDropdown.Item style={{fontSize: "0.9rem"}} href={`/nl/${path}`}>{DiscoLanguages["nl"][lang]}</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               </Container>

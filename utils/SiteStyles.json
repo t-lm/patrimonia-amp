@@ -1,14 +1,80 @@
 {
-  "antiquityGreek": {"fr": "Grec antique","en": "Antique Greek","es": "Griego antiguo"},
-  "antiquityRoman": {"fr": "Rome antique","en": "Antique Roman","es": "Roma antigua"},
-  "carolingian": {"fr": "Carolingien","en": "Carolingian","es": "Carolingio"},
-  "roman": {"fr": "Roman","en": "Roman","es": "Romano"},
-  "gothic": {"fr": "Gothique","en": "Gothic","es": "Gótico"},
-  "renaissance": {"fr": "Renaissance","en": "Renaissance","es": "Renacimiento"},
-  "classic": {"fr": "Classique","en": "Classic","es": "Clásico"},
-  "baroque": {"fr": "Baroque","en": "Baroque","es": "Barroco"},
-  "xix": {"fr": "19ème","en": "19th","es": "19º"},
-  "artDeco": {"fr": "Art Déco","en": "Art Déco","es": "Art Decó"},
-  "artNouveau": {"fr": "Art Nouveau","en": "Art Nouveau","es": "Art Nouveau"},
-  "contemporary": {"fr": "Contemporain","en": "Contemporary","es": "Contemporáneo"}
+  "antiquityGreek": {
+    "fr": "Grec antique",
+    "en": "Antique Greek",
+    "es": "Griego antiguo",
+    "de": "Altgriechisch",
+    "nl": "Oudgrieks"
+  },
+  "antiquityRoman": {
+    "fr": "Rome antique",
+    "en": "Antique Roman",
+    "es": "Roma antigua",
+    "de": "Das antike Rom",
+    "nl": "Het oude Rome"
+  },
+  "carolingian": {
+    "fr": "Carolingien",
+    "en": "Carolingian",
+    "es": "Carolingio",
+    "de": "karolingisch",
+    "nl": "Karolingisch"
+  },
+  "roman": {
+    "fr": "Roman",
+    "en": "Roman",
+    "es": "romano",
+    "de": "Römisch",
+    "nl": "Romeins"
+  },
+  "gothic": {
+    "fr": "Gothique",
+    "en": "Gothic",
+    "es": "Gótico",
+    "de": "Gotisch",
+    "nl": "Gotisch"
+  },
+  "renaissance": {
+    "fr": "Renaissance",
+    "en": "Renaissance",
+    "es": "Renacimiento",
+    "de": "Renaissance",
+    "nl": "Renaissance"
+  },
+  "classic": {
+    "fr": "Classique",
+    "en": "Classic",
+    "es": "Clásico",
+    "de": "Klassisch",
+    "nl": "Klassiek"
+  },
+  "baroque": {
+    "fr": "Baroque",
+    "en": "Baroque",
+    "es": "Barroco",
+    "de": "Barock",
+    "nl": "Barok"
+  },
+  "xix": { "fr": "19ème", "en": "19th", "es": "19º", "de": "19.", "nl": "19e" },
+  "artDeco": {
+    "fr": "Art Déco",
+    "en": "Art Déco",
+    "es": "Art Decó",
+    "de": "Art Deco",
+    "nl": "Art Deco"
+  },
+  "artNouveau": {
+    "fr": "Art Nouveau",
+    "en": "Art Nouveau",
+    "es": "Art Nouveau",
+    "de": "Jugendstil",
+    "nl": "Art Nouveau"
+  },
+  "contemporary": {
+    "fr": "Contemporain",
+    "en": "Contemporary",
+    "es": "Contemporáneo",
+    "de": "Zeitgenosse",
+    "nl": "Eigentijds"
+  }
 }

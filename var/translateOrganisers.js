@@ -1,4 +1,6 @@
 // ./translateOrganisers.js
+// 
+// local function implemented with promises
 // implementing aws-sdk v3
 
 const { DynamoDBClient, UpdateItemCommand, ScanCommand } = require("@aws-sdk/client-dynamodb");
@@ -6,7 +8,9 @@ const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-trans
 
 const REGION = "eu-west-1";
 const TABLE = "Organiser-dg6n37kw5bezfgxg7zofsv3j4m-dev"
-const lang = "es"
+const lang = "nl"
+const keys = ["description"]
+
 const client = new DynamoDBClient({ region: REGION });
 
 const translate = async (text) => {
@@ -28,17 +32,18 @@ const translate = async (text) => {
 
 const updateItem = async (obj) => {
   
-  let ExpressionAttributeValues = { ":name": obj["name"] };
-  let ExpressionAttributeNames = { "#name": "name" }
-  let UpdateExpression = "SET #name = :name";
-
-  let keys = ["description_en"]  
-  keys.forEach((x) => {
-    ExpressionAttributeValues[`:${x}`] = obj[x];
-    ExpressionAttributeNames[`#${x}`] = x;
-    UpdateExpression += `, #${x} = :${x}`;
-  });
+  let ExpressionAttributeValues = {};
+  let ExpressionAttributeNames = {}
+  let UpdateExpression = ""
   
+  keys.forEach((x, i) => {
+    if (Object.keys(obj).includes(`${x}_${lang}`)) {
+      ExpressionAttributeValues[`:${x}_${lang}`] = obj[`${x}_${lang}`];
+      ExpressionAttributeNames[`#${x}_${lang}`] = `${x}_${lang}`;
+      UpdateExpression += (i === 0) ? `SET #${x}_${lang} = :${x}_${lang}` : `, #${x}_${lang} = :${x}_${lang}`;
+    }
+  });
+
   let input = {
     TableName: TABLE,
     ExpressionAttributeValues,
@@ -59,12 +64,11 @@ const updateItem = async (obj) => {
 };
 
 (async () => {
-  //const client = new DynamoDBClient({ region: REGION });
-
+  
   // scan
   let input = {
     TableName: TABLE,
-    AttributesToGet: ["name", "description", "id"],
+    AttributesToGet: [...keys, "id"]
   };
   const command = new ScanCommand(input);
   let results;
@@ -76,14 +80,26 @@ const updateItem = async (obj) => {
   
   // loop
   results.Items.forEach((r) => {
-    translate(`${r.description.S}`)
-    .then(data => {
-      let obj = {id: r.id, name: r.name, description_en: { "S" : data}}
+    let obj = {  id: r.id }
+    let promises = keys.map((x) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(r).includes(x) && typeof(r[x]) === "object") { 
+          translate(r[x]["S"])
+          .then(data => {
+            obj[`${x}_${lang}`] = {"S" : data}
+            resolve(true)
+          })
+          .catch(err => console.log(err))
+        } else resolve(true)
+      });
+    });
+
+    Promise.all(promises).then(() => {
       updateItem(obj)
-      .then(res => { if(res) console.log(obj.id.S, "success")})
+      .then(res => { if(res) console.log(obj["id"]["S"], "success")})
       .catch(err => console.log(err))
     })
-    .catch(err => console.log(err))  
+    
   });
   
 })();

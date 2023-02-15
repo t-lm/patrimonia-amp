@@ -1,17 +1,58 @@
-{    
-    "de": { "fr": "Allemand","en": "German", "de": "Deutsch","es": "alemán"},
-    "en": { "fr": "Anglais","en": "English","de": "Englisch","es": "inglés"},
-    "cn": { "fr": "Chinois","en": "Chinese","de": "Chinesisch","es": "chino"},
-    "es": { "fr": "Espagnol","en": "Spanish","de": "Spanisch","es": "español"},
-    "fr": { "fr": "Français","en": "French","de": "Französisch","es": "francés"},
-    "it": { "fr": "Italien","en": "Italian","de": "Italienisch","es": "italiano"},
-    "jp": { "fr": "Japonais","en": "Japanese","de": "japanisch","es": "japonés"},
-    "nl": { "fr": "Néerlandais","en": "Dutch","de": "Niederländisch","es": "holandés"}
+{
+  "de": {
+    "fr": "Allemand",
+    "en": "German",
+    "de": "Deutsch",
+    "es": "Alemán",
+    "nl": "Duits"
+  },
+  "en": {
+    "fr": "Anglais",
+    "en": "English",
+    "de": "Engländer",
+    "es": "Inglés",
+    "nl": "Engels"
+  },
+  "cn": {
+    "fr": "Chinois",
+    "en": "Chinese",
+    "de": "Chinesisch",
+    "es": "Chino",
+    "nl": "Chinese"
+  },
+  "es": {
+    "fr": "Espagnol",
+    "en": "Spanish",
+    "de": "Spanier",
+    "es": "Español",
+    "nl": "Spanjaard"
+  },
+  "fr": {
+    "fr": "Français",
+    "en": "French",
+    "de": "Franzose",
+    "es": "Francés",
+    "nl": "Frans"
+  },
+  "it": {
+    "fr": "Italien",
+    "en": "Italian",
+    "de": "Italienisch",
+    "es": "Italiano",
+    "nl": "Italiaan"
+  },
+  "jp": {
+    "fr": "Japonais",
+    "en": "Japanese",
+    "de": "Japanisch",
+    "es": "Japonés",
+    "nl": "Japan"
+  },
+  "nl": {
+    "fr": "Néerlandais",
+    "en": "Dutch",
+    "de": "Holländisch",
+    "es": "Holandés",
+    "nl": "Nederlands"
   }
-
-
-
-
-
-
-
+}

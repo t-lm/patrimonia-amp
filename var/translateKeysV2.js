@@ -239,7 +239,12 @@ const translate = async (text, lang) => {
         translate(Keys["fr"][x], "de")
         .then((data) => {
           obj[x]["de"] = data;
-          resolve(true)
+          translate(Keys["fr"][x], "nl")
+          .then((data) => {
+            obj[x]["nl"] = data;
+            resolve(true)
+          })
+          .catch((err) => { console.log(err) });
         })
         .catch((err) => { console.log(err) });
       })
@@ -247,10 +252,8 @@ const translate = async (text, lang) => {
     });
   });
   
-  Promise.all(promises).then(() => {
-    
-    console.log(JSON.stringify(obj))
-    //fs.writeFile("temp.json", JSON.stringify(obj));
+  Promise.all(promises).then(() => {  
+    console.log(JSON.stringify(obj)) // then copied in json file
   })
 
 })();

@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 
 const Keys = require("../utils/Keys.json");
 const Countries = require("../utils/Countries.json");
+const { Languages } = require("../utils/auth");
 
 export const DiscoAddress = (props) => {
   const disco = props.disco;
@@ -44,10 +45,10 @@ export const DiscoAddress = (props) => {
     {disco.practicalInfo && (
       <Row>
         <Col xs={6} md={3} style={{ fontWeight: "bold" }}>
-          Information pratique
+          {Keys["practicalInfo"][lang]}
         </Col>
         <Col xs={6} md={9} style={{ color: "grey" }}>
-          {disco.practicalInfo}
+          {disco[Languages.includes(lang) ? `practicalInfo_${lang}` : "practicalInfo"]}
         </Col>
       </Row>
     )}

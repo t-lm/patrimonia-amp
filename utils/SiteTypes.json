@@ -1,12 +1,72 @@
 {
-  "religious": { "fr": "Edifice religieux","en": "Religious building","es": "Edificio religioso"},
-  "museum": { "fr": "Musée","en": "Museum","es": "Museo"},
-  "garden": { "fr":  "Parc et jardin","en": "Park and garden","es": "Parque y jardín"},
-  "public": { "fr":"Bâtiment public","en": "Public building","es": "Edificio público"},
-  "theater": { "fr": "Théâtre","en": "Theater","es": "Teatro"},
-  "antiquity": { "fr": "Batiment antique", "en": "Antique building","es": "Edificio antiguo"},
-  "civil": { "fr": "Batiment privé","en": "Private building","es": "Edificio privado"},
-  "industrial": { "fr": "Bâtiment industriel","en": "Industrial building","es": "Edificio industrial"},
-  "military": { "fr": "Bâtiment militaire","en": "Military building","es": "Edificio militar"},
-  "urban": { "fr": "Espace public","en": "Public space","es": "Espacio público"}
+  "religious": {
+    "fr": "Edifice religieux",
+    "en": "Religious building",
+    "es": "Edificio religioso",
+    "de": "Religiöses Gebäude",
+    "nl": "Religieus gebouw"
+  },
+  "museum": {
+    "fr": "Musée",
+    "en": "Museum",
+    "es": "Museo",
+    "de": "Museum",
+    "nl": "Museum"
+  },
+  "garden": {
+    "fr": "Parc et jardin",
+    "en": "Park and garden",
+    "es": "Parque y jardín",
+    "de": "Park und Garten",
+    "nl": "Park en tuin"
+  },
+  "public": {
+    "fr": "Bâtiment public",
+    "en": "Public building",
+    "es": "Edificio público",
+    "de": "öffentliches Gebäude",
+    "nl": "Openbaar gebouw"
+  },
+  "theater": {
+    "fr": "Théâtre",
+    "en": "Theater",
+    "es": "Teatro",
+    "de": "Theater",
+    "nl": "Theater"
+  },
+  "antiquity": {
+    "fr": "Batiment antique",
+    "en": "Antique building",
+    "es": "Edificio antiguo",
+    "de": "Altes Gebäude",
+    "nl": "Oud gebouw"
+  },
+  "civil": {
+    "fr": "Batiment privé",
+    "en": "Private building",
+    "es": "Edificio privado",
+    "de": "Privates Gebäude",
+    "nl": "Particulier gebouw"
+  },
+  "industrial": {
+    "fr": "Bâtiment industriel",
+    "en": "Industrial building",
+    "es": "Edificio industrial",
+    "de": "Industriegebäude",
+    "nl": "Industrieel gebouw"
+  },
+  "military": {
+    "fr": "Bâtiment militaire",
+    "en": "Military building",
+    "es": "Edificio militar",
+    "de": "Militärisches Gebäude",
+    "nl": "Militair gebouw"
+  },
+  "urban": {
+    "fr": "Espace public",
+    "en": "Public space",
+    "es": "Espacio público",
+    "de": "öffentlicher Raum",
+    "nl": "Publieke ruimte"
   }
+}

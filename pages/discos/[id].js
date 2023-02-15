@@ -22,7 +22,8 @@ import { Separator } from "../../comps/separator";
 
 import { getCurrentUser } from "../../utils/auth";
 
-const Keys = require("../utils/Keys.json");
+const Keys = require("../../utils/Keys.json");
+const { Languages } = require("../../utils/auth");
 
 export const getStaticProps = async ({ params, locale }) => {
   try {
@@ -44,22 +45,12 @@ export const getStaticPaths = async () => {
       query: listDiscos,
       authMode: "AWS_IAM",
     });
-    const pathsFR = response.data.listDiscos.items.map((s) => {
-      return ({
-        params: {
-          id: s.id, 
-        }, locale: "fr"
-      })
-    })
-    const pathsEN = response.data.listDiscos.items.map((s) => {
-      return ({
-        params: {
-          id: s.id
-        }, 
-        locale: "en"
-      })
-    })
-    return { paths: pathsFR.concat(pathsEN), fallback: false };
+    const pathsFR = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id, }, locale: "fr" })})
+    const pathsEN = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id }, locale: "en" }) })
+    const pathsES = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id }, locale: "es" }) })
+    const pathsDE = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id }, locale: "de" }) })
+    const pathsNL = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id }, locale: "nl" }) })
+    return { paths: pathsFR.concat(pathsEN).concat(pathsES).concat(pathsDE).concat(pathsNL), fallback: false };
 
   } catch (err) {
     console.error(err);
@@ -90,7 +81,7 @@ const Disco = ({ disco, lang }) => {
   return (
     <Layout>
       <Head>
-        <title>{disco.name}</title>
+      <title>{disco[Languages.includes(lang) ? `name_${lang}` : "name"]}</title>
       </Head>
 
       <DiscoBasics disco={disco} lang={lang} />

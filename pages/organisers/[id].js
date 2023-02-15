@@ -38,22 +38,12 @@ export const getStaticPaths = async () => {
     query: listOrganisers,
     authMode: "AWS_IAM",
   });
-  const pathsFR = response.data.listOrganisers.items.map((s) => {
-    return {
-      params: {
-        id: s.id, 
-      }, locale: "fr"
-    };
-  });
-  const pathsEN = response.data.listOrganisers.items.map((s) => {
-    return ({
-      params: {
-        id: s.id
-      }, 
-      locale: "en"
-    })
-  })
-  return { paths: pathsFR.concat(pathsEN), fallback: false };
+  const pathsFR = response.data.listOrganisers.items.map((s) => { return ({ params: { id: s.id, }, locale: "fr" })})
+  const pathsEN = response.data.listOrganisers.items.map((s) => { return ({ params: { id: s.id }, locale: "en" }) })
+  const pathsES = response.data.listOrganisers.items.map((s) => { return ({ params: { id: s.id }, locale: "es" }) })
+  const pathsDE = response.data.listOrganisers.items.map((s) => { return ({ params: { id: s.id }, locale: "de" }) })
+  const pathsNL = response.data.listOrganisers.items.map((s) => { return ({ params: { id: s.id }, locale: "nl" }) })
+  return { paths: pathsFR.concat(pathsEN).concat(pathsES).concat(pathsDE).concat(pathsNL), fallback: false };
 };
 
 const Organiser = ({ organiser, discos }) => {
@@ -79,7 +69,7 @@ const Organiser = ({ organiser, discos }) => {
             color: "black",
           }}
         >
-          <h3 style={{ fontWeight: "bold" }}>{Keys["discover"][lang]}</h3>
+          <h3 style={{ fontWeight: "bold" }}>{Keys["Discover"][lang]}</h3>
           <DiscosList discos={discos} filter={{}} lang={lang}/>
       </div>
 

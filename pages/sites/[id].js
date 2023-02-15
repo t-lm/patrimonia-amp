@@ -46,13 +46,12 @@ export const getStaticProps = async ({ params }) => {
 
 export async function getStaticPaths() {
   const response = await API.graphql({ query: listSites, authMode: "AWS_IAM" });
-  const pathsFR = response.data.listSites.items.map((s) => {
-    return { params: { id: s.id }, locale: "fr" };
-  });
-  const pathsEN = response.data.listSites.items.map((s) => {
-    return { params: { id: s.id }, locale: "en" };
-  });
-  return { paths: pathsFR.concat(pathsEN), fallback: false };
+  const pathsFR = response.data.listSites.items.map((s) => { return ({ params: { id: s.id, }, locale: "fr" })})
+  const pathsEN = response.data.listSites.items.map((s) => { return ({ params: { id: s.id }, locale: "en" }) })
+  const pathsES = response.data.listSites.items.map((s) => { return ({ params: { id: s.id }, locale: "es" }) })
+  const pathsDE = response.data.listSites.items.map((s) => { return ({ params: { id: s.id }, locale: "de" }) })
+  const pathsNL = response.data.listSites.items.map((s) => { return ({ params: { id: s.id }, locale: "nl" }) })
+  return { paths: pathsFR.concat(pathsEN).concat(pathsES).concat(pathsDE).concat(pathsNL), fallback: false };
 }
 
 const Site = ({ site, discos }) => {

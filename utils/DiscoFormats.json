@@ -1,8 +1,44 @@
-{   
-    "self": {"fr": "Visite individuelle","en": "Individual tour", "de": "Individueller Besuch", "es": "Visita individual" },
-    "guidedTour": {"fr": "Visite guidée","en": "Guided tour", "de": "Führung","es": "Visita guiada" },
-    "mediatedTour": {"fr": "Visite avec médiateur","en": "Visit with mediator", "de": "Besichtigung mit Mediator","es": "Visita a un mediador" },
-    "conference": {"fr": "Conférence","en": "Conférence", "de": "Konferenz","es": "Conferencia"},
-    "concert": {"fr": "Concert","en": "Concert", "de": "Konzert","es": "Concierto"},
-    "workshop": {"fr": "Atelier","en": "Workshop", "de": "Werkstatt","es": "Atelier"}
+{
+  "self": {
+    "fr": "Visite individuelle",
+    "en": "Individual tour",
+    "de": "Individueller Besuch",
+    "es": "Visita individual",
+    "nl": "Individueel bezoek"
+  },
+  "guidedTour": {
+    "fr": "Visite guidée",
+    "en": "Guided tour",
+    "de": "Geführte Besichtigung",
+    "es": "Visita guiada",
+    "nl": "Begeleid bezoek"
+  },
+  "mediatedTour": {
+    "fr": "Visite avec médiateur",
+    "en": "Visit with mediator",
+    "de": "Besuch beim Mediator",
+    "es": "Visita con el mediador",
+    "nl": "Bezoek met de bemiddelaar"
+  },
+  "conference": {
+    "fr": "Conférence",
+    "en": "Conférence",
+    "de": "Konferenz",
+    "es": "Conferencia",
+    "nl": "congres"
+  },
+  "concert": {
+    "fr": "Concert",
+    "en": "Concert",
+    "de": "Konzert",
+    "es": "Concierto",
+    "nl": "Concert"
+  },
+  "workshop": {
+    "fr": "Atelier",
+    "en": "Workshop",
+    "de": "Workshop",
+    "es": "Workshop",
+    "nl": "Workshop"
   }
+}

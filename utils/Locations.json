@@ -1,3 +1,9 @@
-{   
-    "beziers": {"en": "Béziers and around", "fr": "Béziers et autour","es": "Béziers y sus alrededores"}
+{
+  "beziers": {
+    "en": "Béziers and around",
+    "fr": "Béziers et autour",
+    "es": "Béziers y sus alrededores",
+    "de": "Béziers und Umgebung",
+    "nl": "Béziers en omgeving"
+  }
 }

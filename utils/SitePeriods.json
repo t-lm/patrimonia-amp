@@ -1,24 +1,156 @@
 {
-    "antiquity": { "fr": "Antiquité","en": "Antiquity","es": "Antigüedad"},
-    "i": { "fr":"Ier siècle","en": "1st century" ,"es": "Siglo I"},
-    "ii": { "fr":"IIe siècle","en": "2nd century","es": "Siglo II"},
-    "iii": { "fr":"IIIe siècle","en": "3rd century","es": "Siglo III"},
-    "iv": { "fr":"IVe siècle","en": "4th century","es": "Siglo IV"},
-    "v": { "fr":"Ve siècle","en": "5th century","es": "Siglo V"},
-    "vi": { "fr":"VIe siècle","en": "6th century","es": "Siglo VI"},
-    "vii": { "fr":"VIIe siècle","en": "7th century","es": "Siglo VII"},
-    "viii": { "fr":"VIIIe siècle","en": "8th century","es": "Siglo VIII"},
-    "ix": { "fr":"IXe siècle","en": "9th century","es": "Siglo IX"},
-    "x": { "fr":"Xe siècle","en": "10th century","es": "Siglo X"},
-    "xi":{ "fr": "XIe siècle","en": "11th century","es": "Siglo XI"},
-    "xii": { "fr":"XIIe siècle","en": "12th century","es": "Siglo XII"},
-    "xiii": { "fr":"XIIIe siècle","en": "13th century","es": "Siglo XIII"},
-    "xiv": { "fr":"XIVe siècle","en": "14th century","es": "Siglo XIV"},
-    "xv": { "fr":"XVe siècle","en":"15th century","es": "Siglo XV"},
-    "xvi": { "fr":"XVIe siècle","en": "16th century","es": "Siglo XVI"},
-    "xvii": { "fr":"XVIIe siècle","en": "17th century","es": "Siglo XVII"},
-    "xviii": { "fr":"XVIIIe siècle","en": "18th century","es": "Siglo XVIII"},
-    "xix": { "fr":"XIXe siècle","en": "19th century","es": "Siglo XIX"},
-    "xx": { "fr":"XXe siècle","en": "20th century","es": "Siglo XX"},
-    "xxi": { "fr":"XXIe siècle","en": "21st century","es": "Siglo XXI"}
+  "antiquity": {
+    "fr": "Antiquité",
+    "en": "Antiquity",
+    "es": "Antigüedad",
+    "de": "Altertum",
+    "nl": "Oudheid"
+  },
+  "i": {
+    "fr": "Ier siècle",
+    "en": "1st century",
+    "es": "siglo I",
+    "de": "1. Jahrhundert",
+    "nl": "1e eeuw"
+  },
+  "ii": {
+    "fr": "IIe siècle",
+    "en": "2nd century",
+    "es": "siglo II",
+    "de": "2. Jahrhundert",
+    "nl": "2e eeuw"
+  },
+  "iii": {
+    "fr": "IIIe siècle",
+    "en": "3rd century",
+    "es": "siglo III",
+    "de": "3. Jahrhundert",
+    "nl": "3e eeuw"
+  },
+  "iv": {
+    "fr": "IVe siècle",
+    "en": "4th century",
+    "es": "siglo IV",
+    "de": "4. Jahrhundert",
+    "nl": "4e eeuw"
+  },
+  "v": {
+    "fr": "Ve siècle",
+    "en": "5th century",
+    "es": "siglo V",
+    "de": "5. Jahrhundert",
+    "nl": "5e eeuw"
+  },
+  "vi": {
+    "fr": "VIe siècle",
+    "en": "6th century",
+    "es": "siglo VI",
+    "de": "6. Jahrhundert",
+    "nl": "6e eeuw"
+  },
+  "vii": {
+    "fr": "VIIe siècle",
+    "en": "7th century",
+    "es": "siglo VII",
+    "de": "7. Jahrhundert",
+    "nl": "7e eeuw"
+  },
+  "viii": {
+    "fr": "VIIIe siècle",
+    "en": "8th century",
+    "es": "siglo VIII",
+    "de": "8. Jahrhundert",
+    "nl": "8e eeuw"
+  },
+  "ix": {
+    "fr": "IXe siècle",
+    "en": "9th century",
+    "es": "siglo IX",
+    "de": "9. Jahrhundert",
+    "nl": "9e eeuw"
+  },
+  "x": {
+    "fr": "Xe siècle",
+    "en": "10th century",
+    "es": "siglo X",
+    "de": "10. Jahrhundert",
+    "nl": "10e eeuw"
+  },
+  "xi": {
+    "fr": "XIe siècle",
+    "en": "11th century",
+    "es": "Siglo XI",
+    "de": "Elftes Jahrhundert",
+    "nl": "Elfde eeuw"
+  },
+  "xii": {
+    "fr": "XIIe siècle",
+    "en": "12th century",
+    "es": "siglo XII",
+    "de": "12. Jahrhundert",
+    "nl": "12e eeuw"
+  },
+  "xiii": {
+    "fr": "XIIIe siècle",
+    "en": "13th century",
+    "es": "siglo XIII",
+    "de": "13. Jahrhundert",
+    "nl": "13e eeuw"
+  },
+  "xiv": {
+    "fr": "XIVe siècle",
+    "en": "14th century",
+    "es": "siglo XIV",
+    "de": "14. Jahrhundert",
+    "nl": "14e eeuw"
+  },
+  "xv": {
+    "fr": "XVe siècle",
+    "en": "15th century",
+    "es": "siglo XV",
+    "de": "15. Jahrhundert",
+    "nl": "15e eeuw"
+  },
+  "xvi": {
+    "fr": "XVIe siècle",
+    "en": "16th century",
+    "es": "siglo XVI",
+    "de": "16. Jahrhundert",
+    "nl": "16e eeuw"
+  },
+  "xvii": {
+    "fr": "XVIIe siècle",
+    "en": "17th century",
+    "es": "siglo XVII",
+    "de": "17. Jahrhundert",
+    "nl": "Zeventiende eeuw"
+  },
+  "xviii": {
+    "fr": "XVIIIe siècle",
+    "en": "18th century",
+    "es": "siglo XVIII",
+    "de": "18. Jahrhundert",
+    "nl": "18e eeuw"
+  },
+  "xix": {
+    "fr": "XIXe siècle",
+    "en": "19th century",
+    "es": "Siglo XIX",
+    "de": "19. Jahrhundert",
+    "nl": "Negentiende eeuw"
+  },
+  "xx": {
+    "fr": "XXe siècle",
+    "en": "20th century",
+    "es": "siglo XX",
+    "de": "20. Jahrhundert",
+    "nl": "20e eeuw"
+  },
+  "xxi": {
+    "fr": "XXIe siècle",
+    "en": "21st century",
+    "es": "siglo XXI",
+    "de": "21. Jahrhundert",
+    "nl": "21e eeuw"
   }
+}

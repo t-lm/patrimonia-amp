@@ -3,479 +3,624 @@
     "fr": "Adresse",
     "en": "Address",
     "es": "Dirección",
-    "de": "Adresse"
+    "de": "Adresse",
+    "nl": "Adres"
   },
-  "all": { "fr": "tous", "en": "all", "es": "todos", "de": "alle" },
+  "all": {
+    "fr": "tous",
+    "en": "all",
+    "es": "todos",
+    "de": "alle",
+    "nl": "alle"
+  },
   "book": {
     "fr": "Réserver",
     "en": "Book",
     "es": "Reserva",
-    "de": "Reservieren"
+    "de": "Reservieren",
+    "nl": "Reserveren"
   },
   "bookNo": {
     "fr": "Pas de réservation nécessaire",
     "en": "No booking. We'll see you there",
     "es": "No se requiere reserva",
-    "de": "Keine Reservierung erforderlich"
+    "de": "Keine Reservierung erforderlich",
+    "nl": "Reserveren is niet nodig"
   },
   "booking": {
     "fr": "réservation",
     "en": "booking",
     "es": "reserva",
-    "de": "Reservierung"
+    "de": "Reservierung",
+    "nl": "reservering"
   },
   "Booking": {
     "fr": "Réservation",
     "en": "Booking",
     "es": "Reserva",
-    "de": "Buchung"
+    "de": "Buchung",
+    "nl": "Boeking"
   },
   "bookingTemp": {
     "fr": "Réservez directement sur:",
     "en": "Book directly here:",
     "es": "Reserva directamente en:",
-    "de": "Buchen Sie direkt auf:"
+    "de": "Buchen Sie direkt auf:",
+    "nl": "Boek rechtstreeks op:"
   },
   "close": {
     "fr": "Fermer",
     "en": "Close",
     "es": "Cerrar",
-    "de": "Schliessen"
+    "de": "Schliessen",
+    "nl": "Sluiten"
   },
   "contact": {
     "fr": "Contact",
     "en": "Details",
     "es": "Contacto",
-    "de": "Kontakt"
+    "de": "Kontakt",
+    "nl": "Contact opnemen"
   },
-  "date": { "fr": "Date", "en": "Date", "es": "Fecha", "de": "Datum" },
+  "date": {
+    "fr": "Date",
+    "en": "Date",
+    "es": "Fecha",
+    "de": "Datum",
+    "nl": "Datum"
+  },
   "description": {
     "fr": "Description",
     "en": "Description",
     "es": "Descripción",
-    "de": "Beschreibung"
+    "de": "Beschreibung",
+    "nl": "Omschrijving"
   },
   "disco": {
     "fr": "Découverte",
     "en": "Discovery",
     "es": "Descubrimiento",
-    "de": "Entdeckung"
+    "de": "Entdeckung",
+    "nl": "Ontdekking"
   },
   "discos": {
     "fr": "Découvertes",
     "en": "Visits",
     "es": "Descubrimientos",
-    "de": "Entdeckungen"
+    "de": "Entdeckungen",
+    "nl": "Ontdekkingen"
   },
   "DiscosAroundBeziers": {
     "fr": "DÉCOUVERTES À BÉZIERS ET AUTOUR",
     "en": "DISCOVERIES IN BÉZIERS AND AROUND",
     "es": "DESCUBRIMIENTOS EN BÉZIERS Y SUS ALREDEDORES",
-    "de": "ENTDECKUNGEN IN BÉZIERS UND UMGEBUNG"
+    "de": "ENTDECKUNGEN IN BÉZIERS UND UMGEBUNG",
+    "nl": "ONTDEKKINGEN IN BÉZIERS EN OMGEVING"
   },
   "discoAudiences": {
     "fr": "Pour qui",
     "en": "Pour qui",
     "es": "Para quién",
-    "de": "Für wen"
+    "de": "Für wen",
+    "nl": "Voor wie"
   },
   "discoDuration": {
     "fr": "Durée",
     "en": "Duration",
     "es": "Duración",
-    "de": "Dauer"
+    "de": "Dauer",
+    "nl": "Duur"
   },
   "discoFormat": {
     "fr": "Format",
     "en": "Format",
     "es": "Formato",
-    "de": "Format"
+    "de": "Format",
+    "nl": "Formaat"
   },
   "discoTypes": {
     "fr": "Types de découverte",
     "en": "Visit types",
     "es": "Tipos de descubrimiento",
-    "de": "Entdeckungstypen"
+    "de": "Entdeckungstypen",
+    "nl": "Soorten ontdekkingen"
   },
   "discoToldIn": {
     "fr": "Langue",
     "en": "Language",
     "es": "Idioma",
-    "de": "Sprache"
+    "de": "Sprache",
+    "nl": "Taal"
   },
   "discoSubjects": {
     "fr": "Sujets",
-    "en": "Themes",
-    "es": "Asignaturas",
-    "de": "Fächer"
+    "en": "Subjects",
+    "es": "Tema",
+    "de": "Fächer",
+    "nl": "Onderwerpen"
   },
   "discoProposedBy": {
     "fr": "Organisé par",
     "en": "Proposed by",
     "es": "Organizado por",
-    "de": "Gehostet von"
+    "de": "Gehostet von",
+    "nl": "Gehost door"
   },
   "discosDemand": {
     "fr": "Sur demande",
     "en": "On demand",
     "es": "A petición",
-    "de": "Auf Anfrage"
+    "de": "Auf Anfrage",
+    "nl": "Op aanvraag"
   },
   "discosEvent": {
     "fr": "Evènement",
     "en": "Events",
     "es": "Evento",
-    "de": "Ereignis"
+    "de": "Ereignis",
+    "nl": "Evenement"
   },
   "discosOpen": {
     "fr": "Libres",
     "en": "Open",
     "es": "Libres",
-    "de": "Libres"
+    "de": "Libres",
+    "nl": "Libres"
   },
   "discosOnDemand": {
     "fr": "Visites sur demande",
     "en": "Visits on demand",
     "es": "Visitas a petición",
-    "de": "Besuche auf Anfrage"
+    "de": "Besuche auf Anfrage",
+    "nl": "Bezoeken op aanvraag"
   },
   "discosRegular": {
     "fr": "Régulières",
     "en": "Regular",
     "es": "Clientes habituales",
-    "de": "Stammgäste"
+    "de": "Stammgäste",
+    "nl": "Vaste klanten"
   },
   "Discover": {
     "fr": "Découvrir",
     "en": "Discover",
     "es": "Descubrir",
-    "de": "Entdecken"
+    "de": "Entdecken",
+    "nl": "Ontdek"
   },
   "DISCOVERIES": {
     "fr": "DÉCOUVERTES",
     "en": "DISCOVERIES",
     "es": "DESCUBRIMIENTOS",
-    "de": "ENTDECKUNGEN"
+    "de": "ENTDECKUNGEN",
+    "nl": "ONTDEKKINGEN"
   },
   "edition": {
     "fr": "Edition",
     "en": "Edition",
     "es": "Edición",
-    "de": "Ausgabe"
+    "de": "Ausgabe",
+    "nl": "Editie"
   },
-  "email": { "fr": "Email", "en": "Email", "es": "Correo", "de": "E-Mail" },
+  "email": {
+    "fr": "Email",
+    "en": "Email",
+    "es": "Correo",
+    "de": "E-Mail",
+    "nl": "E-Mail"
+  },
   "errorDiscoDelete": {
     "fr": "La découverte n'a pas pu être supprimée. Merci de réessayer.",
     "en": "The discovery could not be removed. Please try again.",
     "es": "No se pudo eliminar el descubrimiento. Vuelve a intentarlo",
-    "de": "Die Entdeckung konnte nicht entfernt werden. Bitte versuchen Sie es erneut"
+    "de": "Die Entdeckung konnte nicht entfernt werden. Bitte versuchen Sie es erneut",
+    "nl": "De ontdekking kon niet worden verwijderd. Probeer het opnieuw"
   },
   "errorSiteDelete": {
     "fr": "Le site n'a pas pu être supprimé. Merci de réessayer.",
     "en": "The site could not be removed. Please try again.",
     "es": "No se pudo eliminar el sitio. Vuelve a intentarlo",
-    "de": "Die Seite konnte nicht entfernt werden. Bitte versuchen Sie es erneut"
+    "de": "Die Seite konnte nicht entfernt werden. Bitte versuchen Sie es erneut",
+    "nl": "De site kon niet worden verwijderd. Probeer het opnieuw"
   },
   "filter": {
     "fr": "Filtrer les résultats",
     "en": "Filter results",
     "es": "Filtrar resultados",
-    "de": "Ergebnisse filtern"
+    "de": "Ergebnisse filtern",
+    "nl": "Resultaten filteren"
   },
   "getInTouch": {
     "fr": "Ecrivez-nous",
     "en": "Get in touch",
     "es": "Escríbenos",
-    "de": "Schreiben Sie uns"
+    "de": "Schreiben Sie uns",
+    "nl": "Schrijf ons"
   },
-  "guide": { "fr": "Guide", "en": "Guide", "es": "guía", "de": "Reiseführer" },
+  "guide": {
+    "fr": "Guide",
+    "en": "Guide",
+    "es": "guía",
+    "de": "Reiseführer",
+    "nl": "reisgids"
+  },
   "guides": {
     "fr": "Guides",
     "en": "Guides",
     "es": "Guías",
-    "de": "Leitfäden"
+    "de": "Leitfäden",
+    "nl": "Gidsen"
   },
-  "here": { "fr": "ici", "en": "here", "es": "acá", "de": "hierher" },
+  "here": {
+    "fr": "ici",
+    "en": "here",
+    "es": "acá",
+    "de": "hierher",
+    "nl": "herwaarts"
+  },
   "keyEvent": {
     "fr": "Evènement",
     "en": "Event",
     "es": "Evento",
-    "de": "Ereignis"
+    "de": "Ereignis",
+    "nl": "Evenement"
   },
   "keyEvents": {
     "fr": "Evènements",
     "en": "Events",
     "es": "Eventos",
-    "de": "Ereignisse"
+    "de": "Ereignisse",
+    "nl": "Evenementen"
   },
   "keyFacts": {
     "fr": "Fiche d'identité",
     "en": "Key facts",
     "es": "Hoja de identidad",
-    "de": "Ausweisblatt"
+    "de": "Ausweisblatt",
+    "nl": "Identiteitsblad"
   },
   "keyPerson": {
     "fr": "Personnage célèbre",
     "en": "Key person",
     "es": "Personaje famoso",
-    "de": "Berühmte Figur"
+    "de": "Berühmte Figur",
+    "nl": "Beroemd personage"
   },
   "keyPeople": {
     "fr": "Personnage célèbres",
     "en": "Key people",
     "es": "Personajes famosos",
-    "de": "Berühmte Charaktere"
+    "de": "Berühmte Charaktere",
+    "nl": "Beroemde personages"
   },
   "keyPeriod": {
     "fr": "Période",
     "en": "Period",
     "es": "Período",
-    "de": "Zeitraum"
+    "de": "Zeitraum",
+    "nl": "Periode"
   },
   "keyPeriods": {
     "fr": "Périodes",
     "en": "Periods",
     "es": "Períodos",
-    "de": "Perioden"
+    "de": "Perioden",
+    "nl": "Perioden"
   },
   "keyStyle": {
     "fr": "Style principal",
     "en": "Main style",
     "es": "Estilo principal",
-    "de": "Hauptstil"
+    "de": "Hauptstil",
+    "nl": "Hoofdstijl"
   },
   "keyStyles": {
     "fr": "Styles",
     "en": "Styles",
     "es": "Estilos",
-    "de": "Stilrichtungen"
+    "de": "Stilrichtungen",
+    "nl": "Stijlen"
   },
   "Language": {
     "fr": "Langue",
     "en": "Language",
     "es": "Idioma",
-    "de": "Sprache"
+    "de": "Sprache",
+    "nl": "Taal"
   },
   "learnMore": {
     "fr": "Plus d'information",
     "en": "Learn more",
     "es": "Más información",
-    "de": "Mehr Informationen"
+    "de": "Mehr Informationen",
+    "nl": "Meer informatie"
   },
   "links": {
     "fr": "Aller plus loin",
     "en": "Useful links",
     "es": "Yendo más lejos",
-    "de": "Noch weiter"
+    "de": "Noch weiter",
+    "nl": "Verder gaan"
   },
   "makeARequest": {
     "fr": "Faire une demande",
     "en": "Make a request",
     "es": "Realizar una solicitud",
-    "de": "Stellen Sie eine Anfrage"
+    "de": "Stellen Sie eine Anfrage",
+    "nl": "Een aanvraag doen"
   },
   "meetingPoint": {
-    "fr": "Rendez-vous",
+    "fr": "Point de rendez-vous",
     "en": "Meeting point",
-    "es": "Cita",
-    "de": "Rendezvous"
+    "es": "Punto de encuentro",
+    "de": "Treffpunkt",
+    "nl": "Ontmoetingspunt"
   },
   "MYACCOUNT": {
     "fr": "MON COMPTE",
     "en": "MY ACCOUNT",
     "es": "MI CUENTA",
-    "de": "MEIN KONTO"
+    "de": "MEIN KONTO",
+    "nl": "MIJN ACCOUNT"
   },
   "SIGNIN": {
     "fr": "SE CONNECTER",
     "en": "SIGN-IN",
     "es": "INICIAR SESIÓN",
-    "de": "MELDEN SIE SICH AN"
+    "de": "MELDEN SIE SICH AN",
+    "nl": "MELD JE AAN"
   },
   "SIGNOUT": {
     "fr": "SE DECONNECTE",
     "en": "SIGN-OUT",
     "es": "DESCONECTA",
-    "de": "TRENNT"
+    "de": "TRENNT",
+    "nl": "VERBREEKT"
   },
   "nextDates": {
     "fr": "Prochaines dates",
     "en": "Next dates",
     "es": "Próximas fechas",
-    "de": "Kommende Termine"
+    "de": "Kommende Termine",
+    "nl": "Aankomende data"
   },
   "noDisco": {
     "fr": "Il n'y a pas de visite ou d'évènement connus pour ce site pour le moment",
     "en": "There is no known visit or event for this site",
     "es": "No hay visitas ni eventos conocidos para este sitio en este momento",
-    "de": "Für diese Seite sind derzeit keine Besuche oder Veranstaltungen bekannt"
+    "de": "Für diese Seite sind derzeit keine Besuche oder Veranstaltungen bekannt",
+    "nl": "Er zijn op dit moment geen bezoeken of evenementen bekend voor deze site"
   },
-  "ok": { "fr": "OK", "en": "OK", "es": "DE ACUERDO", "de": "OK" },
+  "ok": { "fr": "OK", "en": "OK", "es": "DE ACUERDO", "de": "OK", "nl": "OKÉ" },
   "onDemandDefault": {
     "fr": "Les visites sont organisées sur demande. S'il vous plait, écrivez-nous pour plus d'information",
     "en": "Visits are organised on demand. Please get in touch for more information",
     "es": "Las visitas se organizan bajo petición. Escríbenos para obtener más información",
-    "de": "Besuche werden auf Anfrage organisiert. Bitte schreiben Sie uns für weitere Informationen"
+    "de": "Besuche werden auf Anfrage organisiert. Bitte schreiben Sie uns für weitere Informationen",
+    "nl": "Bezoeken worden op aanvraag georganiseerd. Neem contact met ons op voor meer informatie"
   },
   "onSiteDefault": {
     "fr": "Les visites sont organisées directement sur place. Retrouvez nous aux horaires d'ouverture",
     "en": "Visits are organised directly on site. Come by during opening hours",
     "es": "Las visitas se organizan directamente en el sitio. Encuéntrenos durante el horario de apertura",
-    "de": "Besuche werden direkt vor Ort organisiert. Treffen Sie uns während der Öffnungszeiten"
+    "de": "Besuche werden direkt vor Ort organisiert. Treffen Sie uns während der Öffnungszeiten",
+    "nl": "Bezoeken worden rechtstreeks ter plaatse georganiseerd. Ontmoet ons tijdens de openingsuren"
   },
   "opening": {
     "fr": "Ouverture",
     "en": "Opening",
     "es": "Apertura",
-    "de": "Eröffnung"
+    "de": "Eröffnung",
+    "nl": "Opening"
   },
   "openingHours": {
     "fr": "Heures d'ouverture",
     "en": "Opening hours",
     "es": "Horarios de apertura",
-    "de": "Öffnungszeiten"
+    "de": "Öffnungszeiten",
+    "nl": "Openingstijden"
   },
   "organiser": {
     "fr": "L'organisateur",
     "en": "The organiser",
     "es": "El organizador",
-    "de": "Der Veranstalter"
+    "de": "Der Veranstalter",
+    "nl": "De organisator"
   },
   "organisers": {
     "fr": "Organisateurs",
     "en": "Organisers",
     "es": "Organizadores",
-    "de": "Organisatoren"
+    "de": "Organisatoren",
+    "nl": "Organisatoren"
   },
   "persons": {
     "fr": "Nombre de personnes",
     "en": "Number of people",
     "es": "Número de personas",
-    "de": "Anzahl der Personen"
+    "de": "Anzahl der Personen",
+    "nl": "Aantal personen"
   },
   "phone": {
     "fr": "Téléphone",
     "en": "Phone",
     "es": "Teléfono",
-    "de": "Telefon"
+    "de": "Telefon",
+    "nl": "Telefoon"
   },
-  "price": { "fr": "Prix", "en": "Price", "es": "premio", "de": "Preis" },
+  "practicalInfo": {
+    "fr": "Bon à savoir",
+    "en": "Good to know",
+    "es": "Bueno saber",
+    "de": "Gut zu wissen",
+    "nl": "Goed om te weten"
+  },
+  "price": {
+    "fr": "Prix",
+    "en": "Price",
+    "es": "Premio",
+    "de": "Preis",
+    "nl": "Prijs"
+  },
   "pictures": {
     "fr": "Photos",
     "en": "Pictures",
     "es": "Imágenes",
-    "de": "Bilder"
+    "de": "Bilder",
+    "nl": "Fotos"
   },
   "protection": {
     "fr": "Protection",
     "en": "Protection",
     "es": "Protección",
-    "de": "Schutz"
+    "de": "Schutz",
+    "nl": "Bescherming"
   },
   "protections": {
     "fr": "Protections",
     "en": "Protections",
     "es": "Protecciones",
-    "de": "Schutzmaßnahmen"
+    "de": "Schutzmaßnahmen",
+    "nl": "Beveiligingen"
   },
   "remove": {
     "fr": "Supprimer",
     "en": "Remove",
     "es": "Borrar",
-    "de": "Löschen"
+    "de": "Löschen",
+    "nl": "Verwijderen"
   },
   "seeless": {
     "fr": "Voir moins",
     "en": "See less",
     "es": "Ver menos",
-    "de": "Weniger sehen"
+    "de": "Weniger sehen",
+    "nl": "Minder zien"
   },
   "seemore": {
     "fr": "Voir plus",
     "en": "See more",
     "es": "Ver más",
-    "de": "Sehen Sie mehr"
+    "de": "Sehen Sie mehr",
+    "nl": "Bekijk meer"
   },
   "setNoDate": {
     "fr": "Il ne semble pas y avoir de date pour cette visite. Contactez l'organisateur s'il vous plait",
     "en": "There does not seem to be any date for this visit. Please contact the organiser",
     "es": "No parece haber una fecha para esta visita. Póngase en contacto con el organizador",
-    "de": "Es scheint keinen Termin für diesen Besuch zu geben. Bitte kontaktieren Sie den Veranstalter"
+    "de": "Es scheint keinen Termin für diesen Besuch zu geben. Bitte kontaktieren Sie den Veranstalter",
+    "nl": "Er lijkt geen datum te zijn voor dit bezoek. Neem contact op met de organisator"
   },
   "sevendays": {
     "fr": "7 jours",
     "en": "7 days",
     "es": "7 días",
-    "de": "7 Tage"
+    "de": "7 Tage",
+    "nl": "7 dagen"
   },
-  "SITES": { "fr": "SITES", "en": "SITES", "es": "SITIOS", "de": "WEBSITES" },
-  "sites": { "fr": "Sites", "en": "Sites", "es": "sitios", "de": "Websites" },
+  "SITES": {
+    "fr": "SITES",
+    "en": "SITES",
+    "es": "SITIOS",
+    "de": "STÄTTEN",
+    "nl": "PLAATSEN"
+  },
+  "sites": {
+    "fr": "Sites",
+    "en": "Sites",
+    "es": "Sitios",
+    "de": "Stätten",
+    "nl": "Plaatsen"
+  },
   "sitePageMaintainedBy": {
     "fr": "Page maintenue par",
     "en": "Page maintained by",
     "es": "Página mantenida por",
-    "de": "Seite gepflegt von"
+    "de": "Seite gepflegt von",
+    "nl": "Pagina onderhouden door"
   },
   "siteTypes": {
     "fr": "Types de sites",
     "en": "Site types",
     "es": "Tipos de sitios",
-    "de": "Arten von Websites"
+    "de": "Arten von Websites",
+    "nl": "Soorten sites"
   },
-  "source": { "fr": "Source", "en": "Source", "es": "Fuente", "de": "Quelle" },
+  "source": {
+    "fr": "Source",
+    "en": "Source",
+    "es": "Fuente",
+    "de": "Quelle",
+    "nl": "Bron"
+  },
   "sources": {
     "fr": "Sources",
     "en": "Sources",
     "es": "abastecimiento",
-    "de": "Beschaffung"
+    "de": "Beschaffung",
+    "nl": "inkoop"
   },
   "stars": {
     "fr": "Etoiles",
     "en": "Stars",
     "es": "Estrellas",
-    "de": "Sterne"
+    "de": "Sterne",
+    "nl": "Sterren"
   },
-  "today": { "fr": "aujourd'hui", "en": "today", "es": "hoy", "de": "heute" },
+  "today": {
+    "fr": "aujourd'hui",
+    "en": "today",
+    "es": "hoy",
+    "de": "heute",
+    "nl": "hedendaags"
+  },
   "tomorrow": {
     "fr": "demain",
     "en": "tomorrow",
     "es": "mañana",
-    "de": "morgen"
+    "de": "morgen",
+    "nl": "morgen"
   },
   "update": {
     "fr": "Mettre à jour",
     "en": "Update",
     "es": "Actualizar",
-    "de": "Aktualisieren"
+    "de": "Aktualisieren",
+    "nl": "Bijwerken"
   },
   "welcome": {
     "fr": "DÉCOUVREZ LE PATRIMOINE AUTOUR DE VOUS",
     "en": "DISCOVER HERITAGE SITES AROUND YOU",
     "es": "DESCUBRE EL PATRIMONIO QUE TE RODEA",
-    "de": "ENTDECKEN SIE DAS ERBE UM SIE HERUM"
+    "de": "ENTDECKEN SIE DAS ERBE UM SIE HERUM",
+    "nl": "ONTDEK HET ERFGOED OM JE HEEN"
   },
   "www": {
     "fr": "Site internet",
     "en": "Website",
     "es": "Sitio web",
-    "de": "Webseite"
+    "de": "Webseite",
+    "nl": "Website"
   },
   "writeEmail": {
     "fr": "Confirmez avec votre email",
     "en": "Confirm with your email",
     "es": "Confirma con tu correo electrónico",
-    "de": "Bestätigen Sie mit Ihrer E-Mail"
+    "de": "Bestätigen Sie mit Ihrer E-Mail",
+    "nl": "Bevestig met je e-mailadres"
   },
   "yourEmail": {
     "fr": "Votre email ...",
     "en": "Your email ...",
     "es": "Tu correo electrónico...",
-    "de": "Deine E-Mail..."
+    "de": "Deine E-Mail...",
+    "nl": "Je e-mailadres..."
   },
   "yourEmailWasSent": {
     "fr": "Votre email a été envoyé",
     "en": "Your email aws sent",
     "es": "Tu correo electrónico ha sido enviado",
-    "de": "Deine E-Mail wurde versendet"
+    "de": "Deine E-Mail wurde versendet",
+    "nl": "Je e-mail is verzonden"
   }
 }

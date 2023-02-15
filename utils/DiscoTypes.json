@@ -1,5 +1,23 @@
-{   
-    "regular": {"en": "Regular tour", "fr": "Visite régulière","es": "Visita regular"},
-    "demand": {"en": "On demand tour", "fr": "Visite sur demande","es": "Visita a petición"},
-    "event": {"en": "Event", "fr": "Evènement","es": "Evento"}
+{
+  "regular": {
+    "en": "Regular tour",
+    "fr": "Visite régulière",
+    "es": "Visita regular",
+    "de": "Regelmäßiger Besuch",
+    "nl": "Regelmatig bezoek"
+  },
+  "demand": {
+    "en": "On demand tour",
+    "fr": "Visite sur demande",
+    "es": "Visita a petición",
+    "de": "Besuch auf Anfrage",
+    "nl": "Bezoek op aanvraag"
+  },
+  "event": {
+    "en": "Event",
+    "fr": "Evènement",
+    "es": "Evento",
+    "de": "Ereignis",
+    "nl": "Evenement"
+  }
 }

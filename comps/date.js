@@ -1,15 +1,16 @@
 import { parseISO, format } from "date-fns";
-import { enGB, fr } from "date-fns/locale";
+import { en, enGB, fr, es, de, nl } from "date-fns/locale";
 import { intervalToDuration } from "date-fns";
+import { Languages } from "../utils/auth";
 
 const Weekdays = require("../utils/Weekdays.json");
 
-
-export const FormattedDate = ({ dateString }) => {
+// unused
+export const FormattedDate = ({ dateString, lang }) => {
   const date = parseISO(dateString);
   return (
     <time dateTime={dateString}>
-      {format(date, "d LLLL yyyy", { locale: lang === "fr" ? fr : enGB })}
+      {format(date, "d LLLL yyyy", { locale: [Languages].includes(lang) ? lang : fr })}
     </time>
   );
 };
@@ -91,51 +92,47 @@ export const FormattedLength = ({ dateString }) => {
 export const FormattedDaySlots = ({ slots, lang, verbose }) => {
   try {
     if (slots.length === 1) {
-      if (lang === "fr")
-        return (
-          <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${
-            slots[0][1]
-          }`}</span>
-        );
-      else
-        return (
-          <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${
-            slots[0][1]
-          }`}</span>
-        );
+      switch(lang) {
+        case "fr":
+          return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]}`}</span>
+        case "en":
+          return <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${slots[0][1]}`}</span>
+        case "es":
+          return <span>{`Abierto ${verbose ? verbose : ""} entre las ${slots[0][0]} y las ${slots[0][1]}`}</span>
+        case "nl":
+          return <span>{`${verbose ? verbose : ""} geopend tussen ${slots[0][0]} en ${slots[0][1]}`}</span>
+        case "de":
+          return <span>{`${verbose ? verbose : ""} von ${slots[0][0]} bis ${slots[0][1]} geöffnet`}</span>
+      }
     }
     if (slots.length === 2) {
-      if (lang === "fr")
-        return (
-          <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${
-            slots[0][1]
-          } et entre ${slots[1][0]} et ${slots[1][1]}`}</span>
-        );
-      else
-        return (
-          <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${
-            slots[0][1]
-          } and between ${slots[1][0]} and ${slots[1][1]}`}</span>
-        );
+      switch(lang) {
+        case "fr":
+          return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]} et entre ${slots[1][0]} et ${slots[1][1]}`}</span>
+        case "en": 
+          return <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${slots[0][1]} and between ${slots[1][0]} and ${slots[1][1]}`}</span>
+        case "es":
+          return <span>{`Abierto ${verbose ? verbose : ""} entre las ${slots[0][0]} y las ${slots[0][1]} y entre las ${slots[1][0]} y las ${slots[1][1]}`}</span>
+        case "nl":
+          return <span>{`${verbose ? verbose : ""} geopend tussen ${slots[0][0]} en ${slots[0][1]} en tussen ${slots[1][0]} en ${slots[1][1]}`}</span>
+        case "de":
+          return <span>{`${verbose ? verbose : ""} von ${slots[0][0]} bis ${slots[0][1]} und von ${slots[1][0]} bis ${slots[1][1]} geöffnet`}</span>
+      }
     }
     if (slots.length === 3) {
-      if (lang === "fr")
-        return (
-          <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${
-            slots[0][1]
-          }, entre ${slots[1][0]} et ${slots[1][1]} et entre ${
-            slots[2][0]
-          } et ${slots[2][1]}`}</span>
-        );
-      else
-        return (
-          <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${
-            slots[0][1]
-          }, between ${slots[1][0]} and ${slots[1][1]} and between ${
-            slots[2][0]
-          } and ${slots[2][1]}`}</span>
-        );
+      switch(lang) {
+        case "fr":
+          return <span>{`Ouvert ${verbose ? verbose : ""} entre ${slots[0][0]} et ${slots[0][1]}, entre ${slots[1][0]} et ${slots[1][1]} et entre ${slots[2][0]} et ${slots[2][1]}`}</span>
+        case "en": 
+          return <span>{`Open ${verbose ? verbose : ""} between ${slots[0][0]} and ${slots[0][1]}, between ${slots[1][0]} and ${slots[1][1]} and between ${slots[2][0]} and ${slots[2][1]}`}</span>
+        case "es":
+          return <span>{`Abierto ${verbose ? verbose : ""} entre las ${slots[0][0]} y las ${slots[0][1]}, entre las ${slots[1][0]} y las ${slots[1][1]} y entre las ${slots[2][0]} y las ${slots[2][1]}`}</span>
+        case "nl":
+          return <span>{`${verbose ? verbose : ""} geopend tussen ${slots[0][0]} en ${slots[0][1]}, tussen ${slots[1][0]} en ${slots[1][1]} en tussen ${slots[2][0]} en ${slots[2][1]}`}</span>
+        case "de":
+          return <span>{`${verbose ? verbose : ""} von ${slots[0][0]} bis ${slots[0][1]}, von ${slots[1][0]} bis ${slots[1][1]} und von ${slots[2][0]} bis ${slots[2][1]} geöffnet`}</span>   
     }
+  }
   } catch (e) {
     console.log(e);
     return <span></span>;

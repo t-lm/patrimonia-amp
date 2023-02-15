@@ -11,27 +11,27 @@ function generateSiteMap(sites, discos, organisers) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
      <url>
        <loc>https://www.patrimonia.app</loc>
-       <xhtml:link
-       rel="alternate"
-       hreflang="en"
-       href="https://www.patrimonia.app/en"/>
+       <xhtml:link rel="alternate" hreflang="en" href="https://www.patrimonia.app/en"/>
+       <xhtml:link rel="alternate" hreflang="es" href="https://www.patrimonia.app/es"/>
+       <xhtml:link rel="alternate" hreflang="de" href="https://www.patrimonia.app/de"/>
+       <xhtml:link rel="alternate" hreflang="nl" href="https://www.patrimonia.app/nl"/>
      </url>
      <url>
        <loc>https://www.patrimonia.app/sites</loc>
-       <xhtml:link
-       rel="alternate"
-       hreflang="en"
-       href="https://www.patrimonia.app/en/sites"/>
+       <xhtml:link rel="alternate" hreflang="en" href="https://www.patrimonia.app/en/sites"/>
+       <xhtml:link rel="alternate" hreflang="es" href="https://www.patrimonia.app/es/sites"/>
+       <xhtml:link rel="alternate" hreflang="de" href="https://www.patrimonia.app/de/sites"/>
+       <xhtml:link rel="alternate" hreflang="nl" href="https://www.patrimonia.app/nl/sites"/>
      </url>
      ${sites
        .map((x) => {
          return `
        <url>
            <loc>${`${URL}/sites/${x}`}</loc>
-           <xhtml:link
-           rel="alternate"
-           hreflang="en"
-           href="${`${URL}/en/sites/${x}`}"/>
+           <xhtml:link rel="alternate" hreflang="en" href="${`${URL}/en/sites/${x}`}"/>
+           <xhtml:link rel="alternate" hreflang="es" href="${`${URL}/es/sites/${x}`}"/>
+           <xhtml:link rel="alternate" hreflang="de" href="${`${URL}/de/sites/${x}`}"/>
+           <xhtml:link rel="alternate" hreflang="nl" href="${`${URL}/nl/sites/${x}`}"/>
        </url>
      `;
        })
@@ -42,10 +42,10 @@ function generateSiteMap(sites, discos, organisers) {
           return `
       <url>
           <loc>${`${URL}/discos/${x}`}</loc>
-          <xhtml:link
-          rel="alternate"
-          hreflang="en"
-          href="${`${URL}/en/discos/${x}`}"/>
+          <xhtml:link rel="alternate" hreflang="en" href="${`${URL}/en/discos/${x}`}"/>
+          <xhtml:link rel="alternate" hreflang="es" href="${`${URL}/es/discos/${x}`}"/>
+          <xhtml:link rel="alternate" hreflang="de" href="${`${URL}/de/discos/${x}`}"/>
+          <xhtml:link rel="alternate" hreflang="nl" href="${`${URL}/nl/discos/${x}`}"/>
       </url>
     `;
         })
@@ -56,10 +56,10 @@ function generateSiteMap(sites, discos, organisers) {
           return `
         <url>
             <loc>${`${URL}/organisers/${x}`}</loc>
-            <xhtml:link
-            rel="alternate"
-            hreflang="en"
-            href="${`${URL}/en/organisers/${x}`}"/>
+            <xhtml:link rel="alternate" hreflang="en" href="${`${URL}/en/organisers/${x}`}"/>
+            <xhtml:link rel="alternate" hreflang="es" href="${`${URL}/es/organisers/${x}`}"/>
+            <xhtml:link rel="alternate" hreflang="de" href="${`${URL}/de/organisers/${x}`}"/>
+            <xhtml:link rel="alternate" hreflang="nl" href="${`${URL}/nl/organisers/${x}`}"/>
         </url>
       `;
         })

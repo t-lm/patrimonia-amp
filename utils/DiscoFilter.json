@@ -1,5 +1,23 @@
 {
-    "subject": {"fr": "Sujet", "en": "Subject", "es": "Tema", "de": "Thema" },
-    "type": { "fr": "Type", "en": "Type", "es": "Tipo", "de": "Art" },
-    "who": { "fr": "Pour qui", "en": "For whom", "es": "Para quién", "de": "Für wer" }
+  "subject": {
+    "fr": "Sujet",
+    "en": "Subject",
+    "es": "Tema",
+    "de": "Thema",
+    "nl": "Thema"
+  },
+  "type": {
+    "fr": "Type",
+    "en": "Type",
+    "es": "Tipo",
+    "de": "Art",
+    "nl": "Type"
+  },
+  "who": {
+    "fr": "Pour qui",
+    "en": "For whom",
+    "es": "Para quién",
+    "de": "Für wen",
+    "nl": "Voor wie"
   }
+}

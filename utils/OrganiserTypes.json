@@ -1,7 +1,37 @@
 {
-      "association": {"fr": "Association","en": "Association","es": "Asociación"},
-      "business": {"fr":"Entreprise","en": "Business","es": "Empresa"},
-      "governmentLocal": {"fr": "Mairie","en": "City council","es": "Autoridad local"},
-      "governmentRegional": {"fr": "Département ou région","en": "Regional body","es": "región"},
-      "public": {"fr": "Organisme public","en": "Public body", "es": "Organismo público"}
+  "association": {
+    "fr": "Association",
+    "en": "Association",
+    "es": "Asociación",
+    "de": "Verband",
+    "nl": "Vereniging"
+  },
+  "business": {
+    "fr": "Entreprise",
+    "en": "Business",
+    "es": "Empresa",
+    "de": "Unternehmen",
+    "nl": "Onderneming"
+  },
+  "governmentLocal": {
+    "fr": "Mairie",
+    "en": "City council",
+    "es": "Ayuntamiento",
+    "de": "Rathaus",
+    "nl": "Stadhuis"
+  },
+  "governmentRegional": {
+    "fr": "Département ou région",
+    "en": "Regional body",
+    "es": "Departamento o región",
+    "de": "Abteilung oder Region",
+    "nl": "Departement of regio"
+  },
+  "public": {
+    "fr": "Organisme public",
+    "en": "Public body",
+    "es": "Organismo público",
+    "de": "Öffentliche Körperschaft",
+    "nl": "Overheidsinstantie"
   }
+}
