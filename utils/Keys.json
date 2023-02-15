@@ -69,6 +69,13 @@
     "de": "Datum",
     "nl": "Datum"
   },
+  "demandCommentaryDefault": {
+    "fr": "Ecrivez-nous en utilisant le bouton à droite",
+    "en": "Get in touch using the button on the right",
+    "es": "Póngase en contacto usando el botón a la derecha",
+    "de": "Nehmen Sie über den Button rechts Kontakt auf",
+    "nl": "Neem dan contact op via de knop aan de rechterkant"
+  },
   "description": {
     "fr": "Description",
     "en": "Description",
@@ -223,6 +230,27 @@
     "de": "Die Seite konnte nicht entfernt werden. Bitte versuchen Sie es erneut",
     "nl": "De site kon niet worden verwijderd. Probeer het opnieuw"
   },
+  "errorDiscoFormName": {
+    "fr": "S'il vous plait entrez votre nom",
+    "en": "Please enter your name.",
+    "es": "Por favor, escriba su nombre",
+    "de": "Bitte geben Sie Ihren Namen ein",
+    "nl": "Vul alstublieft uw naam in"
+  },
+  "errorDiscoFormEmail": {
+    "fr": "S'il vous plait entrez votre email",
+    "en": "Please enter your email.",
+    "es": "Por favor, escriba su email",
+    "de": "Bitte geben Sie Ihren Email ein",
+    "nl": "Vul alstublieft uw email in"
+  },
+  "errorForm": {
+    "fr": "Il y a eu un problème. Toutes nos excuses",
+    "en": "There has been a problem. We are really sorry",
+    "es": "Ha habido un problema. lo sentimos mucho",
+    "de": "Es ist ein Problem aufgetreten. Es tut uns wirklich leid",
+    "nl": "Er is een probleem opgetreden. Het spijt ons echt"
+  },
   "filter": {
     "fr": "Filtrer les résultats",
     "en": "Filter results",
@@ -356,26 +384,19 @@
     "de": "Treffpunkt",
     "nl": "Ontmoetingspunt"
   },
+  "Message": {
+    "fr": "Message",
+    "en": "Message",
+    "es": "Mensaje",
+    "de": "Nachricht",
+    "nl": "Bericht"
+  },
   "MYACCOUNT": {
     "fr": "MON COMPTE",
     "en": "MY ACCOUNT",
     "es": "MI CUENTA",
     "de": "MEIN KONTO",
     "nl": "MIJN ACCOUNT"
-  },
-  "SIGNIN": {
-    "fr": "SE CONNECTER",
-    "en": "SIGN-IN",
-    "es": "INICIAR SESIÓN",
-    "de": "MELDEN SIE SICH AN",
-    "nl": "MELD JE AAN"
-  },
-  "SIGNOUT": {
-    "fr": "SE DECONNECTE",
-    "en": "SIGN-OUT",
-    "es": "DESCONECTA",
-    "de": "TRENNT",
-    "nl": "VERBREEKT"
   },
   "nextDates": {
     "fr": "Prochaines dates",
@@ -390,6 +411,13 @@
     "es": "No hay visitas ni eventos conocidos para este sitio en este momento",
     "de": "Für diese Seite sind derzeit keine Besuche oder Veranstaltungen bekannt",
     "nl": "Er zijn op dit moment geen bezoeken of evenementen bekend voor deze site"
+  },
+  "numberPersons": {
+    "fr": "Nombre de personnes",
+    "en": "Number of persons",
+    "es": "Número de personas",
+    "de": "Personenzahl",
+    "nl": "Aantal personen"
   },
   "ok": { "fr": "OK", "en": "OK", "es": "DE ACUERDO", "de": "OK", "nl": "OKÉ" },
   "onDemandDefault": {
@@ -419,6 +447,13 @@
     "es": "Horarios de apertura",
     "de": "Öffnungszeiten",
     "nl": "Openingstijden"
+  },
+  "optional": {
+    "fr": "optionnel",
+    "en": "optional",
+    "es": "opcional",
+    "de": "optional",
+    "nl": "optioneel"
   },
   "organiser": {
     "fr": "L'organisateur",
@@ -483,6 +518,13 @@
     "de": "Schutzmaßnahmen",
     "nl": "Beveiligingen"
   },
+  "request": {
+    "fr": "Faire une demande",
+    "en": "Make a request",
+    "es": "Reservar",
+    "de": "Reservieren",
+    "nl": "Reserveren"
+  },
   "remove": {
     "fr": "Supprimer",
     "en": "Remove",
@@ -504,6 +546,13 @@
     "de": "Sehen Sie mehr",
     "nl": "Bekijk meer"
   },
+  "send": {
+    "fr": "Envoyer",
+    "en": "Send",
+    "es": "Enviar",
+    "de": "Senden",
+    "nl": "Stuur"
+  },
   "setNoDate": {
     "fr": "Il ne semble pas y avoir de date pour cette visite. Contactez l'organisateur s'il vous plait",
     "en": "There does not seem to be any date for this visit. Please contact the organiser",
@@ -517,6 +566,20 @@
     "es": "7 días",
     "de": "7 Tage",
     "nl": "7 dagen"
+  },
+  "SIGNIN": {
+    "fr": "SE CONNECTER",
+    "en": "SIGN-IN",
+    "es": "INICIAR SESIÓN",
+    "de": "MELDEN SIE SICH AN",
+    "nl": "MELD JE AAN"
+  },
+  "SIGNOUT": {
+    "fr": "SE DECONNECTE",
+    "en": "SIGN-OUT",
+    "es": "DESCONECTA",
+    "de": "TRENNT",
+    "nl": "VERBREEKT"
   },
   "SITES": {
     "fr": "SITES",
@@ -610,17 +673,31 @@
     "nl": "Bevestig met je e-mailadres"
   },
   "yourEmail": {
-    "fr": "Votre email ...",
-    "en": "Your email ...",
-    "es": "Tu correo electrónico...",
-    "de": "Deine E-Mail...",
-    "nl": "Je e-mailadres..."
+    "fr": "Votre email",
+    "en": "Your email",
+    "es": "Tu correo electrónico",
+    "de": "Deine E-Mail",
+    "nl": "Je e-mail adres"
   },
   "yourEmailWasSent": {
     "fr": "Votre email a été envoyé",
-    "en": "Your email aws sent",
+    "en": "Your email has been sent",
     "es": "Tu correo electrónico ha sido enviado",
     "de": "Deine E-Mail wurde versendet",
     "nl": "Je e-mail is verzonden"
+  },
+  "yourRequestWasSent": {
+    "fr": "Votre demande a été envoyée. L'organisateur va revenir vers vous au plus vite",
+    "en": "Your request has been sent. The organiser will get back to you as soon as possible",
+    "es": "Tu solicitud ha sido enviada. El organizador se pondrá en contacto contigo lo antes posible.",
+    "de": "Ihre Anfrage wurde verschickt. Der Veranstalter wird sich schnellstmöglich bei Ihnen melden",
+    "nl": "Uw verzoek is verstuurd. De organisator neemt zo snel mogelijk contact met je op"
+  },
+  "yourName": {
+    "fr": "Votre nom",
+    "en": "Your name",
+    "es": "Su nombre",
+    "de": "Ihren Namen",
+    "nl": "Uw naam"
   }
 }

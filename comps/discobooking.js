@@ -1,4 +1,5 @@
 // ./comps/discobooking.js
+//
 // booking module
 
 import React, { useState } from "react";
@@ -6,21 +7,25 @@ import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 
 import { FormattedDateAndTime } from "./date";
+import { DiscoBookingForm } from "./discobookingform";
+
 const Weekdays = require("../utils/Weekdays.json");
 const Keys = require("../utils/Keys.json");
 
 export const DiscoBooking = (props) => {
+  const today = new Date();
+
   const disco = props.disco;
   const lang = props.lang;
-
-  const today = new Date();
-  today.setUTCHours(1);
-  const dayToday = today.getDay();
+  
   const [showModal, setShowModal] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(disco.type === "event" ? disco.dates.filter((d) => new Date(d.start) >= today)[0]["start"] : '');
 
+  
+  today.setUTCHours(1);
+  const dayToday = today.getDay();(false);
   const week = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
   const Day = (props) => {
@@ -62,7 +67,7 @@ export const DiscoBooking = (props) => {
             </h3>
             <Row style={{ margin: "5px 3px" }}>
               <Col xs={8} style={{ marginTop: 3, padding: "5.625px 0px" }}>
-                {disco.demandCommentary && disco.demandCommentary}
+                {disco.demandCommentary ? disco.demandCommentary : Keys["demandCommentaryDefault"][lang]}
               </Col>
               <Col xs={4} style={{ marginTop: 3, textAlign: "right" }}>
                 <Button
@@ -70,6 +75,7 @@ export const DiscoBooking = (props) => {
                     color: "black",
                     backgroundColor: "pink",
                     border: "1px solid pink",
+                    fontWeight: "bold"
                   }}
                   onClick={() => setShowModal(true)}
                 >
@@ -136,8 +142,10 @@ export const DiscoBooking = (props) => {
                             color: "black",
                             backgroundColor: "pink",
                             border: "1px solid pink",
+                            minWidth: "150px",
+                            fontWeight: "bold"
                           }}
-                          onClick={() => setShowModal(true)}
+                          onClick={() => { setShowModal(true), setSelectedDate(date.start)} }
                         >
                           {disco.bookingRequired
                             ? Keys["book"][lang]
@@ -152,39 +160,7 @@ export const DiscoBooking = (props) => {
         )}
       </div>
 
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered style={{color: "black"}}>
-        <Modal.Body>
-          <p>
-            {Keys["bookingTemp"][lang]}
-          </p>
-          <ul>
-            {disco.organiser.www && (
-              <li>
-                <a style={{color: "black"}} href={disco.organiser.www} target="_blank">{disco.organiser.www}</a>
-              </li>
-            )}
-            {disco.organiser.email && (
-              <li>
-                <a href={`mailto:${disco.organiser.email}`}>
-                  {disco.organiser.email}
-                </a>
-              </li>
-            )}
-            {disco.organiser.phone && <li>{disco.organiser.phone}</li>}
-            {disco.organiser.address && (
-              <li>
-                {disco.organiser.address.street}, {disco.organiser.address.city}
-              </li>
-            )}
-          </ul>
-          <Button
-            style={{ backgroundColor: "pink", color: "black", border: "0px" }}
-            onClick={() => setShowModal(false)}
-          >
-            {Keys["close"][lang]}
-          </Button>
-        </Modal.Body>
-      </Modal>
+      <DiscoBookingForm showModal={showModal} disco={disco} lang={lang} selectedDate={selectedDate} cb={(state) => setShowModal(state)}/> 
     </>
   );
 };

@@ -851,3 +851,90 @@ export const listOrganisers = /* GraphQL */ `
     }
   }
 `;
+export const getRequest = /* GraphQL */ `
+  query GetRequest($id: ID!) {
+    getRequest(id: $id) {
+      id
+      discoID
+      organiserID
+      organiser {
+        id
+        name
+        description
+        description_en
+        description_es
+        description_de
+        description_nl
+        www
+        phone
+        email
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        type
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      discoDate
+      discoName
+      numberPersons
+      email
+      locale
+      name
+      created
+      body
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listRequests = /* GraphQL */ `
+  query ListRequests(
+    $filter: ModelRequestFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRequests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        discoID
+        organiserID
+        organiser {
+          id
+          name
+          description
+          description_en
+          description_es
+          description_de
+          description_nl
+          www
+          phone
+          email
+          type
+          createdAt
+          updatedAt
+          owner
+        }
+        type
+        discoDate
+        discoName
+        numberPersons
+        email
+        locale
+        name
+        created
+        body
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

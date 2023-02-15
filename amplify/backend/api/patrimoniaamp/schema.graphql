@@ -91,6 +91,7 @@ type Disco
     styles: [SiteStyles]
 }
 
+
 type Media
   @model
   @auth(rules: [{ allow: owner }, { allow: public, provider: iam, operations: [read] }]) {
@@ -115,11 +116,30 @@ type Organiser
   description_nl: String
   www: String
   phone: String
-  email: String
+  email: String!
   address: Address
   type: String
 }
 
+
+type Request
+ @model
+ @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  discoID: ID!
+  organiserID: ID!
+  organiser: Organiser @hasOne(fields: ["organiserID"])
+  type: String # type of disco: event or demand
+  discoDate: String # selected date
+  discoName: String # selected date
+  numberPersons: String
+  email: String!
+  locale: String
+  name: String
+  created: String
+  body: String
+}
+  
 
 type Address {
   name: String

@@ -40,6 +40,10 @@
         "patrimoniaTranslateDisco": {
           "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
           "s3Key": "amplify-builds/patrimoniaTranslateDisco-68433355426457537030-build.zip"
+        },
+        "patrimoniaEmailOnRequest": {
+          "deploymentBucketName": "amplify-patrimoniaamp-dev-175328-deployment",
+          "s3Key": "amplify-builds/patrimoniaEmailOnRequest-4939377051754c566863-build.zip"
         }
       }
     }

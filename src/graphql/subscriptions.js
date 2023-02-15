@@ -847,3 +847,141 @@ export const onDeleteOrganiser = /* GraphQL */ `
     }
   }
 `;
+export const onCreateRequest = /* GraphQL */ `
+  subscription OnCreateRequest(
+    $filter: ModelSubscriptionRequestFilterInput
+    $owner: String
+  ) {
+    onCreateRequest(filter: $filter, owner: $owner) {
+      id
+      discoID
+      organiserID
+      organiser {
+        id
+        name
+        description
+        description_en
+        description_es
+        description_de
+        description_nl
+        www
+        phone
+        email
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        type
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      discoDate
+      discoName
+      numberPersons
+      email
+      locale
+      name
+      created
+      body
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateRequest = /* GraphQL */ `
+  subscription OnUpdateRequest(
+    $filter: ModelSubscriptionRequestFilterInput
+    $owner: String
+  ) {
+    onUpdateRequest(filter: $filter, owner: $owner) {
+      id
+      discoID
+      organiserID
+      organiser {
+        id
+        name
+        description
+        description_en
+        description_es
+        description_de
+        description_nl
+        www
+        phone
+        email
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        type
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      discoDate
+      discoName
+      numberPersons
+      email
+      locale
+      name
+      created
+      body
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteRequest = /* GraphQL */ `
+  subscription OnDeleteRequest(
+    $filter: ModelSubscriptionRequestFilterInput
+    $owner: String
+  ) {
+    onDeleteRequest(filter: $filter, owner: $owner) {
+      id
+      discoID
+      organiserID
+      organiser {
+        id
+        name
+        description
+        description_en
+        description_es
+        description_de
+        description_nl
+        www
+        phone
+        email
+        address {
+          name
+          street
+          postalCode
+          city
+        }
+        type
+        createdAt
+        updatedAt
+        owner
+      }
+      type
+      discoDate
+      discoName
+      numberPersons
+      email
+      locale
+      name
+      created
+      body
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
