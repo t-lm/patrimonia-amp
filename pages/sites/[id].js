@@ -13,7 +13,7 @@ import Layout from "../../comps/layout";
 import { SiteBasics } from "../../comps/sitebasics";
 import { SiteDescription } from "../../comps/sitedescription";
 import { SiteFacts } from "../../comps/sitefacts";
-//import { SiteLinks } from "../../comps/sitelinks";
+import { SiteLinks } from "../../comps/sitelinks";
 import { SitePictures } from "../../comps/sitepictures";
 import { DiscosList } from "../../comps/discoslist";
 import { getCurrentUser } from "../../utils/auth";
@@ -119,9 +119,9 @@ const Site = ({ site, discos }) => {
         )}
 
         {/* Further on */}
-        {/*site.links && site.links.length > 0 && (
+        {site.links && site.links.length > 0 && (
           <SiteLinks site={site} lang={lang} />
-        )*/}
+        )}
 
         {[site.ambassadorID, "tlm"].includes(username) && (
           <>
