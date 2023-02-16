@@ -22,6 +22,7 @@ import { Separator } from "../../comps/separator";
 
 import { getCurrentUser } from "../../utils/auth";
 
+const today = new Date().toISOString().slice(0, 10);
 const Keys = require("../../utils/Keys.json");
 const { Languages } = require("../../utils/auth");
 
@@ -43,6 +44,7 @@ export const getStaticPaths = async () => {
   try {
     const response = await API.graphql({
       query: listDiscos,
+      variables: {filter: { dateEnd: { ge: today}}},
       authMode: "AWS_IAM",
     });
     const pathsFR = response.data.listDiscos.items.map((s) => { return ({ params: { id: s.id, }, locale: "fr" })})
