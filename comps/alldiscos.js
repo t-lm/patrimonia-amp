@@ -15,13 +15,16 @@ export const Alldiscos = ({ Discos }) => {
   
   let today = new Date();
   const todayString = today.toISOString().slice(0, 10);
+  let day = today.getDate();
+  today.setDate(day + 6);
+  const nextWeekString = today.toISOString().slice(0, 10);
 
   const lang = useRouter().locale;
   const [discos, setDiscos] = useState([]);
   const [filter, setFilter] = useState({
-    periodRange: "today",
+    periodRange: "thisweek",
     startPeriod: todayString,
-    endPeriod: todayString,
+    endPeriod: nextWeekString,
   });
 
 

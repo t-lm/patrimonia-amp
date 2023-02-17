@@ -561,11 +561,11 @@
     "nl": "Er lijkt geen datum te zijn voor dit bezoek. Neem contact op met de organisator"
   },
   "sevendays": {
-    "fr": "7 jours",
-    "en": "7 days",
-    "es": "7 días",
-    "de": "7 Tage",
-    "nl": "7 dagen"
+    "fr": "cette semaine",
+    "en": "this week",
+    "es": "esta semana",
+    "de": "diese Woche",
+    "nl": "deze week"
   },
   "SIGNIN": {
     "fr": "SE CONNECTER",

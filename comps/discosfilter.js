@@ -53,6 +53,34 @@ export const DiscosFilter = (props) => {
       }}
     >
       {/* dates */}
+        {/* this week */}
+        <Button
+        style={{
+          backgroundColor:
+            filter.periodRange === "thisweek" &&
+            filter.startPeriod === todayString &&
+            filter.endPeriod === nextWeekString
+              ? "#e2e2d7"
+              : "white",
+          fontWeight: "bold",
+          padding: "4px 10px",
+          borderRadius: 4,
+          marginTop: 5,
+          border: 0,
+          color: "black",
+          fontSize: "0.8rem",
+        }}
+        onClick={() =>
+          cb({
+            periodRange: "thisweek",
+            startPeriod: todayString,
+            endPeriod: nextWeekString,
+          })
+        }
+      >
+        {Keys["sevendays"][lang]}
+      </Button>
+      {" | "}
       {/* today */}
       <Button
         style={{
@@ -105,33 +133,6 @@ export const DiscosFilter = (props) => {
         }
       >
         {Keys["tomorrow"][lang]}
-      </Button>
-      {/* this week */}
-      <Button
-        style={{
-          backgroundColor:
-            filter.periodRange === "thisweek" &&
-            filter.startPeriod === todayString &&
-            filter.endPeriod === nextWeekString
-              ? "#e2e2d7"
-              : "white",
-          fontWeight: "bold",
-          padding: "4px 10px",
-          borderRadius: 4,
-          marginTop: 5,
-          border: 0,
-          color: "black",
-          fontSize: "0.8rem",
-        }}
-        onClick={() =>
-          cb({
-            periodRange: "thisweek",
-            startPeriod: todayString,
-            endPeriod: nextWeekString,
-          })
-        }
-      >
-        {Keys["sevendays"][lang]}
       </Button>
       {" | "}
       {startPeriods.map((m, i) => (
