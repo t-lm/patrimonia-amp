@@ -8,13 +8,14 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const SiteOpening = require("../utils/SiteOpening.json");
 const SitePeriods = require("../utils/SitePeriods.json");
 const SiteStyles = require("../utils/SiteStyles.json");
 const SiteTypes = require("../utils/SiteTypes.json");
 const { Icons } = require("../utils/icons");
 
 export const SitePill = (props) => {
-  const s = props.site;
+  const site = props.site;
   const lang = props.lang
 
   return (
@@ -37,11 +38,11 @@ export const SitePill = (props) => {
             display: "block",
           }}
         >
-          <Link href={`/sites/${s.id}`}>
+          <Link href={`/sites/${site.id}`}>
             <Image
-              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${s.picture.id}`}
-              alt={s.picture.description_fr}
-              title={s.name}
+              src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${site.picture.id}`}
+              alt={site.picture.description_fr}
+              title={site.name}
               className="shadow-1-strong rounded"
               fill
               priority
@@ -54,34 +55,37 @@ export const SitePill = (props) => {
 
       {/* Text */}
       <Col style={{ marginLeft: 20, color: "black" }}>
-        <div style={{ marginBottom: 5, paddingTop: 0 }}>
+        <div style={{ paddingTop: 0 }}>
           <Link
-            href={`/sites/${s.id}`}
+            href={`/sites/${site.id}`}
             style={{ color: "black", fontWeight: "bold", fontSize: "1.1rem" }}
           >
-            {s.name}
+            {site.name}
           </Link>
         </div>
-        {/* City and type */}
+        {/* City, type and opening */}
         <div
           style={{
             marginBottom: 5,
             paddingTop: 0,
             fontSize: "1rem",
             fontWeight: "bold",
+            
           }}
         >
-          {s.address.city}
+          {site.address.city}
           {" . "}
-          {s.types.map((t, i) => (
-            <span key={i}>
-              <span style={{ marginRight: 10 }}>
+          {site.types.map((t, i) => (
+            <div key={i} style={{ display: "inline" }}>
+              <div style={{ display: "inline" }}>
                 {i > 0 && " "}
                 {SiteTypes[t][lang]}
-              </span>
-              <span>{Icons[t]}</span>
-            </span>
+              </div>
+              {/*<div style={{display: "inline", verticalAlign: "middle" }}>{Icons[t]}</div>*/}
+            </div>
           ))}
+          {" . "}
+          {SiteOpening[site.opening][lang]}
         </div>
 
         {/* Headline */}
@@ -92,14 +96,14 @@ export const SitePill = (props) => {
             fontSize: "0.9rem",
           }}
         >
-          <a>{s.headline}</a>
+          <a>{site.headline}</a>
         </div>
 
         {/* Periods and styles */}
         <div style={{ marginBottom: 5, paddingTop: 0 }}>
           {/* periods */}
-          {s.periods &&
-            s.periods.map((p, i) => (
+          {site.periods &&
+            site.periods.map((p, i) => (
               <span
                 key={i}
                 style={{
@@ -115,8 +119,8 @@ export const SitePill = (props) => {
             ))}
 
           {/* styles */}
-          {s.styles &&
-            s.styles.map((s, i) => (
+          {site.styles &&
+            site.styles.map((s, i) => (
               <span
                 key={i}
                 style={{

@@ -168,6 +168,7 @@ export const onCreateSite = /* GraphQL */ `
       name_es
       name_de
       name_nl
+      opening
       periods
       position {
         latitude
@@ -301,6 +302,7 @@ export const onUpdateSite = /* GraphQL */ `
       name_es
       name_de
       name_nl
+      opening
       periods
       position {
         latitude
@@ -434,6 +436,7 @@ export const onDeleteSite = /* GraphQL */ `
       name_es
       name_de
       name_nl
+      opening
       periods
       position {
         latitude
@@ -528,6 +531,7 @@ export const onCreateDisco = /* GraphQL */ `
         name_es
         name_de
         name_nl
+        opening
         periods
         position {
           latitude
@@ -691,6 +695,7 @@ export const onUpdateDisco = /* GraphQL */ `
         name_es
         name_de
         name_nl
+        opening
         periods
         position {
           latitude
@@ -854,6 +859,7 @@ export const onDeleteDisco = /* GraphQL */ `
         name_es
         name_de
         name_nl
+        opening
         periods
         position {
           latitude

@@ -30,10 +30,11 @@ type Site
   links: [Link]
   media: [Media] @hasMany(indexName: "bySite", fields: ["id"])
   name: String!
-    name_en: String
-    name_es: String
-    name_de: String
-    name_nl: String
+  name_en: String
+  name_es: String
+  name_de: String
+  name_nl: String
+  opening: String! # regular, demand, event
   periods: [SitePeriods]
   position: Position  
   protections: [SiteProtections]

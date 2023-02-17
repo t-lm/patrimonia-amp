@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
               <Link style={{ marginRight: 25, color: "black" }} href="/sites">
                 {Keys["SITES"][lang]}
               </Link>
-              <Link style={{ marginRight: 25, color: "black" }} href="/">
+              <Link style={{ marginRight: 25, color: "black" }} href="/discos">
                 {Keys["DISCOVERIES"][lang]}
               </Link>
               <NavDropdown

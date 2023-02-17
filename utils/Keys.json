@@ -13,6 +13,13 @@
     "de": "alle",
     "nl": "alle"
   },
+  "appHead": {
+    "fr": "Découvrir le patrimoine",
+    "en": "Explore heritage",
+    "es": "Descubre el patrimonio",
+    "de": "Entdecken Sie das Erbe",
+    "nl": "Ontdek het erfgoed"
+  },
   "book": {
     "fr": "Réserver",
     "en": "Book",
@@ -673,8 +680,8 @@
     "nl": "Bijwerken"
   },
   "welcome": {
-    "fr": "DÉCOUVREZ LE PATRIMOINE AUTOUR DE VOUS",
-    "en": "DISCOVER HERITAGE SITES AROUND YOU",
+    "fr": "DÉCOUVRIR LE PATRIMOINE AUTOUR DE VOUS",
+    "en": "EXPLORE HERITAGE SITES AROUND YOU",
     "es": "DESCUBRE EL PATRIMONIO QUE TE RODEA",
     "de": "ENTDECKEN SIE DAS ERBE UM SIE HERUM",
     "nl": "ONTDEK HET ERFGOED OM JE HEEN"

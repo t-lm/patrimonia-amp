@@ -158,6 +158,7 @@ export const getSite = /* GraphQL */ `
       name_es
       name_de
       name_nl
+      opening
       periods
       position {
         latitude
@@ -235,6 +236,7 @@ export const listSites = /* GraphQL */ `
         name_es
         name_de
         name_nl
+        opening
         periods
         position {
           latitude
@@ -328,6 +330,7 @@ export const getDisco = /* GraphQL */ `
         name_es
         name_de
         name_nl
+        opening
         periods
         position {
           latitude
@@ -459,6 +462,7 @@ export const listDiscos = /* GraphQL */ `
           name_es
           name_de
           name_nl
+          opening
           periods
           protections
           styles
@@ -596,6 +600,7 @@ export const discosByOrganiserID = /* GraphQL */ `
           name_es
           name_de
           name_nl
+          opening
           periods
           protections
           styles
@@ -733,6 +738,7 @@ export const discosBySiteID = /* GraphQL */ `
           name_es
           name_de
           name_nl
+          opening
           periods
           protections
           styles

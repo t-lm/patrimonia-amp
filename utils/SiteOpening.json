@@ -1,0 +1,29 @@
+{
+  "demand": {
+    "fr": "Ouvert sur demande",
+    "en": "Open on demand",
+    "es": "Abierto bajo petición",
+    "de": "Auf Anfrage geöffnet",
+    "nl": "Op aanvraag geopend",
+    "backgroundColor": "#f5e39f",
+    "color": "black"
+  },
+  "regular": {
+    "fr": "Ouvert",
+    "en": "Open",
+    "es": "Abierto",
+    "de": "Öffentlich",
+    "nl": "Geopend",
+    "backgroundColor": "##b3be91",
+    "color": "black"
+  },
+  "event": {
+    "fr": "Ouvert lors d'évènements",
+    "en": "Open during events",
+    "es": "Abierto durante los eventos",
+    "de": "Bei Veranstaltungen geöffnet",
+    "nl": "Geopend tijdens evenementen",
+    "backgroundColor": "#ddd",
+    "color": "black"
+  }
+}
