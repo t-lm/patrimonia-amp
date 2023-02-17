@@ -21,6 +21,7 @@ type Site
   description_es: String
   description_de: String
   description_nl: String
+  discos: [Disco] @hasMany(indexName: "bySite", fields: ["id"])
   headline: String!
   headline_en: String
   headline_es: String

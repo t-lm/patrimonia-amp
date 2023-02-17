@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 
-const Locations = require("../utils/Locations.json");
+const Cities = require("../utils/Cities.json");
 const SiteFilter = require("../utils/SiteFilter.json");
 const SiteTypes = require("../utils/SiteTypes.json");
 
@@ -33,9 +33,9 @@ export const SitesFilter = (props) => {
         <Row>
           <Col xs={12} sm={8} md={6}>
           <Form.Select size="sm" onChange={() => cb({ location: "beziers" })}>
-            {Object.keys(Locations).map((x) => (
+            {Object.keys(Cities).map((x) => (
               <option key={x} value={x}>
-                {Locations[x][lang]}
+                {Cities[x][lang]}
               </option>
               ))}
             </Form.Select>

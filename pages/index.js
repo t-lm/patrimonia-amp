@@ -1,30 +1,32 @@
 // pages/index.js
 
-import React from "react";
-import Head from 'next/head'
+import React, { useState } from "react";
+
+import Head from "next/head";
 
 import { API } from "aws-amplify";
-import { listDiscos } from "../src/graphql/queries";
+import { listSites } from "../src/graphql/queries";
 
 import Layout from "../comps/layout";
-import { Alldiscos } from "../comps/alldiscos";
 import { Welcome } from "../comps/welcome";
-
-const today = new Date().toISOString().slice(0, 10);
+import { Allsites } from "../comps/allsites";
 
 export const getStaticProps = async () => {
   try {
-    const response = await API.graphql({ query: listDiscos, variables: {filter: { dateEnd: { ge: today}}}, authMode: "AWS_IAM" });
-    // return { props: { Discos: response.data.listDiscos.items }, revalidate: 10 };
-    return { props: { Discos: response.data.listDiscos.items } };
+    const response = await API.graphql({
+      query: listSites,
+      authMode: "AWS_IAM",
+    });
+  //  return { props: { Sites: response.data.listSites.items }, revalidate: 10 };
+  return { props: { Sites: response.data.listSites.items } };
   } catch (err) {
     console.error(err);
-   // return { props: {}, revalidate: 10 };
-    return { props: {} };
+  //  return { props: {}, revalidate: 10 };
+  return { props: {} };
   }
 };
 
-const Index = ({ Discos = [] }) => {
+const Sites = ({ Sites = [] }) => {
 
   return (
     <Layout>
@@ -34,9 +36,10 @@ const Index = ({ Discos = [] }) => {
       </Head>
 
       <Welcome />
-      <Alldiscos Discos={Discos} />
+      <Allsites Sites={Sites} />
+
     </Layout>
   );
 };
 
-export default Index;
+export default Sites;

@@ -37,7 +37,7 @@ export const SitePill = (props) => {
             display: "block",
           }}
         >
-          <Link href={`/discos/${s.id}`}>
+          <Link href={`/sites/${s.id}`}>
             <Image
               src={`https://patrimoniamedia175328-dev.s3.eu-west-1.amazonaws.com/public/sites/${s.picture.id}`}
               alt={s.picture.description_fr}

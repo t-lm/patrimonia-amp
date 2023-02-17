@@ -73,11 +73,11 @@ const Layout = ({ children }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse className="justify-content-end">
-              <Link style={{ marginRight: 25, color: "black" }} href="/">
-                {Keys["DISCOVERIES"][lang]}
-              </Link>
               <Link style={{ marginRight: 25, color: "black" }} href="/sites">
                 {Keys["SITES"][lang]}
+              </Link>
+              <Link style={{ marginRight: 25, color: "black" }} href="/">
+                {Keys["DISCOVERIES"][lang]}
               </Link>
               <NavDropdown
                 align="end"

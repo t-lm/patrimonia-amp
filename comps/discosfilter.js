@@ -13,7 +13,7 @@ const DiscoFilter = require("../utils/DiscoFilter.json");
 const DiscoTypes = require("../utils/DiscoTypes.json");
 const DiscoSubjects = require("../utils/DiscoSubjects.json");
 const Keys = require("../utils/Keys.json");
-const Locations = require("../utils/Locations.json");
+const Cities = require("../utils/Cities.json");
 
 let today = new Date();
 const todayString = today.toISOString().slice(0, 10);
@@ -194,9 +194,9 @@ export const DiscosFilter = (props) => {
         <Row style={{ marginTop: 10 }}>
           <Col xs={12} sm={6} md={4}>
             <Form.Select size="sm" onChange={() => cb({ location: "beziers" })}>
-            {Object.keys(Locations).map((x) => (
+            {Object.keys(Cities).map((x) => (
               <option key={x} value={x}>
-                {Locations[x][lang]}
+                {Cities[x][lang]}
               </option>
               ))}
             </Form.Select>

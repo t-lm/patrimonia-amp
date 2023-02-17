@@ -81,6 +81,64 @@ export const createSite = /* GraphQL */ `
       description_es
       description_de
       description_nl
+      discos {
+        items {
+          id
+          locationID
+          organiserID
+          siteID
+          audiences
+          bookingRequired
+          dateStart
+          dateEnd
+          duration
+          description
+          description_en
+          description_es
+          description_de
+          description_nl
+          demandCommentary
+          demandCommentary_en
+          demandCommentary_es
+          demandCommentary_de
+          demandCommentary_nl
+          events
+          format
+          headline
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
+          languages
+          name
+          name_en
+          name_es
+          name_de
+          name_nl
+          periods
+          persons
+          pictures
+          practicalInfo
+          practicalInfo_en
+          practicalInfo_es
+          practicalInfo_de
+          practicalInfo_nl
+          price
+          priceCommentary
+          priceCommentary_en
+          priceCommentary_es
+          priceCommentary_de
+          priceCommentary_nl
+          priority
+          type
+          subjects
+          styles
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
       headline
       headline_en
       headline_es
@@ -156,6 +214,64 @@ export const updateSite = /* GraphQL */ `
       description_es
       description_de
       description_nl
+      discos {
+        items {
+          id
+          locationID
+          organiserID
+          siteID
+          audiences
+          bookingRequired
+          dateStart
+          dateEnd
+          duration
+          description
+          description_en
+          description_es
+          description_de
+          description_nl
+          demandCommentary
+          demandCommentary_en
+          demandCommentary_es
+          demandCommentary_de
+          demandCommentary_nl
+          events
+          format
+          headline
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
+          languages
+          name
+          name_en
+          name_es
+          name_de
+          name_nl
+          periods
+          persons
+          pictures
+          practicalInfo
+          practicalInfo_en
+          practicalInfo_es
+          practicalInfo_de
+          practicalInfo_nl
+          price
+          priceCommentary
+          priceCommentary_en
+          priceCommentary_es
+          priceCommentary_de
+          priceCommentary_nl
+          priority
+          type
+          subjects
+          styles
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
       headline
       headline_en
       headline_es
@@ -231,6 +347,64 @@ export const deleteSite = /* GraphQL */ `
       description_es
       description_de
       description_nl
+      discos {
+        items {
+          id
+          locationID
+          organiserID
+          siteID
+          audiences
+          bookingRequired
+          dateStart
+          dateEnd
+          duration
+          description
+          description_en
+          description_es
+          description_de
+          description_nl
+          demandCommentary
+          demandCommentary_en
+          demandCommentary_es
+          demandCommentary_de
+          demandCommentary_nl
+          events
+          format
+          headline
+          headline_en
+          headline_es
+          headline_de
+          headline_nl
+          languages
+          name
+          name_en
+          name_es
+          name_de
+          name_nl
+          periods
+          persons
+          pictures
+          practicalInfo
+          practicalInfo_en
+          practicalInfo_es
+          practicalInfo_de
+          practicalInfo_nl
+          price
+          priceCommentary
+          priceCommentary_en
+          priceCommentary_es
+          priceCommentary_de
+          priceCommentary_nl
+          priority
+          type
+          subjects
+          styles
+          createdAt
+          updatedAt
+          owner
+        }
+        nextToken
+      }
       headline
       headline_en
       headline_es
@@ -333,6 +507,9 @@ export const createDisco = /* GraphQL */ `
         description_es
         description_de
         description_nl
+        discos {
+          nextToken
+        }
         headline
         headline_en
         headline_es
@@ -493,6 +670,9 @@ export const updateDisco = /* GraphQL */ `
         description_es
         description_de
         description_nl
+        discos {
+          nextToken
+        }
         headline
         headline_en
         headline_es
@@ -653,6 +833,9 @@ export const deleteDisco = /* GraphQL */ `
         description_es
         description_de
         description_nl
+        discos {
+          nextToken
+        }
         headline
         headline_en
         headline_es
