@@ -34,23 +34,13 @@ export const DiscoBookingForm = (props) => {
   const handleCreateRequest = async (event) => {
     event.preventDefault();
 
-    console.log(request)
-
     if (request.name === "") return setError("errorDiscoFormName")
     if (request.email === "") return setError("errorDiscoFormEmail")
 
+    let input = { id: nanoid(8), ...request }
     try {
-      await API.graphql({
-        authMode: "AMAZON_COGNITO_USER_POOLS",
-        query: createRequest,
-        variables: {
-          input: {
-            id: nanoid(8),
-            ...request,
-          },
-        },
-      });
-
+      //API.graphql({ query: createMessage, variables: { input }, authMode: 'AWS_IAM'})
+      await API.graphql({ authMode: "AWS_IAM", query: createRequest, variables: { input }});
       setThanks(true)
     } catch (e) {
       console.error(e);

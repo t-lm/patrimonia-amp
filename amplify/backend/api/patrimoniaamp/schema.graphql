@@ -135,20 +135,20 @@ type Organiser
 
 type Request
  @model
- @auth(rules: [{ allow: owner }]) {
+ @auth(rules: [{ allow: owner }, { allow: public,  provider: iam, operations: [create, read] }]) {
   id: ID!
   discoID: ID!
   organiserID: ID!
-  organiser: Organiser @hasOne(fields: ["organiserID"])
-  type: String # type of disco: event or demand
+  email: String!
+  body: String
+  created: String
   discoDate: String # selected date
   discoName: String # selected date
-  numberPersons: String
-  email: String!
   locale: String
   name: String
-  created: String
-  body: String
+  numberPersons: String
+  organiser: Organiser @hasOne(fields: ["organiserID"])
+  type: String # type of disco: event or demand
 }
   
 

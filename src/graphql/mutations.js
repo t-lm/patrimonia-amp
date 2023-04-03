@@ -1093,6 +1093,14 @@ export const createRequest = /* GraphQL */ `
       id
       discoID
       organiserID
+      email
+      body
+      created
+      discoDate
+      discoName
+      locale
+      name
+      numberPersons
       organiser {
         id
         name
@@ -1116,14 +1124,6 @@ export const createRequest = /* GraphQL */ `
         owner
       }
       type
-      discoDate
-      discoName
-      numberPersons
-      email
-      locale
-      name
-      created
-      body
       createdAt
       updatedAt
       owner
@@ -1139,6 +1139,14 @@ export const updateRequest = /* GraphQL */ `
       id
       discoID
       organiserID
+      email
+      body
+      created
+      discoDate
+      discoName
+      locale
+      name
+      numberPersons
       organiser {
         id
         name
@@ -1162,14 +1170,6 @@ export const updateRequest = /* GraphQL */ `
         owner
       }
       type
-      discoDate
-      discoName
-      numberPersons
-      email
-      locale
-      name
-      created
-      body
       createdAt
       updatedAt
       owner
@@ -1185,6 +1185,14 @@ export const deleteRequest = /* GraphQL */ `
       id
       discoID
       organiserID
+      email
+      body
+      created
+      discoDate
+      discoName
+      locale
+      name
+      numberPersons
       organiser {
         id
         name
@@ -1208,14 +1216,6 @@ export const deleteRequest = /* GraphQL */ `
         owner
       }
       type
-      discoDate
-      discoName
-      numberPersons
-      email
-      locale
-      name
-      created
-      body
       createdAt
       updatedAt
       owner

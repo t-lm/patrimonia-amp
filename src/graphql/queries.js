@@ -968,6 +968,14 @@ export const getRequest = /* GraphQL */ `
       id
       discoID
       organiserID
+      email
+      body
+      created
+      discoDate
+      discoName
+      locale
+      name
+      numberPersons
       organiser {
         id
         name
@@ -991,14 +999,6 @@ export const getRequest = /* GraphQL */ `
         owner
       }
       type
-      discoDate
-      discoName
-      numberPersons
-      email
-      locale
-      name
-      created
-      body
       createdAt
       updatedAt
       owner
@@ -1016,6 +1016,14 @@ export const listRequests = /* GraphQL */ `
         id
         discoID
         organiserID
+        email
+        body
+        created
+        discoDate
+        discoName
+        locale
+        name
+        numberPersons
         organiser {
           id
           name
@@ -1033,14 +1041,6 @@ export const listRequests = /* GraphQL */ `
           owner
         }
         type
-        discoDate
-        discoName
-        numberPersons
-        email
-        locale
-        name
-        created
-        body
         createdAt
         updatedAt
         owner

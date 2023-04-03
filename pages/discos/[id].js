@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from 'next/router'
 
 import { API } from "aws-amplify";
 import { getDisco, listDiscos } from "../../src/graphql/queries";
